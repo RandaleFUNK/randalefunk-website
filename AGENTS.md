@@ -1,120 +1,242 @@
 # AGENTS.md
 
-Arbeitsnotizen und Projektregeln fuer Codex-Aufgaben an der RandaleFUNK-Website.
+# RandaleFUNK Website - Arbeitsregeln für Codex
 
-## Projektregeln
+Diese Datei beschreibt die verbindlichen Regeln für Arbeiten am Repository `randalefunk-website`.
 
-- Statische Website ohne Backend, Datenbank oder Build-System.
-- Neue Dateien und Aenderungen klein, nachvollziehbar und direkt deploybar halten.
-- Externe Abhaengigkeiten nur einfuehren, wenn sie ausdruecklich gewuenscht sind.
+---
 
-## Designstil
+## Projekt
 
-- Platzhalter fuer spaetere Entscheidungen zu Farben, Typografie, Bildsprache und Layout.
-- Noch kein finales Design festlegen.
-- RandaleFUNK soll eigenstaendig wirken, ohne die erste technische Struktur zu ueberladen.
+RandaleFUNK ist ein unabhängiges Punk-Fanzine, Podcast- und Medienprojekt.
 
-## Inhalte
+Die Website dient als zentrale Plattform für:
 
-- Platzhalter fuer Seitenstruktur, Texte, Kontaktinformationen und rechtliche Seiten.
-- Spaeter klaeren: Startseite, Ueber uns, Sendungen/Formate, Kontakt, Impressum, Datenschutz.
+* News
+* Reviews
+* Interviews
+* Randalf
+* Würfel-App
+* zukünftige RandaleFUNK-Projekte
+
+Die Website ist statisch aufgebaut.
+
+Grundsatz:
+
+* einfache Lösungen bevorzugen
+* keine unnötigen Frameworks
+* keine unnötigen Abhängigkeiten
+* Änderungen nachvollziehbar halten
+
+---
+
+## Arbeitsworkflow
+
+Codex darf Änderungen direkt im GitHub-Repository vornehmen.
+
+Lokale Änderungen dienen nur der Vorbereitung; maßgeblich ist die Arbeits- und Prüfversion im GitHub-Repository.
+
+Standardablauf:
+
+1. Burg beschreibt eine gewünschte Änderung.
+2. Codex setzt die Änderung um.
+3. Codex erklärt kurz die vorgenommenen Änderungen.
+4. Burg prüft die Änderungen.
+5. Erst nach ausdrücklicher Freigabe durch Burg erfolgt eine Veröffentlichung.
+
+Wichtig:
+
+* Niemals eigenständig veröffentlichen.
+* Niemals eigenständig Deploys starten.
+* Niemals eigenständig GitHub Actions auslösen.
+* Niemals eigenständig Pull Requests erstellen, außer ausdrücklich gewünscht.
+* Änderungen gelten als Arbeitsstand, bis Burg sie freigibt.
+
+---
+
+## Deployment
+
+Aktuelle Veröffentlichungsstrecke:
+
+GitHub -> GitHub Actions -> United Domains -> randalefunk.de
+
+Deploys erfolgen ausschließlich nach Freigabe durch Burg.
+
+Codex darf Deploys vorbereiten, aber niemals selbstständig auslösen.
+
+---
+
+## RandaleFUNK-Stimme
+
+RandaleFUNK ist:
+
+* unabhängig
+* direkt
+* humorvoll
+* punkig
+* unkommerziell
+* persönlich
+
+Vermeiden:
+
+* Marketing-Sprache
+* PR-Floskeln
+* Clickbait
+* KI-typische Worthülsen
+* künstlich aggressive Sprache
+
+Erlaubt:
+
+* Ironie
+* Selbstironie
+* trockener Humor
+* freche Kommentare
+* kleine Seitenhiebe
+
+Grundregel:
+
+Der rechte Arm bleibt unten.
+
+---
 
 ## News-Workflow
 
-Wenn der Nutzer einen Screenshot, Link oder kurzen Hinweis zu einer Band-News liefert, daraus eine kurze RandaleFUNK-News fuer den mittleren NEWS-Bereich erstellen.
+Wenn Burg einen Screenshot, Link oder Hinweis zu einer News liefert:
 
-Grundregeln:
+1. Inhalt verstehen.
+2. In eigene Worte fassen.
+3. Nicht abschreiben.
+4. Kurz und direkt formulieren.
+5. Keine Bewertung vornehmen, wenn der Inhalt noch nicht gehört, gesehen oder gelesen wurde.
 
-- Nicht 1:1 abschreiben.
-- Keine Screenshots ungefragt als Website-Bild verwenden.
-- Keine kompletten Facebook- oder Instagram-Grafiken uebernehmen.
-- Keine Review schreiben und keine Bewertung abgeben, wenn Song, Video oder Album noch nicht gehoert oder gesehen wurde.
-- Keine PR-Sprache. Kurz, direkt, RandaleFUNK-Ticker-Stil.
+News sollen wie ein Ticker funktionieren.
 
-Inhalt zuerst erkennen:
+Typischer Umfang:
 
-- Welche Band?
-- Was wird angekuendigt?
-- Wann erscheint es?
-- Geht es um Titel, Video, Single, Album, Konzert oder Festival?
-- Gibt es einen Original-Link?
+* Überschrift
+* 2 bis 4 kurze Absätze
+* optional ein kurzer Burg-Kommentar
 
-Textformat:
+Bildregeln:
 
-- 1 Ueberschrift.
-- 2 bis 4 kurze Saetze.
-- Gern mit kurzem frechem Burg-Kommentar.
-- Quellenhinweis bei Social-Media-Fund einbauen, zum Beispiel: "Die Band kuendigt auf Facebook an, dass ..." oder "Laut Band-Ankuendigung erscheint ...".
+* keine ungefragte Übernahme von Social-Media-Grafiken
+* bevorzugt offizielles Pressefoto
+* bevorzugt offizielles Cover
+* Bildquelle dokumentieren
+* wenn unklar: kein Bild verwenden
 
-Bildmaterial pruefen:
+Sortierung:
 
-- Wenn moeglich offizielle Band-Website, Pressebereich, Media-Kit oder Downloads pruefen.
-- Nur offizielles Pressefoto oder Cover verwenden, wenn klar erkennbar freigegeben.
-- Bildquelle sauber notieren.
-- Freigegebenes News-Bildmaterial lokal unter `assets/news/` ablegen und die Quelle in `assets/news/README.md` dokumentieren.
-- Wenn kein eindeutig freigegebenes Bild vorhanden ist: kein Bild uebernehmen, Platzhalterbild oder Randalf-Grafik nutzen und auf den Originalpost verlinken.
+* neueste News oben
+* älteste News unten
 
-Button/Link:
+Die feste Informationskarte:
 
-- Wenn Originalpost oder offizieller Link vorhanden ist, passenden Button verwenden.
-- Geeignete Button-Texte: "Originalpost ansehen", "Zur Band", "Zum Video", "Anhoeren", "Mehr Krach".
+"EUREN KRACH HIER REINWERFEN"
 
-Ticker-Sortierung:
+bleibt immer am Ende des News-Bereichs.
 
-- Echte News-Karten im NEWS-Ticker bekommen `data-ticker-news` und ein vollstaendiges `data-published` im Format `YYYY-MM-DDTHH:MM:SS`.
-- Neueste Meldung steht immer oben, aelteste echte Meldung unten.
-- Bei gleichem Datum entscheidet die Uhrzeit.
-- Die feste INFO-Karte "EUREN KRACH HIER REINWERFEN" bekommt `data-ticker-static`, ist keine News und bleibt dauerhaft am Ende der Liste.
-- Alle echten News erscheinen oberhalb dieser INFO-Karte.
+---
 
-Beispielformat:
+## Reviews
 
-```text
-Kategorie: SINGLE
-Ueberschrift: ALARMSIGNAL KUENDIGEN "FRESSE AUF!" AN
+Reviews werden nur erstellt, wenn das Werk tatsächlich vorliegt.
 
-Text:
-Alarmsignal hauen am 24.06. ueber Aggropunk ihre neue Single "Fresse auf!" raus. Die Band verpackt die Ankuendigung gewohnt dezent zwischen Boulevard-Parodie und gepflegtem Mittelfinger.
+Keine Bewertungen auf Basis von:
 
-Gehoert haben wir den Song noch nicht - aber der Titel klingt schon mal nicht nach Sitzkreis.
+* Pressemeldungen
+* Ankündigungen
+* Social-Media-Posts
 
-Button: Originalpost ansehen
-Bild: Nur verwenden, wenn Band/Label/Pressebereich das Material offiziell freigegeben hat. Sonst RandaleFUNK-Platzhalter nutzen.
-```
+Reviews sollen:
+
+* nachvollziehbar
+* ehrlich
+* subjektiv
+* lesbar
+
+sein.
+
+Punktewertungen sind optional.
+
+---
 
 ## Randalf
 
-Randalf ist wichtiger als einzelne Comics, Pointen oder dekorative Ideen.
+Randalf ist das Maskottchen von RandaleFUNK.
 
-- Die Hauptreferenz liegt in `../Randalf/Referenzbild_Randalf.png`.
-- Die Charakterkonsistenz hat Vorrang vor einer schoeneren Einzelzeichnung.
-- Wenn ein Comic eine Pointe braucht, darf die Pointe geaendert werden, damit Randalf erkennbar bleibt.
-- Immer beibehalten: lila Fell, schwarze Gesichtsmaske, Waschbaer, Jeansweste, schwarzes Shirt, gestreifter Schwanz, Stift hinter dem Ohr und Festivalbaendchen.
-- Randalf kommentiert das Geschehen; der Burg fuehrt Interviews.
-- Randalf-"Sticker" sind freigestellte kleine Kommentar- oder Gag-Motive direkt an einzelnen News, Karten oder Seitenbereichen.
-- Sticker duerfen Randalf situationsbezogen verkleiden oder ueberzeichnen, solange lila Fell, schwarze Maske, Waschbaer-Gesicht, skeptischer Blick und Randalf-Haltung erkennbar bleiben.
+Charaktereigenschaften:
 
-## YouTube-Einbindung und Datenschutz
+* skeptisch
+* frech
+* kommentierend
+* humorvoll
 
-YouTube-Videos sollen datenschutzfreundlich eingebunden werden.
+Wichtiger als einzelne Gags ist die Wiedererkennbarkeit.
 
-- Keine direkten Standard-YouTube-Embeds verwenden.
-- Ausschliesslich `youtube-nocookie.com` verwenden (Privacy Enhanced Mode).
-- Keine automatischen Video-Loads beim Seitenaufruf.
-- Videos zunaechst nur als Vorschaubild darstellen.
-- Das eigentliche YouTube-Video erst nach aktivem Klick des Besuchers laden.
-- Vor dem Laden diesen kurzen Hinweis anzeigen: "Mit dem Laden des Videos werden Daten an YouTube bzw. Google uebertragen."
-- Das Layout soll zum RandaleFUNK-Stil passen.
-- Vorschaubilder sollen wie Artikel- oder Magazinbilder wirken.
-- Die Loesung soll ohne zusaetzliche Plugins funktionieren.
-- Mobile Darstellung beruecksichtigen.
+Merkmale:
 
-Ziel: Besucher sollen Videos direkt auf `randalefunk.de` ansehen koennen, ohne dass beim blossen Seitenaufruf automatisch eine Verbindung zu YouTube aufgebaut wird.
+* lila Fell
+* schwarze Gesichtsmaske
+* Waschbär
+* Jeansweste
+* schwarzes Shirt
+* gestreifter Schwanz
+* Stift hinter dem Ohr
+* Festivalbändchen
 
-## Spaetere Codex-Aufgaben
+Randalf kommentiert das Geschehen.
 
-- Inhalte sammeln und sortieren.
-- Erste visuelle Richtung entwickeln.
-- Netlify-Deploy pruefen.
-- Domain-Anbindung vorbereiten.
-- Barrierefreiheit und mobile Darstellung testen.
+Randalf ersetzt nicht den Moderator Burg.
+
+---
+
+## Randalf-Sprüche
+
+Randalf besitzt einen Pool aus wechselnden Sprüchen.
+
+Ziel:
+
+* kleine Gags
+* Punk-Weisheiten
+* absurde Beobachtungen
+* Kommentare zum Seiteninhalt
+
+Randalf soll niemals wie Werbung wirken.
+
+---
+
+## Würfel-App
+
+Die Würfel-App ist Teil des RandaleFUNK-Universums.
+
+Änderungen an der Würfel-App dürfen die Hauptwebsite nicht beeinträchtigen.
+
+App und Hauptwebsite möglichst sauber voneinander trennen.
+
+---
+
+## Datenschutz
+
+YouTube-Videos datenschutzfreundlich einbinden.
+
+Regeln:
+
+* `youtube-nocookie.com` verwenden
+* keine automatischen Video-Loads
+* keine Verbindung zu YouTube beim bloßen Seitenaufruf
+* erst nach Nutzerklick laden
+* Datenschutzhinweis vor dem Laden anzeigen
+* mobile Darstellung berücksichtigen
+
+---
+
+## Grundsatz
+
+Wenn mehrere Lösungen möglich sind:
+
+* die einfachere Lösung bevorzugen
+* die wartbarere Lösung bevorzugen
+* die Lösung bevorzugen, die Burg selbst nachvollziehen kann
+
+RandaleFUNK soll unabhängig bleiben und nicht von unnötig komplexer Technik abhängig werden.
