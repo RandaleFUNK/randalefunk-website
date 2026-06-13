@@ -1,0 +1,190 @@
+const yearElement = document.querySelector("#current-year");
+const randalfTextElement = document.querySelector("[data-randalf-spruch]");
+
+if (yearElement) {
+  yearElement.textContent = String(new Date().getFullYear());
+}
+
+const sectionLinks = document.querySelectorAll("[data-section]");
+const contentPanels = document.querySelectorAll("[data-section-panel]");
+const validSections = ["news", "reviews", "interviews", "kolumnen"];
+const tickerList = document.querySelector("[data-ticker-list]");
+const appModal = document.querySelector("[data-app-modal]");
+const appFrame = document.querySelector("[data-app-frame]");
+const appOpenButtons = document.querySelectorAll("[data-open-app]");
+const appCloseButtons = document.querySelectorAll("[data-close-app]");
+const fallbackRandalfSprueche = [
+  "Das wird garantiert schiefgehen.",
+  "Ich habe Fragen. Leider auch Antworten.",
+  "Die Idee ist gut. Deshalb wird sie niemand umsetzen.",
+  "Punk ist wie Satire. Nur mit anderen Mitteln.",
+  "Man kann alles diskutieren. Außer die Getränkepreise.",
+  "Das klingt nach Arbeit.",
+  "Das klingt nach einer hervorragenden schlechten Idee.",
+  "Punk kann man nicht kaufen. Merch schon.",
+  "Die Revolution beginnt nach dem Soundcheck.",
+  "Soundcheck ist der wahre Headliner.",
+  "Festivalwetter ist eine Lebenseinstellung.",
+  "Laut ist kein Genre.",
+  "Mikrofon an. Gehirn hoffentlich auch.",
+  "Ich hatte einen Plan. Dann kam Realität dazwischen.",
+  "DIY bleibt DIY.",
+  "Der Krach sortiert sich.",
+  "Heute keine Weisheit. Ausverkauft.",
+  "Wahrscheinlich hätte man vorher messen sollen."
+];
+let randalfSprueche = [...fallbackRandalfSprueche];
+let lastRandalfSpruch = randalfTextElement?.textContent.trim() || "";
+
+function sortTickerNews() {
+  if (!tickerList) {
+    return;
+  }
+
+  const newsCards = [...tickerList.querySelectorAll("[data-ticker-news]")];
+  const staticCards = [...tickerList.querySelectorAll("[data-ticker-static]")];
+
+  newsCards
+    .sort((firstCard, secondCard) => {
+      const firstDate = Date.parse(firstCard.dataset.published || "");
+      const secondDate = Date.parse(secondCard.dataset.published || "");
+
+      return (Number.isNaN(secondDate) ? 0 : secondDate) - (Number.isNaN(firstDate) ? 0 : firstDate);
+    })
+    .forEach((card) => tickerList.appendChild(card));
+
+  staticCards.forEach((card) => tickerList.appendChild(card));
+}
+
+function setActiveSection(section) {
+  document.body.dataset.activeSection = section;
+
+  sectionLinks.forEach((link) => {
+    const isActive = link.dataset.section === section;
+    link.classList.toggle("is-active", isActive);
+    link.setAttribute("aria-current", isActive ? "page" : "false");
+  });
+
+  contentPanels.forEach((panel) => {
+    panel.classList.toggle("is-active", panel.dataset.sectionPanel === section);
+  });
+
+  showRandomRandalfSpruch();
+}
+
+sectionLinks.forEach((link) => {
+  link.addEventListener("click", () => setActiveSection(link.dataset.section));
+});
+
+const initialSection = document.body.dataset.activeSection || "news";
+const hashSection = window.location.hash.replace("#", "");
+
+sortTickerNews();
+setActiveSection(validSections.includes(hashSection) ? hashSection : initialSection);
+
+function pickRandomSpruch() {
+  if (randalfSprueche.length === 0) {
+    return "";
+  }
+
+  if (randalfSprueche.length === 1) {
+    return randalfSprueche[0];
+  }
+
+  let nextSpruch = lastRandalfSpruch;
+
+  while (nextSpruch === lastRandalfSpruch) {
+    const randomIndex = Math.floor(Math.random() * randalfSprueche.length);
+    nextSpruch = randalfSprueche[randomIndex];
+  }
+
+  return nextSpruch;
+}
+
+function showRandomRandalfSpruch() {
+  if (!randalfTextElement || randalfSprueche.length === 0) {
+    return;
+  }
+
+  const nextSpruch = pickRandomSpruch();
+
+  if (!nextSpruch) {
+    return;
+  }
+
+  randalfTextElement.textContent = nextSpruch;
+  lastRandalfSpruch = nextSpruch;
+}
+
+async function loadRandalfSprueche() {
+  if (!randalfTextElement) {
+    return;
+  }
+
+  try {
+    const response = await fetch("data/randalf-sprueche.json");
+
+    if (!response.ok) {
+      showRandomRandalfSpruch();
+      return;
+    }
+
+    const data = await response.json();
+    const loadedSprueche = data.filter((spruch) => typeof spruch === "string" && spruch.trim().length > 0);
+
+    if (loadedSprueche.length > 0) {
+      randalfSprueche = loadedSprueche;
+    }
+
+    showRandomRandalfSpruch();
+  } catch {
+    showRandomRandalfSpruch();
+  }
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest("[data-section]")) {
+    return;
+  }
+
+  showRandomRandalfSpruch();
+});
+
+loadRandalfSprueche();
+
+function openAppModal() {
+  if (!appModal || !appFrame) {
+    return;
+  }
+
+  if (!appFrame.getAttribute("src")) {
+    appFrame.setAttribute("src", appFrame.dataset.appSrc || "wuerfel/");
+  }
+
+  appModal.hidden = false;
+  document.body.classList.add("is-app-modal-open");
+  appModal.querySelector(".app-modal__close")?.focus();
+}
+
+function closeAppModal() {
+  if (!appModal) {
+    return;
+  }
+
+  appModal.hidden = true;
+  document.body.classList.remove("is-app-modal-open");
+}
+
+appOpenButtons.forEach((button) => {
+  button.addEventListener("click", openAppModal);
+});
+
+appCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeAppModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && appModal && !appModal.hidden) {
+    closeAppModal();
+  }
+});

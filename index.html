@@ -1,0 +1,225 @@
+﻿<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RandaleFUNK.de - Irgendwas mit Punk</title>
+    <meta name="description" content="RandaleFUNK.de - digitales Punk-Fanzine mit News, Reviews, Interviews und Kolumnen.">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="category-strip" aria-label="Magazin-Kategorien">
+      PUNK &middot; FANZINE &middot; INTERVIEWS &middot; REVIEWS &middot; NEWS
+    </div>
+
+    <header class="site-header" aria-label="RandaleFUNK Kopfbereich">
+      <a class="brand" href="/" aria-label="RandaleFUNK.de Startseite">
+        <img src="assets/randalefunk-logo.png" alt="RandaleFUNK.de Logo" width="160" height="160">
+      </a>
+      <p class="tagline">Irgendwas mit Punk seit 2022</p>
+    </header>
+
+    <main class="magazine-shell">
+      <nav class="section-nav" aria-label="Rubriken">
+        <p class="nav-label">Rubriken</p>
+        <button class="section-link is-active" type="button" data-section="news">News</button>
+        <button class="section-link" type="button" data-section="reviews">Reviews</button>
+        <button class="section-link" type="button" data-section="interviews">Interviews</button>
+        <button class="section-link" type="button" data-section="kolumnen">Kolumnen</button>
+      </nav>
+
+      <section class="issue-board" aria-live="polite">
+        <article class="content-panel is-active" id="panel-news" data-section-panel="news">
+          <p class="issue-label">News</p>
+          <div class="ticker-head">
+            <h1>RandaleFUNK-Ticker</h1>
+            <p>Der Krach sortiert sich spaeter. Erstmal kommt er rein: Songs, Videos, Releases, Konzerte, Festivals und kurze Hinweise aus dem Maschinenraum.</p>
+          </div>
+
+          <div class="ticker-list" aria-label="Aktuelle Kurzmeldungen" data-ticker-list>
+            <article class="ticker-card ticker-card--konzert ticker-card--has-sticker" data-ticker-news data-published="2026-06-12T19:00:00">
+              <div class="ticker-meta">
+                <span>Festival</span>
+                <time datetime="2026-06-12T19:00:00">12.06.2026</time>
+              </div>
+              <h2>Doedelhaie steuern zwei Festivalrunden an</h2>
+              <img class="ticker-sticker" src="assets/news/randalf-sticker-polizist.png" alt="Randalf als korpulenter 80er-Jahre-Polizist mit erhobenem Gummiknueppel" width="1122" height="1402" loading="lazy">
+              <figure class="ticker-media">
+                <img src="assets/news/doedelhaie-bandfoto-2022.jpg" alt="Doedelhaie Bandfoto" loading="lazy">
+                <figcaption>Bild: offizieller Presse-/Veranstalter-Download der Doedelhaie.</figcaption>
+              </figure>
+              <p>Die Doedelhaie kuendigen auf Facebook zwei Open-Air-Stopps fuer den Sommer an: am 03. und 04.07. beim "Kein Bock auf Nazis"-Festival in Kusel und am 10. und 11.07. beim Stoerfaktor Festival in Zwickau.</p>
+              <p>Zwischen Love A, Wick Bambix, Waumiau und reichlich weiterer Bande duerfte der Festivalstaub nicht lange unbenutzt herumliegen.</p>
+              <a class="ticker-button" href="https://www.facebook.com/Doedelhaie" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--single" data-ticker-news data-published="2026-06-12T18:00:00">
+              <div class="ticker-meta">
+                <span>Single</span>
+                <time datetime="2026-06-12T18:00:00">12.06.2026</time>
+              </div>
+              <h2>Alarmsignal kuendigen "Fresse auf!" an</h2>
+              <p>Die Band kuendigt auf Facebook an, dass am 24.06. ueber Aggropunk die neue Single "Fresse auf!" erscheint. Verpackt ist das Ganze gewohnt dezent zwischen Boulevard-Parodie und gepflegtem Mittelfinger.</p>
+              <p>Gehoert haben wir den Song noch nicht - aber der Titel klingt schon mal nicht nach Sitzkreis.</p>
+              <a class="ticker-button" href="https://www.facebook.com/alarmsignal" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--single" data-ticker-news data-published="2026-06-12T17:00:00">
+              <div class="ticker-meta">
+                <span>Live</span>
+                <time datetime="2026-06-12T17:00:00">12.06.2026</time>
+              </div>
+              <h2>Foo Fighters spielen No Use For A Name in Oslo</h2>
+              <p>Laut 23punk haben die Foo Fighters in Oslo "Invincible" von No Use For A Name gecovert. Der Song steht auf "Making Friends" und hat durch Chris Shiflett, der frueher bei No Use For A Name spielte, einen direkten Draht zur Bandgeschichte.</p>
+              <p>Zwei Lieblingsbaustellen auf einmal - da wackelt in der Burg kurz der Kaffeebecher.</p>
+              <a class="ticker-button" href="https://www.facebook.com/23punk" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--info" data-ticker-static>
+              <div class="ticker-meta">
+                <span>Info</span>
+              </div>
+              <h2>Euren Krach hier reinwerfen</h2>
+              <p>Neue Single? Frisches Video? Konzert? Festival? Album? Oder irgendetwas anderes, das Laerm macht?</p>
+              <p>Der RandaleFUNK-Ticker lebt nicht von Presseagenturen, sondern von Bands, Veranstaltern, DIY-Projekten und Menschen, die lieber etwas machen als darueber zu reden.</p>
+              <p>Wenn ihr etwas ankuendigen moechtet, schickt die Infos einfach rueber. Wir koennen nicht versprechen, alles zu veroeffentlichen - aber wir schauen es uns an.</p>
+              <p>DIY hilft DIY.</p>
+              <a class="ticker-button" href="mailto:post@randalefunk.de">KRACH MELDEN</a>
+            </article>
+          </div>
+        </article>
+
+        <article class="content-panel" id="panel-reviews" data-section-panel="reviews">
+          <p class="issue-label">Reviews</p>
+          <h1>Platten, Demos, Zines</h1>
+          <p class="lead">Kurze und laengere Besprechungen: Musik, Hefte, Filme, Kleinkram und Fundstuecke aus der DIY-Ecke.</p>
+          <aside class="randalf-spot randalf-spot--note" aria-label="Randalf ueber Reviews">
+            <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+            <p>Ich habe Fragen. Leider auch Antworten.</p>
+          </aside>
+          <div class="article-grid">
+            <!-- reviews-start -->
+            <article class="teaser-card">
+              <time datetime="2026-06-12">2026-06-12</time>
+              <h2><a href="reviews/popperklopper-halbmast.html">POPPERKLOPPER - Halbmast</a></h2>
+              <p>Manche Bands wohnen nicht einfach im Plattenregal. Die belagern das Ding. Seit Jahrzehnten.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-12">2026-06-12</time>
+              <h2><a href="reviews/snakes-in-the-pit-apokalypse.html">SNAKES IN THE PIT - Apokalypse</a></h2>
+              <p>Direkt als der Song losgeht: Slipknot-Vibes. Nicht komplett, nicht als Kopie, aber dieses erste Gef&#252;hl ist da. Hartes Brett.</p>
+            </article>
+            <!-- reviews-end -->
+          </div>
+        </article>
+
+        <article class="content-panel" id="panel-interviews" data-section-panel="interviews">
+          <p class="issue-label">Interviews</p>
+          <h1>Fragen aus der Ecke</h1>
+          <p class="lead">Interviews mit Bands, Veranstaltenden, Fanzine-Menschen und Leuten, die irgendwo irgendwas selbst machen.</p>
+          <div class="article-grid">
+            <article class="teaser-card">
+              <time datetime="2026-06-12">Platzhalter</time>
+              <h2>Gespräch kommt</h2>
+              <p>Hier kann spaeter ein Teaser fuer das neueste Interview stehen.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-12">Platzhalter</time>
+              <h2>Aus dem Proberaum</h2>
+              <p>Kurze Fragen, lange Antworten, kein glattgebuegeltes Presseblabla.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="content-panel" id="panel-kolumnen" data-section-panel="kolumnen">
+          <p class="issue-label">Kolumnen</p>
+          <h1>Meckern mit System</h1>
+          <p class="lead">Kommentar, Beobachtung, Szene-Geraeusch, Widerspruch. Alles, was nicht in eine Nachricht passt.</p>
+          <aside class="randalf-spot randalf-spot--note" aria-label="Randalf ueber Kolumnen">
+            <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+            <p>Das Problem mit Traditionen ist, dass sie nie merken, wann sie fertig sind.</p>
+          </aside>
+          <div class="article-grid">
+            <article class="teaser-card">
+              <time datetime="2026-06-12">Platzhalter</time>
+              <h2>Randnotiz</h2>
+              <p>Eine kleine Kolumne ueber grosse Aufregung oder umgekehrt.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-12">Platzhalter</time>
+              <h2>Zwischenruf</h2>
+              <p>Hier kann spaeter ein fester wiederkehrender Textplatz entstehen.</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <aside class="side-links" aria-label="Wegweiser und externe Links">
+        <section class="link-block">
+          <h2>Folge dem Krach</h2>
+          <a href="https://www.youtube.com/@randalefunk" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://open.spotify.com/show/4MJb0ZtXItNuo62sVSlHNF" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://www.instagram.com/randalefunk" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#" aria-label="Facebook Platzhalter">Facebook</a>
+        </section>
+
+        <section class="link-block">
+          <h2>Unterstuetzen</h2>
+          <a href="https://randalefunk-kramladen.myspreadshop.de" target="_blank" rel="noopener noreferrer">Shop</a>
+          <a href="https://ko-fi.com/randalefunk" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+        </section>
+
+        <section class="link-block app-launch-block">
+          <h2>Spielkram</h2>
+          <button class="app-launch-button" type="button" data-open-app="wuerfel">RandaleWuerfel</button>
+        </section>
+
+        <section class="link-block">
+          <h2>Kontakt</h2>
+          <a href="mailto:post@randalefunk.de">E-Mail</a>
+        </section>
+
+        <section class="link-block randalf-sidebar" aria-label="Randalf Kommentar">
+          <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+          <h2>Randalf sagt</h2>
+          <p data-randalf-spruch>Das wird garantiert schiefgehen.</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> RandaleFUNK.de</p>
+      <p>DIY bleibt DIY.</p>
+    </footer>
+
+    <section class="app-modal" data-app-modal hidden aria-label="RandaleWuerfel App">
+      <div class="app-modal__backdrop" data-close-app></div>
+      <div class="app-modal__panel" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+        <header class="app-modal__bar">
+          <div>
+            <p>Spielkram</p>
+            <h2 id="app-modal-title">RandaleWuerfel</h2>
+          </div>
+          <button class="app-modal__close" type="button" data-close-app aria-label="App schliessen">Schliessen</button>
+        </header>
+        <iframe
+          class="app-modal__frame"
+          title="RandaleWuerfel"
+          data-app-frame
+          data-app-src="wuerfel/"
+          loading="lazy"
+          allow="autoplay; fullscreen"
+        ></iframe>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+

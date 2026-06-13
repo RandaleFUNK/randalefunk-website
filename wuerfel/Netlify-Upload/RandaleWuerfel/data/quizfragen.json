@@ -1,0 +1,291 @@
+[
+  {
+    "question": "Aus welchem Land kommen No Fun At All?",
+    "answers": [
+      {
+        "text": "Schweden",
+        "correct": true
+      },
+      {
+        "text": "USA",
+        "correct": false
+      },
+      {
+        "text": "Schweiz",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Welche Band war der erste Interview-Gast im RandaleFUNK?",
+    "answers": [
+      {
+        "text": "Popperklopper",
+        "correct": true
+      },
+      {
+        "text": "Slime",
+        "correct": false
+      },
+      {
+        "text": "Graupause",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "2025 hat Alarmsignal einen neuen Drummer bekommen. Von welcher Band kommt der neue Drummer?",
+    "answers": [
+      {
+        "text": "Kotzreiz",
+        "correct": true
+      },
+      {
+        "text": "Knochenfabrik",
+        "correct": false
+      },
+      {
+        "text": "Was ist Alarmsignal?",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was für eine Band wollte Alex Schwers schon immer gründen?",
+    "answers": [
+      {
+        "text": "ABBA-Coverband",
+        "correct": true
+      },
+      {
+        "text": "Punk-Allstar-Band",
+        "correct": false
+      },
+      {
+        "text": "Schlagerband",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was hat Greg Graffin studiert?",
+    "answers": [
+      {
+        "text": "Zoologie",
+        "correct": true
+      },
+      {
+        "text": "Molekularbiologie",
+        "correct": false
+      },
+      {
+        "text": "nichts",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Welches Interview hatte die meisten Aufrufe?",
+    "answers": [
+      {
+        "text": "Diggen (Slime)",
+        "correct": true
+      },
+      {
+        "text": "Olaf (Stage Bottles)",
+        "correct": false
+      },
+      {
+        "text": "Sven (Graupause)",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Who the fuck is Alice?",
+    "answers": [
+      {
+        "text": "Hä?",
+        "correct": true
+      },
+      {
+        "text": "Cooper",
+        "correct": false
+      },
+      {
+        "text": "Wunderland",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Das meist getrunkene Bier im RandaleFUNK?",
+    "answers": [
+      {
+        "text": "Oettinger",
+        "correct": true
+      },
+      {
+        "text": "Hansa",
+        "correct": false
+      },
+      {
+        "text": "Astra",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Welche Band veröffentlichte „Punk in Drublic“?",
+    "answers": [
+      {
+        "text": "NOFX",
+        "correct": true
+      },
+      {
+        "text": "Pennywise",
+        "correct": false
+      },
+      {
+        "text": "Lagwagon",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Welche Band schrieb „Blitzkrieg Bop“?",
+    "answers": [
+      {
+        "text": "Ramones",
+        "correct": true
+      },
+      {
+        "text": "Misfits",
+        "correct": false
+      },
+      {
+        "text": "Rancid",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was bedeutet DIY?",
+    "answers": [
+      {
+        "text": "Do It Yourself",
+        "correct": true
+      },
+      {
+        "text": "Drink It Yourself",
+        "correct": false
+      },
+      {
+        "text": "Destroy Your Idols",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was bedeutet „Oi!“ ursprünglich?",
+    "answers": [
+      {
+        "text": "ein britischer Ausruf",
+        "correct": true
+      },
+      {
+        "text": "Oldschool Independent",
+        "correct": false
+      },
+      {
+        "text": "Organised Insanity",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Welche Band kommt aus Ibbenbüren?",
+    "answers": [
+      {
+        "text": "Donots",
+        "correct": true
+      },
+      {
+        "text": "WIZO",
+        "correct": false
+      },
+      {
+        "text": "Slime",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was passiert bei 1-1?",
+    "answers": [
+      {
+        "text": "Bier leer!",
+        "correct": true
+      },
+      {
+        "text": "Burg gewinnt automatisch",
+        "correct": false
+      },
+      {
+        "text": "Die Polizei kommt",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was ist das schlimmste?",
+    "answers": [
+      {
+        "text": "Wenn das Bier alle ist.",
+        "correct": true
+      },
+      {
+        "text": "Wenn der Podcast endet.",
+        "correct": false
+      },
+      {
+        "text": "Knüppel harter Stuhlgang.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Was ist wichtiger als Talent?",
+    "answers": [
+      {
+        "text": "Haltung",
+        "correct": true
+      },
+      {
+        "text": "Marketing",
+        "correct": false
+      },
+      {
+        "text": "LinkedIn",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Warum klebt der Boden?",
+    "answers": [
+      {
+        "text": "Tradition",
+        "correct": true
+      },
+      {
+        "text": "Wissenschaft",
+        "correct": false
+      },
+      {
+        "text": "Kunstprojekt",
+        "correct": false
+      }
+    ]
+  }
+]
