@@ -10,6 +10,7 @@
   --black: #050505;
   --border: #403a2e;
   --news: #e52d26;
+  --vorab: #8e2f3f;
   --reviews: #1f5863;
   --interviews: #536b3a;
   --kolumnen: #a85a2b;
@@ -426,6 +427,11 @@ a {
   gap: 16px;
 }
 
+.article-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 28px;
+}
+
 .randalf-spot {
   display: grid;
   align-items: end;
@@ -493,6 +499,7 @@ a {
 }
 
 .teaser-card {
+  position: relative;
   min-height: 220px;
   padding: 18px;
   background:
@@ -531,6 +538,28 @@ a {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.55;
+}
+
+.teaser-card--sticker {
+  min-height: 270px;
+  padding-right: clamp(112px, 18vw, 172px);
+}
+
+.teaser-card--sticker h2 {
+  max-width: 15ch;
+  font-size: clamp(1.25rem, 2.35vw, 1.75rem);
+  line-height: 1.05;
+}
+
+.teaser-sticker {
+  position: absolute;
+  right: -14px;
+  bottom: -14px;
+  width: clamp(116px, 18vw, 176px);
+  max-width: 40%;
+  height: auto;
+  filter: drop-shadow(7px 7px 0 rgb(5 5 5 / 0.32));
+  transform: rotate(5deg);
 }
 
 .side-links {
@@ -763,7 +792,7 @@ body.is-app-modal-open {
   display: inline-block;
   margin-bottom: 18px;
   padding: 3px 8px;
-  background: var(--reviews);
+  background: var(--active-accent);
   color: #fff;
   font-family: "Anton", "Arial Narrow", Arial, sans-serif;
   font-size: 0.88rem;
@@ -778,7 +807,7 @@ body.is-app-modal-open {
   font-weight: 400;
   line-height: 0.95;
   text-transform: uppercase;
-  text-shadow: 5px 5px 0 var(--black), 7px 7px 0 var(--reviews);
+  text-shadow: 5px 5px 0 var(--black), 7px 7px 0 var(--active-accent);
 }
 
 .review-article h2 {
@@ -815,6 +844,20 @@ body.is-app-modal-open {
   color: inherit;
 }
 
+.article-sticker {
+  float: right;
+  width: min(34vw, 240px);
+  margin: 0 0 18px 22px;
+  transform: rotate(4deg);
+}
+
+.article-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(7px 7px 0 var(--black));
+}
+
 .review-article p,
 .review-article li {
   max-width: 72ch;
@@ -822,6 +865,20 @@ body.is-app-modal-open {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.08rem;
   line-height: 1.65;
+}
+
+.vorab-release-note,
+.kofi-note {
+  padding: 12px 14px;
+  border-left: 5px solid var(--active-accent);
+  background: rgb(5 5 5 / 0.5);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.kofi-note {
+  margin-top: 24px;
+  color: var(--paper);
+  font-weight: 800;
 }
 
 .review-article a,
@@ -849,6 +906,10 @@ body.is-app-modal-open {
 
 body[data-active-section="news"] {
   --active-accent: var(--news);
+}
+
+body[data-active-section="vorab"] {
+  --active-accent: var(--vorab);
 }
 
 body[data-active-section="reviews"] {
@@ -926,6 +987,24 @@ body[data-active-section="kolumnen"] {
     position: static;
     width: min(48vw, 180px);
     margin: -4px 0 12px auto;
+  }
+
+  .teaser-card--sticker {
+    padding-right: 18px;
+  }
+
+  .teaser-sticker {
+    position: static;
+    display: block;
+    width: min(52vw, 190px);
+    max-width: none;
+    margin: -8px 0 12px auto;
+  }
+
+  .article-sticker {
+    float: none;
+    width: min(58vw, 220px);
+    margin: 0 0 18px auto;
   }
 
   .randalf-spot--intro {

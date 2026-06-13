@@ -161,6 +161,100 @@ Punktewertungen sind optional.
 
 ---
 
+## Rubrik: Vorab gehört
+
+Die Rubrik "Vorab gehört" enthält Reviews zu Songs, EPs oder Alben, die dem RandaleFUNK vor ihrer offiziellen Veröffentlichung zur Verfügung gestellt wurden.
+
+Ziel ist es, Bands bereits vor dem Release zusätzliche Aufmerksamkeit zu verschaffen.
+
+Jeder Beitrag muss deutlich machen, dass die Veröffentlichung zum Zeitpunkt des Artikels noch nicht offiziell erschienen ist.
+
+---
+
+## Review-Modi
+
+Bei Vorab-Reviews können Bands zwischen drei verschiedenen Schreibstilen wählen.
+
+### Modus 1: Freundlich / Positiv
+
+Ziel:
+Promotion und Unterstützung der Band.
+
+Regeln:
+
+* Fokus auf Stärken.
+* Schwächen nur erwähnen, wenn sie nicht vermeidbar sind.
+* Wertschätzender Ton.
+* Leser sollen Lust bekommen, die Veröffentlichung anzuhören.
+* Keine künstliche Übertreibung, aber grundsätzlich wohlwollend.
+
+---
+
+### Modus 2: Neutral / Ehrlich
+
+Standardmodus.
+
+Regeln:
+
+* Ehrliche Bewertung.
+* Positive und negative Aspekte gleichermaßen nennen.
+* Keine Rücksicht auf Werbewirkung.
+* Keine unnötige Härte.
+* Keine Schönfärberei.
+
+Ziel:
+Eine klassische, glaubwürdige Review.
+
+---
+
+### Modus 3: Abriss / Zerstörung (mit Augenzwinkern)
+
+WICHTIG:
+Dieser Modus darf nur verwendet werden, wenn die Band ihn ausdrücklich auswählt.
+
+Ziel:
+Unterhaltsamer, satirischer Verriss im Stil klassischer Punk-Fanzines.
+
+Regeln:
+
+* Darf bewusst übertrieben sein.
+* Darf bissig sein.
+* Darf sarkastisch sein.
+* Darf gnadenlos auf Schwächen herumreiten.
+* Humor und Unterhaltung stehen über Fairness.
+
+Wichtige Grenze:
+
+* Keine persönlichen Angriffe auf reale Personen.
+* Keine Beleidigungen bezüglich Aussehen, Herkunft, Geschlecht, Krankheit oder ähnlichen persönlichen Merkmalen.
+* Kritik bezieht sich ausschließlich auf Musik, Produktion, Texte, Artwork oder Konzept.
+
+Erlaubtes Beispiel:
+"Die Gitarren klingen, als hätte jemand einen Staubsauger in eine Blechtonne geworfen und anschließend vergessen, die Aufnahme zu löschen."
+
+Nicht erlaubtes Beispiel:
+Persönliche Angriffe gegen einzelne Bandmitglieder.
+
+Der Text soll sich lesen wie ein überzeichneter Kneipentresen-Rant eines Punk-Fanzines der 80er oder 90er Jahre.
+
+Je absurder und kreativer die Vergleiche sind, desto besser.
+
+Der Leser muss erkennen, dass der Verriss humorvoll und bewusst übertrieben gemeint ist.
+
+---
+
+## Ko-fi Hinweis
+
+Unter jedem Vorab-gehört-Beitrag darf ein dezenter Hinweis erscheinen:
+
+"Dir gefällt die Arbeit vom RandaleFUNK? Dann unterstütze das Projekt gerne mit einer freiwilligen Spende über Ko-fi."
+
+Die Spende ist freiwillig.
+
+Es darf niemals der Eindruck entstehen, dass positive Bewertungen gekauft werden können.
+
+---
+
 ## Randalf
 
 Randalf ist das Maskottchen von RandaleFUNK.

@@ -7,7 +7,7 @@ if (yearElement) {
 
 const sectionLinks = document.querySelectorAll("[data-section]");
 const contentPanels = document.querySelectorAll("[data-section-panel]");
-const validSections = ["news", "reviews", "interviews", "kolumnen"];
+const validSections = ["news", "vorab", "reviews", "interviews", "kolumnen"];
 const tickerList = document.querySelector("[data-ticker-list]");
 const appModal = document.querySelector("[data-app-modal]");
 const appFrame = document.querySelector("[data-app-frame]");
