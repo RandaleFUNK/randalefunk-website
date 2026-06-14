@@ -1,0 +1,13 @@
+Options -Indexes
+
+<Files "config.php">
+  Require all denied
+</Files>
+
+<Files "lib.php">
+  Require all denied
+</Files>
+
+<Files "auth.php">
+  Require all denied
+</Files>

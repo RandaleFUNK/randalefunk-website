@@ -14,6 +14,7 @@ const appFrame = document.querySelector("[data-app-frame]");
 const appOpenButtons = document.querySelectorAll("[data-open-app]");
 const appCloseButtons = document.querySelectorAll("[data-close-app]");
 const youtubeVideoCards = document.querySelectorAll("[data-youtube-video]");
+const statsEndpoint = "/track.php";
 const fallbackRandalfSprueche = [
   "Das wird garantiert schiefgehen.",
   "Ich habe Fragen. Leider auch Antworten.",
@@ -36,6 +37,70 @@ const fallbackRandalfSprueche = [
 ];
 let randalfSprueche = [...fallbackRandalfSprueche];
 let lastRandalfSpruch = randalfTextElement?.textContent.trim() || "";
+
+function getStatsPath(section = "") {
+  const path = `${window.location.pathname}${window.location.hash}`;
+
+  if (section && window.location.pathname.endsWith("/")) {
+    return `${window.location.pathname}#${section}`;
+  }
+
+  return path || "/";
+}
+
+function getStatsSection() {
+  const activeSection = document.body.dataset.activeSection || "";
+
+  if (validSections.includes(activeSection)) {
+    return activeSection;
+  }
+
+  const path = window.location.pathname;
+
+  if (path.includes("/vorab-gehoert/")) {
+    return "vorab";
+  }
+
+  if (path.includes("/reviews/")) {
+    return "reviews";
+  }
+
+  if (path.includes("/randalf/")) {
+    return "randalf";
+  }
+
+  if (path.includes("/wuerfel/")) {
+    return "wuerfel";
+  }
+
+  return "news";
+}
+
+function sendStatsEvent(eventType, detail = {}) {
+  if (window.location.protocol === "file:") {
+    return;
+  }
+
+  const payload = {
+    event_type: eventType,
+    path: detail.path || getStatsPath(detail.section),
+    section: detail.section || getStatsSection()
+  };
+
+  const body = JSON.stringify(payload);
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(statsEndpoint, new Blob([body], { type: "application/json" }));
+    return;
+  }
+
+  fetch(statsEndpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body,
+    keepalive: true
+  }).catch(() => {});
+}
 
 function sortTickerNews() {
   if (!tickerList) {
@@ -74,7 +139,13 @@ function setActiveSection(section) {
 }
 
 sectionLinks.forEach((link) => {
-  link.addEventListener("click", () => setActiveSection(link.dataset.section));
+  link.addEventListener("click", () => {
+    setActiveSection(link.dataset.section);
+    sendStatsEvent("pageview", {
+      path: `${window.location.pathname}#${link.dataset.section}`,
+      section: link.dataset.section
+    });
+  });
 });
 
 const initialSection = document.body.dataset.activeSection || "news";
@@ -82,6 +153,10 @@ const hashSection = window.location.hash.replace("#", "");
 
 sortTickerNews();
 setActiveSection(validSections.includes(hashSection) ? hashSection : initialSection);
+sendStatsEvent("pageview", {
+  path: getStatsPath(validSections.includes(hashSection) ? hashSection : initialSection),
+  section: getStatsSection()
+});
 
 function pickRandomSpruch() {
   if (randalfSprueche.length === 0) {
@@ -207,7 +282,13 @@ function getYouTubeVideoId(value = "") {
 }
 
 appOpenButtons.forEach((button) => {
-  button.addEventListener("click", openAppModal);
+  button.addEventListener("click", () => {
+    sendStatsEvent("wuerfel_click", {
+      path: "/wuerfel/",
+      section: "wuerfel"
+    });
+    openAppModal();
+  });
 });
 
 appCloseButtons.forEach((button) => {
@@ -238,6 +319,15 @@ youtubeVideoCards.forEach((card) => {
     iframe.allowFullscreen = true;
 
     frameTarget.replaceChildren(iframe);
+  });
+});
+
+document.querySelectorAll('a[href*="ko-fi.com/randalefunk"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    sendStatsEvent("kofi_click", {
+      path: link.getAttribute("href") || "https://ko-fi.com/randalefunk",
+      section: getStatsSection()
+    });
   });
 });
 

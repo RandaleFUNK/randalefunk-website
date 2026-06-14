@@ -14,6 +14,48 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Create private stats config
+        env:
+          STATS_DB_HOST: ${{ secrets.STATS_DB_HOST }}
+          STATS_DB_NAME: ${{ secrets.STATS_DB_NAME }}
+          STATS_DB_USER: ${{ secrets.STATS_DB_USER }}
+          STATS_DB_PASSWORD: ${{ secrets.STATS_DB_PASSWORD }}
+          STATS_AUTH_USER: ${{ secrets.STATS_AUTH_USER }}
+          STATS_AUTH_PASSWORD: ${{ secrets.STATS_AUTH_PASSWORD }}
+          STATS_HASH_SALT: ${{ secrets.STATS_HASH_SALT }}
+        run: |
+          STATS_AUTH_PASSWORD_HASH="$(php -r 'echo password_hash(getenv("STATS_AUTH_PASSWORD") ?: "", PASSWORD_DEFAULT);')"
+          export STATS_AUTH_PASSWORD_HASH
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          def php_string(value):
+              return "'" + value.replace("\\", "\\\\").replace("'", "\\'") + "'"
+
+          hash_salt = os.environ.get("STATS_HASH_SALT") or os.environ.get("STATS_DB_PASSWORD", "")
+
+          config = f"""<?php
+          return [
+              'db' => [
+                  'host' => {php_string(os.environ.get("STATS_DB_HOST", ""))},
+                  'name' => {php_string(os.environ.get("STATS_DB_NAME", ""))},
+                  'user' => {php_string(os.environ.get("STATS_DB_USER", ""))},
+                  'password' => {php_string(os.environ.get("STATS_DB_PASSWORD", ""))},
+                  'charset' => 'utf8mb4',
+              ],
+              'auth' => [
+                  'user' => {php_string(os.environ.get("STATS_AUTH_USER", ""))},
+                  'password_hash' => {php_string(os.environ.get("STATS_AUTH_PASSWORD_HASH", ""))},
+              ],
+              'hash_salt' => {php_string(hash_salt)},
+          ];
+          """
+
+          Path("stats").mkdir(exist_ok=True)
+          Path("stats/config.php").write_text(config, encoding="utf-8")
+          PY
+
       - name: Upload website via SFTP
         uses: Dylan700/sftp-upload-action@latest
         with:
