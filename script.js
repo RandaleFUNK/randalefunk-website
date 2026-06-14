@@ -13,6 +13,7 @@ const appModal = document.querySelector("[data-app-modal]");
 const appFrame = document.querySelector("[data-app-frame]");
 const appOpenButtons = document.querySelectorAll("[data-open-app]");
 const appCloseButtons = document.querySelectorAll("[data-close-app]");
+const youtubeVideoCards = document.querySelectorAll("[data-youtube-video]");
 const fallbackRandalfSprueche = [
   "Das wird garantiert schiefgehen.",
   "Ich habe Fragen. Leider auch Antworten.",
@@ -175,12 +176,69 @@ function closeAppModal() {
   document.body.classList.remove("is-app-modal-open");
 }
 
+function getYouTubeVideoId(value = "") {
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue) {
+    return "";
+  }
+
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmedValue)) {
+    return trimmedValue;
+  }
+
+  try {
+    const url = new URL(trimmedValue);
+
+    if (url.hostname.includes("youtu.be")) {
+      return url.pathname.replace("/", "").slice(0, 11);
+    }
+
+    if (url.searchParams.has("v")) {
+      return url.searchParams.get("v")?.slice(0, 11) || "";
+    }
+
+    const embedMatch = url.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+
+    return embedMatch?.[1] || "";
+  } catch {
+    return "";
+  }
+}
+
 appOpenButtons.forEach((button) => {
   button.addEventListener("click", openAppModal);
 });
 
 appCloseButtons.forEach((button) => {
   button.addEventListener("click", closeAppModal);
+});
+
+youtubeVideoCards.forEach((card) => {
+  const loadButton = card.querySelector("[data-youtube-load]");
+  const frameTarget = card.querySelector("[data-youtube-frame]");
+  const videoId = getYouTubeVideoId(card.dataset.youtubeId);
+  const videoTitle = card.dataset.youtubeTitle || "YouTube-Video";
+
+  loadButton?.addEventListener("click", () => {
+    if (!frameTarget || !videoId) {
+      if (loadButton) {
+        loadButton.textContent = "YouTube-Link fehlt noch";
+        loadButton.disabled = true;
+      }
+
+      return;
+    }
+
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?rel=0`;
+    iframe.title = videoTitle;
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+
+    frameTarget.replaceChildren(iframe);
+  });
 });
 
 document.addEventListener("keydown", (event) => {

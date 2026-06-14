@@ -8,9 +8,10 @@
 - Verwendung: Doedelhaie-News im RandaleFUNK-Ticker
 - Hinweis: Nur verwenden, solange der offizielle Presse-/Veranstalter-Download auf der Bandwebsite als Quelle nachvollziehbar ist.
 
-## randalf-sticker-polizist.png
+## tanzig-alles-schon-gesagt-cover.png
 
-- Quelle: KI-generiertes Randalf-Sticker-Motiv auf Basis der Randalf-Charaktervorgaben.
-- Arbeitsdatei: `randalf-sticker-polizist-quelle.png`
-- Verwendung: Sticker neben der Doedelhaie-News im RandaleFUNK-Ticker.
-- Hinweis: Satirisches Randalf-Motiv, kein Doedelhaie-Pressebild.
+- Quelle: offizielle Tanzig-Website.
+- Quellseite: https://www.tanzig.de/
+- Originaldatei: `cover_front.png`
+- Verwendung: Tanzig-News im RandaleFUNK-Ticker zu `Alles schon gesagt`.
+- Hinweis: Als offizielles Coverbild der Bandwebsite dokumentiert, nicht als frei lizenzierte Pressefreigabe verstanden.

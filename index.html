@@ -1,10 +1,15 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RandaleFUNK.de - Irgendwas mit Punk</title>
     <meta name="description" content="RandaleFUNK.de - digitales Punk-Fanzine mit News, Reviews, Interviews und Kolumnen.">
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -38,13 +43,30 @@
           </div>
 
           <div class="ticker-list" aria-label="Aktuelle Kurzmeldungen" data-ticker-list>
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-14T10:00:00">
+              <div class="ticker-meta">
+                <span>Album</span>
+                <time datetime="2026-06-14T10:00:00">14.06.2026</time>
+              </div>
+              <h2>Tanzig zeigen Cover zu "Alles schon gesagt"</h2>
+              <figure class="ticker-media">
+                <img src="assets/news/tanzig-alles-schon-gesagt-cover.png" alt="Tanzig Cover Alles schon gesagt" loading="lazy">
+                <figcaption>Bild: offizielles Cover von tanzig.de.</figcaption>
+              </figure>
+              <p>Qualitaetspvnkrock seit 2013! TANZIG - die schoenste Boyband Thueringens - veroeffentlichen das Cover zum neuen Album "Alles schon gesagt". Sieht erfreulich nach Death-Metal-Waldandacht aus.</p>
+              <p>Endlich nicht wieder dieser typische Punk-Rotz, bei dem jemand Rot, Schwarz und drei kaputte Buchstaben zusammenklebt.</p>
+              <p>Nach "Fresse!" wirkt das alles fast verdachtig beruhigend. Ob das Album dem Punk kurz eine Pause gibt und zum gemuetlichen Death Metal wechselt, wissen wir aktuell noch nicht.</p>
+              <p>Live steht laut Tanzig-Terminen der 26.09.2026 fuer "13 Jahre TANZIG" im Kalender - noch in Planung, aber der Krach hat schon mal einen Bleistift gefunden.</p>
+              <a class="ticker-button" href="https://www.tanzig.de/" target="_blank" rel="noopener noreferrer">Zur Band</a>
+            </article>
+
             <article class="ticker-card ticker-card--konzert ticker-card--has-sticker" data-ticker-news data-published="2026-06-12T19:00:00">
               <div class="ticker-meta">
                 <span>Festival</span>
                 <time datetime="2026-06-12T19:00:00">12.06.2026</time>
               </div>
               <h2>Doedelhaie steuern zwei Festivalrunden an</h2>
-              <img class="ticker-sticker" src="assets/news/randalf-sticker-polizist.png" alt="Randalf als korpulenter 80er-Jahre-Polizist mit erhobenem Gummiknueppel" width="1122" height="1402" loading="lazy">
+              <img class="ticker-sticker" src="assets/stickers/randalf-sticker-polizist.png" alt="Randalf als korpulenter 80er-Jahre-Polizist mit erhobenem Gummiknueppel" width="1122" height="1402" loading="lazy">
               <figure class="ticker-media">
                 <img src="assets/news/doedelhaie-bandfoto-2022.jpg" alt="Doedelhaie Bandfoto" loading="lazy">
                 <figcaption>Bild: offizieller Presse-/Veranstalter-Download der Doedelhaie.</figcaption>
@@ -106,7 +128,7 @@
             </article>
             <article class="teaser-card teaser-card--sticker">
               <time datetime="2026-06-13">Vorab gehört</time>
-              <img class="teaser-sticker" src="assets/vorab-gehoert/randalf-pianomann-sticker.png" alt="Randalf sitzt mit Wollmütze am Klavier" width="1254" height="1254" loading="lazy">
+              <img class="teaser-sticker" src="assets/stickers/randalf-pianomann-sticker.png" alt="Randalf sitzt mit Wollmütze am Klavier" width="1254" height="1254" loading="lazy">
               <h2><a href="vorab-gehoert/ole-pianomann.html">Der Ole - Pianomann</a></h2>
               <p>Ruhige Pianonummer, verdächtig hartnäckiger Refrain und mehr Punk im stoischen Weitermachen, als man nach zehn Sekunden Klavier erwarten würde.</p>
             </article>
@@ -162,10 +184,18 @@
               <h2>Gespräch kommt</h2>
               <p>Hier kann spaeter ein Teaser fuer das neueste Interview stehen.</p>
             </article>
-            <article class="teaser-card">
-              <time datetime="2026-06-12">Platzhalter</time>
-              <h2>Aus dem Proberaum</h2>
-              <p>Kurze Fragen, lange Antworten, kein glattgebuegeltes Presseblabla.</p>
+            <article class="teaser-card teaser-card--video" data-youtube-video data-youtube-id="B0xOtJ1p1QU" data-youtube-title="RandaleFUNK beim WISPA Festival 2026">
+              <time datetime="2026-06-14">Video</time>
+              <h2>WISPA Festival 2026</h2>
+              <div class="privacy-video" data-youtube-frame>
+                <div class="privacy-video__poster" aria-hidden="true">
+                  <span>WISPA</span>
+                  <strong>Festival 2026</strong>
+                </div>
+                <p>Mit dem Laden des Videos werden Daten an YouTube bzw. Google übertragen.</p>
+                <button class="privacy-video__button" type="button" data-youtube-load>Video laden</button>
+              </div>
+              <p>RandaleFUNK wirft einen Blick Richtung WISPA Festival 2026. Erst Klick, dann YouTube.</p>
             </article>
           </div>
         </article>
@@ -209,8 +239,9 @@
         </section>
 
         <section class="link-block app-launch-block">
-          <h2>Spielkram</h2>
-          <button class="app-launch-button" type="button" data-open-app="wuerfel">RandaleWuerfel</button>
+          <h2>Quatsch</h2>
+          <button class="app-launch-button" type="button" data-open-app="wuerfel">Würfel-App</button>
+          <a href="randalf/index.html">Randalf</a>
         </section>
 
         <section class="link-block">
@@ -236,8 +267,8 @@
       <div class="app-modal__panel" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
         <header class="app-modal__bar">
           <div>
-            <p>Spielkram</p>
-            <h2 id="app-modal-title">RandaleWuerfel</h2>
+            <p>Quatsch</p>
+            <h2 id="app-modal-title">Würfel-App</h2>
           </div>
           <button class="app-modal__close" type="button" data-close-app aria-label="App schliessen">Schliessen</button>
         </header>

@@ -373,6 +373,21 @@ Randalf ersetzt nicht den Moderator Burg.
 
 ---
 
+## Sticker-Assets
+
+Alle RandaleFUNK-/Randalf-Sticker werden zentral in `assets/stickers/` gesammelt.
+
+Regeln:
+
+* Neue Sticker immer in `assets/stickers/` ablegen.
+* Sticker nicht in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Inhaltsordnern verstreuen.
+* Website-Verweise entsprechend auf `assets/stickers/...` bzw. von Unterseiten auf `../assets/stickers/...` setzen.
+* Quellen, Arbeitsdateien und Verwendungszwecke in `assets/stickers/README.md` dokumentieren.
+* Neue Randalf-Sticker zusaetzlich im Stickerarchiv `randalf/index.html` aufnehmen, auch wenn sie bereits in Artikeln, News, Reviews oder anderen Beitraegen erscheinen.
+* Inhaltsspezifische Asset-Ordner bleiben fuer Pressebilder, Cover, Releasegrafiken und sonstiges Nicht-Sticker-Material.
+
+---
+
 ## Randalf-Sprüche
 
 Randalf besitzt einen Pool aus wechselnden Sprüchen.
