@@ -12,6 +12,34 @@ function rf_stats_auth_required(string $message = 'RandaleFUNK Statistik'): neve
     exit;
 }
 
+function rf_stats_basic_auth_credentials(): array
+{
+    $user = (string) ($_SERVER['PHP_AUTH_USER'] ?? '');
+    $password = (string) ($_SERVER['PHP_AUTH_PW'] ?? '');
+
+    if ($user !== '' || $password !== '') {
+        return [$user, $password];
+    }
+
+    $header = (string) (
+        $_SERVER['HTTP_AUTHORIZATION']
+        ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION']
+        ?? ''
+    );
+
+    if (!preg_match('/^Basic\s+(.+)$/i', $header, $matches)) {
+        return ['', ''];
+    }
+
+    $decoded = base64_decode($matches[1], true);
+
+    if (!is_string($decoded) || !str_contains($decoded, ':')) {
+        return ['', ''];
+    }
+
+    return explode(':', $decoded, 2);
+}
+
 function rf_stats_require_auth(): void
 {
     $config = rf_stats_config();
@@ -27,8 +55,7 @@ function rf_stats_require_auth(): void
         exit;
     }
 
-    $givenUser = (string) ($_SERVER['PHP_AUTH_USER'] ?? '');
-    $givenPassword = (string) ($_SERVER['PHP_AUTH_PW'] ?? '');
+    [$givenUser, $givenPassword] = rf_stats_basic_auth_credentials();
     $passwordMatches = $expectedHash !== ''
         ? password_verify($givenPassword, $expectedHash)
         : hash_equals($expectedPassword, $givenPassword);

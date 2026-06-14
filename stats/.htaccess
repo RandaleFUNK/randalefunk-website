@@ -1,5 +1,12 @@
 Options -Indexes
 
+SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
 <Files "config.php">
   Require all denied
 </Files>
