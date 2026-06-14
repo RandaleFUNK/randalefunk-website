@@ -12,3 +12,15 @@
 - Download: https://www.soko-linx.de/download/promo-foto-4/?wpdmdl=1036
 - Verwendung: Vorab-gehoert-Beitrag `SOKO LiNX - Gewaltenteilung`.
 - Hinweis: Pressefoto/Promomaterial, nicht als Creative-Commons-Freigabe verstanden.
+
+## plastic-mars-kein-zurueck-cover.jpg
+
+- Quelle: Pressematerial von Plastic Mars.
+- Ursprung: `Temp_Daten/kein Zurück (Plastic Mars).jpg`.
+- Verwendung: Vorab-gehoert-Beitrag `Plastic Mars - Kein Zurueck`.
+
+## plastic-mars-bandfoto.jpg
+
+- Quelle: Pressematerial von Plastic Mars.
+- Ursprung: `Temp_Daten/Plastic Mars (Bandfoto).jpg`.
+- Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `Plastic Mars - Kein Zurueck`.

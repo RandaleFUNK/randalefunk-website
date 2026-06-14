@@ -27,3 +27,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Sturmhaube/Maske und verschraenkte Arme passend zur SOKO-LiNX-Optik.
 - Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `SOKO LiNX - Gewaltenteilung`.
+
+## randalf-plastic-mars-kein-zurueck-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Baby-Randalf mit Windel auf Skateboard passend zur Plastic-Mars-Preview.
+- Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `Plastic Mars - Kein Zurueck` und Stickerarchiv `randalf/index.html`.
