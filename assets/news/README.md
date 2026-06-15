@@ -2,7 +2,7 @@
 
 ## back-to-future-2026-flyer.jpg
 
-- Quelle: von Burg bereitgestellter Festival-Flyer zum Back To Future 2026.
+- Quelle: Facebook-Seite des Back To Future Festivals.
 - Originaldatei: `723685821_1012942444580388_9011439025392655676_n.jpg`
 - Verwendung: Back-To-Future-News im RandaleFUNK-Ticker, damit das komplette Line-up sichtbar ist.
 - Hinweis: Nur verwenden, solange die Bereitstellung/Verwendung fuer RandaleFUNK geklaert bleibt.
