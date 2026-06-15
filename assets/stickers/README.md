@@ -33,3 +33,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Baby-Randalf mit Windel auf Skateboard passend zur Plastic-Mars-Preview.
 - Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `Plastic Mars - Kein Zurueck` und Stickerarchiv `randalf/index.html`.
+
+## randalf-champagner-punx-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; wuetender Randalf tritt eine Champagnerflasche um.
+- Verwendung: Preview-Sticker zur Review `CHAMPAGNER PUNX - Scheiss Champagner Punx` und Stickerarchiv `randalf/index.html`.
