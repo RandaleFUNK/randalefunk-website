@@ -879,6 +879,16 @@ a {
   margin: 0;
 }
 
+.site-footer .footer-legal {
+  margin-left: clamp(18px, 4vw, 48px);
+}
+
+.site-footer .footer-legal a {
+  color: var(--paper);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .app-modal {
   position: fixed;
   inset: 0;
@@ -1135,6 +1145,63 @@ body.is-app-modal-open {
   text-transform: uppercase;
 }
 
+.privacy-page {
+  --active-accent: var(--kolumnen);
+}
+
+.privacy-page h1 {
+  max-width: 16ch;
+  margin: 0 0 18px;
+  color: var(--paper);
+  font-family: "ZP Sidestep", "Anton", sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 0 var(--black), 7px 7px 0 var(--active-accent);
+}
+
+.privacy-page .article-body {
+  max-width: 78ch;
+  padding: clamp(18px, 3vw, 28px);
+  border: 2px solid var(--border);
+  background: rgb(5 5 5 / 0.46);
+}
+
+.privacy-page h2 {
+  margin: 30px 0 10px;
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.privacy-page h2:first-child {
+  margin-top: 0;
+}
+
+.privacy-page p {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.privacy-page a {
+  color: var(--paper);
+}
+
+.privacy-page code {
+  padding: 2px 5px;
+  background: var(--black);
+  color: var(--paper);
+  font-size: 0.94em;
+}
+
 body[data-active-section="news"] {
   --active-accent: var(--news);
 }
@@ -1249,6 +1316,11 @@ body[data-active-section="kolumnen"] {
 
   .site-footer {
     flex-direction: column;
+  }
+
+  .site-footer .footer-legal {
+    margin-left: 0;
+    margin-top: 8px;
   }
 
   .app-modal {
