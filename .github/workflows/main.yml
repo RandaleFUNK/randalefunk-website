@@ -56,6 +56,63 @@ jobs:
           Path("stats/config.php").write_text(config, encoding="utf-8")
           PY
 
+      - name: Build deploy package
+        run: |
+          set -euo pipefail
+          rm -rf deploy
+          mkdir -p deploy
+
+          cp index.html deploy/
+          cp style.css deploy/
+          cp script.js deploy/
+          cp track.php deploy/
+          cp site.webmanifest deploy/
+
+          if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
+
+          cp -R assets deploy/
+          cp -R data deploy/
+          cp -R kolumnen deploy/
+          cp -R randalf deploy/
+          cp -R reviews deploy/
+          cp -R vorab-gehoert deploy/
+          cp -R wuerfel deploy/
+          cp -R stats deploy/
+
+          rm -rf deploy/wuerfel/Netlify-Upload
+          find deploy -name ".git" -o -name ".github" -o -name "Backups" -o -name "Temp_Daten" -o -name "tools" | xargs -r rm -rf
+          find deploy -type f \( -name "*.zip" -o -name "*.log" -o -name "*.md" -o -name ".env" -o -name ".gitignore" -o -name "AGENTS.md" \) -delete
+
+      - name: Remove old public internal files
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y lftp
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "sftp://$FTP_SERVER" <<EOF
+          set sftp:auto-confirm yes
+          rm -f "$FTP_TARGET_DIR/AGENTS.md"
+          rm -f "$FTP_TARGET_DIR/README.md"
+          rm -f "$FTP_TARGET_DIR/stats/README.md"
+          rm -f "$FTP_TARGET_DIR/wuerfel/README.md"
+          rm -f "$FTP_TARGET_DIR/wuerfel/rules.md"
+          rm -f "$FTP_TARGET_DIR/wuerfel/quotes.md"
+          rm -f "$FTP_TARGET_DIR/wuerfel/data/README.md"
+          rm -f "$FTP_TARGET_DIR/assets/news/README.md"
+          rm -f "$FTP_TARGET_DIR/assets/reviews/README.md"
+          rm -f "$FTP_TARGET_DIR/assets/stickers/README.md"
+          rm -f "$FTP_TARGET_DIR/assets/vorab-gehoert/README.md"
+          rm -rf "$FTP_TARGET_DIR/wuerfel/Netlify-Upload"
+          rm -rf "$FTP_TARGET_DIR/tools"
+          rm -rf "$FTP_TARGET_DIR/Backups"
+          rm -rf "$FTP_TARGET_DIR/Temp_Daten"
+          bye
+          EOF
+
       - name: Upload website via SFTP
         uses: Dylan700/sftp-upload-action@latest
         with:
@@ -63,4 +120,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           uploads: |
-            ./ => ${{ secrets.FTP_TARGET_DIR }}
+            deploy/ => ${{ secrets.FTP_TARGET_DIR }}

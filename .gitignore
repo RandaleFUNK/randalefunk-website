@@ -1,1 +1,10 @@
+.env
+*.log
+*.zip
+Backups/
+Temp_Daten/
+tools/
+server.out.log
+server.err.log
+wuerfel/Netlify-Upload/
 stats/config.php

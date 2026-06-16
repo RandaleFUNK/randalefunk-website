@@ -21,8 +21,9 @@ try {
     $pdo = rf_stats_pdo();
     rf_stats_ensure_schema($pdo);
     $data = rf_stats_dashboard_data($pdo);
-} catch (Throwable $exception) {
-    $error = $exception->getMessage();
+} catch (Throwable) {
+    error_log('RandaleFUNK statistics dashboard failed to load.');
+    $error = 'Statistik konnte nicht geladen werden.';
 }
 
 function e(string $value): string
@@ -210,7 +211,7 @@ function e(string $value): string
       </header>
 
       <?php if ($error !== null): ?>
-        <div class="error">Statistik konnte nicht geladen werden: <?= e($error) ?></div>
+        <div class="error"><?= e($error) ?></div>
       <?php endif; ?>
 
       <section class="stats-grid" aria-label="Kennzahlen">
