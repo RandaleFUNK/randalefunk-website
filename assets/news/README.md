@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## pennywise-about-time-cover.jpg
+
+- Quelle: bereitgestelltes Albumcover zu Pennywise `About Time`.
+- Originaldatei: `R-534027-1359561787-5971.jpg`
+- Verwendung: Pennywise-News im RandaleFUNK-Ticker zum 31. Geburtstag von `About Time`.
+- Hinweis: Redaktionelle Verwendung als Albumcover im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## back-to-future-2026-flyer.jpg
 
 - Quelle: Facebook-Seite des Back To Future Festivals.
