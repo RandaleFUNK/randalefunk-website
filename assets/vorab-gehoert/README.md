@@ -24,3 +24,9 @@
 - Quelle: Pressematerial von Plastic Mars.
 - Ursprung: `Temp_Daten/Plastic Mars (Bandfoto).jpg`.
 - Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `Plastic Mars - Kein Zurueck`.
+
+## the-cloverhearts-germaniac-cover.jpeg
+
+- Quelle: Pressematerial von The Cloverhearts.
+- Ursprung: `Temp_Daten/473230.jpeg`.
+- Verwendung: Vorab-gehoert-Beitrag `The Cloverhearts - Germaniac!`.

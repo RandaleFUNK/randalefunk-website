@@ -39,3 +39,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; wuetender Randalf tritt eine Champagnerflasche um.
 - Verwendung: Preview-Sticker zur Review `CHAMPAGNER PUNX - Scheiss Champagner Punx` und Stickerarchiv `randalf/index.html`.
+
+## randalf-cloverhearts-germaniac-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; verzweifelter Dudelsackspieler mit rot-schwarzem Schottenrock.
+- Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `The Cloverhearts - Germaniac!` und Stickerarchiv `randalf/index.html`.
