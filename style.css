@@ -346,6 +346,12 @@ a {
   margin: 4px 0 14px;
 }
 
+.ticker-media--duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .ticker-media img {
   display: block;
   width: 100%;
@@ -360,6 +366,10 @@ a {
   font-size: 0.78rem;
   font-weight: 900;
   color: #3b3934;
+}
+
+.ticker-media--duo figcaption {
+  grid-column: 1 / -1;
 }
 
 .ticker-button {
@@ -1317,6 +1327,10 @@ body[data-active-section="kolumnen"] {
 
   .ticker-card--has-sticker {
     padding-right: 18px;
+  }
+
+  .ticker-media--duo {
+    grid-template-columns: 1fr;
   }
 
   .ticker-sticker {

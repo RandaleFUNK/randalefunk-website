@@ -1,5 +1,19 @@
 # News-Bildquellen
 
+## gimmes-are-a-drag-erstpressung-burg.jpeg
+
+- Quelle: Foto von Burg aus `Temp_Daten/gimmeburg.jpeg`.
+- Verwendung: News zur Neuauflage von Me First and the Gimme Gimmes `Are A Drag`.
+- Hinweis: eigenes RandaleFUNK-/Burg-Foto der Erstpressung.
+
+## gimmes-are-a-drag-tricolor-repress.jpg
+
+- Quelle: offizielle Fat-Wreck-Chords-Produktseite.
+- Quellseite: https://fatwreck.com/products/mfggf586bl-lp
+- Originalbild: https://fatwreck.com/cdn/shop/files/915037f9f4934d4f96f6439865917202_40713fad-dc0e-4c32-b11a-1482e542c7d1_1024x1024.jpg?v=1781628817
+- Verwendung: News zur Neuauflage von Me First and the Gimme Gimmes `Are A Drag`.
+- Hinweis: Redaktionelle Verwendung als offizielles Produktbild im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## pennywise-about-time-cover.jpg
 
 - Quelle: bereitgestelltes Albumcover zu Pennywise `About Time`.
