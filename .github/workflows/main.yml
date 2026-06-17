@@ -114,10 +114,15 @@ jobs:
           EOF
 
       - name: Upload website via SFTP
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          uploads: |
-            deploy/ => ${{ secrets.FTP_TARGET_DIR }}
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "sftp://$FTP_SERVER" <<EOF
+          set sftp:auto-confirm yes
+          mirror -R --verbose --only-newer deploy/ "$FTP_TARGET_DIR"
+          bye
+          EOF
