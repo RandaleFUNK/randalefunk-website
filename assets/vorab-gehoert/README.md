@@ -30,3 +30,15 @@
 - Quelle: Pressematerial von The Cloverhearts.
 - Ursprung: `Temp_Daten/473230.jpeg`.
 - Verwendung: Vorab-gehoert-Beitrag `The Cloverhearts - Germaniac!`.
+
+## exat-durst-nach-freiheit-unplugged-cover.jpg
+
+- Quelle: Pressematerial von EXAT / Rockzone Records.
+- Ursprung: `Temp_Daten/EXAT_Single_Promo_Kit_extracted/Durst Unplugged Single-Cover-4.jpg`.
+- Verwendung: Vorab-gehoert-Beitrag `EXAT - Durst nach Freiheit Unplugged`.
+
+## exat-durst-nach-freiheit-unplugged-bandfoto.jpg
+
+- Quelle: Pressematerial von EXAT / Rockzone Records.
+- Ursprung: `Temp_Daten/EXAT_Single_Promo_Kit_extracted/Bandfoto EXAT Durst nach Freiheit.jpg`.
+- Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `EXAT - Durst nach Freiheit Unplugged`.

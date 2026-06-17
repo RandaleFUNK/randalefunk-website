@@ -45,3 +45,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; verzweifelter Dudelsackspieler mit rot-schwarzem Schottenrock.
 - Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `The Cloverhearts - Germaniac!` und Stickerarchiv `randalf/index.html`.
+
+## randalf-exat-durst-nach-freiheit-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf im Schneidersitz mit Akustikgitarre, singt/jault zum Himmel.
+- Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `EXAT - Durst nach Freiheit Unplugged` und Stickerarchiv `randalf/index.html`.
