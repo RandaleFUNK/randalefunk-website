@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## jello-biafra-alternative-tentacles.jpg
+
+- Quelle: offizielle Alternative-Tentacles-Kuenstlerseite zu Jello Biafra.
+- Quellseite: https://alternativetentacles.com/pages/artist-page/jello-biafra
+- Originalbild: https://alternativetentacles.com/cdn/shop/files/JelloBiafra-1.jpg?v=1696463182&width=1200
+- Verwendung: Geburtstags-News zu Jello Biafra im RandaleFUNK-Ticker.
+- Hinweis: Redaktionelle Verwendung als offizielles Kuenstlerseitenbild im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## gimmes-are-a-drag-erstpressung-burg.jpeg
 
 - Quelle: Foto von Burg aus `Temp_Daten/gimmeburg.jpeg`.
