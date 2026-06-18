@@ -352,6 +352,19 @@ a {
   gap: 12px;
 }
 
+.ticker-media--versus img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.ticker-media--versus img:first-child {
+  border-color: #f58220;
+}
+
+.ticker-media--versus img:nth-child(2) {
+  border-color: #e51b23;
+}
+
 .ticker-media img {
   display: block;
   width: 100%;

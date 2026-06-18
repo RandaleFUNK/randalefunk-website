@@ -1,5 +1,19 @@
 # News-Bildquellen
 
+## zdf-vs-dorfterror-placeholder.svg
+
+- Quelle: eigene RandaleFUNK-Grafik.
+- Verwendung: Dorfterror/ZDF-News im RandaleFUNK-Ticker.
+- Hinweis: Kein ZDF-Originalmaterial, kein Screenshot und kein offizielles ZDF-Bild.
+
+## dorfterror-epk-band-gebaeude9.jpg
+
+- Quelle: offizielle Dorfterror-EPK-Seite.
+- Quellseite: https://dorfterror.de/epk
+- Originalbild: https://dorfterror.de/_next/image?url=%2Fimg%2Fepk%2Fband_gebaude9.png&w=1200&q=75
+- Verwendung: Dorfterror/ZDF-News im RandaleFUNK-Ticker.
+- Hinweis: Die Dorfterror-EPK-Seite gibt die Bilder fuer redaktionelle Zwecke frei.
+
 ## jello-biafra-alternative-tentacles.jpg
 
 - Quelle: offizielle Alternative-Tentacles-Kuenstlerseite zu Jello Biafra.
