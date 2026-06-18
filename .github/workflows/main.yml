@@ -14,6 +14,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Update social sharing metadata
+        run: python3 scripts/update_social_meta.py
+
       - name: Create private stats config
         env:
           STATS_DB_HOST: ${{ secrets.STATS_DB_HOST }}
