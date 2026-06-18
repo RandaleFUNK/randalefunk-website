@@ -51,3 +51,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf im Schneidersitz mit Akustikgitarre, singt/jault zum Himmel.
 - Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `EXAT - Durst nach Freiheit Unplugged` und Stickerarchiv `randalf/index.html`.
+
+## randalf-missstand-2026-sticker.png
+
+- Quelle: Randalf-Sticker-Motiv fuer RandaleFUNK, lokal aus vorhandenem Randalf-Motiv und zerbrechendem Schriftzug erstellt.
+- Grundlage: Randalf-Charaktervorgaben; wuetender Randalf zertritt den Schriftzug `2026`.
+- Verwendung: Preview-Sticker zur Review `MISSSTAND - 2026`.
