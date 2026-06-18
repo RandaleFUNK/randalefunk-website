@@ -1,5 +1,19 @@
 # News-Bildquellen
 
+## the-bates-burg.jpeg
+
+- Quelle: Foto von Burg aus `Temp_Daten/TheBates_Burg.jpeg`.
+- Verwendung: Zimbl/The-Bates-News im RandaleFUNK-Ticker.
+- Hinweis: eigenes RandaleFUNK-/Burg-Foto.
+
+## zimbl-commons-public-domain.jpg
+
+- Quelle: Wikimedia Commons.
+- Quellseite: https://commons.wikimedia.org/wiki/File:Zimbl_00001.jpg
+- Originalbild: https://upload.wikimedia.org/wikipedia/commons/8/82/Zimbl_00001.jpg
+- Verwendung: Zimbl/The-Bates-News im RandaleFUNK-Ticker.
+- Hinweis: Laut Wikimedia Commons vom Rechteinhaber in die Public Domain freigegeben.
+
 ## zdf-vs-dorfterror-placeholder.svg
 
 - Quelle: eigene RandaleFUNK-Grafik.
