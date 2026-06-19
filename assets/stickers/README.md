@@ -57,3 +57,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: Randalf-Sticker-Motiv fuer RandaleFUNK, lokal aus vorhandenem Randalf-Motiv und zerbrechendem Schriftzug erstellt.
 - Grundlage: Randalf-Charaktervorgaben; wuetender Randalf zertritt den Schriftzug `2026`.
 - Verwendung: Preview-Sticker zur Review `MISSSTAND - 2026`.
+
+## randalf-zwischenraum-halt-die-fresse-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; entsetzter Randalf haelt sich beide Haende vor den Mund.
+- Verwendung: Preview-Sticker zur Review `ZWISCHENRAUM - Halt die Fresse EP`.
