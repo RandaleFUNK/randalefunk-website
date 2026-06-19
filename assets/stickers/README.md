@@ -63,3 +63,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; entsetzter Randalf haelt sich beide Haende vor den Mund.
 - Verwendung: Preview-Sticker zur Review `ZWISCHENRAUM - Halt die Fresse EP`.
+
+## randalf-sick-of-society-sabotage-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf in Boxershorts, verschwitztem Unterhemd und Boxhandschuhen wirft eine linke Gerade.
+- Verwendung: Preview-Sticker zur Review `SICK OF SOCIETY - Sabotage` und Stickerarchiv `randalf/index.html`.
