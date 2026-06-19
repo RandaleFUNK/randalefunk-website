@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## punk-chartbusters-vol-7-announcement.png
+
+- Quelle: Ankuendigungsgrafik aus offiziellen Wolverine-Records-Posts zu `Punk Chartbusters Vol. 7`.
+- Originaldatei: `codex-clipboard-359d3baa-c9de-47e2-97d1-7151abcd6b4c.png`, von Burg bereitgestellt.
+- Verwendung: News zur angekuendigten Compilation `Punk Chartbusters Vol. 7`.
+- Hinweis: Redaktionelle Verwendung im direkten Kontext der Label-Ankuendigung; nicht als frei lizenzierte Pressefreigabe verstanden. Weitere Angaben stammen aus Screenshots offizieller Wolverine-Instagram-Posts. Wenn Wolverine eine offizielle Produktseite oder ein Pressekit nachlegt, Quelle ersetzen bzw. ergaenzen.
+
+
 ## the-bates-burg.jpeg
 
 - Quelle: Foto von Burg aus `Temp_Daten/TheBates_Burg.jpeg`.
