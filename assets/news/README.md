@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## serum-114-wir-machen-zwei-kreuze-eventim.jpg
+
+- Quelle: offizielle Eventim-Kuenstler-/Tourseite zu Serum 114.
+- Quellseite: https://www.eventim.de/artist/serum-114/
+- Originalbild: https://www.eventim.de/obj/media/DE-eventim/teaser/artworks/2026/serum-114-wir-machen-zwei-kreuze-tickets-header.jpg
+- Verwendung: News zur Serum-114-Jubilaeumstour `Wir machen zwei Kreuze` 2027.
+- Hinweis: Redaktionelle Verwendung als offizielles Tourmotiv im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## punk-chartbusters-vol-7-announcement.png
 
 - Quelle: Ankuendigungsgrafik aus offiziellen Wolverine-Records-Posts zu `Punk Chartbusters Vol. 7`.
