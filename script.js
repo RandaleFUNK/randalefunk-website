@@ -15,6 +15,7 @@ const appOpenButtons = document.querySelectorAll("[data-open-app]");
 const appCloseButtons = document.querySelectorAll("[data-close-app]");
 const youtubeVideoCards = document.querySelectorAll("[data-youtube-video]");
 const statsEndpoint = "/track.php";
+const pollEndpoint = "/poll.php";
 const fallbackRandalfSprueche = [
   "Das wird garantiert schiefgehen.",
   "Ich habe Fragen. Leider auch Antworten.",
@@ -100,6 +101,88 @@ function sendStatsEvent(eventType, detail = {}) {
     body,
     keepalive: true
   }).catch(() => {});
+}
+
+function attachPollHandlers(pollMount) {
+  const form = pollMount.querySelector("[data-poll-form]");
+  const resultsButton = pollMount.querySelector("[data-poll-results]");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = form.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Zaehle...";
+    }
+
+    try {
+      const response = await fetch(pollEndpoint, {
+        method: "POST",
+        body: new FormData(form),
+        credentials: "same-origin"
+      });
+
+      if (!response.ok) {
+        throw new Error("Poll request failed");
+      }
+
+      pollMount.innerHTML = await response.text();
+      attachPollHandlers(pollMount);
+    } catch {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Abstimmen";
+      }
+    }
+  });
+
+  resultsButton?.addEventListener("click", async () => {
+    resultsButton.disabled = true;
+
+    try {
+      const response = await fetch(`${pollEndpoint}?action=results`, {
+        credentials: "same-origin"
+      });
+
+      if (!response.ok) {
+        throw new Error("Poll results failed");
+      }
+
+      pollMount.innerHTML = await response.text();
+      attachPollHandlers(pollMount);
+    } catch {
+      resultsButton.disabled = false;
+    }
+  });
+}
+
+async function loadPollWidget() {
+  const sectionNav = document.querySelector(".section-nav");
+
+  if (!sectionNav || window.location.protocol === "file:") {
+    return;
+  }
+
+  const pollMount = document.createElement("div");
+  pollMount.className = "poll-mount";
+  pollMount.setAttribute("data-poll-mount", "");
+  sectionNav.appendChild(pollMount);
+
+  try {
+    const response = await fetch(pollEndpoint, {
+      credentials: "same-origin"
+    });
+
+    if (!response.ok) {
+      throw new Error("Poll widget failed");
+    }
+
+    pollMount.innerHTML = await response.text();
+    attachPollHandlers(pollMount);
+  } catch {
+    pollMount.remove();
+  }
 }
 
 function sortTickerNews() {
@@ -227,6 +310,7 @@ document.addEventListener("click", (event) => {
 });
 
 loadRandalfSprueche();
+loadPollWidget();
 
 function openAppModal() {
   if (!appModal || !appFrame) {

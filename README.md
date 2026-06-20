@@ -6,7 +6,8 @@ Statische Website-Struktur fuer RandaleFUNK.
 
 - `index.html` ist der Einstiegspunkt der Website.
 - `style.css` enthaelt die grundlegenden Styles.
-- `script.js` schaltet die Rubriken im Magazinlayout um.
+- `script.js` schaltet die Rubriken im Magazinlayout um und laedt die Umfrage in die linke Navigation.
+- `poll.php` liefert die Umfrage der Woche per PHP/MySQL aus.
 - `data/randalf-sprueche.json` enthaelt die statische Spruchliste fuer die Randalf-Box.
 - `AGENTS.md` sammelt Projektregeln, Designnotizen und spaetere Codex-Aufgaben.
 
@@ -18,7 +19,7 @@ Die Startseite ist als digitales Punk-Fanzine aufgebaut:
 
 - schmaler Kategorienbalken
 - kleiner Header mit Logo und Claim
-- linke Rubriknavigation
+- linke Rubriknavigation mit kompakter Umfrage der Woche
 - zentraler Inhaltsbereich mit News, Reviews, Interviews und Kolumnen
 - rechte Wegweiser-Spalte mit externen Links
 
@@ -26,9 +27,9 @@ NEWS ist beim Laden der Seite aktiv. Die anderen Rubriken sind aktuell statische
 
 ## Deployment
 
-Das Projekt benoetigt kein Framework, kein Backend, keine Datenbank und kein Build-System.
+Das Hauptlayout ist statisch und benoetigt kein Framework und kein Build-System. Die Umfrage und die Statistik benoetigen PHP + MySQL und nutzen die Datenbank-Konfiguration in `stats/config.php`.
 
-Fuer Netlify kann das Repository direkt als statische Website deployed werden. Wenn Netlify nach einem Publish-Verzeichnis fragt, wird der Ordner mit diesen Dateien verwendet.
+Fuer rein statische Deployments wird die Umfrage nicht angezeigt. Auf dem Live-Webspace sollte PHP aktiv sein und `poll.php` erreichbar bleiben.
 
 ## Lokaler Review-Workflow
 

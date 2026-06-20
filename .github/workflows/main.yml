@@ -69,6 +69,7 @@ jobs:
           cp style.css deploy/
           cp script.js deploy/
           cp track.php deploy/
+          cp poll.php deploy/
           cp site.webmanifest deploy/
 
           if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
