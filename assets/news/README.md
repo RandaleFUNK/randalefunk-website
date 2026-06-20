@@ -7,7 +7,6 @@
 - Verwendung: News zur angekuendigten Compilation `Punk Chartbusters Vol. 7`.
 - Hinweis: Redaktionelle Verwendung im direkten Kontext der Label-Ankuendigung; nicht als frei lizenzierte Pressefreigabe verstanden. Weitere Angaben stammen aus Screenshots offizieller Wolverine-Instagram-Posts. Wenn Wolverine eine offizielle Produktseite oder ein Pressekit nachlegt, Quelle ersetzen bzw. ergaenzen.
 
-
 ## the-bates-burg.jpeg
 
 - Quelle: Foto von Burg aus `Temp_Daten/TheBates_Burg.jpeg`.

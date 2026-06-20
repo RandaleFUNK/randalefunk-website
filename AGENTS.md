@@ -365,6 +365,173 @@ Nicht nach Journalismus.
 
 Sondern nach Burg.
 
+---
+
+### Umlaute und deutsche Sonderzeichen
+
+Sichtbare deutsche Texte auf randalefunk.de werden mit echten deutschen Umlauten und ß geschrieben.
+
+Verwenden:
+
+* ä statt ae
+* ö statt oe
+* ü statt ue
+* Ä statt Ae
+* Ö statt Oe
+* Ü statt Ue
+* ß statt ss, wenn es orthografisch passt
+
+Diese Regel gilt besonders für:
+
+* Artikeltexte
+* Teaser
+* Navigation
+* Footer
+* Datenschutzerklärung
+* Ko-fi-Hinweise
+* Würfel-App-Texte
+* Social-Meta-Titel und Social-Meta-Beschreibungen
+
+Nicht automatisch ändern:
+
+* URLs
+* Dateinamen
+* Slugs
+* CSS-Klassen
+* IDs
+* JavaScript-Keys
+* technische Bezeichner
+* Asset-Pfade
+* Cache-Namen
+* Tracking-Events
+
+Bei Bandnamen, Songtiteln, Albumtiteln, Eigennamen und bewusst gewählten Schreibweisen nicht raten.
+
+Im Zweifel lieber unverändert lassen und kurz nachfragen.
+
+Wenn Artikel aus Markdown-Quellen oder anderen Vorlagen erzeugt werden, müssen die Umlaute in der Quelle korrigiert werden, nicht nur in der generierten HTML-Datei.
+
+Nach größeren Textänderungen `scripts/update_social_meta.py` ausführen, damit Open-Graph- und Twitter-Descriptions die korrekte Schreibweise übernehmen.
+
+---
+## Social-Media-Output (verbindlich)
+
+Zu jedem veröffentlichten Inhalt soll zusätzlich ein Social-Media-Teaser erzeugt werden.
+
+Dies gilt insbesondere für:
+
+* NEWS
+* REVIEWS
+* VORAB GEHÖRT
+* KOLUMNEN
+* INTERVIEWS
+
+Der Social-Media-Text soll für Facebook, Instagram, X, Threads und Bluesky gleichzeitig nutzbar sein.
+
+Es werden keine plattformspezifischen Varianten erstellt, sofern nicht ausdrücklich gewünscht.
+
+### Länge
+
+Der Social-Media-Text soll kurz genug sein, um auf allen üblichen Plattformen problemlos veröffentlicht werden zu können.
+
+Ziel:
+
+* ungefähr 300 bis 500 Zeichen
+* möglichst unter 600 Zeichen
+* einheitlicher Text für alle Plattformen
+
+Der Leser soll den Teaser schnell erfassen können.
+
+Der eigentliche Artikel befindet sich auf RandaleFUNK.de.
+
+### Aufbau
+
+1. Optionaler CLICKBAIT-Block
+2. Kurzer Teaser
+3. Link zum Artikel
+
+Beispiel:
+
+CLICKBAIT:
+Diese Band zerstört den Punkrock für immer.
+
+Eigentlich veröffentlichen sie nur eine neue Single. Trotzdem habe ich mir das Ding angehört und ein paar Gedanken dazu aufgeschrieben.
+
+➡️ randalefunk.de
+
+### Ziel
+
+Social Media ist nicht das Hauptprodukt.
+
+Social Media dient dazu:
+
+* Aufmerksamkeit zu erzeugen
+* Diskussionen anzustoßen
+* Leser auf RandaleFUNK.de zu bringen
+
+Artikel sollen deshalb grundsätzlich nicht vollständig auf Social Media veröffentlicht werden.
+
+Die Website bleibt die Hauptplattform.
+
+### Hashtags
+
+Hashtags sparsam verwenden.
+
+Bevorzugt:
+
+* 0 bis 5 Hashtags
+
+Keine Hashtag-Wolken.
+
+Hashtags sollen sinnvoll sein und zum Thema passen.
+
+### Stil
+
+Der Social-Media-Text darf lockerer, frecher und alberner sein als der eigentliche Artikel.
+
+Er darf neugierig machen.
+
+Er darf übertreiben.
+
+Er darf provozieren.
+
+Er darf aber nicht bewusst irreführend sein.
+
+### Social-Media-Clickbait-Regel (optional)
+
+RandaleFUNK darf Social-Media-Teaser bewusst als offensichtliche Clickbait-Parodie formulieren.
+
+Ziel ist nicht, Leser zu täuschen, sondern die Mechanismen klassischer Social-Media- und Boulevard-Überschriften humorvoll zu persiflieren.
+
+Regeln:
+
+* Das Wort "CLICKBAIT:" darf ausdrücklich verwendet werden.
+* Die Überschrift darf bewusst übertrieben, albern, dramatisch oder offensichtlich lächerlich formuliert sein.
+* Jeder Leser soll erkennen können, dass die Übertreibung nicht ernst gemeint ist.
+* Die eigentliche Artikelbeschreibung darunter bleibt ehrlich und informativ.
+* Kein irreführender Clickbait. Die Pointe besteht darin, dass der Clickbait als solcher kenntlich gemacht wird.
+* Die Überschrift darf selbstironisch, sarkastisch oder punktypisch frech sein.
+* Die Überschrift darf stärker übertreiben als der eigentliche Artikel.
+
+Beispiele:
+
+CLICKBAIT:
+Wie tief kann eine Punkband sinken?!
+
+CLICKBAIT:
+Diese Band zerstört den Punkrock für immer.
+
+CLICKBAIT:
+Veranstalter hassen diesen Trick.
+
+CLICKBAIT:
+Deutschland diskutiert über diesen Song. Wahrscheinlich nicht, aber man kann es versuchen.
+
+CLICKBAIT:
+Diese Platte ist jetzt so alt, dass beim Lesen mehrere Bands spontan Rückenschmerzen bekamen.
+
+Bei Facebook, Instagram und ähnlichen Plattformen darf diese Form bewusst eingesetzt werden, um Aufmerksamkeit zu erzeugen und gleichzeitig die üblichen Clickbait-Mechanismen auf die Schippe zu nehmen.
+
 
 ---
 

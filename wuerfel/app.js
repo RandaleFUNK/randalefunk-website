@@ -48,58 +48,58 @@ const els = {
 
 const quotes = {
   burgLoses: [
-    "Beschissene Wuerfel.",
+    "Beschissene Würfel.",
     "Das war manipuliert.",
-    "Ich fordere eine Nachzaehlung.",
-    "Das zaehlt nicht.",
+    "Ich fordere eine Nachzählung.",
+    "Das zählt nicht.",
     "Ich war abgelenkt.",
     "Ich hasse dieses Spiel.",
     "Das Bier ist schuld.",
-    "Die Wuerfel haben was gegen mich.",
-    "Das ist statistisch unmoeglich.",
+    "Die Würfel haben was gegen mich.",
+    "Das ist statistisch unmöglich.",
     "Ich protestiere offiziell.",
-    "Glueck. Mehr war das nicht.",
+    "Glück. Mehr war das nicht.",
     "Ich werde alt.",
-    "Frueher haette ich gewonnen.",
-    "Freu dich nicht zu frueh.",
-    "Warte ab, naechste Runde zerleg ich dich.",
+    "Früher hätte ich gewonnen.",
+    "Freu dich nicht zu früh.",
+    "Warte ab, nächste Runde zerleg ich dich.",
     "Du Pisser!",
     "Ok. Das war peinlich.",
     "Das bleibt unter uns.",
   ],
   playerLoses: [
     "Tja.",
-    "Anfaenger.",
+    "Anfänger.",
     "Das Glas leert sich nicht von allein.",
-    "Los. Nicht schuechtern.",
+    "Los. Nicht schüchtern.",
     "Prost Mahlzeit.",
     "Runter mit dem Abwasser.",
-    "Dafuer haette ich dir frueher Hausverbot gegeben.",
+    "Dafür hätte ich dir früher Hausverbot gegeben.",
     "Schwache Leistung.",
     "Ich hoffe, du bist nicht mit dem Auto da.",
     "Trink schneller, ich hab nicht ewig Zeit.",
-    "Du wuerfelst wie ein Praktikant.",
+    "Du würfelst wie ein Praktikant.",
     "Das war traurig anzusehen.",
-    "Das laeuft nicht gut fuer dich.",
+    "Das läuft nicht gut für dich.",
     "Direkt in die Leber damit.",
-    "Die Wuerfel kennen keine Gnade.",
+    "Die Würfel kennen keine Gnade.",
     "Ich rieche Angst.",
-    "Das Publikum ist enttaeuscht.",
+    "Das Publikum ist enttäuscht.",
   ],
   general: [
-    "Naechste Runde wird schlimmer.",
+    "Nächste Runde wird schlimmer.",
     "Irgendwann randaliert das hier noch.",
     "Das endet nie gut.",
     "Irgendwer bereut das morgen.",
-    "Noch laeuft alles legal.",
+    "Noch läuft alles legal.",
     "Gleich fliegt hier wieder irgendwas um.",
     "Absolut verantwortungslos.",
-    "So fangen Geschichten an, die man spaeter verschweigt.",
-    "Das ist paedagogisch fragwuerdig.",
-    "Ich spuere schon den Kater von morgen.",
+    "So fangen Geschichten an, die man später verschweigt.",
+    "Das ist pädagogisch fragwürdig.",
+    "Ich spüre schon den Kater von morgen.",
     "Das Spiel hasst uns beide.",
     "Willkommen im RandaleFUNK.",
-    "Niemand kommt hier nuechtern raus.",
+    "Niemand kommt hier nüchtern raus.",
   ],
   randale: [
     "RANDALE!",
@@ -188,7 +188,7 @@ function validateQuizQuestions(questions) {
   });
 
   if (validQuestions.length === 0) {
-    throw new Error("Quizdatei enthaelt keine gueltigen Fragen.");
+    throw new Error("Quizdatei enthält keine gültigen Fragen.");
   }
 
   return validQuestions;
@@ -294,7 +294,7 @@ function resetGame() {
   setDiceOverlayVisible(true);
   updatePlayerNameDisplays();
   setDice([0, 0], [0, 0]);
-  setResult("Bereit.", "Tippe auf Wuerfeln.");
+  setResult("Bereit.", "Tippe auf Würfeln.");
   setComment("Willkommen im RandaleFUNK.");
   updateStats();
   showScreen("game");
@@ -474,7 +474,7 @@ function openQuiz(reason) {
   els.rollButton.disabled = true;
   setResult("Punkquiz", `Pasch! Jetzt muss ${state.playerName} ran.`);
   setComment(randomItem(quotes.general));
-  addLog(`Runde ${state.roundCount}: Punkquiz fuer Spieler (${reason}).`);
+  addLog(`Runde ${state.roundCount}: Punkquiz für Spieler (${reason}).`);
   updateStats();
 }
 
@@ -503,7 +503,7 @@ function answerQuiz(answerIndex) {
   } else {
     state.playerQuizWrong += 1;
     drink("player", 1);
-    setResult("Punkquiz versemmelt", `Falsch. Richtig waere: ${correctAnswer.text}. ${state.playerName} trinkt 1 Schluck.`);
+    setResult("Punkquiz versemmelt", `Falsch. Richtig wäre: ${correctAnswer.text}. ${state.playerName} trinkt 1 Schluck.`);
     setComment(randomItem(quotes.playerLoses));
     addLog(`Quizantwort: falsch (${selectedAnswer.text}). Spieler trinkt 1.`);
   }
@@ -532,7 +532,7 @@ async function evaluateRound(playerRoll, burgRoll) {
   if (isRoll(playerRoll, 6) || isRoll(burgRoll, 6)) {
     state.roundCount += 1;
     startRandale();
-    setResult("RANDALE!", `${rollSummary(playerTotal, burgTotal)}. Beide trinken sofort 2 Schlucke. Die naechsten 3 gewerteten Runden zaehlen doppelt.`);
+    setResult("RANDALE!", `${rollSummary(playerTotal, burgTotal)}. Beide trinken sofort 2 Schlucke. Die nächsten 3 gewerteten Runden zählen doppelt.`);
     setComment(randomItem(quotes.randale));
     addLog(`Runde ${state.roundCount}: 6-6. RANDALE startet.`);
     updateStats();
@@ -720,7 +720,7 @@ async function rollRound() {
   setRolling(true);
   setDiceRolling(false);
   setDiceOverlayVisible(false);
-  setResult("Wuerfel rollen", "Burg guckt schon wieder komisch.");
+  setResult("Würfel rollen", "Burg guckt schon wieder komisch.");
 
   const videoPromise = playRollVideo();
   await delay(ROLL_DICE_START_DELAY_MS);
