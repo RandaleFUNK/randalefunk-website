@@ -106,6 +106,7 @@ function sendStatsEvent(eventType, detail = {}) {
 function attachPollHandlers(pollMount) {
   const form = pollMount.querySelector("[data-poll-form]");
   const resultsButton = pollMount.querySelector("[data-poll-results]");
+  const endpoint = pollMount.dataset.pollEndpoint || pollEndpoint;
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -117,7 +118,7 @@ function attachPollHandlers(pollMount) {
     }
 
     try {
-      const response = await fetch(pollEndpoint, {
+      const response = await fetch(endpoint, {
         method: "POST",
         body: new FormData(form),
         credentials: "same-origin"
@@ -141,7 +142,8 @@ function attachPollHandlers(pollMount) {
     resultsButton.disabled = true;
 
     try {
-      const response = await fetch(`${pollEndpoint}?action=results`, {
+      const separator = endpoint.includes("?") ? "&" : "?";
+      const response = await fetch(`${endpoint}${separator}action=results`, {
         credentials: "same-origin"
       });
 
@@ -155,6 +157,31 @@ function attachPollHandlers(pollMount) {
       resultsButton.disabled = false;
     }
   });
+}
+
+async function loadInlinePollWidgets() {
+  const pollMounts = document.querySelectorAll("[data-poll-mount][data-poll-endpoint]");
+
+  if (window.location.protocol === "file:") {
+    return;
+  }
+
+  for (const pollMount of pollMounts) {
+    try {
+      const response = await fetch(pollMount.dataset.pollEndpoint, {
+        credentials: "same-origin"
+      });
+
+      if (!response.ok) {
+        throw new Error("Inline poll widget failed");
+      }
+
+      pollMount.innerHTML = await response.text();
+      attachPollHandlers(pollMount);
+    } catch {
+      pollMount.remove();
+    }
+  }
 }
 
 async function loadPollWidget() {
@@ -311,6 +338,7 @@ document.addEventListener("click", (event) => {
 
 loadRandalfSprueche();
 loadPollWidget();
+loadInlinePollWidgets();
 
 function openAppModal() {
   if (!appModal || !appFrame) {

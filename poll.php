@@ -7,6 +7,7 @@ const RF_POLLS_TABLE = 'rf_polls';
 const RF_POLL_OPTIONS_TABLE = 'rf_poll_options';
 const RF_POLL_VOTES_TABLE = 'rf_poll_votes';
 const RF_POLL_COOKIE = 'rf_poll_token';
+const RF_DEFAULT_POLL_SLUG = 'weekly-origin';
 
 function rf_poll_escape(string $value): string
 {
@@ -48,14 +49,28 @@ function rf_poll_ensure_schema(PDO $pdo): void
     $pdo->exec(
         'CREATE TABLE IF NOT EXISTS ' . RF_POLLS_TABLE . ' (
             id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            slug VARCHAR(80) NULL,
             title VARCHAR(120) NOT NULL,
             question VARCHAR(255) NOT NULL,
             is_active TINYINT(1) NOT NULL DEFAULT 0,
             created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id),
+            UNIQUE KEY uniq_slug (slug),
             KEY idx_active (is_active, created_at)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
     );
+
+    $columns = $pdo->query('SHOW COLUMNS FROM ' . RF_POLLS_TABLE . " LIKE 'slug'")->fetchAll();
+
+    if (count($columns) === 0) {
+        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD COLUMN slug VARCHAR(80) NULL AFTER id');
+    }
+
+    $indexes = $pdo->query('SHOW INDEX FROM ' . RF_POLLS_TABLE . " WHERE Key_name = 'uniq_slug'")->fetchAll();
+
+    if (count($indexes) === 0) {
+        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD UNIQUE KEY uniq_slug (slug)');
+    }
 
     $pdo->exec(
         'CREATE TABLE IF NOT EXISTS ' . RF_POLL_OPTIONS_TABLE . ' (
@@ -90,33 +105,88 @@ function rf_poll_ensure_schema(PDO $pdo): void
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
     );
 
-    $pollCount = (int) $pdo->query('SELECT COUNT(*) FROM ' . RF_POLLS_TABLE)->fetchColumn();
+    rf_poll_seed($pdo, RF_DEFAULT_POLL_SLUG, 'Umfrage der Woche', 'Wie bist du auf RandaleFUNK aufmerksam geworden?', true, [
+        'Ueber die asozialen Medien',
+        'Durch die Empfehlung einer Band',
+        'Wo zur Hoelle bin ich hier?',
+        'Bier!',
+    ]);
+    rf_poll_seed($pdo, 'pennywise-keller-staub', 'Abstimmung', 'Pennywise im Keller oder im Staub?', false, [
+        'Bin vor Ort!',
+        'Ueberlege noch.',
+        'Ueberlege noch, aber nicht wegen Pennywise.',
+        'Haeh?!',
+    ]);
+}
 
-    if ($pollCount > 0) {
+function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
+{
+    $statement = $pdo->prepare(
+        'SELECT id
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE slug = :slug
+         LIMIT 1'
+    );
+    $statement->execute([':slug' => $slug]);
+    $pollId = (int) $statement->fetchColumn();
+
+    if ($pollId === 0 && $slug === RF_DEFAULT_POLL_SLUG) {
+        $fallback = $pdo->prepare(
+            'SELECT id
+             FROM ' . RF_POLLS_TABLE . '
+             WHERE question = :question
+             ORDER BY created_at DESC, id DESC
+             LIMIT 1'
+        );
+        $fallback->execute([':question' => $question]);
+        $pollId = (int) $fallback->fetchColumn();
+
+        if ($pollId > 0) {
+            $update = $pdo->prepare(
+                'UPDATE ' . RF_POLLS_TABLE . '
+                 SET slug = :slug, title = :title, is_active = :is_active
+                 WHERE id = :id'
+            );
+            $update->execute([
+                ':slug' => $slug,
+                ':title' => $title,
+                ':is_active' => $isActive ? 1 : 0,
+                ':id' => $pollId,
+            ]);
+        }
+    }
+
+    if ($pollId === 0) {
+        $insert = $pdo->prepare(
+            'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, is_active)
+             VALUES (:slug, :title, :question, :is_active)'
+        );
+        $insert->execute([
+            ':slug' => $slug,
+            ':title' => $title,
+            ':question' => $question,
+            ':is_active' => $isActive ? 1 : 0,
+        ]);
+        $pollId = (int) $pdo->lastInsertId();
+    }
+
+    $optionCount = $pdo->prepare(
+        'SELECT COUNT(*)
+         FROM ' . RF_POLL_OPTIONS_TABLE . '
+         WHERE poll_id = :poll_id'
+    );
+    $optionCount->execute([':poll_id' => $pollId]);
+
+    if ((int) $optionCount->fetchColumn() > 0) {
         return;
     }
 
-    $statement = $pdo->prepare(
-        'INSERT INTO ' . RF_POLLS_TABLE . ' (title, question, is_active)
-         VALUES (:title, :question, 1)'
-    );
-    $statement->execute([
-        ':title' => 'Umfrage der Woche',
-        ':question' => 'Wie bist du auf RandaleFUNK aufmerksam geworden?',
-    ]);
-
-    $pollId = (int) $pdo->lastInsertId();
     $optionStatement = $pdo->prepare(
         'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
          VALUES (:poll_id, :option_text, :sort_order)'
     );
 
-    foreach ([
-        'Über die asozialen Medien',
-        'Durch die Empfehlung einer Band',
-        'Wo zur Hölle bin ich hier?',
-        'Bier!',
-    ] as $index => $optionText) {
+    foreach ($options as $index => $optionText) {
         $optionStatement->execute([
             ':poll_id' => $pollId,
             ':option_text' => $optionText,
@@ -127,13 +197,32 @@ function rf_poll_ensure_schema(PDO $pdo): void
 
 function rf_poll_active(PDO $pdo): ?array
 {
-    $statement = $pdo->query(
-        'SELECT id, title, question
+    $statement = $pdo->prepare(
+        'SELECT id, slug, title, question
          FROM ' . RF_POLLS_TABLE . '
-         WHERE is_active = 1
+         WHERE slug = :slug AND is_active = 1
          ORDER BY created_at DESC, id DESC
          LIMIT 1'
     );
+    $statement->execute([':slug' => RF_DEFAULT_POLL_SLUG]);
+    $poll = $statement->fetch();
+
+    return is_array($poll) ? $poll : null;
+}
+
+function rf_poll_by_slug(PDO $pdo, string $slug): ?array
+{
+    if (preg_match('/^[a-z0-9-]{1,80}$/', $slug) !== 1) {
+        return null;
+    }
+
+    $statement = $pdo->prepare(
+        'SELECT id, slug, title, question
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE slug = :slug
+         LIMIT 1'
+    );
+    $statement->execute([':slug' => $slug]);
     $poll = $statement->fetch();
 
     return is_array($poll) ? $poll : null;
@@ -199,6 +288,8 @@ function rf_poll_record_vote(PDO $pdo, int $pollId, int $optionId): void
 function rf_poll_render(array $poll, array $options, bool $showResults, string $message = ''): string
 {
     $pollId = (int) $poll['id'];
+    $pollSlug = (string) ($poll['slug'] ?? '');
+    $pollAction = '/poll.php' . ($pollSlug !== '' ? '?poll=' . rawurlencode($pollSlug) : '');
     $totalVotes = array_reduce($options, static fn (int $sum, array $option): int => $sum + (int) $option['votes'], 0);
     $html = '<section class="poll-widget" aria-label="Umfrage der Woche">';
     $html .= '<p class="poll-widget__kicker">' . rf_poll_escape((string) $poll['title']) . '</p>';
@@ -223,7 +314,7 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
         $html .= '</div>';
         $html .= '<p class="poll-widget__total">' . $totalVotes . ' Stimme' . ($totalVotes === 1 ? '' : 'n') . '</p>';
     } else {
-        $html .= '<form class="poll-form" method="post" action="/poll.php" data-poll-form>';
+        $html .= '<form class="poll-form" method="post" action="' . rf_poll_escape($pollAction) . '" data-poll-form>';
         $html .= '<input type="hidden" name="action" value="vote">';
         $html .= '<input type="hidden" name="poll_id" value="' . $pollId . '">';
 
@@ -255,7 +346,8 @@ if (!rf_stats_is_configured()) {
 try {
     $pdo = rf_stats_pdo();
     rf_poll_ensure_schema($pdo);
-    $poll = rf_poll_active($pdo);
+    $requestedPoll = (string) ($_GET['poll'] ?? '');
+    $poll = $requestedPoll !== '' ? rf_poll_by_slug($pdo, $requestedPoll) : rf_poll_active($pdo);
 
     if ($poll === null) {
         echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Gerade keine Umfrage aktiv.</h2></section>';

@@ -205,6 +205,11 @@ a {
   border-top: 2px solid var(--border);
 }
 
+.poll-mount--ticker {
+  max-width: 520px;
+  margin-top: 16px;
+}
+
 .poll-widget {
   padding: 10px;
   border: 2px solid var(--border);

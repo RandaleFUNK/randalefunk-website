@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## pennywise-hellfest-2026.jpg
+
+- Quelle: offizielle Hellfest-Kuenstlerseite zu Pennywise.
+- Quellseite: https://hellfest.fr/en/artist/pennywise-1
+- Originalbild: https://hellfest-bucket.fra1.digitaloceanspaces.com/xlarge_Pennywise_03b9f44e5f.jpg
+- Verwendung: News zum Pennywise-Auftritt beim Hellfest 2026 und moeglichem Livestream-Kontext.
+- Hinweis: Redaktionelle Verwendung als offizielles Festival-/Kuenstlerseitenbild im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden. ARTE wird in der News nur schriftlich als auf der Hellfest-Seite sichtbarer Concert-Partner erwaehnt; es wurde kein ARTE-Bildmaterial uebernommen.
+
 ## serum-114-wir-machen-zwei-kreuze-eventim.jpg
 
 - Quelle: offizielle Eventim-Kuenstler-/Tourseite zu Serum 114.
