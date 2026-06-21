@@ -75,3 +75,15 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf in Boxershorts, verschwitztem Unterhemd und Boxhandschuhen wirft eine linke Gerade.
 - Verwendung: Preview-Sticker zur Review `SICK OF SOCIETY - Sabotage` und Stickerarchiv `randalf/index.html`.
+
+## randalf-pleite-taschen-sticker.webp
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf zieht die leeren Hosentaschen nach außen, zuckt mit den Schultern und wirkt pleite.
+- Verwendung: Einstiegs-Sticker auf `warum-unterstuetzen.html`.
+
+## randalf-prost-danke-sticker.webp
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf streckt dankend eine Bierflasche zum Anstoßen aus.
+- Verwendung: Abschluss-Sticker auf `warum-unterstuetzen.html`.

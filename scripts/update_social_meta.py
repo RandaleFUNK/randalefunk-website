@@ -9,7 +9,7 @@ from urllib.parse import unquote, urljoin, urlparse
 
 SITE_URL = "https://randalefunk.de/"
 SITE_NAME = "RandaleFUNK.de"
-DEFAULT_IMAGE = "assets/randalefunk-logo.png"
+DEFAULT_IMAGE = "/assets/randalefunk-logo.png"
 SOCIAL_IMAGE_DIR = "assets/social"
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -55,6 +55,7 @@ def find_description(document: str) -> str:
 def is_content_image(src: str) -> bool:
     ignored = (
         "assets/favicon/",
+        "assets/support/",
         "randalefunk-logo",
         "randalf-head",
         "bg-paper",

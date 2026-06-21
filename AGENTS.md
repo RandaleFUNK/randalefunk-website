@@ -699,9 +699,29 @@ Der Leser muss erkennen, dass der Verriss humorvoll und bewusst übertrieben gem
 
 ## Ko-fi Hinweis
 
-Unter jedem Vorab-gehört-Beitrag darf ein dezenter Hinweis erscheinen:
+Unter jedem Vorab-gehört-, Review- und Kolumnen-Beitrag soll ein Ko-fi-CTA erscheinen.
 
-"Dir gefällt die Arbeit vom RandaleFUNK? Dann unterstütze das Projekt gerne mit einer freiwilligen Spende über Ko-fi."
+Aktueller Standardtext:
+
+"Wenn dir der Artikel gefallen hat"
+
+Der Buttontext lautet:
+
+"BIER FÜR BURG"
+
+Der Button führt auf:
+
+`https://ko-fi.com/randalefunk`
+
+Gestaltungsregeln:
+
+* Button über die Klasse `support-cta-button` verwenden.
+* CTA-Container über die Klasse `support-cta` verwenden.
+* Als Schrift für den Button `ZP Sidestep` verwenden.
+* Als Button-Hintergrund das reduzierte Asset `assets/support/panzatape-button.webp` verwenden.
+* Das Ko-fi-Logo im Button über `assets/support/kofi-logo.png` einbinden.
+* Keine eckigen Klammern um den Buttontext schreiben.
+* Der CTA steht am Ende des Artikels vor der Zurück-/Rubriknavigation.
 
 Die Spende ist freiwillig.
 
