@@ -42,3 +42,15 @@
 - Quelle: Pressematerial von EXAT / Rockzone Records.
 - Ursprung: `Temp_Daten/EXAT_Single_Promo_Kit_extracted/Bandfoto EXAT Durst nach Freiheit.jpg`.
 - Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `EXAT - Durst nach Freiheit Unplugged`.
+
+## makabar-hinlaenglich-bekannt-cover.jpg
+
+- Quelle: Pressematerial von MakaBar.
+- Ursprung: `Temp_Daten/MakaBar/Cover Hinlänglich bekannt.jpg`.
+- Verwendung: Vorab-gehoert-Beitrag `MakaBar - Hinlaenglich bekannt`.
+
+## makabar-pressefoto-1.jpg
+
+- Quelle: Pressematerial von MakaBar.
+- Ursprung: `Temp_Daten/MakaBar/Pressefoto MakaBar 1.jpg`.
+- Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `MakaBar - Hinlaenglich bekannt`.
