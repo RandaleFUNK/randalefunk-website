@@ -73,6 +73,7 @@ jobs:
           cp site.webmanifest deploy/
 
           if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
+          if [ -f warum-unterstuetzen.html ]; then cp warum-unterstuetzen.html deploy/; fi
 
           cp -R assets deploy/
           cp -R data deploy/
