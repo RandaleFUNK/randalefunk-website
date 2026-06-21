@@ -1279,6 +1279,25 @@ body.is-app-modal-open {
   box-shadow: 4px 4px 0 var(--black);
 }
 
+.column-note {
+  max-width: 72ch;
+  margin: -8px 0 16px;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.article-source-note {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-left: 5px solid var(--active-accent);
+  background: rgb(5 5 5 / 0.5);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
 .review-media {
   max-width: 760px;
   margin: 0 0 22px;
