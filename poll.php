@@ -7,7 +7,7 @@ const RF_POLLS_TABLE = 'rf_polls';
 const RF_POLL_OPTIONS_TABLE = 'rf_poll_options';
 const RF_POLL_VOTES_TABLE = 'rf_poll_votes';
 const RF_POLL_COOKIE = 'rf_poll_token';
-const RF_DEFAULT_POLL_SLUG = 'weekly-origin';
+const RF_DEFAULT_POLL_SLUG = 'weekly-festivals-june-2026';
 
 function rf_poll_escape(string $value): string
 {
@@ -105,11 +105,12 @@ function rf_poll_ensure_schema(PDO $pdo): void
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
     );
 
-    rf_poll_seed($pdo, RF_DEFAULT_POLL_SLUG, 'Umfrage der Woche', 'Wie bist du auf RandaleFUNK aufmerksam geworden?', true, [
-        'Ueber die asozialen Medien',
-        'Durch die Empfehlung einer Band',
-        'Wo zur Hoelle bin ich hier?',
-        'Bier!',
+    rf_poll_seed($pdo, RF_DEFAULT_POLL_SLUG, 'Umfrage der Woche', 'Welches Festival hast du am Wochenende besucht?', true, [
+        'Hellfest',
+        'Hurricane / Southside',
+        'Pinkpop',
+        'Keines davon',
+        'Verstehe nur Bier',
     ]);
     rf_poll_seed($pdo, 'pennywise-keller-staub', 'Abstimmung', 'Pennywise im Keller oder im Staub?', false, [
         'Bin vor Ort!',
@@ -168,6 +169,15 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
             ':is_active' => $isActive ? 1 : 0,
         ]);
         $pollId = (int) $pdo->lastInsertId();
+    }
+
+    if ($isActive) {
+        $deactivate = $pdo->prepare(
+            'UPDATE ' . RF_POLLS_TABLE . '
+             SET is_active = 0
+             WHERE id <> :id'
+        );
+        $deactivate->execute([':id' => $pollId]);
     }
 
     $optionCount = $pdo->prepare(

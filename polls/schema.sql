@@ -1,10 +1,12 @@
 CREATE TABLE IF NOT EXISTS rf_polls (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  slug VARCHAR(80) NULL,
   title VARCHAR(120) NOT NULL,
   question VARCHAR(255) NOT NULL,
   is_active TINYINT(1) NOT NULL DEFAULT 0,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
+  UNIQUE KEY uniq_slug (slug),
   KEY idx_active (is_active, created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -37,13 +39,14 @@ CREATE TABLE IF NOT EXISTS rf_poll_votes (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO rf_polls (title, question, is_active)
-VALUES ('Umfrage der Woche', 'Wie bist du auf RandaleFUNK aufmerksam geworden?', 1);
+INSERT INTO rf_polls (slug, title, question, is_active)
+VALUES ('weekly-festivals-june-2026', 'Umfrage der Woche', 'Welches Festival hast du am Wochenende besucht?', 1);
 
 SET @poll_id = LAST_INSERT_ID();
 
 INSERT INTO rf_poll_options (poll_id, option_text, sort_order) VALUES
-(@poll_id, 'Über die asozialen Medien', 1),
-(@poll_id, 'Durch die Empfehlung einer Band', 2),
-(@poll_id, 'Wo zur Hölle bin ich hier?', 3),
-(@poll_id, 'Bier!', 4);
+(@poll_id, 'Hellfest', 1),
+(@poll_id, 'Hurricane / Southside', 2),
+(@poll_id, 'Pinkpop', 3),
+(@poll_id, 'Keines davon', 4),
+(@poll_id, 'Verstehe nur Bier', 5);
