@@ -1,5 +1,11 @@
 # News-Bildquellen
 
+## dan-ganove-schockromantik-wrestling.jpg
+
+- Quelle: RandaleFUNK-Grafik aus `Temp_Daten/Wrestling_DanShock.png`, von Burg bereitgestellt.
+- Verwendung: News zum laufenden Dan-Ganove-/Schockromantik-Schlagabtausch.
+- Hinweis: Eigene redaktionelle Grafik; fuer die Website auf 1200px Breite verkleinert und als JPG optimiert.
+
 ## pennywise-hellfest-2026.jpg
 
 - Quelle: offizielle Hellfest-Kuenstlerseite zu Pennywise.
