@@ -76,6 +76,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf in Boxershorts, verschwitztem Unterhemd und Boxhandschuhen wirft eine linke Gerade.
 - Verwendung: Preview-Sticker zur Review `SICK OF SOCIETY - Sabotage` und Stickerarchiv `randalf/index.html`.
 
+## randalf-alarmsignal-fresse-auf-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf schreit mit weit aufgerissener Fresse, geballter Faust und `ALARMSIGNAL`-Shirt.
+- Verwendung: Preview-Sticker zur Review `ALARMSIGNAL - Fresse auf!` und Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.

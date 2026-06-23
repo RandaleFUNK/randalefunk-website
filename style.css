@@ -1264,6 +1264,15 @@ body.is-app-modal-open {
   text-transform: uppercase;
 }
 
+.review-article h3 {
+  margin: 22px 0 8px;
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.04rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .column-article h2 {
   display: inline-block;
   margin: 30px 0 12px;
@@ -1405,6 +1414,25 @@ body.is-app-modal-open {
   max-width: none;
   font-size: 0.94rem;
   line-height: 1.35;
+}
+
+.review-small-print {
+  max-width: 72ch;
+  margin: 34px 0 0;
+  padding: 13px 14px;
+  border-left: 5px solid var(--active-accent);
+  background: rgb(5 5 5 / 0.46);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.review-small-print p,
+.review-small-print li {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.review-small-print ul {
+  margin-top: 8px;
 }
 
 .vorab-release-note,
