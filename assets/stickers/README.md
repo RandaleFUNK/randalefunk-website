@@ -82,6 +82,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf schreit mit weit aufgerissener Fresse, geballter Faust und `ALARMSIGNAL`-Shirt.
 - Verwendung: Preview-Sticker zur Review `ALARMSIGNAL - Fresse auf!` und Stickerarchiv `randalf/index.html`.
 
+## randalf-ronny-platte-dagegen-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf haelt ein Sahne-Fischfilet und eine schwarze Schallplatte und weiss nicht, wo er reinbeissen soll.
+- Verwendung: Preview-Sticker zur Review `RONNY PLATTE - Dagegen` und Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
