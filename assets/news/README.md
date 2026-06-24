@@ -1,5 +1,11 @@
 # News-Bildquellen
 
+## punk-rock-meuterei-2026-flyer.jpg
+
+- Quelle: freigegebener Flyer aus `Temp_Daten/meutereiflyer.jpg`, von Burg bereitgestellt.
+- Verwendung: News zur Punk-Rock-Meuterei 2026 im Forum Neustadt.
+- Hinweis: Verwendung im direkten Veranstaltungskontext.
+
 ## dan-ganove-schockromantik-wrestling.jpg
 
 - Quelle: RandaleFUNK-Grafik aus `Temp_Daten/Wrestling_DanShock.png`, von Burg bereitgestellt.
