@@ -93,3 +93,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf streckt dankend eine Bierflasche zum Anstoßen aus.
 - Verwendung: Abschluss-Sticker auf `warum-unterstuetzen.html`.
+
+## randalf-feelgood-mclouds-here-we-go-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Piratenhut, Banjo und Bierglas in Celtic-Punk-/Pub-Laune.
+- Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `The Feelgood McLouds - Here We Go` und Stickerarchiv `randalf/index.html`.

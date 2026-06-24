@@ -54,3 +54,9 @@
 - Quelle: Pressematerial von MakaBar.
 - Ursprung: `Temp_Daten/MakaBar/Pressefoto MakaBar 1.jpg`.
 - Verwendung: Reserve-/Pressebild zum Vorab-gehoert-Beitrag `MakaBar - Hinlaenglich bekannt`.
+
+## feelgood-mclouds-here-we-go-cover.jpg
+
+- Quelle: Pressematerial von The Feelgood McLouds / JO!PR, von Burg bereitgestellt.
+- Ursprung: `Temp_Daten/feelgood.jpg`.
+- Verwendung: Vorab-gehoert-Beitrag `The Feelgood McLouds - Here We Go`.
