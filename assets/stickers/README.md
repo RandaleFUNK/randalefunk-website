@@ -94,6 +94,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf in Babywindel holt mit einem Baseballschlaeger aus.
 - Verwendung: Preview-Sticker zur Review `UNPLUGGED SYSTEM - Absolut kein Punk` und Stickerarchiv `randalf/index.html`.
 
+## randalf-dysraised-skate-or-die-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; traeumerisch gluecklicher Randalf auf Skateboard mit `SKATE OR DIE!`-Shirt.
+- Verwendung: Review-Bild und Preview-Sticker zur Review `DYSRAISED - Never Change a Failing System` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
