@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## h2o-h2o-cover.jpg
+
+- Quelle: Wikimedia/Wikipedia-Datei zum Albumcover von H2O `H2O`.
+- Quellseite: https://en.wikipedia.org/wiki/H2O_(H2O_album)
+- Originalbild: https://upload.wikimedia.org/wikipedia/en/6/6f/H2O_%28H2O_album%29.jpg
+- Verwendung: News zum 30. Geburtstag des selbstbetitelten H2O-Debuetalbums.
+- Hinweis: Redaktionelle Verwendung als Albumcover im direkten Kontext der Meldung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## punk-rock-meuterei-2026-flyer.jpg
 
 - Quelle: freigegebener Flyer aus `Temp_Daten/meutereiflyer.jpg`, von Burg bereitgestellt.
