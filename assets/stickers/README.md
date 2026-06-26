@@ -100,6 +100,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; traeumerisch gluecklicher Randalf auf Skateboard mit `SKATE OR DIE!`-Shirt.
 - Verwendung: Review-Bild und Preview-Sticker zur Review `DYSRAISED - Never Change a Failing System` sowie Stickerarchiv `randalf/index.html`.
 
+## randalf-ein-punk-band-letzter-versuch-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf spielt Akustikgitarre, schliesst die Augen und jault nach oben.
+- Verwendung: Review-Bild, Artikelsticker und Preview-Sticker zur Review `EIN PUNK BAND - Letzter Versuch` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
