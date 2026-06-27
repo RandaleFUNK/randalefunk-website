@@ -112,6 +112,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf als Jeanne d'Arc mit Ruestung und Schwert auf einem Pferd.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `FARIN URLAUB - Sie` sowie Stickerarchiv `randalf/index.html`.
 
+## randalf-massenkarambolage-kauf-das-jetzt-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf schreit offensichtlich schraeg in ein Mikrofon, angelehnt an den rauen Massenkarambolage-Logo-Vibe.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `MASSENKARAMBOLAGE - Kauf das jetzt!` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
