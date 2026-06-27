@@ -341,6 +341,85 @@ RandaleFUNK berichtet nicht neutral über Szeneereignisse.
 
 RandaleFUNK reagiert auf Szeneereignisse.
 
+#### RandaleFUNK NEWS-DNA
+
+RandaleFUNK-News sind keine klassischen Nachrichtenartikel.
+
+RandaleFUNK sitzt mit einem Bier mitten in der Szene und erzaehlt hinterher, was passiert ist.
+
+Die Pressemitteilung erzaehlt, was passiert ist.
+
+RandaleFUNK erzaehlt, warum es Spass macht, darueber zu reden.
+
+Die eigentliche Meldung ist nur der Aufhaenger.
+
+Jede News soll mindestens einen zweiten Gedanken enthalten:
+
+* Warum interessiert uns das?
+* Was macht die Meldung lustig, absurd, wichtig oder sympathisch?
+* Gibt es eine persoenliche Verbindung?
+* Gibt es einen Szene-Kontext?
+* Gibt es einen kleinen Seitenhieb?
+* Gibt es einen DIY-Aspekt?
+
+Typischer Aufbau:
+
+1. Die eigentliche Meldung: kurz, klar, verstaendlich, wer, was, wann, wo.
+2. Burg-Perspektive: warum faellt das auf, warum landet es bei RandaleFUNK?
+3. Kurzer Abschweifer: Kneipenbild, Proberaumvergleich, Festivalchaos, absurde Uebertreibung oder Running Gag.
+4. Zurueck zur Meldung: relevante Fakten, Termine, Links, Bands, Veroeffentlichungen.
+5. Schluss mit Wiedererkennungswert: kein PR-Satz, sondern lieber ein Burg-Satz.
+
+Moegliche Schluesse:
+
+* "Wir beobachten das."
+* "Koennte laut werden."
+* "Vielleicht sieht man sich davor mit einem Bier."
+* "Irgendjemand muss den Wahnsinn schliesslich organisieren."
+* "Prost."
+
+Meinung ist in News erlaubt, aber sie wuerzt nur.
+
+Richtwert:
+
+* 70 bis 80 Prozent Meldung und Fakten
+* 20 bis 30 Prozent Burg-Kommentar
+
+Wenn Meinung, Haltung oder Grundsatzdebatte die Meldung uebernehmen, ist der Text wahrscheinlich eher eine Kolumne.
+
+Lesbarkeit bleibt Pflicht.
+
+Der Ton darf muendlich, rau und unglatt sein.
+
+Persoenlichkeit ist wichtiger als sterile Redaktionssprache.
+
+RandaleFUNK-News sind Punkrock-Stammtisch in Schriftform:
+
+kurz, frech, persoenlich, nuetzlich, mit Haltung, aber nicht langweilig.
+
+Merksatz:
+
+Kann Burg das so am Tresen erzaehlen?
+
+Wenn nein: weniger journalistisch, weniger PR, weniger glattgebuegelt.
+
+Wenn ja: vermutlich richtig.
+
+#### Vier-Gehirne-Workflow fuer News
+
+Wenn Burg sagt "schreib mal", "News schreiben zu" oder sinngemaess eine neue News anstoesst, Codex aktiv an diesen Workflow erinnern:
+
+Vier Gehirne schreiben einen Text.
+
+* Die Band liefert die Fakten.
+* Burg liefert den Burg: Haltung, persoenliche Verbindung, Szenegefuehl und Bauchreaktion.
+* ChatGPT liefert die Dramaturgie: Aufbau, Spannungsbogen, Pointe, Rueckkehr zur Meldung.
+* Codex liefert den Feinschliff: Faktencheck, Quellen, Bildpruefung, Website-Format, Links, Sortierung und saubere Einbindung.
+
+Der Workflow ist kein starres Formular.
+
+Er soll verhindern, dass News wie Pressemitteilungen klingen.
+
 ---
 
 ### Sprache

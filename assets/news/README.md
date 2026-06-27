@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## exat-durst-nach-freiheit-video.jpg
+
+- Quelle: bereitgestelltes EXAT-/Rock-Zone-Records-Motiv aus `Temp_Daten/exat_pic.jpg`.
+- Bearbeitung: fuer die News auf Band/Logo/Titel zugeschnitten; Premiere-/Uhrzeit-/YouTube-Hinweise entfernt, weil das Video bereits erschienen ist.
+- Verwendung: News zum erschienenen Musikvideo `Durst nach Freiheit (Unplugged)` von EXAT.
+- Hinweis: Redaktionelle Verwendung im direkten Kontext der Video-News; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## h2o-h2o-cover.jpg
 
 - Quelle: Wikimedia/Wikipedia-Datei zum Albumcover von H2O `H2O`.
