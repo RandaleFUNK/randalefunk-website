@@ -1307,6 +1307,49 @@ body.is-app-modal-open {
   box-shadow: 5px 5px 0 var(--black);
 }
 
+.article-audio {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 0 24px;
+  padding: 14px;
+  border-left: 6px solid var(--active-accent);
+  background:
+    linear-gradient(rgb(5 5 5 / 0.72), rgb(5 5 5 / 0.84)),
+    url("assets/bg-paper-strip.webp") center / cover no-repeat;
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.article-audio__label,
+.article-audio__note {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.article-audio__label {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 3px 8px;
+  background: var(--active-accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-audio__note {
+  color: var(--paper);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.article-audio audio {
+  width: 100%;
+  max-width: 100%;
+}
+
 .review-media {
   max-width: 760px;
   margin: 0 0 22px;

@@ -17,3 +17,8 @@
 - Quelle: Bild von Burg bereitgestellt (`Temp_Daten/Schland_Recke.png`).
 - Verwendung: Kolumne `Was passiert, wenn ein Punk-Slogan seine Szene verlässt?`.
 - Kontext: Symbolbild zum Streit um `Deutschland verrecke` und Punk-Parolen außerhalb ihrer Szene.
+
+## audio/punk-slogan-verlaesst-seine-szene.mp3
+
+- Quelle: Audio von Burg bereitgestellt.
+- Verwendung: Vorlese-Version zur Kolumne `Was passiert, wenn ein Punk-Slogan seine Szene verlässt?`.
