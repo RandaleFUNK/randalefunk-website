@@ -7,7 +7,7 @@ const RF_POLLS_TABLE = 'rf_polls';
 const RF_POLL_OPTIONS_TABLE = 'rf_poll_options';
 const RF_POLL_VOTES_TABLE = 'rf_poll_votes';
 const RF_POLL_COOKIE = 'rf_poll_token';
-const RF_DEFAULT_POLL_SLUG = 'weekly-festivals-june-2026';
+const RF_DEFAULT_POLL_SLUG = 'weekly-what-do-you-buy-june-2026';
 
 function rf_poll_escape(string $value): string
 {
@@ -105,12 +105,11 @@ function rf_poll_ensure_schema(PDO $pdo): void
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
     );
 
-    rf_poll_seed($pdo, RF_DEFAULT_POLL_SLUG, 'Umfrage der Woche', 'Welches Festival hast du am Wochenende besucht?', true, [
-        'Hellfest',
-        'Hurricane / Southside',
-        'Pinkpop',
-        'Keines davon',
-        'Verstehe nur Bier',
+    rf_poll_seed($pdo, RF_DEFAULT_POLL_SLUG, 'Umfrage der Woche', 'Was kaufst du?', true, [
+        'Vinyl',
+        'CD',
+        'Digital',
+        'Bier!',
     ]);
     rf_poll_seed($pdo, 'pennywise-keller-staub', 'Abstimmung', 'Pennywise im Keller oder im Staub?', false, [
         'Bin vor Ort!',

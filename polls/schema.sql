@@ -40,13 +40,12 @@ CREATE TABLE IF NOT EXISTS rf_poll_votes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO rf_polls (slug, title, question, is_active)
-VALUES ('weekly-festivals-june-2026', 'Umfrage der Woche', 'Welches Festival hast du am Wochenende besucht?', 1);
+VALUES ('weekly-what-do-you-buy-june-2026', 'Umfrage der Woche', 'Was kaufst du?', 1);
 
 SET @poll_id = LAST_INSERT_ID();
 
 INSERT INTO rf_poll_options (poll_id, option_text, sort_order) VALUES
-(@poll_id, 'Hellfest', 1),
-(@poll_id, 'Hurricane / Southside', 2),
-(@poll_id, 'Pinkpop', 3),
-(@poll_id, 'Keines davon', 4),
-(@poll_id, 'Verstehe nur Bier', 5);
+(@poll_id, 'Vinyl', 1),
+(@poll_id, 'CD', 2),
+(@poll_id, 'Digital', 3),
+(@poll_id, 'Bier!', 4);
