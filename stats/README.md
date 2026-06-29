@@ -43,3 +43,13 @@ Das Dashboard liegt unter:
 `/stats/`
 
 Es wird nicht in der Navigation verlinkt.
+
+Ausgewertet werden unter anderem:
+
+- Seitenaufrufe
+- Besucher als tägliche Hashes
+- Ko-fi-Klicks
+- Ko-fi-Klickende als grobe Tageshash-Zählung
+- Klicks auf `Warum unterstützen?`
+- Klickende auf `Warum unterstützen?` als grobe Tageshash-Zählung
+- Würfel-App-Klicks

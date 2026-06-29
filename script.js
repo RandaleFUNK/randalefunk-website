@@ -443,6 +443,15 @@ document.querySelectorAll('a[href*="ko-fi.com/randalefunk"]').forEach((link) => 
   });
 });
 
+document.querySelectorAll('a[href$="warum-unterstuetzen.html"], a[href*="/warum-unterstuetzen.html"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    sendStatsEvent("support_click", {
+      path: "/warum-unterstuetzen.html",
+      section: "sonstiges"
+    });
+  });
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && appModal && !appModal.hidden) {
     closeAppModal();

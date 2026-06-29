@@ -103,7 +103,7 @@ function rf_stats_section_from_path(string $path): string
 
 function rf_stats_clean_event_type(string $eventType): string
 {
-    $allowedTypes = ['pageview', 'kofi_click', 'wuerfel_click'];
+    $allowedTypes = ['pageview', 'kofi_click', 'support_click', 'wuerfel_click'];
 
     return in_array($eventType, $allowedTypes, true) ? $eventType : 'pageview';
 }
@@ -212,6 +212,18 @@ function rf_stats_dashboard_data(PDO $pdo): array
         'kofi_clicks' => rf_stats_scalar(
             $pdo,
             'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "kofi_click"'
+        ),
+        'kofi_clickers_total' => rf_stats_scalar(
+            $pdo,
+            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "kofi_click"'
+        ),
+        'support_clicks' => rf_stats_scalar(
+            $pdo,
+            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "support_click"'
+        ),
+        'support_clickers_total' => rf_stats_scalar(
+            $pdo,
+            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "support_click"'
         ),
         'wuerfel_clicks' => rf_stats_scalar(
             $pdo,

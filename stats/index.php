@@ -12,6 +12,9 @@ $data = [
     'visitors_total' => 0,
     'pageviews_total' => 0,
     'kofi_clicks' => 0,
+    'kofi_clickers_total' => 0,
+    'support_clicks' => 0,
+    'support_clickers_total' => 0,
     'wuerfel_clicks' => 0,
     'top_pages' => [],
     'top_sections' => [],
@@ -234,6 +237,18 @@ function e(string $value): string
         <article class="stat-card">
           <span>Ko-fi-Klicks</span>
           <strong><?= (int) $data['kofi_clicks'] ?></strong>
+        </article>
+        <article class="stat-card">
+          <span>Ko-fi-Klickende</span>
+          <strong><?= (int) $data['kofi_clickers_total'] ?></strong>
+        </article>
+        <article class="stat-card">
+          <span>Warum unterstützen?</span>
+          <strong><?= (int) $data['support_clicks'] ?></strong>
+        </article>
+        <article class="stat-card">
+          <span>Warum-Klickende</span>
+          <strong><?= (int) $data['support_clickers_total'] ?></strong>
         </article>
         <article class="stat-card">
           <span>Wuerfel-App-Klicks</span>
