@@ -154,6 +154,10 @@ a {
   border-bottom: 2px solid var(--border);
 }
 
+.mobile-menu-toggle {
+  display: none;
+}
+
 .nav-label,
 .issue-label,
 .link-block h2 {
@@ -1845,20 +1849,55 @@ body[data-active-section="kolumnen"] {
     grid-template-columns: 1fr;
   }
 
+  .mobile-menu-toggle {
+    display: block;
+    order: 1;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 2px solid var(--active-accent);
+    border-radius: 0;
+    background:
+      linear-gradient(rgb(5 5 5 / 0.72), rgb(5 5 5 / 0.82)),
+      url("assets/bg-paper-strip.webp") center / cover no-repeat;
+    color: var(--paper);
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.055em;
+    line-height: 1.25;
+    text-align: left;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .mobile-menu-toggle:hover,
+  .mobile-menu-toggle:focus-visible {
+    background: var(--active-accent);
+    color: #fff;
+    outline: 0;
+  }
+
   .section-nav {
     position: static;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
-    order: 1;
-  }
-
-  .side-links {
     order: 2;
   }
 
-  .issue-board {
+  .side-links {
     order: 3;
+  }
+
+  .magazine-shell.has-mobile-menu:not(.is-mobile-menu-open) .section-nav,
+  .magazine-shell.has-mobile-menu:not(.is-mobile-menu-open) .side-links {
+    display: none;
+  }
+
+  .issue-board {
+    order: 4;
   }
 
   .nav-label,

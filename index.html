@@ -40,7 +40,11 @@
     </header>
 
     <main class="magazine-shell">
-      <nav class="section-nav" aria-label="Rubriken">
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-section-nav site-side-links" data-mobile-menu-toggle>
+        ☰ Menü / Wegweiser
+      </button>
+
+      <nav class="section-nav" id="site-section-nav" aria-label="Rubriken">
         <p class="nav-label">Rubriken</p>
         <button class="section-link is-active" type="button" data-section="news">News</button>
         <button class="section-link" type="button" data-section="vorab">Vorab gehört</button>
@@ -685,7 +689,7 @@
         </article>
       </section>
 
-      <aside class="side-links" aria-label="Wegweiser und externe Links">
+      <aside class="side-links" id="site-side-links" aria-label="Wegweiser und externe Links">
         <section class="link-block">
           <h2>Folge dem Krach</h2>
           <a href="https://www.youtube.com/@randalefunk" target="_blank" rel="noopener noreferrer">YouTube</a>

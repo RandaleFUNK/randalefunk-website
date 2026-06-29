@@ -1,5 +1,7 @@
 const yearElement = document.querySelector("#current-year");
 const randalfTextElement = document.querySelector("[data-randalf-spruch]");
+const magazineShell = document.querySelector(".magazine-shell");
+const mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
 
 if (yearElement) {
   yearElement.textContent = String(new Date().getFullYear());
@@ -38,6 +40,24 @@ const fallbackRandalfSprueche = [
 ];
 let randalfSprueche = [...fallbackRandalfSprueche];
 let lastRandalfSpruch = randalfTextElement?.textContent.trim() || "";
+
+if (magazineShell && mobileMenuToggle) {
+  magazineShell.classList.add("has-mobile-menu");
+
+  mobileMenuToggle.addEventListener("click", () => {
+    const isOpen = magazineShell.classList.toggle("is-mobile-menu-open");
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  sectionLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 720px)").matches) {
+        magazineShell.classList.remove("is-mobile-menu-open");
+        mobileMenuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+}
 
 function getStatsPath(section = "") {
   const path = `${window.location.pathname}${window.location.hash}`;
