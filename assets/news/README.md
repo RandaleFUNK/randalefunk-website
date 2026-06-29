@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## shane-macgowan-20th-century-paddy-cover.jpg
+
+- Quelle: The Guardian, Artikel zum Tribute-Album `20th Century Paddy - The Songs of Shane MacGowan`.
+- Quellseite: https://www.theguardian.com/music/2026/mar/12/bruce-springsteen-kate-moss-and-johnny-depp-to-appear-on-all-star-shane-macgowan-tribute-album
+- Originalbild: https://i.guim.co.uk/img/media/b2549f238da485a07a98bdaab0b759de22255eca/0_800_4000_3200/master/4000.jpg
+- Verwendung: News zum Shane-MacGowan-Tribute-Album und zur Dropkick-Murphys-Version von `The Body of an American`.
+- Hinweis: Guardian-Caption nennt das Motiv Cover-Art zu `20th Century Paddy` mit Credit `PR`. Redaktionelle Verwendung im direkten Albumkontext; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## exat-durst-nach-freiheit-video.jpg
 
 - Quelle: bereitgestelltes EXAT-/Rock-Zone-Records-Motiv aus `Temp_Daten/exat_pic.jpg`.
