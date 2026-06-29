@@ -42,7 +42,23 @@ let randalfSprueche = [...fallbackRandalfSprueche];
 let lastRandalfSpruch = randalfTextElement?.textContent.trim() || "";
 
 if (magazineShell && mobileMenuToggle) {
+  const mobileMenuQuery = window.matchMedia("(max-width: 720px)");
+
+  function syncMobileMenuState() {
+    if (mobileMenuQuery.matches) {
+      mobileMenuToggle.hidden = false;
+      magazineShell.classList.add("has-mobile-menu");
+      return;
+    }
+
+    mobileMenuToggle.hidden = true;
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    magazineShell.classList.remove("has-mobile-menu", "is-mobile-menu-open");
+  }
+
   magazineShell.classList.add("has-mobile-menu");
+  syncMobileMenuState();
+  mobileMenuQuery.addEventListener("change", syncMobileMenuState);
 
   mobileMenuToggle.addEventListener("click", () => {
     const isOpen = magazineShell.classList.toggle("is-mobile-menu-open");
