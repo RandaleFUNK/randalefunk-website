@@ -8,6 +8,13 @@
 - Verwendung: News zum Shane-MacGowan-Tribute-Album und zur Dropkick-Murphys-Version von `The Body of an American`.
 - Hinweis: Guardian-Caption nennt das Motiv Cover-Art zu `20th Century Paddy` mit Credit `PR`. Redaktionelle Verwendung im direkten Albumkontext; nicht als frei lizenzierte Pressefreigabe verstanden.
 
+## proberaum-madness-2-fanzines.jpg
+
+- Quelle: RandaleFUNK-Grafik aus `Temp_Daten/beef_audio/Proberaummadness2.png`, von Burg bereitgestellt.
+- Bearbeitung: fuer Web/Ticker auf 1280px Breite verkleinert und als JPG optimiert.
+- Verwendung: News `Proberaum Madness II` zum laufenden Dan-Ganove-/Schockromantik-Schlagabtausch mit Fanzine-Beteiligung.
+- Hinweis: Eigene redaktionelle Grafik.
+
 ## exat-durst-nach-freiheit-video.jpg
 
 - Quelle: bereitgestelltes EXAT-/Rock-Zone-Records-Motiv aus `Temp_Daten/exat_pic.jpg`.
