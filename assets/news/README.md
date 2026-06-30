@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## mind-the-gap-fest-2026-flyer.jpg
+
+- Quelle: Flyer-Screenshot aus `codex-clipboard-0794c0c0-1a9e-404e-b0e2-5d0721c11077.png`, von Burg bereitgestellt.
+- Bearbeitung: fuer Web/Ticker als JPG optimiert.
+- Verwendung: News zum Mind The Gap Fest 2026 im Bambi Galore Hamburg.
+- Hinweis: Redaktionelle Verwendung im direkten Veranstaltungskontext; Ticket-/Infodaten stammen vom Flyer, Ticketshop und Mind-The-Gap-Socials.
+
 ## shane-macgowan-20th-century-paddy-cover.jpg
 
 - Quelle: The Guardian, Artikel zum Tribute-Album `20th Century Paddy - The Songs of Shane MacGowan`.
