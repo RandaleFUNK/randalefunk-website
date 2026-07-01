@@ -124,6 +124,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf mit rotem Irokesenschnitt liegt schreiend auf dem Ruecken, als waere er gerade hingefallen.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `SMUG - BWLer` sowie Stickerarchiv `randalf/index.html`.
 
+## randalf-skid-wizard-order-of-priorities-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf als Zauberer mit blauer Sternenrobe und Irokesenschnitt schreit eine Trompete an.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `SKID WIZARD - Order of Priorities` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
