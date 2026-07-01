@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## plastic-mars-kein-zurueck-cover.jpg
+
+- Quelle: Pressematerial von Plastic Mars, kopiert aus `assets/vorab-gehoert/plastic-mars-kein-zurueck-cover.jpg`.
+- Ursprung: `Temp_Daten/kein Zurueck (Plastic Mars).jpg`.
+- Verwendung: News-Ticker-Meldung zur oeffentlichen Veroeffentlichung von `Kein Zurueck`.
+- Hinweis: Lokales Vorschaubild statt YouTube-Thumbnail, damit beim Seitenaufruf keine Verbindung zu YouTube aufgebaut wird. YouTube ist nur als externer Button verlinkt.
+
 ## mind-the-gap-fest-2026-flyer.jpg
 
 - Quelle: Flyer-Screenshot aus `codex-clipboard-0794c0c0-1a9e-404e-b0e2-5d0721c11077.png`, von Burg bereitgestellt.
