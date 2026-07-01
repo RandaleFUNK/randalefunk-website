@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## derozer-burg-bar-gespiegelt.jpg
+
+- Quelle: eigenes Burg-Foto aus `Temp_Daten/Derozer_burg.jpeg`.
+- Bearbeitung: horizontal gespiegelt, fuer Web/Ticker verkleinert und als JPG optimiert.
+- Verwendung: News zu Derozer, 30 Jahre `Bar` und `30 Anni di Bar`-Tour.
+- Hinweis: Eigenes RandaleFUNK-/Burg-Foto im direkten Kontext der Meldung.
+
 ## plastic-mars-kein-zurueck-cover.jpg
 
 - Quelle: Pressematerial von Plastic Mars, kopiert aus `assets/vorab-gehoert/plastic-mars-kein-zurueck-cover.jpg`.
