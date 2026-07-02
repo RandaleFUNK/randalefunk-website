@@ -130,6 +130,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; Randalf als Zauberer mit blauer Sternenrobe und Irokesenschnitt schreit eine Trompete an.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `SKID WIZARD - Order of Priorities` sowie Stickerarchiv `randalf/index.html`.
 
+## randalf-rat-boy-high-life-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Ratten-Shirt sitzt auf einem BMX und schreit in Fahrtrichtung.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `RAT BOY - High Life` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
