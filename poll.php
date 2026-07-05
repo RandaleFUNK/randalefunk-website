@@ -245,7 +245,7 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
     }
 }
 
-function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $awardType, array $options): void
+function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $awardType, array $options, bool $startNow = false): void
 {
     if (count($options) !== 10) {
         return;
@@ -259,21 +259,23 @@ function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $a
         return;
     }
 
-    if (rf_poll_option_count($pdo, $pollId) > 0) {
-        return;
+    if (rf_poll_option_count($pdo, $pollId) === 0) {
+        $statement = $pdo->prepare(
+            'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
+             VALUES (:poll_id, :option_text, :sort_order)'
+        );
+
+        foreach ($options as $index => $optionText) {
+            $statement->execute([
+                ':poll_id' => $pollId,
+                ':option_text' => $optionText,
+                ':sort_order' => $index + 1,
+            ]);
+        }
     }
 
-    $statement = $pdo->prepare(
-        'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
-         VALUES (:poll_id, :option_text, :sort_order)'
-    );
-
-    foreach ($options as $index => $optionText) {
-        $statement->execute([
-            ':poll_id' => $pollId,
-            ':option_text' => $optionText,
-            ':sort_order' => $index + 1,
-        ]);
+    if ($startNow && rf_poll_option_count($pdo, $pollId) === 10) {
+        rf_poll_start_monthly($pdo, $year, $month, $awardType);
     }
 }
 
@@ -290,7 +292,7 @@ function rf_poll_seed_monthly_june_2026(PDO $pdo): void
         'The Wolf I Feed - Brainwashed',
         'Downtown Boys - Public Luxury',
         'The Bouncing Souls - Born to Be',
-    ]);
+    ], true);
 
     rf_poll_seed_monthly_options($pdo, 2026, 6, 'single_song', [
         'VIVA PUNK! - Im Durst',
@@ -303,7 +305,7 @@ function rf_poll_seed_monthly_june_2026(PDO $pdo): void
         'Ronny Platte - Dagegen',
         'Ein Punk Band - Letzter Versuch',
         'The Feelgood McLouds - Here We Go',
-    ]);
+    ], true);
 }
 
 function rf_poll_select_columns(): string
@@ -807,7 +809,10 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
 
         $html .= '<button class="poll-submit" type="submit">Abstimmen</button>';
         $html .= '</form>';
-        $html .= '<button class="poll-results-link" type="button" data-poll-results>Ergebnisse ansehen</button>';
+
+        if ($scope === 'weekly') {
+            $html .= '<button class="poll-results-link" type="button" data-poll-results>Ergebnisse ansehen</button>';
+        }
     }
 
     $html .= '</section>';
@@ -850,7 +855,12 @@ function rf_poll_handle_request(): void
             $poll = rf_poll_by_slug($pdo, (string) $poll['slug']) ?? $poll;
         }
 
-        $showResults = $action === 'results' || $message !== '' || rf_poll_has_voted($pdo, $pollId);
+        $hasVoted = rf_poll_has_voted($pdo, $pollId);
+        $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+        $showResults = $message !== ''
+            || $hasVoted
+            || !rf_poll_is_open($poll)
+            || ($action === 'results' && $scope === 'weekly');
 
         echo rf_poll_render($poll, rf_poll_options($pdo, $pollId), $showResults, $message);
     } catch (Throwable) {

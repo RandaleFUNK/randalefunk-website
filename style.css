@@ -1109,69 +1109,39 @@ a {
 
 .rusty-award-visual {
   position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 260px;
+  margin: 0;
   border: 2px solid var(--border);
-  background:
-    linear-gradient(135deg, rgb(5 5 5 / 0.48), rgb(5 5 5 / 0.82)),
-    repeating-linear-gradient(90deg, #4a2d18 0 16px, #2f1a0d 16px 24px);
+  background: var(--black);
   box-shadow: 6px 6px 0 var(--black);
   transform: rotate(-1deg);
+  overflow: hidden;
 }
 
-.rusty-award-visual__cap {
-  position: absolute;
-  top: 34px;
-  left: 50%;
-  width: 96px;
-  aspect-ratio: 1;
-  border: 8px solid #5d2a12;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 48% 45%, #221007 0 13%, transparent 14%),
-    radial-gradient(circle at 35% 30%, #c6812c 0 8%, transparent 9%),
-    conic-gradient(from 8deg, #5f2c14, #a34e18, #35180b, #7d3b12, #5f2c14);
-  box-shadow: inset 0 0 0 6px rgb(255 214 132 / 0.12), 0 5px 0 rgb(0 0 0 / 0.45);
-  transform: translateX(-50%) rotate(-12deg);
+.rusty-award-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.rusty-award-visual__nail {
+.rusty-award-visual figcaption {
   position: absolute;
-  top: 77px;
+  top: 50%;
   left: 50%;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: #15110d;
-  box-shadow: inset 2px 2px 0 rgb(255 255 255 / 0.12);
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.rusty-award-visual__stick {
-  position: absolute;
-  top: 114px;
-  left: 50%;
-  width: 26px;
-  height: 104px;
-  background: linear-gradient(90deg, #2b180d, #7a4a25 46%, #30180a);
-  border: 1px solid rgb(0 0 0 / 0.48);
-  transform: translateX(-50%) rotate(2deg);
-}
-
-.rusty-award-visual__base {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  width: 142px;
-  height: 46px;
-  border: 2px solid rgb(0 0 0 / 0.46);
-  background:
-    linear-gradient(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.28)),
-    repeating-linear-gradient(0deg, #74431e 0 11px, #4a2712 11px 18px);
-  box-shadow: 0 8px 0 rgb(0 0 0 / 0.42);
-  transform: translateX(-50%) skewX(-7deg);
+  width: 145%;
+  padding: 8px 14px;
+  border-top: 3px solid var(--paper);
+  border-bottom: 3px solid var(--paper);
+  background: var(--accent);
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(0.92rem, 1.9vw, 1.28rem);
+  letter-spacing: 0;
+  line-height: 1.02;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--black);
+  box-shadow: 0 5px 0 rgb(0 0 0 / 0.44);
+  transform: translate(-50%, -50%) rotate(-13deg);
 }
 
 .awards-explainer,
