@@ -8,6 +8,7 @@ const RF_POLL_OPTIONS_TABLE = 'rf_poll_options';
 const RF_POLL_VOTES_TABLE = 'rf_poll_votes';
 const RF_POLL_COOKIE = 'rf_poll_token';
 const RF_DEFAULT_POLL_SLUG = 'weekly-what-do-you-buy-june-2026';
+const RF_MONTHLY_DURATION_DAYS = 7;
 
 function rf_poll_escape(string $value): string
 {
@@ -44,6 +45,27 @@ function rf_poll_token_hash(): string
     return hash('sha256', $salt . '|poll|' . rf_poll_token());
 }
 
+function rf_poll_column_exists(PDO $pdo, string $column): bool
+{
+    $statement = $pdo->query('SHOW COLUMNS FROM ' . RF_POLLS_TABLE . ' LIKE ' . $pdo->quote($column));
+
+    return $statement !== false && count($statement->fetchAll()) > 0;
+}
+
+function rf_poll_index_exists(PDO $pdo, string $index): bool
+{
+    $statement = $pdo->query('SHOW INDEX FROM ' . RF_POLLS_TABLE . ' WHERE Key_name = ' . $pdo->quote($index));
+
+    return $statement !== false && count($statement->fetchAll()) > 0;
+}
+
+function rf_poll_add_column(PDO $pdo, string $column, string $definition): void
+{
+    if (!rf_poll_column_exists($pdo, $column)) {
+        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD COLUMN ' . $definition);
+    }
+}
+
 function rf_poll_ensure_schema(PDO $pdo): void
 {
     $pdo->exec(
@@ -53,23 +75,40 @@ function rf_poll_ensure_schema(PDO $pdo): void
             title VARCHAR(120) NOT NULL,
             question VARCHAR(255) NOT NULL,
             is_active TINYINT(1) NOT NULL DEFAULT 0,
+            poll_scope VARCHAR(32) NOT NULL DEFAULT "weekly",
+            award_year SMALLINT UNSIGNED NULL,
+            award_month TINYINT UNSIGNED NULL,
+            award_type VARCHAR(24) NULL,
+            starts_at DATETIME NULL,
+            ends_at DATETIME NULL,
+            closed_at DATETIME NULL,
+            archived_at DATETIME NULL,
+            winner_option_id INT UNSIGNED NULL,
             created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id),
             UNIQUE KEY uniq_slug (slug),
-            KEY idx_active (is_active, created_at)
+            KEY idx_active (is_active, created_at),
+            KEY idx_poll_scope (poll_scope, award_year, award_month, award_type)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
     );
 
-    $columns = $pdo->query('SHOW COLUMNS FROM ' . RF_POLLS_TABLE . " LIKE 'slug'")->fetchAll();
+    rf_poll_add_column($pdo, 'slug', 'slug VARCHAR(80) NULL AFTER id');
+    rf_poll_add_column($pdo, 'poll_scope', 'poll_scope VARCHAR(32) NOT NULL DEFAULT "weekly" AFTER is_active');
+    rf_poll_add_column($pdo, 'award_year', 'award_year SMALLINT UNSIGNED NULL AFTER poll_scope');
+    rf_poll_add_column($pdo, 'award_month', 'award_month TINYINT UNSIGNED NULL AFTER award_year');
+    rf_poll_add_column($pdo, 'award_type', 'award_type VARCHAR(24) NULL AFTER award_month');
+    rf_poll_add_column($pdo, 'starts_at', 'starts_at DATETIME NULL AFTER award_type');
+    rf_poll_add_column($pdo, 'ends_at', 'ends_at DATETIME NULL AFTER starts_at');
+    rf_poll_add_column($pdo, 'closed_at', 'closed_at DATETIME NULL AFTER ends_at');
+    rf_poll_add_column($pdo, 'archived_at', 'archived_at DATETIME NULL AFTER closed_at');
+    rf_poll_add_column($pdo, 'winner_option_id', 'winner_option_id INT UNSIGNED NULL AFTER archived_at');
 
-    if (count($columns) === 0) {
-        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD COLUMN slug VARCHAR(80) NULL AFTER id');
+    if (!rf_poll_index_exists($pdo, 'uniq_slug')) {
+        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD UNIQUE KEY uniq_slug (slug)');
     }
 
-    $indexes = $pdo->query('SHOW INDEX FROM ' . RF_POLLS_TABLE . " WHERE Key_name = 'uniq_slug'")->fetchAll();
-
-    if (count($indexes) === 0) {
-        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD UNIQUE KEY uniq_slug (slug)');
+    if (!rf_poll_index_exists($pdo, 'idx_poll_scope')) {
+        $pdo->exec('ALTER TABLE ' . RF_POLLS_TABLE . ' ADD KEY idx_poll_scope (poll_scope, award_year, award_month, award_type)');
     }
 
     $pdo->exec(
@@ -117,6 +156,8 @@ function rf_poll_ensure_schema(PDO $pdo): void
         'Ueberlege noch, aber nicht wegen Pennywise.',
         'Haeh?!',
     ]);
+
+    rf_poll_seed_monthly_june_2026($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -134,7 +175,7 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
         $fallback = $pdo->prepare(
             'SELECT id
              FROM ' . RF_POLLS_TABLE . '
-             WHERE question = :question
+             WHERE question = :question AND poll_scope = "weekly"
              ORDER BY created_at DESC, id DESC
              LIMIT 1'
         );
@@ -144,7 +185,7 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
         if ($pollId > 0) {
             $update = $pdo->prepare(
                 'UPDATE ' . RF_POLLS_TABLE . '
-                 SET slug = :slug, title = :title, is_active = :is_active
+                 SET slug = :slug, title = :title, is_active = :is_active, poll_scope = "weekly"
                  WHERE id = :id'
             );
             $update->execute([
@@ -158,8 +199,8 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
 
     if ($pollId === 0) {
         $insert = $pdo->prepare(
-            'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, is_active)
-             VALUES (:slug, :title, :question, :is_active)'
+            'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, is_active, poll_scope)
+             VALUES (:slug, :title, :question, :is_active, "weekly")'
         );
         $insert->execute([
             ':slug' => $slug,
@@ -174,7 +215,7 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
         $deactivate = $pdo->prepare(
             'UPDATE ' . RF_POLLS_TABLE . '
              SET is_active = 0
-             WHERE id <> :id'
+             WHERE id <> :id AND poll_scope = "weekly"'
         );
         $deactivate->execute([':id' => $pollId]);
     }
@@ -204,12 +245,78 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
     }
 }
 
+function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $awardType, array $options): void
+{
+    if (count($options) !== 10) {
+        return;
+    }
+
+    $poll = rf_poll_monthly_by_period($pdo, $year, $month, $awardType);
+    $pollId = $poll !== null ? (int) $poll['id'] : rf_poll_create_monthly($pdo, $year, $month, $awardType);
+    $poll = $poll ?? rf_poll_by_slug($pdo, rf_poll_monthly_slug($awardType, $year, $month));
+
+    if ($poll !== null && ($poll['starts_at'] ?? null) !== null) {
+        return;
+    }
+
+    if (rf_poll_option_count($pdo, $pollId) > 0) {
+        return;
+    }
+
+    $statement = $pdo->prepare(
+        'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
+         VALUES (:poll_id, :option_text, :sort_order)'
+    );
+
+    foreach ($options as $index => $optionText) {
+        $statement->execute([
+            ':poll_id' => $pollId,
+            ':option_text' => $optionText,
+            ':sort_order' => $index + 1,
+        ]);
+    }
+}
+
+function rf_poll_seed_monthly_june_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 6, 'album_ep', [
+        'The Cloverhearts - Germaniac!',
+        'Massenkarambolage - Kauf das jetzt!',
+        'HARSH - Feels',
+        'LIYO - ich will ganz laut schreien',
+        'Kontrollverlust - Druck (Encanto)',
+        'Midfielder - This Should Feel Like Walking Up',
+        'Fiddlehead - Baby I\'ll Change',
+        'The Wolf I Feed - Brainwashed',
+        'Downtown Boys - Public Luxury',
+        'The Bouncing Souls - Born to Be',
+    ]);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 6, 'single_song', [
+        'VIVA PUNK! - Im Durst',
+        'SICK OF SOCIETY - Sabotage',
+        'Champagner Punx - Scheiss Champagner Punx',
+        'MISSSTAND - 2026',
+        'SOKO LiNX - Gewaltenteilung',
+        'EXAT - Durst nach Freiheit Unplugged',
+        'ALARMSIGNAL - Fresse auf!',
+        'Ronny Platte - Dagegen',
+        'Ein Punk Band - Letzter Versuch',
+        'The Feelgood McLouds - Here We Go',
+    ]);
+}
+
+function rf_poll_select_columns(): string
+{
+    return 'id, slug, title, question, is_active, poll_scope, award_year, award_month, award_type, starts_at, ends_at, closed_at, archived_at, winner_option_id, created_at';
+}
+
 function rf_poll_active(PDO $pdo): ?array
 {
     $statement = $pdo->prepare(
-        'SELECT id, slug, title, question
+        'SELECT ' . rf_poll_select_columns() . '
          FROM ' . RF_POLLS_TABLE . '
-         WHERE slug = :slug AND is_active = 1
+         WHERE slug = :slug AND is_active = 1 AND poll_scope = "weekly"
          ORDER BY created_at DESC, id DESC
          LIMIT 1'
     );
@@ -226,7 +333,7 @@ function rf_poll_by_slug(PDO $pdo, string $slug): ?array
     }
 
     $statement = $pdo->prepare(
-        'SELECT id, slug, title, question
+        'SELECT ' . rf_poll_select_columns() . '
          FROM ' . RF_POLLS_TABLE . '
          WHERE slug = :slug
          LIMIT 1'
@@ -234,7 +341,133 @@ function rf_poll_by_slug(PDO $pdo, string $slug): ?array
     $statement->execute([':slug' => $slug]);
     $poll = $statement->fetch();
 
-    return is_array($poll) ? $poll : null;
+    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+}
+
+function rf_poll_monthly_slug(string $awardType, int $year, int $month): string
+{
+    return sprintf('monthly-%s-%04d-%02d', str_replace('_', '-', $awardType), $year, $month);
+}
+
+function rf_poll_yearly_slug(string $awardType, int $year): string
+{
+    return sprintf('yearly-%s-%04d', str_replace('_', '-', $awardType), $year);
+}
+
+function rf_poll_monthly_title(string $awardType, int $year, int $month): string
+{
+    $monthNames = rf_poll_month_names();
+    $label = $awardType === 'single_song' ? 'Single/Song' : 'Album/EP';
+
+    return $label . ' des Monats ' . $monthNames[$month] . ' ' . $year;
+}
+
+function rf_poll_yearly_title(string $awardType, int $year): string
+{
+    $label = $awardType === 'single_song' ? 'Single/Song' : 'Album/EP';
+
+    return 'Der Rostige Kronkorken - ' . $label . ' des Jahres ' . $year;
+}
+
+function rf_poll_month_names(): array
+{
+    return [
+        1 => 'Januar',
+        2 => 'Februar',
+        3 => 'Maerz',
+        4 => 'April',
+        5 => 'Mai',
+        6 => 'Juni',
+        7 => 'Juli',
+        8 => 'August',
+        9 => 'September',
+        10 => 'Oktober',
+        11 => 'November',
+        12 => 'Dezember',
+    ];
+}
+
+function rf_poll_monthly_by_period(PDO $pdo, int $year, int $month, string $awardType): ?array
+{
+    $statement = $pdo->prepare(
+        'SELECT ' . rf_poll_select_columns() . '
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE poll_scope = "monthly"
+           AND award_year = :award_year
+           AND award_month = :award_month
+           AND award_type = :award_type
+         ORDER BY id DESC
+         LIMIT 1'
+    );
+    $statement->execute([
+        ':award_year' => $year,
+        ':award_month' => $month,
+        ':award_type' => $awardType,
+    ]);
+    $poll = $statement->fetch();
+
+    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+}
+
+function rf_poll_create_monthly(PDO $pdo, int $year, int $month, string $awardType): int
+{
+    $slug = rf_poll_monthly_slug($awardType, $year, $month);
+    $title = rf_poll_monthly_title($awardType, $year, $month);
+
+    $insert = $pdo->prepare(
+        'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, poll_scope, award_year, award_month, award_type, is_active)
+         VALUES (:slug, :title, :question, "monthly", :award_year, :award_month, :award_type, 0)'
+    );
+    $insert->execute([
+        ':slug' => $slug,
+        ':title' => $title,
+        ':question' => $title,
+        ':award_year' => $year,
+        ':award_month' => $month,
+        ':award_type' => $awardType,
+    ]);
+
+    return (int) $pdo->lastInsertId();
+}
+
+function rf_poll_yearly_by_period(PDO $pdo, int $year, string $awardType): ?array
+{
+    $statement = $pdo->prepare(
+        'SELECT ' . rf_poll_select_columns() . '
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE poll_scope = "yearly"
+           AND award_year = :award_year
+           AND award_type = :award_type
+         ORDER BY id DESC
+         LIMIT 1'
+    );
+    $statement->execute([
+        ':award_year' => $year,
+        ':award_type' => $awardType,
+    ]);
+    $poll = $statement->fetch();
+
+    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+}
+
+function rf_poll_create_yearly(PDO $pdo, int $year, string $awardType): int
+{
+    $slug = rf_poll_yearly_slug($awardType, $year);
+    $title = rf_poll_yearly_title($awardType, $year);
+
+    $insert = $pdo->prepare(
+        'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, poll_scope, award_year, award_type, is_active)
+         VALUES (:slug, :title, :question, "yearly", :award_year, :award_type, 0)'
+    );
+    $insert->execute([
+        ':slug' => $slug,
+        ':title' => $title,
+        ':question' => $title,
+        ':award_year' => $year,
+        ':award_type' => $awardType,
+    ]);
+
+    return (int) $pdo->lastInsertId();
 }
 
 function rf_poll_options(PDO $pdo, int $pollId): array
@@ -252,6 +485,18 @@ function rf_poll_options(PDO $pdo, int $pollId): array
     return $statement->fetchAll();
 }
 
+function rf_poll_option_count(PDO $pdo, int $pollId): int
+{
+    $statement = $pdo->prepare(
+        'SELECT COUNT(*)
+         FROM ' . RF_POLL_OPTIONS_TABLE . '
+         WHERE poll_id = :poll_id'
+    );
+    $statement->execute([':poll_id' => $pollId]);
+
+    return (int) $statement->fetchColumn();
+}
+
 function rf_poll_has_voted(PDO $pdo, int $pollId): bool
 {
     $statement = $pdo->prepare(
@@ -267,8 +512,188 @@ function rf_poll_has_voted(PDO $pdo, int $pollId): bool
     return (int) $statement->fetchColumn() > 0;
 }
 
-function rf_poll_record_vote(PDO $pdo, int $pollId, int $optionId): void
+function rf_poll_winner_option_id(array $options): ?int
 {
+    $topVotes = -1;
+    $winnerId = null;
+    $isTie = false;
+
+    foreach ($options as $option) {
+        $votes = (int) $option['votes'];
+
+        if ($votes > $topVotes) {
+            $topVotes = $votes;
+            $winnerId = (int) $option['id'];
+            $isTie = false;
+            continue;
+        }
+
+        if ($votes === $topVotes) {
+            $isTie = true;
+        }
+    }
+
+    return !$isTie && $topVotes >= 0 ? $winnerId : null;
+}
+
+function rf_poll_sync_yearly_candidates(PDO $pdo, int $year, string $awardType): void
+{
+    $statement = $pdo->prepare(
+        'SELECT p.award_month, o.option_text
+         FROM ' . RF_POLLS_TABLE . ' p
+         INNER JOIN ' . RF_POLL_OPTIONS_TABLE . ' o ON o.id = p.winner_option_id
+         WHERE p.poll_scope = "monthly"
+           AND p.award_year = :award_year
+           AND p.award_type = :award_type
+           AND p.winner_option_id IS NOT NULL
+         ORDER BY p.award_month ASC'
+    );
+    $statement->execute([
+        ':award_year' => $year,
+        ':award_type' => $awardType,
+    ]);
+    $winners = $statement->fetchAll();
+
+    if (count($winners) === 0) {
+        return;
+    }
+
+    $yearly = rf_poll_yearly_by_period($pdo, $year, $awardType);
+    $yearlyId = $yearly !== null ? (int) $yearly['id'] : rf_poll_create_yearly($pdo, $year, $awardType);
+    $yearly = $yearly ?? rf_poll_by_slug($pdo, rf_poll_yearly_slug($awardType, $year));
+
+    if ($yearly !== null && ($yearly['starts_at'] ?? null) !== null) {
+        return;
+    }
+
+    $pdo->beginTransaction();
+
+    try {
+        $delete = $pdo->prepare('DELETE FROM ' . RF_POLL_OPTIONS_TABLE . ' WHERE poll_id = :poll_id');
+        $delete->execute([':poll_id' => $yearlyId]);
+
+        $insert = $pdo->prepare(
+            'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
+             VALUES (:poll_id, :option_text, :sort_order)'
+        );
+
+        foreach ($winners as $index => $winner) {
+            $insert->execute([
+                ':poll_id' => $yearlyId,
+                ':option_text' => (string) $winner['option_text'],
+                ':sort_order' => $index + 1,
+            ]);
+        }
+
+        $pdo->commit();
+    } catch (Throwable $exception) {
+        $pdo->rollBack();
+        throw $exception;
+    }
+}
+
+function rf_poll_maybe_close(PDO $pdo, array $poll): array
+{
+    $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+    $endsAt = (string) ($poll['ends_at'] ?? '');
+
+    if (!in_array($scope, ['monthly', 'yearly'], true) || $endsAt === '' || $poll['closed_at'] !== null) {
+        return $poll;
+    }
+
+    $now = new DateTimeImmutable('now');
+    $end = new DateTimeImmutable($endsAt);
+
+    if ($now < $end) {
+        return $poll;
+    }
+
+    $winnerId = rf_poll_winner_option_id(rf_poll_options($pdo, (int) $poll['id']));
+    $update = $pdo->prepare(
+        'UPDATE ' . RF_POLLS_TABLE . '
+         SET is_active = 0,
+             closed_at = :closed_at,
+             archived_at = COALESCE(archived_at, :closed_at),
+             winner_option_id = :winner_option_id
+         WHERE id = :id'
+    );
+    $closedAt = $now->format('Y-m-d H:i:s');
+    $update->execute([
+        ':closed_at' => $closedAt,
+        ':winner_option_id' => $winnerId,
+        ':id' => (int) $poll['id'],
+    ]);
+
+    if ($scope === 'monthly' && $winnerId !== null) {
+        rf_poll_sync_yearly_candidates($pdo, (int) $poll['award_year'], (string) $poll['award_type']);
+    }
+
+    return rf_poll_by_slug($pdo, (string) $poll['slug']) ?? $poll;
+}
+
+function rf_poll_close_expired(PDO $pdo): void
+{
+    $statement = $pdo->query(
+        'SELECT ' . rf_poll_select_columns() . '
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE poll_scope IN ("monthly", "yearly")
+           AND ends_at IS NOT NULL
+           AND closed_at IS NULL'
+    );
+
+    foreach ($statement->fetchAll() as $poll) {
+        rf_poll_maybe_close($pdo, $poll);
+    }
+}
+
+function rf_poll_status(array $poll): string
+{
+    $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+
+    if ($scope === 'weekly') {
+        return ((int) ($poll['is_active'] ?? 0)) === 1 ? 'Jetzt abstimmen' : 'Abgeschlossen';
+    }
+
+    if (($poll['winner_option_id'] ?? null) !== null) {
+        return 'Gewinner';
+    }
+
+    if (($poll['closed_at'] ?? null) !== null) {
+        return 'Abgeschlossen';
+    }
+
+    if (($poll['starts_at'] ?? null) === null) {
+        return 'Folgt';
+    }
+
+    return rf_poll_is_open($poll) ? 'Jetzt abstimmen' : 'Abgeschlossen';
+}
+
+function rf_poll_is_open(array $poll): bool
+{
+    $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+
+    if ($scope === 'weekly') {
+        return ((int) ($poll['is_active'] ?? 0)) === 1;
+    }
+
+    if (($poll['closed_at'] ?? null) !== null || ($poll['starts_at'] ?? null) === null || ($poll['ends_at'] ?? null) === null) {
+        return false;
+    }
+
+    $now = new DateTimeImmutable('now');
+
+    return $now >= new DateTimeImmutable((string) $poll['starts_at'])
+        && $now < new DateTimeImmutable((string) $poll['ends_at']);
+}
+
+function rf_poll_record_vote(PDO $pdo, array $poll, int $optionId): void
+{
+    if (!rf_poll_is_open($poll)) {
+        return;
+    }
+
+    $pollId = (int) $poll['id'];
     $statement = $pdo->prepare(
         'SELECT COUNT(*)
          FROM ' . RF_POLL_OPTIONS_TABLE . '
@@ -294,13 +719,50 @@ function rf_poll_record_vote(PDO $pdo, int $pollId, int $optionId): void
     ]);
 }
 
+function rf_poll_start_monthly(PDO $pdo, int $year, int $month, string $awardType): array
+{
+    if ($year < 2020 || $year > 2100 || $month < 1 || $month > 12 || !in_array($awardType, ['album_ep', 'single_song'], true)) {
+        throw new InvalidArgumentException('Ungueltige Monatsumfrage.');
+    }
+
+    $poll = rf_poll_monthly_by_period($pdo, $year, $month, $awardType);
+    $pollId = $poll !== null ? (int) $poll['id'] : rf_poll_create_monthly($pdo, $year, $month, $awardType);
+
+    if (rf_poll_option_count($pdo, $pollId) !== 10) {
+        throw new RuntimeException('Diese Monatsumfrage braucht genau 10 Kandidaten.');
+    }
+
+    $now = new DateTimeImmutable('now');
+    $endsAt = $now->modify('+' . RF_MONTHLY_DURATION_DAYS . ' days');
+    $update = $pdo->prepare(
+        'UPDATE ' . RF_POLLS_TABLE . '
+         SET starts_at = :starts_at,
+             ends_at = :ends_at,
+             closed_at = NULL,
+             archived_at = NULL,
+             winner_option_id = NULL,
+             is_active = 1
+         WHERE id = :id'
+    );
+    $update->execute([
+        ':starts_at' => $now->format('Y-m-d H:i:s'),
+        ':ends_at' => $endsAt->format('Y-m-d H:i:s'),
+        ':id' => $pollId,
+    ]);
+
+    return rf_poll_by_slug($pdo, rf_poll_monthly_slug($awardType, $year, $month)) ?? [];
+}
+
 function rf_poll_render(array $poll, array $options, bool $showResults, string $message = ''): string
 {
     $pollId = (int) $poll['id'];
     $pollSlug = (string) ($poll['slug'] ?? '');
     $pollAction = '/poll.php' . ($pollSlug !== '' ? '?poll=' . rawurlencode($pollSlug) : '');
     $totalVotes = array_reduce($options, static fn (int $sum, array $option): int => $sum + (int) $option['votes'], 0);
-    $html = '<section class="poll-widget" aria-label="Umfrage der Woche">';
+    $canVote = rf_poll_is_open($poll);
+    $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+    $scopeClass = $scope === 'monthly' ? ' poll-widget--monthly' : ($scope === 'yearly' ? ' poll-widget--monthly poll-widget--yearly' : '');
+    $html = '<section class="poll-widget' . $scopeClass . '" aria-label="' . rf_poll_escape((string) $poll['title']) . '">';
     $html .= '<p class="poll-widget__kicker">' . rf_poll_escape((string) $poll['title']) . '</p>';
     $html .= '<h2>' . rf_poll_escape((string) $poll['question']) . '</h2>';
 
@@ -308,13 +770,21 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
         $html .= '<p class="poll-widget__message">' . rf_poll_escape($message) . '</p>';
     }
 
-    if ($showResults) {
+    if ($scope !== 'weekly' && ($poll['starts_at'] ?? null) === null) {
+        $html .= '<p class="poll-widget__message">Diese Umfrage wartet noch auf den Start.</p>';
+        $html .= '</section>';
+
+        return $html;
+    }
+
+    if ($showResults || !$canVote) {
         $html .= '<div class="poll-results" aria-label="Umfrageergebnisse">';
 
         foreach ($options as $option) {
             $votes = (int) $option['votes'];
             $percent = $totalVotes > 0 ? (int) round(($votes / $totalVotes) * 100) : 0;
-            $html .= '<div class="poll-result">';
+            $isWinner = (int) ($poll['winner_option_id'] ?? 0) === (int) $option['id'];
+            $html .= '<div class="poll-result' . ($isWinner ? ' is-winner' : '') . '">';
             $html .= '<div class="poll-result__line"><span>' . rf_poll_escape((string) $option['option_text']) . '</span><strong>' . $percent . '%</strong></div>';
             $html .= '<div class="poll-result__bar" aria-hidden="true"><span style="width: ' . $percent . '%"></span></div>';
             $html .= '</div>';
@@ -345,37 +815,50 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
     return $html;
 }
 
-header('Content-Type: text/html; charset=utf-8');
+function rf_poll_handle_request(): void
+{
+    header('Content-Type: text/html; charset=utf-8');
 
-if (!rf_stats_is_configured()) {
-    echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Umfrage gerade im Proberaum.</h2></section>';
-    exit;
+    if (!rf_stats_is_configured()) {
+        echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Umfrage gerade im Proberaum.</h2></section>';
+        return;
+    }
+
+    try {
+        $pdo = rf_stats_pdo();
+        rf_poll_ensure_schema($pdo);
+        rf_poll_close_expired($pdo);
+        $requestedPoll = (string) ($_GET['poll'] ?? '');
+        $poll = $requestedPoll !== '' ? rf_poll_by_slug($pdo, $requestedPoll) : rf_poll_active($pdo);
+
+        if ($poll === null) {
+            echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Gerade keine Umfrage aktiv.</h2></section>';
+            return;
+        }
+
+        $pollId = (int) $poll['id'];
+        $action = (string) ($_POST['action'] ?? $_GET['action'] ?? 'widget');
+        $message = '';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'vote') {
+            if (rf_poll_is_open($poll)) {
+                rf_poll_record_vote($pdo, $poll, (int) ($_POST['option_id'] ?? 0));
+                $message = 'Danke. Hier ist der Zwischenstand.';
+            } else {
+                $message = 'Diese Umfrage ist abgeschlossen.';
+            }
+            $poll = rf_poll_by_slug($pdo, (string) $poll['slug']) ?? $poll;
+        }
+
+        $showResults = $action === 'results' || $message !== '' || rf_poll_has_voted($pdo, $pollId);
+
+        echo rf_poll_render($poll, rf_poll_options($pdo, $pollId), $showResults, $message);
+    } catch (Throwable) {
+        http_response_code(500);
+        echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Die Umfrage klemmt gerade.</h2></section>';
+    }
 }
 
-try {
-    $pdo = rf_stats_pdo();
-    rf_poll_ensure_schema($pdo);
-    $requestedPoll = (string) ($_GET['poll'] ?? '');
-    $poll = $requestedPoll !== '' ? rf_poll_by_slug($pdo, $requestedPoll) : rf_poll_active($pdo);
-
-    if ($poll === null) {
-        echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Gerade keine Umfrage aktiv.</h2></section>';
-        exit;
-    }
-
-    $pollId = (int) $poll['id'];
-    $action = (string) ($_POST['action'] ?? $_GET['action'] ?? 'widget');
-    $message = '';
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'vote') {
-        rf_poll_record_vote($pdo, $pollId, (int) ($_POST['option_id'] ?? 0));
-        $message = 'Danke. Hier ist der Zwischenstand.';
-    }
-
-    $showResults = $action === 'results' || $message !== '' || rf_poll_has_voted($pdo, $pollId);
-
-    echo rf_poll_render($poll, rf_poll_options($pdo, $pollId), $showResults, $message);
-} catch (Throwable) {
-    http_response_code(500);
-    echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Die Umfrage klemmt gerade.</h2></section>';
+if (!defined('RF_POLL_LIBRARY_ONLY')) {
+    rf_poll_handle_request();
 }

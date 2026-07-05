@@ -333,6 +333,10 @@ a {
   gap: 8px;
 }
 
+.poll-result.is-winner .poll-result__line span {
+  color: var(--active-accent);
+}
+
 .poll-result__line {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -361,6 +365,75 @@ a {
   min-width: 2px;
   height: 100%;
   background: var(--active-accent);
+}
+
+.monthly-poll-preview {
+  display: grid;
+  gap: 18px;
+}
+
+.monthly-poll-preview__intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.monthly-poll-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.poll-widget--monthly {
+  padding: 16px;
+  background:
+    linear-gradient(rgb(5 5 5 / 0.64), rgb(5 5 5 / 0.78)),
+    url("assets/bg-paper-strip.webp") center / cover no-repeat;
+}
+
+.poll-widget--monthly .poll-widget__kicker {
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+}
+
+.poll-widget--monthly h2 {
+  margin-bottom: 12px;
+  padding: 8px 9px;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.poll-widget--monthly .poll-form {
+  gap: 8px;
+}
+
+.poll-widget--monthly .poll-option {
+  grid-template-columns: 17px minmax(0, 1fr);
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.86rem;
+  line-height: 1.22;
+}
+
+.poll-widget--monthly .poll-option input {
+  width: 15px;
+  height: 15px;
+}
+
+.poll-widget--monthly .poll-submit,
+.poll-widget--monthly .poll-results-link {
+  min-height: 38px;
+}
+
+.poll-widget--monthly .poll-submit {
+  font-size: 0.84rem;
+}
+
+.poll-widget--monthly .poll-results-link {
+  font-size: 0.72rem;
 }
 
 .issue-board {
@@ -1002,9 +1075,399 @@ a {
   line-height: 1.35;
 }
 
+.community-awards {
+  display: grid;
+  gap: 24px;
+}
+
+.awards-hero h1 {
+  max-width: 12ch;
+  margin-bottom: 16px;
+}
+
+.awards-claim {
+  max-width: 760px;
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-left: 8px solid var(--active-accent);
+  background: var(--black);
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  letter-spacing: 0;
+  line-height: 1.08;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0 var(--active-accent);
+}
+
+.rusty-award-intro {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.rusty-award-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  border: 2px solid var(--border);
+  background:
+    linear-gradient(135deg, rgb(5 5 5 / 0.48), rgb(5 5 5 / 0.82)),
+    repeating-linear-gradient(90deg, #4a2d18 0 16px, #2f1a0d 16px 24px);
+  box-shadow: 6px 6px 0 var(--black);
+  transform: rotate(-1deg);
+}
+
+.rusty-award-visual__cap {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: 96px;
+  aspect-ratio: 1;
+  border: 8px solid #5d2a12;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 48% 45%, #221007 0 13%, transparent 14%),
+    radial-gradient(circle at 35% 30%, #c6812c 0 8%, transparent 9%),
+    conic-gradient(from 8deg, #5f2c14, #a34e18, #35180b, #7d3b12, #5f2c14);
+  box-shadow: inset 0 0 0 6px rgb(255 214 132 / 0.12), 0 5px 0 rgb(0 0 0 / 0.45);
+  transform: translateX(-50%) rotate(-12deg);
+}
+
+.rusty-award-visual__nail {
+  position: absolute;
+  top: 77px;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #15110d;
+  box-shadow: inset 2px 2px 0 rgb(255 255 255 / 0.12);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.rusty-award-visual__stick {
+  position: absolute;
+  top: 114px;
+  left: 50%;
+  width: 26px;
+  height: 104px;
+  background: linear-gradient(90deg, #2b180d, #7a4a25 46%, #30180a);
+  border: 1px solid rgb(0 0 0 / 0.48);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.rusty-award-visual__base {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  width: 142px;
+  height: 46px;
+  border: 2px solid rgb(0 0 0 / 0.46);
+  background:
+    linear-gradient(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.28)),
+    repeating-linear-gradient(0deg, #74431e 0 11px, #4a2712 11px 18px);
+  box-shadow: 0 8px 0 rgb(0 0 0 / 0.42);
+  transform: translateX(-50%) skewX(-7deg);
+}
+
+.awards-explainer,
+.award-current-polls,
+.award-track,
+.year-award {
+  border: 2px solid var(--border);
+  background:
+    linear-gradient(rgb(5 5 5 / 0.72), rgb(5 5 5 / 0.86)),
+    url("assets/bg-paper-strip.webp") center / cover no-repeat;
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.awards-explainer,
+.award-current-polls,
+.award-track {
+  padding: 18px;
+}
+
+.awards-explainer h2,
+.award-current-polls h2,
+.award-track h2,
+.year-award h2 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.awards-explainer__grid,
+.year-awards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.awards-explainer__grid {
+  margin-top: 14px;
+}
+
+.awards-explainer__grid article,
+.year-award {
+  padding: 14px;
+  background: rgb(5 5 5 / 0.72);
+  border: 1px solid rgb(225 212 184 / 0.24);
+}
+
+.year-award a {
+  color: var(--active-accent);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.awards-explainer__grid h3 {
+  margin: 0 0 8px;
+  color: var(--active-accent);
+  font-size: 0.84rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.awards-explainer__grid p,
+.year-award p,
+.award-month span {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.award-track__head {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.award-month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.award-current-polls__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.award-current-polls .poll-mount {
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+}
+
+.award-month {
+  min-height: 92px;
+  padding: 12px;
+  border: 2px solid var(--border);
+  background: rgb(5 5 5 / 0.68);
+}
+
+.award-month time {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--paper);
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.08rem;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.award-month span {
+  display: inline-block;
+  padding: 5px 7px;
+  background: var(--black);
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.award-month a {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 5px 7px;
+  background: var(--accent);
+  color: var(--paper);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1.05;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.award-month.is-upcoming {
+  border-color: var(--active-accent);
+}
+
+.award-month.is-upcoming span {
+  color: var(--paper);
+}
+
+.award-month.is-missed {
+  opacity: 0.78;
+}
+
+.award-month.is-active {
+  border-color: var(--accent);
+  background: rgb(98 43 11 / 0.62);
+}
+
+.award-month.is-winner {
+  border-color: var(--active-accent);
+}
+
+.award-month.is-winner span {
+  color: var(--paper);
+}
+
+.award-month.is-closed {
+  opacity: 0.9;
+}
+
+.year-awards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.awards-footnote {
+  margin: 0;
+  padding: 12px 14px;
+  border: 2px dashed var(--border);
+  background: rgb(5 5 5 / 0.72);
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .side-links {
   display: grid;
   gap: 16px;
+}
+
+.monthly-admin-page {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    linear-gradient(rgb(5 5 5 / 0.74), rgb(5 5 5 / 0.86)),
+    var(--paper-texture);
+  color: var(--paper);
+}
+
+.monthly-admin {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.monthly-admin h1,
+.monthly-admin-grid > h2 {
+  font-family: "Anton", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.monthly-admin-year,
+.monthly-admin-card,
+.monthly-admin-notice,
+.monthly-admin-error {
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 2px solid var(--border);
+  background: rgb(5 5 5 / 0.72);
+}
+
+.monthly-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.monthly-admin-grid > h2 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.monthly-admin-card h2 {
+  margin: 0 0 8px;
+  color: var(--active-accent);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.monthly-admin-card p {
+  margin: 0 0 10px;
+}
+
+.monthly-admin-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.monthly-admin textarea,
+.monthly-admin input {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--black);
+  font: inherit;
+}
+
+.monthly-admin button {
+  width: fit-content;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--paper);
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.monthly-admin button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.monthly-admin-notice {
+  border-color: var(--active-accent);
+}
+
+.monthly-admin-error {
+  border-color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .monthly-admin-page {
+    padding: 12px;
+  }
+
+  .monthly-admin-grid,
+  .award-current-polls__grid,
+  .rusty-award-intro,
+  .monthly-poll-preview__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .link-block {
@@ -1829,6 +2292,11 @@ body[data-active-section="kolumnen"] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .awards-explainer__grid,
+  .award-month-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -1920,7 +2388,10 @@ body[data-active-section="kolumnen"] {
 
   .article-grid,
   .interview-link-list,
-  .side-links {
+  .side-links,
+  .awards-explainer__grid,
+  .award-month-grid,
+  .year-awards {
     grid-template-columns: 1fr;
   }
 

@@ -18,6 +18,7 @@ const appCloseButtons = document.querySelectorAll("[data-close-app]");
 const youtubeVideoCards = document.querySelectorAll("[data-youtube-video]");
 const statsEndpoint = "/track.php";
 const pollEndpoint = "/poll.php";
+const monthlyPollsEndpoint = "/monthly-polls.php";
 const fallbackRandalfSprueche = [
   "Das wird garantiert schiefgehen.",
   "Ich habe Fragen. Leider auch Antworten.",
@@ -220,10 +221,50 @@ async function loadInlinePollWidgets() {
   }
 }
 
+async function loadMonthlyAwardsOverview() {
+  const awardGrids = document.querySelectorAll("[data-award-months]");
+
+  if (awardGrids.length === 0 || window.location.protocol === "file:") {
+    return;
+  }
+
+  const year = document.body.dataset.awardsYear || "2026";
+
+  try {
+    const response = await fetch(`${monthlyPollsEndpoint}?year=${encodeURIComponent(year)}`, {
+      credentials: "same-origin"
+    });
+
+    if (!response.ok) {
+      throw new Error("Monthly awards overview failed");
+    }
+
+    const overview = await response.json();
+
+    awardGrids.forEach((grid) => {
+      const awardType = grid.dataset.awardMonths;
+
+      if (typeof overview[awardType] === "string" && overview[awardType] !== "") {
+        grid.innerHTML = overview[awardType];
+      }
+    });
+
+    document.querySelectorAll("[data-year-award]").forEach((yearAward) => {
+      const awardType = yearAward.dataset.yearAward;
+
+      if (typeof overview[awardType] === "string" && overview[awardType] !== "") {
+        yearAward.innerHTML = overview[awardType];
+      }
+    });
+  } catch {
+    // Static fallback stays visible.
+  }
+}
+
 async function loadPollWidget() {
   const sectionNav = document.querySelector(".section-nav");
 
-  if (!sectionNav || window.location.protocol === "file:") {
+  if (!sectionNav || document.body.dataset.disableWeeklyPoll === "true" || window.location.protocol === "file:") {
     return;
   }
 
@@ -373,8 +414,8 @@ document.addEventListener("click", (event) => {
 });
 
 loadRandalfSprueche();
-loadPollWidget();
 loadInlinePollWidgets();
+loadMonthlyAwardsOverview();
 
 function openAppModal() {
   if (!appModal || !appFrame) {

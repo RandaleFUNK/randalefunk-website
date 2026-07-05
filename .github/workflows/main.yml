@@ -70,10 +70,13 @@ jobs:
           cp script.js deploy/
           cp track.php deploy/
           cp poll.php deploy/
+          cp monthly-polls.php deploy/
+          cp monthly-polls-admin.php deploy/
           cp site.webmanifest deploy/
 
           if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
           if [ -f warum-unterstuetzen.html ]; then cp warum-unterstuetzen.html deploy/; fi
+          if [ -f community-awards.html ]; then cp community-awards.html deploy/; fi
 
           cp -R assets deploy/
           cp -R data deploy/
