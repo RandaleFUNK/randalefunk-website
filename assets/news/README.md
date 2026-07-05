@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## randalenews-01-thumbnail.png
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `Thumbnails/output/RandaleNEWS01.png`.
+- Bearbeitung: aus lokal bereitgestelltem Screenshot, RandaleFUNK-Designsystem-Assets und vorhandenen RandaleFUNK-Artikelfotos gebaut.
+- Verwendung: News-Ticker-Meldung zu `RandaleNEWS #01`.
+- Hinweis: Lokales Vorschaubild statt YouTube-Embed oder YouTube-Thumbnail, damit beim Seitenaufruf keine Verbindung zu YouTube aufgebaut wird. YouTube ist nur als externer Button verlinkt.
+
 ## derozer-burg-bar-gespiegelt.jpg
 
 - Quelle: eigenes Burg-Foto aus `Temp_Daten/Derozer_burg.jpeg`.
