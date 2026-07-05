@@ -76,7 +76,7 @@ jobs:
 
           if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
           if [ -f warum-unterstuetzen.html ]; then cp warum-unterstuetzen.html deploy/; fi
-          if [ -f community-awards.html ]; then cp community-awards.html deploy/; fi
+          if [ -f der-rostige-kronkorken.html ]; then cp der-rostige-kronkorken.html deploy/; fi
 
           cp -R assets deploy/
           cp -R data deploy/
@@ -109,6 +109,7 @@ jobs:
           rm -f "$FTP_TARGET_DIR/wuerfel/README.md"
           rm -f "$FTP_TARGET_DIR/wuerfel/rules.md"
           rm -f "$FTP_TARGET_DIR/wuerfel/quotes.md"
+          rm -f "$FTP_TARGET_DIR/community-awards.html"
           rm -f "$FTP_TARGET_DIR/wuerfel/data/README.md"
           rm -f "$FTP_TARGET_DIR/assets/news/README.md"
           rm -f "$FTP_TARGET_DIR/assets/reviews/README.md"
