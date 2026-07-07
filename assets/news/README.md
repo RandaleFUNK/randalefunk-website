@@ -7,6 +7,13 @@
 - Verwendung: News-Ticker-Meldung zu `RandaleNEWS #01`.
 - Hinweis: Lokales Vorschaubild statt YouTube-Embed oder YouTube-Thumbnail, damit beim Seitenaufruf keine Verbindung zu YouTube aufgebaut wird. YouTube ist nur als externer Button verlinkt.
 
+## proberaum-madness-finale-schockdan.jpg
+
+- Quelle: freigegebenes Material aus `Temp_Daten/beef_audio/SchockDan.jpg`.
+- Bearbeitung: fuer Web/Ticker verkleinert und als JPG optimiert.
+- Verwendung: News zum Finale von `Proberaum Madness` und zur Ankuendigung von `Ultra Tolerant (Kein Punk)` von Dan Ganove und Schockromantik.
+- Hinweis: Von Burg als frei verwendbar fuer RandaleFUNK angegeben.
+
 ## derozer-burg-bar-gespiegelt.jpg
 
 - Quelle: eigenes Burg-Foto aus `Temp_Daten/Derozer_burg.jpeg`.
