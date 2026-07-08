@@ -16,6 +16,7 @@ const appFrame = document.querySelector("[data-app-frame]");
 const appOpenButtons = document.querySelectorAll("[data-open-app]");
 const appCloseButtons = document.querySelectorAll("[data-close-app]");
 const youtubeVideoCards = document.querySelectorAll("[data-youtube-video]");
+const languageScopes = document.querySelectorAll("[data-language-scope]");
 const statsEndpoint = "/track.php";
 const pollEndpoint = "/poll.php";
 const monthlyPollsEndpoint = "/monthly-polls.php";
@@ -508,6 +509,40 @@ youtubeVideoCards.forEach((card) => {
     iframe.allowFullscreen = true;
 
     frameTarget.replaceChildren(iframe);
+  });
+});
+
+function setLanguage(scope, language) {
+  const normalizedLanguage = language === "en" ? "en" : "de";
+
+  scope.querySelectorAll("[data-language-option]").forEach((option) => {
+    option.hidden = option.dataset.languageOption !== normalizedLanguage;
+  });
+
+  scope.querySelectorAll("[data-language-button]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.languageButton === normalizedLanguage);
+  });
+
+  scope.querySelectorAll("[data-language-link]").forEach((link) => {
+    const target = normalizedLanguage === "en" ? link.dataset.languageHrefEn : link.dataset.languageHrefDe;
+
+    if (target) {
+      link.setAttribute("href", target);
+    }
+  });
+
+  scope.setAttribute("data-current-language", normalizedLanguage);
+}
+
+const initialLanguage = new URLSearchParams(window.location.search).get("lang") === "en" ? "en" : "de";
+
+languageScopes.forEach((scope) => {
+  setLanguage(scope, initialLanguage);
+
+  scope.querySelectorAll("[data-language-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setLanguage(scope, button.dataset.languageButton);
+    });
   });
 });
 

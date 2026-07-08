@@ -62,7 +62,7 @@
           </div>
 
           <div class="ticker-list" aria-label="Aktuelle Kurzmeldungen" data-ticker-list>
-            <article class="ticker-card ticker-card--video" data-ticker-news data-published="2026-07-07T21:30:00">
+            <article class="ticker-card ticker-card--video" id="news-proberaum-madness-finale" data-ticker-news data-published="2026-07-07T21:30:00">
               <div class="ticker-meta">
                 <span>Finale</span>
                 <time datetime="2026-07-07T21:30:00">07.07.2026</time>
@@ -97,7 +97,7 @@
               <a class="ticker-button" href="https://toughmagazine.de/" target="_blank" rel="noopener noreferrer">Tough Magazine</a>
             </article>
 
-            <article class="ticker-card ticker-card--video" data-ticker-news data-published="2026-07-05T12:00:00">
+            <article class="ticker-card ticker-card--video" id="news-randalenews-01" data-ticker-news data-published="2026-07-05T12:00:00">
               <div class="ticker-meta">
                 <span>RandaleNEWS</span>
                 <time datetime="2026-07-05T12:00:00">05.07.2026</time>
@@ -113,7 +113,7 @@
               <a class="ticker-button" href="https://www.youtube.com/watch?v=63fSTGkzUuU&amp;t=146s" target="_blank" rel="noopener noreferrer">RandaleNEWS #01 ansehen</a>
             </article>
 
-            <article class="ticker-card ticker-card--konzert" data-ticker-news data-published="2026-07-01T11:00:00">
+            <article class="ticker-card ticker-card--konzert" id="news-derozer-bar-30" data-ticker-news data-published="2026-07-01T11:00:00">
               <div class="ticker-meta">
                 <span>Tour</span>
                 <time datetime="2026-07-01T11:00:00">01.07.2026</time>
@@ -775,10 +775,23 @@
           <h1>Fragen aus der Ecke</h1>
           <p class="lead">Interviews mit Bands, Veranstaltenden, Fanzine-Menschen und Leuten, die irgendwo irgendwas selbst machen.</p>
           <div class="article-grid">
-            <article class="teaser-card">
-              <time datetime="2026-06-12">Platzhalter</time>
-              <h2>Gespräch kommt</h2>
-              <p>Hier kann später ein Teaser für das neueste Interview stehen.</p>
+            <article class="teaser-card teaser-card--interview" data-language-scope>
+              <time datetime="2026-07-08">Interview</time>
+              <h2><a href="interviews/brokesingercris-skatepunk-projekt.html">BrokeSingerCris</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+              </div>
+              <figure class="teaser-card__media">
+                <img src="/assets/interviews/brokenchris.jpg" alt="BrokeSingerCris mit Gitarre" loading="lazy">
+                <figcaption>Bild: Burg hat das Ding aus den asozialen Medien geklaut.</figcaption>
+              </figure>
+              <p data-language-option="de">Wenn aus Akustik-Covers plötzlich ein internationales Skatepunk-Projekt mit Pulley-, Authority-Zero- und Ten-Foot-Pole-Spuren wird.</p>
+              <p data-language-option="en" hidden>When acoustic covers suddenly turn into an international skate-punk project with traces of Pulley, Authority Zero and Ten Foot Pole.</p>
+              <a class="ticker-button" href="interviews/brokesingercris-skatepunk-projekt.html" data-language-link data-language-href-de="interviews/brokesingercris-skatepunk-projekt.html?lang=de" data-language-href-en="interviews/brokesingercris-skatepunk-projekt.html?lang=en">
+                <span data-language-option="de">Interview lesen</span>
+                <span data-language-option="en" hidden>Read interview</span>
+              </a>
             </article>
             <article class="teaser-card teaser-card--video" data-youtube-video data-youtube-id="B0xOtJ1p1QU" data-youtube-title="RandaleFUNK beim WISPA Festival 2026">
               <time datetime="2026-06-14">Video</time>
