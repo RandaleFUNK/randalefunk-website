@@ -80,6 +80,7 @@ jobs:
 
           cp -R assets deploy/
           cp -R data deploy/
+          cp -R interviews deploy/
           cp -R kolumnen deploy/
           cp -R randalf deploy/
           cp -R reviews deploy/
