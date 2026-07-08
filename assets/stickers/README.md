@@ -142,6 +142,12 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Grundlage: Randalf-Charaktervorgaben; vermummter Randalf mit erhobener Faust und Protest-Schild `SAG MIR WO`. Bewusst ohne Wurf-/Brandwaffenmotiv.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `NO BRAKES - Sag mir wo` sowie Stickerarchiv `randalf/index.html`.
 
+## randalf-green-day-im-never-gonna-rip-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf als Mumie sitzt in einem offenen Sarg und hebt trotzig die Faust. Bewusst ohne Bandlogos.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `GREEN DAY - I'm Never Gonna R.I.P.` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-pleite-taschen-sticker.webp
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv für RandaleFUNK.
