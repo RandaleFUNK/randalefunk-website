@@ -74,6 +74,7 @@ jobs:
           cp monthly-polls-admin.php deploy/
           cp site.webmanifest deploy/
 
+          if [ -f robots.txt ]; then cp robots.txt deploy/; fi
           if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
           if [ -f warum-unterstuetzen.html ]; then cp warum-unterstuetzen.html deploy/; fi
           if [ -f der-rostige-kronkorken.html ]; then cp der-rostige-kronkorken.html deploy/; fi

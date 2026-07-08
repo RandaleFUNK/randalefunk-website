@@ -2379,7 +2379,9 @@ body[data-active-section="kolumnen"] {
   }
 
   .magazine-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
+    min-width: 0;
   }
 
   .mobile-menu-toggle {
@@ -2418,10 +2420,16 @@ body[data-active-section="kolumnen"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     order: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .side-links {
     order: 3;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .magazine-shell.has-mobile-menu:not(.is-mobile-menu-open) .section-nav,
@@ -2444,11 +2452,45 @@ body[data-active-section="kolumnen"] {
 
   .section-link {
     margin: 0;
+    min-width: 0;
   }
 
   .issue-board {
     min-height: auto;
+    min-width: 0;
     padding: 18px;
+  }
+
+  .issue-board h1,
+  .issue-board h2,
+  .privacy-page h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .rusty-award-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-awards > *,
+  .rusty-award-intro > *,
+  .awards-explainer,
+  .award-current-polls,
+  .award-track,
+  .year-awards,
+  .year-award {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .rusty-award-visual {
+    justify-self: stretch;
+    max-width: 100%;
+  }
+
+  .rusty-award-visual figcaption {
+    width: 100%;
+    transform: translate(-50%, -50%) rotate(-7deg);
   }
 
   .article-grid,
