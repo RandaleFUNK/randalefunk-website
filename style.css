@@ -389,19 +389,27 @@ a {
 
 .poll-widget--monthly {
   padding: 16px;
+  border-color: var(--black);
   background:
-    linear-gradient(rgb(5 5 5 / 0.64), rgb(5 5 5 / 0.78)),
-    url("assets/bg-paper-strip.webp") center / cover no-repeat;
+    linear-gradient(rgb(225 212 184 / 0.9), rgb(225 212 184 / 0.95)),
+    url("assets/bg-paper-square.webp") center / cover no-repeat;
+  color: var(--black);
+  box-shadow: 6px 6px 0 var(--black);
 }
 
 .poll-widget--monthly .poll-widget__kicker {
   margin-bottom: 10px;
+  background: var(--black);
+  color: var(--paper);
   font-size: 0.78rem;
+  text-shadow: 2px 2px 0 var(--active-accent);
 }
 
 .poll-widget--monthly h2 {
   margin-bottom: 12px;
   padding: 8px 9px;
+  background: rgb(5 5 5 / 0.78);
+  color: var(--paper);
   font-size: 1rem;
   line-height: 1.2;
 }
@@ -414,7 +422,10 @@ a {
   grid-template-columns: 17px minmax(0, 1fr);
   min-height: 34px;
   padding: 7px 8px;
+  background: rgb(5 5 5 / 0.08);
+  color: var(--black);
   font-size: 0.86rem;
+  font-weight: 900;
   line-height: 1.22;
 }
 
@@ -434,6 +445,27 @@ a {
 
 .poll-widget--monthly .poll-results-link {
   font-size: 0.72rem;
+}
+
+.poll-widget--monthly .poll-widget__message,
+.poll-widget--monthly .poll-widget__total {
+  color: #3b3934;
+  font-weight: 900;
+}
+
+.poll-widget--monthly .poll-result__line {
+  color: var(--black);
+  font-weight: 900;
+}
+
+.poll-widget--monthly .poll-result__line strong {
+  color: #3b3934;
+  font-weight: 900;
+}
+
+.poll-widget--monthly .poll-result__bar {
+  border-color: var(--black);
+  background: rgb(5 5 5 / 0.9);
 }
 
 .issue-board {
@@ -2275,11 +2307,11 @@ body.is-app-modal-open {
 }
 
 .privacy-page h1 {
-  max-width: 16ch;
+  max-width: 14ch;
   margin: 0 0 18px;
   color: var(--paper);
   font-family: "ZP Sidestep", "Anton", sans-serif;
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 4.2vw, 3.55rem);
   font-weight: 400;
   line-height: 0.95;
   text-transform: uppercase;
