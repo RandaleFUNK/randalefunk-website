@@ -1,5 +1,15 @@
 # News-Bildquellen
 
+## eric-melvin-nofx-commons.jpg
+
+- Quelle: Wikimedia Commons.
+- Quellseite: https://commons.wikimedia.org/wiki/File:NOFX_@_Arena_Joondalup_(12_12_2010)_(5272637863).jpg
+- Originalbild: https://upload.wikimedia.org/wikipedia/commons/d/d1/NOFX_%40_Arena_Joondalup_%2812_12_2010%29_%285272637863%29.jpg
+- Urheber: Stuart Sevastos.
+- Lizenz: CC BY 2.0, https://creativecommons.org/licenses/by/2.0
+- Verwendung: News zum 60. Geburtstag von Eric Melvin.
+- Bearbeitung: lokal verkleinert/optimiert fuer die Website.
+
 ## randalenews-01-thumbnail.png
 
 - Quelle: eigenes RandaleFUNK-Thumbnail aus `Thumbnails/output/RandaleNEWS01.png`.

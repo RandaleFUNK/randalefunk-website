@@ -156,6 +156,23 @@ function rf_poll_ensure_schema(PDO $pdo): void
         'Ueberlege noch, aber nicht wegen Pennywise.',
         'Haeh?!',
     ]);
+    rf_poll_seed_article($pdo, 'eric-melvin-nofx-album-versaut', 'Abstimmung', 'Welches NOFX-Album hat euch damals endgültig versaut?', [
+        'Liberal Animation (1988)',
+        'S&M Airlines (1989)',
+        'Ribbed (1991)',
+        'White Trash, Two Heebs and a Bean (1992)',
+        'Punk in Drublic (1994)',
+        'Heavy Petting Zoo (1996)',
+        'So Long and Thanks for All the Shoes (1997)',
+        'Pump Up the Valuum (2000)',
+        'The War on Errorism (2003)',
+        'Wolves in Wolves\' Clothing (2006)',
+        'Coaster (2009)',
+        'Self/Entitled (2012)',
+        'First Ditch Effort (2016)',
+        'Single Album (2021)',
+        'Double Album (2022)',
+    ]);
 
     rf_poll_seed_monthly_june_2026($pdo);
 }
@@ -228,6 +245,65 @@ function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, b
     $optionCount->execute([':poll_id' => $pollId]);
 
     if ((int) $optionCount->fetchColumn() > 0) {
+        return;
+    }
+
+    $optionStatement = $pdo->prepare(
+        'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
+         VALUES (:poll_id, :option_text, :sort_order)'
+    );
+
+    foreach ($options as $index => $optionText) {
+        $optionStatement->execute([
+            ':poll_id' => $pollId,
+            ':option_text' => $optionText,
+            ':sort_order' => $index + 1,
+        ]);
+    }
+}
+
+function rf_poll_seed_article(PDO $pdo, string $slug, string $title, string $question, array $options): void
+{
+    $statement = $pdo->prepare(
+        'SELECT id
+         FROM ' . RF_POLLS_TABLE . '
+         WHERE slug = :slug
+         LIMIT 1'
+    );
+    $statement->execute([':slug' => $slug]);
+    $pollId = (int) $statement->fetchColumn();
+
+    if ($pollId === 0) {
+        $now = new DateTimeImmutable('now');
+        $endsAt = $now->modify('+90 days');
+        $insert = $pdo->prepare(
+            'INSERT INTO ' . RF_POLLS_TABLE . ' (slug, title, question, is_active, poll_scope, starts_at, ends_at)
+             VALUES (:slug, :title, :question, 1, "article", :starts_at, :ends_at)'
+        );
+        $insert->execute([
+            ':slug' => $slug,
+            ':title' => $title,
+            ':question' => $question,
+            ':starts_at' => $now->format('Y-m-d H:i:s'),
+            ':ends_at' => $endsAt->format('Y-m-d H:i:s'),
+        ]);
+        $pollId = (int) $pdo->lastInsertId();
+    } else {
+        $update = $pdo->prepare(
+            'UPDATE ' . RF_POLLS_TABLE . '
+             SET title = :title,
+                 question = :question,
+                 poll_scope = "article"
+             WHERE id = :id'
+        );
+        $update->execute([
+            ':title' => $title,
+            ':question' => $question,
+            ':id' => $pollId,
+        ]);
+    }
+
+    if (rf_poll_option_count($pdo, $pollId) > 0) {
         return;
     }
 
