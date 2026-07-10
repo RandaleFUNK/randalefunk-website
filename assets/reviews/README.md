@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## irokaese-macht-kaputt-logo.jpg
+
+- Quelle: Facebook-Motiv von IROKÄSE, von Burg bereitgestellt.
+- Kontext: Logo/Graffiti-Motiv zu `IROKÄSE - Macht kaputt`.
+- Verwendung: Review-Entwurf `IROKÄSE - Macht kaputt`.
+- Hinweis: Von Burg zur Verwendung freigegeben; kein extern recherchiertes Pressefoto.
+
 ## nevver-flawed-from-the-get-go.jpg
 
 - Quelle: offizielles YouTube-Thumbnail von NEVVER.

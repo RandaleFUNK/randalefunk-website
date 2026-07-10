@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-irokaese-macht-kaputt-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Kaese-Irokesenfrisur schielt nach oben und versucht, mit der Zunge an den Kaese zu kommen.
+- Verwendung: Artikelsticker und Preview-Sticker zum Review-Entwurf `IROKÄSE - Macht kaputt` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-irokaese-macht-kaputt-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-irokaese-macht-kaputt-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-nevver-flawed-from-the-get-go-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
