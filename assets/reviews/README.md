@@ -1,5 +1,13 @@
 # Review-Bildquellen
 
+## nevver-flawed-from-the-get-go.jpg
+
+- Quelle: offizielles YouTube-Thumbnail von NEVVER.
+- Video: https://www.youtube.com/watch?v=QSHWHK1rgjw
+- Kontext: offizielles Video zu `NEVVER - Flawed From The Get-Go`, Video by Marius Stark.
+- Verwendung: Review-Entwurf `NEVVER - Flawed From The Get-Go`.
+- Hinweis: Als offizielles Video-/Thumbnail-Motiv dokumentiert.
+
 ## popperklopper-schoene-raue-welt-cover.jpg
 
 - Quelle: offizieller Out Of Vogue / Aggropunk-Shop

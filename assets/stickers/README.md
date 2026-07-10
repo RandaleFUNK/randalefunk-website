@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-nevver-flawed-from-the-get-go-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf steht an einem alten Arcade-Automaten und spielt ein gelbes Labyrinthspiel ohne offizielle Logos.
+- Verwendung: Artikelsticker und Preview-Sticker zum Review-Entwurf `NEVVER - Flawed From The Get-Go` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-nevver-flawed-from-the-get-go-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-nevver-flawed-from-the-get-go-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-sticker-polizist.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv auf Basis der Randalf-Charaktervorgaben.
