@@ -691,12 +691,13 @@ function rf_poll_maybe_close(PDO $pdo, array $poll): array
         'UPDATE ' . RF_POLLS_TABLE . '
          SET is_active = 0,
              closed_at = :closed_at,
-             archived_at = COALESCE(archived_at, :closed_at),
+             archived_at = COALESCE(archived_at, :archived_at),
              winner_option_id = :winner_option_id
          WHERE id = :id'
     );
     $closedAt = $now->format('Y-m-d H:i:s');
     $update->bindValue(':closed_at', $closedAt);
+    $update->bindValue(':archived_at', $closedAt);
     $update->bindValue(':winner_option_id', $winnerId, $winnerId === null ? PDO::PARAM_NULL : PDO::PARAM_INT);
     $update->bindValue(':id', (int) $poll['id'], PDO::PARAM_INT);
     $update->execute();
