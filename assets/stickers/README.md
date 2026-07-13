@@ -187,3 +187,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf mit Piratenhut, Banjo und Bierglas in Celtic-Punk-/Pub-Laune.
 - Verwendung: Preview-Sticker zum Vorab-gehoert-Beitrag `The Feelgood McLouds - Here We Go` und Stickerarchiv `randalf/index.html`.
+
+## randalf-brokesingercris-i-wont-lie-down-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben und Screenshot-Referenz von Chris; Randalf mit grau-schwarzer Cap, Sonnenbrille, leicht angegrautem Bart und offenem Mund beim Akustik-Krach.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `BROKESINGERCRIS & FRIENDS - I Won't Lie Down` sowie Stickerarchiv `randalf/index.html`.

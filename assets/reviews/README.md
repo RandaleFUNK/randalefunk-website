@@ -32,3 +32,11 @@
 - Kontext: Albumcover zu `Hamburg City Hardcore`
 - Verwendung: Review `SNAKES IN THE PIT - Apokalypse`
 - Hinweis: Kein Social-Media-Screenshot. Als offizielles Album-Artwork der Bandcamp-Seite dokumentiert.
+
+## brokesingercris-i-wont-lie-down-videostill.jpg
+
+- Quelle: YouTube-Thumbnail zum Video `Face To Face- I Wont Lie Down acoustic cover by Pulley/ Fine Dining/ Triple Bordego/ Double Negative`.
+- Video: https://www.youtube.com/watch?v=f8wd3Uf1dvM
+- Kontext: offizielles Video zum akustischen Face-To-Face-Cover `I Won't Lie Down`.
+- Verwendung: Review-Entwurf `BROKESINGERCRIS & FRIENDS - I Won't Lie Down`.
+- Hinweis: Als Videostill/Bildzitat dokumentiert; bei bereitgestelltem Pressebild bevorzugt austauschen.
