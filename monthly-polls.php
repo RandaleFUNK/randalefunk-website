@@ -47,11 +47,11 @@ function rf_monthly_poll_month_html(PDO $pdo, int $year, int $month, string $awa
         $winner = rf_monthly_poll_winner_text($pdo, $poll['winner_option_id'] !== null ? (int) $poll['winner_option_id'] : null);
         $label = $winner !== '' ? 'Gewinner: ' . $winner : 'Gewinner';
 
-        return '<article class="award-month is-winner">' . $time . '<span>' . rf_poll_escape($label) . '</span><a href="poll.php?poll=' . rawurlencode($slug) . '&action=results">Ergebnis</a></article>';
+        return '<article class="award-month is-winner">' . $time . '<span class="award-month__winner">' . rf_poll_escape($label) . '</span><a href="poll.php?poll=' . rawurlencode($slug) . '&action=results">Ergebnis</a></article>';
     }
 
     if ($status === 'Abgeschlossen') {
-        return '<article class="award-month is-closed">' . $time . '<span>Abgeschlossen</span><a href="poll.php?poll=' . rawurlencode($slug) . '&action=results">Ergebnis</a></article>';
+        return '<article class="award-month is-closed">' . $time . '<span>Ergebnis ohne eindeutigen Sieger</span><a href="poll.php?poll=' . rawurlencode($slug) . '&action=results">Ergebnis</a></article>';
     }
 
     return '<article class="award-month is-upcoming">' . $time . '<span>folgt</span></article>';

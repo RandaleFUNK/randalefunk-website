@@ -1372,10 +1372,17 @@ a {
 
 .award-month span {
   display: inline-block;
+  max-width: 100%;
   padding: 5px 7px;
   background: var(--black);
   color: var(--muted);
+  overflow-wrap: anywhere;
   text-transform: uppercase;
+}
+
+.award-month__winner {
+  font-size: 0.82rem;
+  line-height: 1.18;
 }
 
 .award-month a {
@@ -1535,6 +1542,37 @@ a {
 
 .monthly-admin-error {
   border-color: var(--accent);
+}
+
+.poll-page-shell {
+  width: min(760px, calc(100% - 24px));
+  margin: 0 auto 36px;
+}
+
+.poll-page-board {
+  display: grid;
+  gap: 16px;
+}
+
+.poll-page-board .poll-widget {
+  max-width: none;
+}
+
+.poll-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.poll-page-actions a {
+  display: inline-block;
+  padding: 9px 12px;
+  background: var(--accent);
+  color: var(--paper);
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 @media (max-width: 720px) {

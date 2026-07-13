@@ -896,6 +896,67 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
     return $html;
 }
 
+function rf_poll_is_fragment_request(): bool
+{
+    $requestedWith = strtolower((string) ($_SERVER['HTTP_X_REQUESTED_WITH'] ?? ''));
+    $fetchMode = strtolower((string) ($_SERVER['HTTP_SEC_FETCH_MODE'] ?? ''));
+    $fetchDest = strtolower((string) ($_SERVER['HTTP_SEC_FETCH_DEST'] ?? ''));
+
+    return $requestedWith === 'xmlhttprequest'
+        || $fetchMode === 'cors'
+        || $fetchDest === 'empty';
+}
+
+function rf_poll_page_url(string $pollSlug, bool $results = false): string
+{
+    $url = 'poll.php' . ($pollSlug !== '' ? '?poll=' . rawurlencode($pollSlug) : '');
+
+    if ($results) {
+        $url .= ($pollSlug !== '' ? '&' : '?') . 'action=results';
+    }
+
+    return $url;
+}
+
+function rf_poll_render_page(array $poll, string $widgetHtml): string
+{
+    $title = (string) ($poll['title'] ?? 'Umfrage');
+    $slug = (string) ($poll['slug'] ?? '');
+    $backHref = ((string) ($poll['poll_scope'] ?? 'weekly')) === 'weekly'
+        ? 'index.html'
+        : 'der-rostige-kronkorken.html';
+
+    $html = '<!doctype html><html lang="de"><head>';
+    $html .= '<meta charset="utf-8">';
+    $html .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    $html .= '<title>' . rf_poll_escape($title) . ' - RandaleFUNK.de</title>';
+    $html .= '<meta name="description" content="' . rf_poll_escape($title) . ' bei RandaleFUNK.de">';
+    $html .= '<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">';
+    $html .= '<link rel="stylesheet" href="style.css?v=20260713-poll-page">';
+    $html .= '</head><body data-active-section="sonstiges" data-disable-weekly-poll="true">';
+    $html .= '<div class="category-strip" aria-label="Magazin-Kategorien">PUNK &middot; FANZINE &middot; INTERVIEWS &middot; REVIEWS &middot; NEWS</div>';
+    $html .= '<header class="site-header" aria-label="RandaleFUNK Kopfbereich">';
+    $html .= '<a class="brand" href="index.html" aria-label="RandaleFUNK.de Startseite"><img src="assets/randalefunk-logo.png" alt="RandaleFUNK.de Logo" width="160" height="160"></a>';
+    $html .= '<p class="tagline">Irgendwas mit Punk seit 2022</p>';
+    $html .= '</header>';
+    $html .= '<main class="poll-page-shell">';
+    $html .= '<section class="issue-board poll-page-board">';
+    $html .= '<p class="issue-label">RandaleFUNK-Umfrage</p>';
+    $html .= $widgetHtml;
+    $html .= '<p class="poll-page-actions"><a href="' . rf_poll_escape($backHref) . '">Zurueck</a>';
+
+    if ($slug !== '') {
+        $html .= '<a href="' . rf_poll_escape(rf_poll_page_url($slug, true)) . '">Ergebnis</a>';
+    }
+
+    $html .= '</p></section></main>';
+    $html .= '<footer class="site-footer"><p>&copy; <span id="current-year"></span> RandaleFUNK.de</p><p>DIY bleibt DIY.</p></footer>';
+    $html .= '<script src="script.js?v=20260713-poll-page"></script>';
+    $html .= '</body></html>';
+
+    return $html;
+}
+
 function rf_poll_handle_request(): void
 {
     header('Content-Type: text/html; charset=utf-8');
@@ -938,7 +999,9 @@ function rf_poll_handle_request(): void
             || !rf_poll_is_open($poll)
             || ($action === 'results' && $scope === 'weekly');
 
-        echo rf_poll_render($poll, rf_poll_options($pdo, $pollId), $showResults, $message);
+        $widgetHtml = rf_poll_render($poll, rf_poll_options($pdo, $pollId), $showResults, $message);
+
+        echo rf_poll_is_fragment_request() ? $widgetHtml : rf_poll_render_page($poll, $widgetHtml);
     } catch (Throwable) {
         http_response_code(500);
         echo '<section class="poll-widget poll-widget--quiet" aria-label="Umfrage der Woche"><p class="poll-widget__kicker">Umfrage der Woche</p><h2>Die Umfrage klemmt gerade.</h2></section>';
