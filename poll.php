@@ -592,7 +592,7 @@ function rf_poll_has_voted(PDO $pdo, int $pollId): bool
 
 function rf_poll_winner_option_id(array $options): ?int
 {
-    $topVotes = -1;
+    $topVotes = 0;
     $winnerId = null;
     $isTie = false;
 
@@ -606,12 +606,12 @@ function rf_poll_winner_option_id(array $options): ?int
             continue;
         }
 
-        if ($votes === $topVotes) {
+        if ($votes > 0 && $votes === $topVotes) {
             $isTie = true;
         }
     }
 
-    return !$isTie && $topVotes >= 0 ? $winnerId : null;
+    return !$isTie && $topVotes > 0 ? $winnerId : null;
 }
 
 function rf_poll_sync_yearly_candidates(PDO $pdo, int $year, string $awardType): void
@@ -696,11 +696,10 @@ function rf_poll_maybe_close(PDO $pdo, array $poll): array
          WHERE id = :id'
     );
     $closedAt = $now->format('Y-m-d H:i:s');
-    $update->execute([
-        ':closed_at' => $closedAt,
-        ':winner_option_id' => $winnerId,
-        ':id' => (int) $poll['id'],
-    ]);
+    $update->bindValue(':closed_at', $closedAt);
+    $update->bindValue(':winner_option_id', $winnerId, $winnerId === null ? PDO::PARAM_NULL : PDO::PARAM_INT);
+    $update->bindValue(':id', (int) $poll['id'], PDO::PARAM_INT);
+    $update->execute();
 
     if ($scope === 'monthly' && $winnerId !== null) {
         rf_poll_sync_yearly_candidates($pdo, (int) $poll['award_year'], (string) $poll['award_type']);
