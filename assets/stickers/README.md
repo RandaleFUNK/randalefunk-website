@@ -193,3 +193,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben und Screenshot-Referenz von Chris; Randalf mit grau-schwarzer Cap, Sonnenbrille, leicht angegrautem Bart und offenem Mund beim Akustik-Krach.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `BROKESINGERCRIS & FRIENDS - I Won't Lie Down` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-hosen-fischfilet-komplett-im-arsch-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit kaputter Bluejeans über dem Kopf, schlaffen Armen und erschöpftem Seufz-Blick.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `DIE TOTEN HOSEN feat. FEINE SAHNE FISCHFILET - Komplett im Arsch` sowie Stickerarchiv `randalf/index.html`.

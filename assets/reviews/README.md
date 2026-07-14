@@ -40,3 +40,10 @@
 - Kontext: offizielles Video zum akustischen Face-To-Face-Cover `I Won't Lie Down`.
 - Verwendung: Review-Entwurf `BROKESINGERCRIS & FRIENDS - I Won't Lie Down`.
 - Hinweis: Als Videostill/Bildzitat dokumentiert; bei bereitgestelltem Pressebild bevorzugt austauschen.
+
+## hosen-fischfilet-komplett-im-arsch-burg.png
+
+- Quelle: von Burg bereitgestelltes RandaleFUNK-Motiv.
+- Kontext: Bildmotiv zur Review `DIE TOTEN HOSEN feat. FEINE SAHNE FISCHFILET - Komplett im Arsch`.
+- Verwendung: Artikelbild zur lokalen Review-Voransicht.
+- Hinweis: Eigenes Motiv, kein externes Pressefoto.
