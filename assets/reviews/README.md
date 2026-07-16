@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## kassengipht-sag-ja.jpg
+
+- Quelle: von Burg bereitgestelltes Internetfundstück.
+- Kontext: Bildmotiv zur Review `KASSENGIPHT - Sag Ja`.
+- Verwendung: Artikelbild zur lokalen Review-Voransicht.
+- Hinweis: Von Burg zur Verwendung freigegeben; keine externe Bildrecherche durch Codex.
+
 ## irokaese-macht-kaputt-logo.jpg
 
 - Quelle: Facebook-Motiv von IROKÄSE, von Burg bereitgestellt.

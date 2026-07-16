@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-kassengipht-sag-ja-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; dekadenter Randalf im weissen Polo-Hemd mit ueber den Schultern liegendem Pullover und Sektglas in der Hand.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `KASSENGIPHT - Sag Ja` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-kassengipht-sag-ja-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-kassengipht-sag-ja-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-irokaese-macht-kaputt-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
