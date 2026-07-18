@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## punk-chartbusters-vol-7-lineup.jpg
+
+- Quelle: Tracklist-Grafiken aus offiziellen Wolverine-Records-Posts zu `Punk Chartbusters Vol. 7`.
+- Originaldateien: `to-do_und_temporär/chart1.jpg` und `to-do_und_temporär/chart2.jpg`, von Burg bereitgestellt.
+- Bearbeitung: lokal übereinander montiert und als JPG für die Website optimiert.
+- Verwendung: News zum vollständigen Line-up von `Punk Chartbusters Vol. 7`.
+- Hinweis: Redaktionelle Verwendung im direkten Kontext der Label-Ankündigung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## eric-melvin-nofx-commons.jpg
 
 - Quelle: Wikimedia Commons.
