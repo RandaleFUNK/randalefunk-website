@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## turbolent-ich-will-los-cover.png
+
+- Quelle: offizielles Cover zu `TURBOLENT - Ich will los`, von Burg bereitgestellt.
+- Kontext: Single `Ich will los`, Veröffentlichung am 24.07.2026.
+- Verwendung: Artikelbild zur lokalen Review-Voransicht.
+- Hinweis: Von TURBOLENT für RandaleFUNK freigegeben.
+
 ## kassengipht-sag-ja.jpg
 
 - Quelle: von Burg bereitgestelltes Internetfundstück.
