@@ -25,6 +25,11 @@ if (!is_array($payload)) {
 }
 
 $eventType = rf_stats_clean_event_type((string) ($payload['event_type'] ?? 'pageview'));
+
+if ($eventType === null) {
+    exit;
+}
+
 $path = rf_stats_clean_path((string) ($payload['path'] ?? '/'));
 $section = rf_stats_clean_section((string) ($payload['section'] ?? ''), $path);
 

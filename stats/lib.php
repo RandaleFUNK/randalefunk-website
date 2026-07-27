@@ -3,6 +3,17 @@ declare(strict_types=1);
 
 const RF_STATS_TABLE = 'rf_stats_events';
 
+function rf_stats_now(): DateTimeImmutable
+{
+    static $timezone = null;
+
+    if (!$timezone instanceof DateTimeZone) {
+        $timezone = new DateTimeZone('Europe/Berlin');
+    }
+
+    return new DateTimeImmutable('now', $timezone);
+}
+
 function rf_stats_config(): array
 {
     static $config = null;
@@ -101,11 +112,11 @@ function rf_stats_section_from_path(string $path): string
     return 'news';
 }
 
-function rf_stats_clean_event_type(string $eventType): string
+function rf_stats_clean_event_type(string $eventType): ?string
 {
     $allowedTypes = ['pageview', 'kofi_click', 'support_click', 'wuerfel_click'];
 
-    return in_array($eventType, $allowedTypes, true) ? $eventType : 'pageview';
+    return in_array($eventType, $allowedTypes, true) ? $eventType : null;
 }
 
 function rf_stats_clean_path(string $path): string
@@ -154,7 +165,13 @@ function rf_stats_visitor_day_hash(string $date): string
 
 function rf_stats_record_event(PDO $pdo, string $eventType, string $path, string $section): void
 {
-    $today = (new DateTimeImmutable('now'))->format('Y-m-d');
+    $cleanEventType = rf_stats_clean_event_type($eventType);
+
+    if ($cleanEventType === null) {
+        return;
+    }
+
+    $today = rf_stats_now()->format('Y-m-d');
     $statement = $pdo->prepare(
         'INSERT INTO ' . RF_STATS_TABLE . ' (event_date, event_type, path, section, visitor_day_hash)
          VALUES (:event_date, :event_type, :path, :section, :visitor_day_hash)'
@@ -162,7 +179,7 @@ function rf_stats_record_event(PDO $pdo, string $eventType, string $path, string
 
     $statement->execute([
         ':event_date' => $today,
-        ':event_type' => rf_stats_clean_event_type($eventType),
+        ':event_type' => $cleanEventType,
         ':path' => rf_stats_clean_path($path),
         ':section' => rf_stats_clean_section($section, $path),
         ':visitor_day_hash' => rf_stats_visitor_day_hash($today),
@@ -185,30 +202,252 @@ function rf_stats_rows(PDO $pdo, string $sql, array $params = []): array
     return $statement->fetchAll();
 }
 
-function rf_stats_dashboard_data(PDO $pdo): array
+function rf_stats_periods(): array
 {
-    $today = (new DateTimeImmutable('now'))->format('Y-m-d');
-    $monthStart = (new DateTimeImmutable('first day of this month'))->format('Y-m-d');
+    $today = rf_stats_now()->setTime(0, 0);
+    $tomorrow = $today->modify('+1 day');
+    $weekStart = $today->modify('-' . ((int) $today->format('N') - 1) . ' days');
+    $monthStart = $today->modify('first day of this month');
 
     return [
-        'visitors_today' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(DISTINCT visitor_day_hash) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview" AND event_date = :today',
-            [':today' => $today]
-        ),
-        'visitors_month' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview" AND event_date >= :month_start',
-            [':month_start' => $monthStart]
-        ),
-        'visitors_total' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview"'
-        ),
-        'pageviews_total' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview"'
-        ),
+        'today' => [
+            'label' => 'Heute',
+            'start' => $today->format('Y-m-d'),
+            'end' => $tomorrow->format('Y-m-d'),
+        ],
+        'yesterday' => [
+            'label' => 'Gestern',
+            'start' => $today->modify('-1 day')->format('Y-m-d'),
+            'end' => $today->format('Y-m-d'),
+        ],
+        '7d' => [
+            'label' => '7 Tage',
+            'start' => $today->modify('-6 days')->format('Y-m-d'),
+            'end' => $tomorrow->format('Y-m-d'),
+        ],
+        '30d' => [
+            'label' => '30 Tage',
+            'start' => $today->modify('-29 days')->format('Y-m-d'),
+            'end' => $tomorrow->format('Y-m-d'),
+        ],
+        'week' => [
+            'label' => 'Diese Woche',
+            'start' => $weekStart->format('Y-m-d'),
+            'end' => $tomorrow->format('Y-m-d'),
+        ],
+        'month' => [
+            'label' => 'Aktueller Monat',
+            'start' => $monthStart->format('Y-m-d'),
+            'end' => $monthStart->modify('+1 month')->format('Y-m-d'),
+        ],
+        'all' => [
+            'label' => 'Gesamt',
+            'start' => null,
+            'end' => null,
+        ],
+    ];
+}
+
+function rf_stats_valid_range(string $requestedRange): string
+{
+    $allowedRanges = ['today', 'yesterday', '7d', '30d', 'month', 'all'];
+
+    return in_array($requestedRange, $allowedRanges, true) ? $requestedRange : '30d';
+}
+
+function rf_stats_period_condition(array $period): array
+{
+    if ($period['start'] === null || $period['end'] === null) {
+        return ['', []];
+    }
+
+    return [
+        ' AND event_date >= :period_start AND event_date < :period_end',
+        [
+            ':period_start' => (string) $period['start'],
+            ':period_end' => (string) $period['end'],
+        ],
+    ];
+}
+
+function rf_stats_pageview_totals(PDO $pdo, array $period): array
+{
+    [$condition, $params] = rf_stats_period_condition($period);
+    $rows = rf_stats_rows(
+        $pdo,
+        'SELECT
+            COUNT(*) AS pageviews,
+            COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) AS visitor_day_values
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview"' . $condition,
+        $params
+    );
+    $row = $rows[0] ?? [];
+
+    return [
+        'visitor_day_values' => (int) ($row['visitor_day_values'] ?? 0),
+        'pageviews' => (int) ($row['pageviews'] ?? 0),
+    ];
+}
+
+function rf_stats_top_pages(PDO $pdo, array $period): array
+{
+    [$condition, $params] = rf_stats_period_condition($period);
+
+    return rf_stats_rows(
+        $pdo,
+        'SELECT path, COUNT(*) AS count
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview"' . $condition . '
+         GROUP BY path
+         ORDER BY count DESC, path ASC
+         LIMIT 10',
+        $params
+    );
+}
+
+function rf_stats_top_sections(PDO $pdo, array $period): array
+{
+    [$condition, $params] = rf_stats_period_condition($period);
+
+    return rf_stats_rows(
+        $pdo,
+        'SELECT section, COUNT(*) AS count
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview"' . $condition . '
+         GROUP BY section
+         ORDER BY count DESC, section ASC',
+        $params
+    );
+}
+
+function rf_stats_randalf_pageviews(PDO $pdo, array $period): int
+{
+    [$condition, $params] = rf_stats_period_condition($period);
+
+    return rf_stats_scalar(
+        $pdo,
+        'SELECT COUNT(*)
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview" AND section = "randalf"' . $condition,
+        $params
+    );
+}
+
+function rf_stats_daily_series(PDO $pdo): array
+{
+    $today = rf_stats_now()->setTime(0, 0);
+    $start = $today->modify('-29 days');
+    $end = $today->modify('+1 day');
+    $rows = rf_stats_rows(
+        $pdo,
+        'SELECT
+            event_date AS period_key,
+            COUNT(*) AS pageviews,
+            COUNT(DISTINCT visitor_day_hash) AS visitor_day_values
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview"
+           AND event_date >= :period_start
+           AND event_date < :period_end
+         GROUP BY event_date
+         ORDER BY event_date ASC',
+        [
+            ':period_start' => $start->format('Y-m-d'),
+            ':period_end' => $end->format('Y-m-d'),
+        ]
+    );
+    $indexedRows = [];
+
+    foreach ($rows as $row) {
+        $indexedRows[(string) $row['period_key']] = $row;
+    }
+
+    $series = [];
+
+    for ($date = $start; $date < $end; $date = $date->modify('+1 day')) {
+        $key = $date->format('Y-m-d');
+        $row = $indexedRows[$key] ?? [];
+        $series[] = [
+            'period_key' => $key,
+            'label' => $date->format('d.m.'),
+            'visitor_day_values' => (int) ($row['visitor_day_values'] ?? 0),
+            'pageviews' => (int) ($row['pageviews'] ?? 0),
+        ];
+    }
+
+    return $series;
+}
+
+function rf_stats_monthly_series(PDO $pdo): array
+{
+    $currentMonth = rf_stats_now()->setTime(0, 0)->modify('first day of this month');
+    $start = $currentMonth->modify('-11 months');
+    $end = $currentMonth->modify('+1 month');
+    $rows = rf_stats_rows(
+        $pdo,
+        'SELECT
+            DATE_FORMAT(event_date, "%Y-%m") AS period_key,
+            COUNT(*) AS pageviews,
+            COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) AS visitor_day_values
+         FROM ' . RF_STATS_TABLE . '
+         WHERE event_type = "pageview"
+           AND event_date >= :period_start
+           AND event_date < :period_end
+         GROUP BY DATE_FORMAT(event_date, "%Y-%m")
+         ORDER BY period_key ASC',
+        [
+            ':period_start' => $start->format('Y-m-d'),
+            ':period_end' => $end->format('Y-m-d'),
+        ]
+    );
+    $indexedRows = [];
+
+    foreach ($rows as $row) {
+        $indexedRows[(string) $row['period_key']] = $row;
+    }
+
+    $series = [];
+
+    for ($month = $start; $month < $end; $month = $month->modify('+1 month')) {
+        $key = $month->format('Y-m');
+        $row = $indexedRows[$key] ?? [];
+        $series[] = [
+            'period_key' => $key,
+            'label' => $month->format('m/y'),
+            'visitor_day_values' => (int) ($row['visitor_day_values'] ?? 0),
+            'pageviews' => (int) ($row['pageviews'] ?? 0),
+        ];
+    }
+
+    return $series;
+}
+
+function rf_stats_dashboard_data(PDO $pdo, string $requestedRange = '30d'): array
+{
+    $periods = rf_stats_periods();
+    $selectedRange = rf_stats_valid_range($requestedRange);
+    $selectedPeriod = $periods[$selectedRange];
+    $summaryPeriods = ['today', 'yesterday', 'week', 'month', '30d', 'all'];
+    $summaries = [];
+
+    foreach ($summaryPeriods as $periodKey) {
+        $summaries[$periodKey] = rf_stats_pageview_totals($pdo, $periods[$periodKey]);
+    }
+
+    $selectedTotals = $summaries[$selectedRange]
+        ?? rf_stats_pageview_totals($pdo, $selectedPeriod);
+    $pageviewsPerVisitorDay = $selectedTotals['visitor_day_values'] > 0
+        ? $selectedTotals['pageviews'] / $selectedTotals['visitor_day_values']
+        : 0.0;
+
+    return [
+        'selected_range' => $selectedRange,
+        'selected_range_label' => $selectedPeriod['label'],
+        'periods' => $periods,
+        'summaries' => $summaries,
+        'selected_totals' => $selectedTotals,
+        'pageviews_per_visitor_day' => $pageviewsPerVisitorDay,
+        'randalf_pageviews' => rf_stats_randalf_pageviews($pdo, $selectedPeriod),
         'kofi_clicks' => rf_stats_scalar(
             $pdo,
             'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "kofi_click"'
@@ -229,13 +468,9 @@ function rf_stats_dashboard_data(PDO $pdo): array
             $pdo,
             'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "wuerfel_click"'
         ),
-        'top_pages' => rf_stats_rows(
-            $pdo,
-            'SELECT path, COUNT(*) AS count FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview" GROUP BY path ORDER BY count DESC, path ASC LIMIT 10'
-        ),
-        'top_sections' => rf_stats_rows(
-            $pdo,
-            'SELECT section, COUNT(*) AS count FROM ' . RF_STATS_TABLE . ' WHERE event_type = "pageview" GROUP BY section ORDER BY count DESC, section ASC'
-        ),
+        'top_pages' => rf_stats_top_pages($pdo, $selectedPeriod),
+        'top_sections' => rf_stats_top_sections($pdo, $selectedPeriod),
+        'daily_series' => rf_stats_daily_series($pdo),
+        'monthly_series' => rf_stats_monthly_series($pdo),
     ];
 }
