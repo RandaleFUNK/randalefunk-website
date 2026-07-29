@@ -1,5 +1,11 @@
 # News-Bildquellen
 
+## randalenews-02-thumbnail.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `RandaleNEWS/folgen/2026-07-24-youtube-news/material/bilder/thumbnail-randalenews-02-youtube.jpg`.
+- Verwendung: News-Ticker-Meldung zu `RandaleNEWS #02`.
+- Hinweis: Lokales Vorschaubild statt YouTube-Embed oder YouTube-Thumbnail, damit beim Seitenaufruf keine Verbindung zu YouTube aufgebaut wird. YouTube ist nur als externer Button verlinkt.
+
 ## punk-chartbusters-vol-7-lineup.jpg
 
 - Quelle: Tracklist-Grafiken aus offiziellen Wolverine-Records-Posts zu `Punk Chartbusters Vol. 7`.
