@@ -1,5 +1,13 @@
 # Review-Bildquellen
 
+## mad-dog-dan-tanze-samba-mit-mir.jpg
+
+- Quelle: YouTube-Thumbnail/Videostill zum Video `MAD DOG DAN - TANZE SAMBA MIT MIR (MASTERED)`.
+- Video: https://www.youtube.com/watch?v=Q8hs5tJwFwE
+- Kontext: Video zum Mad-Dog-Dan-Cover `Tanze Samba mit mir`.
+- Verwendung: Artikelbild zur Review `MAD DOG DAN - Tanze Samba mit mir`.
+- Hinweis: Als Bildzitat im Kontext der Review genutzt.
+
 ## schwindelbude-seid-ihr-wirklich-so-zufrieden.jpg
 
 - Quelle: Apple-Music/Internetfund zum Albumcover `Seid Ihr Wirklich so Zufrieden`.

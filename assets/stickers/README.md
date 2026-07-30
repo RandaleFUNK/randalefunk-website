@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-mad-dog-dan-tanze-samba-mit-mir-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf in einer Zwangsjacke, wahnsinnig irre herum schauend.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `MAD DOG DAN - Tanze Samba mit mir` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-mad-dog-dan-tanze-samba-mit-mir-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-mad-dog-dan-tanze-samba-mit-mir-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-schwindelbude-seid-ihr-wirklich-so-zufrieden-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
