@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-schwindelbude-seid-ihr-wirklich-so-zufrieden-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; schlichtes Puppentheater, in dem Randalfs Kopf steckt.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `SCHWINDELBude - Seid Ihr Wirklich so Zufrieden` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-schwindelbude-seid-ihr-wirklich-so-zufrieden-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-schwindelbude-seid-ihr-wirklich-so-zufrieden-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-this-volume-junk-unbound-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.

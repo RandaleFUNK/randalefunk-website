@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## schwindelbude-seid-ihr-wirklich-so-zufrieden.jpg
+
+- Quelle: Apple-Music/Internetfund zum Albumcover `Seid Ihr Wirklich so Zufrieden`.
+- Kontext: Albumcover zur Review `SCHWINDELBude - Seid Ihr Wirklich so Zufrieden`.
+- Verwendung: Artikelbild zur Review.
+- Hinweis im Artikel: `Hat Burg irgendwo im Internet geklaut.`
+
 ## this-volume-junk-unbound.jpg
 
 - Quelle: von THIS VOLUME JUNK per Mail bereitgestelltes Bildmaterial.
