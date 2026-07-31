@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## harte-worte-soundtrack-zum-untergang.jpg
+
+- Quelle: offizielles Produktbild aus dem Sunny-Bastards-Shop.
+- Quellseite: https://store.sunnybastards.de/Musik/Vinyl/Harte-Worte-Soundtrack-zum-Untergang-EP-10inch-red-multisplatter-Vinyl::7306.html
+- Originalbild: https://store.sunnybastards.de/images/product_images/popup_images/7306_0.jpg
+- Verwendung: News-Ticker-Meldung zur Harte-Worte-10-Inch `Soundtrack zum Untergang`.
+- Hinweis: Redaktionelle Verwendung im direkten Kontext der offiziellen Release-/Shop-Ankuendigung; nicht als frei lizenzierte Pressefreigabe verstanden.
+
 ## randalenews-02-thumbnail.jpg
 
 - Quelle: eigenes RandaleFUNK-Thumbnail aus `RandaleNEWS/folgen/2026-07-24-youtube-news/material/bilder/thumbnail-randalenews-02-youtube.jpg`.
