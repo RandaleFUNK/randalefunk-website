@@ -174,6 +174,11 @@ function rf_poll_ensure_schema(PDO $pdo): void
         'Double Album (2022)',
     ]);
 
+    rf_poll_seed_monthly_january_2026($pdo);
+    rf_poll_seed_monthly_february_2026($pdo);
+    rf_poll_seed_monthly_march_2026($pdo);
+    rf_poll_seed_monthly_april_2026($pdo);
+    rf_poll_seed_monthly_may_2026($pdo);
     rf_poll_seed_monthly_june_2026($pdo);
     rf_poll_seed_monthly_july_2026($pdo);
 }
@@ -324,7 +329,7 @@ function rf_poll_seed_article(PDO $pdo, string $slug, string $title, string $que
 
 function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $awardType, array $options, bool $startNow = false): void
 {
-    if (count($options) !== 10) {
+    if ($options === [] || count($options) > 10) {
         return;
     }
 
@@ -336,24 +341,179 @@ function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $a
         return;
     }
 
-    if (rf_poll_option_count($pdo, $pollId) === 0) {
+    $existingOptions = rf_poll_options($pdo, $pollId);
+    $existingTexts = array_map(static fn (array $option): string => (string) $option['option_text'], $existingOptions);
+
+    if (count($existingOptions) < 10) {
         $statement = $pdo->prepare(
             'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
              VALUES (:poll_id, :option_text, :sort_order)'
         );
+        $sortOrder = count($existingOptions);
 
-        foreach ($options as $index => $optionText) {
+        foreach ($options as $optionText) {
+            if (in_array($optionText, $existingTexts, true) || $sortOrder >= 10) {
+                continue;
+            }
+
+            $sortOrder++;
             $statement->execute([
                 ':poll_id' => $pollId,
                 ':option_text' => $optionText,
-                ':sort_order' => $index + 1,
+                ':sort_order' => $sortOrder,
             ]);
+            $existingTexts[] = $optionText;
         }
     }
 
     if ($startNow && rf_poll_option_count($pdo, $pollId) === 10) {
         rf_poll_start_monthly($pdo, $year, $month, $awardType);
     }
+}
+
+function rf_poll_seed_monthly_february_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 2, 'album_ep', [
+        'FJØRT - belle époque',
+        'pADDELNoHNEkANU - niemand liebt dich mehr',
+        'Der Butterwegge - Liebe & Revolte',
+        'A Wilhelm Scream - Cheap Heat',
+        'Melonball - Take Care',
+        'The Busters - Calling',
+        'Volores - Shores of Scorpio',
+        'The Sensitives - Ride It Like You Stole It',
+        'New Found Glory - Listen Up!',
+        'Gogol Bordello - We Mean It, Man!',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 2, 'single_song', [
+        'STROM GEGENAN - Ferne Galaxie',
+        'Neckarions - Sometimes Drunk - Always Antifascist',
+        'Good Riddance - There’s Still Tonight',
+        'Knocked Loose feat. Denzel Curry - Hive Mind',
+        'Deadweight - Conviction',
+        'Kreftich - Kopf auf Pause',
+        'Tanzig - Fresse!',
+        'Faded Polaroids - It’s Okay',
+        'Zwakkelmann - Jammerlappen',
+        'Sister Ghost - Not Your Toy',
+    ], true);
+}
+
+function rf_poll_seed_monthly_march_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 3, 'album_ep', [
+        'Dorfterror - Schreikinder',
+        'Good Riddance - Before The World Caves In',
+        'The Casualties - Detonate',
+        'Rantanplan - Geschwedet',
+        'Teenage Bottlerocket - The Invisible Man',
+        'Savage Beat - Bright Lights, Tall Shadows',
+        'Shoreline - Is This The Low Point Or The Moment After?',
+        'Poison The Well - Peace In Place',
+        'Dan Ganove - Sexunfall',
+        'Vitamin X - Ride The Apocalypse',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 3, 'single_song', [
+        'Turbolent - Ich hab alles',
+        'Noi!se - You Versus You',
+        'Western Addiction - Let’s Keep The Circle Small',
+        'Shatten - Paranoia',
+        'Deutsche Laichen - Punk ist scheiße, Punk ist geil',
+        'Vor die Hunde - Hochgeschwindigkeitsgeballer',
+        'Nein Danke - Wo soll das alles enden?',
+        'The Nø - Unerhoert',
+        'Pet Needs - Elbows Out! This Is Capitalism',
+        'World I Hate - Total Nuclear Annihilation',
+    ], true);
+}
+
+function rf_poll_seed_monthly_april_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 4, 'album_ep', [
+        'Noi!se - Fate Of The Union',
+        'Terror - Still Suffer',
+        'Oxo86 - Die Hoffnung stirbt zuletzt...',
+        'Codefendants - Lifers',
+        'Grade 2 - Talk About It',
+        'Division Of Mind - Exoterror',
+        'Poison Ruïn - Hymns From The Hills',
+        'Iron Snag Joe - Kellerkalt',
+        'Portrayal Of Guilt - ...Beginning Of The End',
+        'NoFuture - Bizarre Zeiten',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 4, 'single_song', [
+        'NEVVER - Fake a Smile',
+        'Social Distortion - Partners In Crime',
+        'Kreftich - Sonne und Wind',
+        'Versus You - Perfectly Still',
+        'Waves Like Walls feat. Downpour - Never Enough',
+        'Unified Move - Peace Of Mind',
+        'August Burns Red feat. Jamie Hails - Sonic Salvation',
+        'Dillinger Four - Don’t Happy Be Worry',
+        'April Art - Panic Stations',
+        'Zebrahead - Smoke Signals from My Couch',
+    ], true);
+}
+
+function rf_poll_seed_monthly_may_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 5, 'album_ep', [
+        'Thin Ice - Happiness Ain’t Meant For All',
+        'Don Gordo - Viva la Escalacion',
+        'ERECTION - Plug It In',
+        'Koyo - Barely Here',
+        'Social Distortion - Born To Kill',
+        'The Flatliners - Cold World',
+        'Kreftich - Keine Angst',
+        'Angora Club - Herz voran',
+        'The Croax - Drown In Deep',
+        'Schütze - ERFOLG',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 5, 'single_song', [
+        'The Iron Roses - Dead Eyes',
+        'Madball - Rebel Kids',
+        'Zebrahead - I Know What U Did Last Summer',
+        'To The Wire - Every Day',
+        'Pro-Pain - Stone Cold Anger',
+        'Frachter - Gleich wird es besser',
+        'Dwarves - We Are The Scene',
+        'Popperklopper - Halbmast',
+        'Risk It! - Numbskull',
+        'Cancer Bats - Stay Stuck',
+    ], true);
+}
+
+function rf_poll_seed_monthly_january_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 1, 'album_ep', [
+        'Capillary - In Remembrance',
+        'Vier Meter Hustensaft - Dreckige Kohle',
+        'Lionheart - Valley of Death II',
+        'NOFX - Quarter Album',
+        'I Promised The World - I Promised The World',
+        'Goldfinger - Nine Lives',
+        'Dagger Threat - bleed///reboot',
+        'pADDELNoHNEkANU - kein + aber',
+        'Minus Youth - Lines Crossed',
+        'Buzzcocks - Attitude Adjustment',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 1, 'single_song', [
+        'Der Butterwegge - Der Osten bleibt stabil',
+        'ERECTION - Ich will mehr',
+        'Poison the Well - Thoroughbreds',
+        'New Found Glory - Beer and Blood Stains',
+        'XCOMM - Fake ID',
+        'Static Dress - human props',
+        'Buzzcocks - Poetic Machine Gun',
+        'In Balance - Two Steps Behind',
+        'A Wilhelm Scream - Let It Ride',
+        'NOFX - Minnesota Nazis',
+    ], true);
 }
 
 function rf_poll_seed_monthly_june_2026(PDO $pdo): void
