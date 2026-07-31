@@ -197,29 +197,222 @@ function attachPollHandlers(pollMount) {
   });
 }
 
+async function refreshPollMount(pollMount) {
+  try {
+    const response = await fetch(pollMount.dataset.pollEndpoint, {
+      credentials: "same-origin"
+    });
+
+    if (!response.ok) {
+      throw new Error("Inline poll widget failed");
+    }
+
+    pollMount.innerHTML = await response.text();
+    attachPollHandlers(pollMount);
+  } catch {
+    pollMount.innerHTML = '<section class="poll-widget poll-widget--monthly poll-widget--quiet"><p class="poll-widget__message">Diese Abstimmung ist gerade nicht erreichbar.</p></section>';
+  }
+}
+
 async function loadInlinePollWidgets() {
-  const pollMounts = document.querySelectorAll("[data-poll-mount][data-poll-endpoint]");
+  const pollMounts = document.querySelectorAll("[data-poll-mount][data-poll-endpoint]:not([data-award-poll-mount])");
 
   if (window.location.protocol === "file:") {
     return;
   }
 
   for (const pollMount of pollMounts) {
+    await refreshPollMount(pollMount);
+  }
+}
+
+function getAwardMonthFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const monthParam = params.get("monat") || "";
+  const hashMonth = window.location.hash.replace("#", "");
+  const candidate = monthParam || hashMonth;
+
+  return /^\d{4}-\d{2}$/.test(candidate) ? candidate : "";
+}
+
+function awardMonthName(monthKey) {
+  const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+  const [, monthPart] = monthKey.split("-");
+  const monthIndex = Number(monthPart) - 1;
+
+  return `${monthNames[monthIndex] || "Monat"} ${monthKey.slice(0, 4)}`;
+}
+
+function awardPollSlug(awardType, monthKey) {
+  return `monthly-${awardType.replace("_", "-")}-${monthKey}`;
+}
+
+function awardStatusTitle(state) {
+  if (state === "ended") {
+    return "Beendet";
+  }
+
+  if (state === "follows") {
+    return "Folgt";
+  }
+
+  return "Jetzt abstimmen";
+}
+
+function setAwardTabState(root, selectedMonth, months = []) {
+  const monthMap = new Map(months.map((month) => [month.month, month]));
+
+  root.querySelectorAll("[data-award-month-tab]").forEach((button) => {
+    const monthKey = button.dataset.awardMonthTab;
+    const month = monthMap.get(monthKey);
+    const state = month?.state || button.dataset.awardState || "follows";
+    const label = month?.label || button.querySelector("small")?.textContent || "folgt";
+    const isSelected = monthKey === selectedMonth;
+
+    button.dataset.awardState = state;
+    button.setAttribute("aria-selected", String(isSelected));
+    button.classList.toggle("is-selected", isSelected);
+
+    const status = button.querySelector("small");
+    if (status) {
+      status.textContent = label;
+    }
+  });
+}
+
+function renderAwardOpenMonths(root, selectedMonth, months = []) {
+  const target = root.querySelector("[data-award-open-months]");
+
+  if (!target) {
+    return;
+  }
+
+  const openMonths = months.filter((month) => month.state === "open" && month.month !== selectedMonth);
+
+  if (openMonths.length === 0) {
+    target.textContent = "Nach deiner Stimme kannst du auch in den anderen offenen Monaten abstimmen.";
+    return;
+  }
+
+  const buttons = openMonths
+    .map((month) => `<button type="button" data-award-month-shortcut="${month.month}">${awardMonthName(month.month)}</button>`)
+    .join("");
+
+  target.innerHTML = `Auch offen: ${buttons}`;
+}
+
+async function selectAwardMonth(root, monthKey, months = [], pushUrl = true) {
+  const month = months.find((entry) => entry.month === monthKey);
+  const state = month?.state || root.querySelector(`[data-award-month-tab="${monthKey}"]`)?.dataset.awardState || "open";
+  const monthLabel = root.querySelector("[data-award-selected-month-label]");
+  const title = root.querySelector("[data-award-selected-month-title]");
+
+  setAwardTabState(root, monthKey, months);
+  renderAwardOpenMonths(root, monthKey, months);
+
+  if (monthLabel) {
+    monthLabel.textContent = awardMonthName(monthKey);
+  }
+
+  if (title) {
+    title.textContent = awardStatusTitle(state);
+  }
+
+  if (pushUrl) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("monat", monthKey);
+    url.hash = "";
+    window.history.replaceState({}, "", url);
+  }
+
+  for (const pollMount of root.querySelectorAll("[data-award-poll-mount]")) {
+    const awardType = pollMount.dataset.awardPollMount;
+
+    if (state === "follows" && !month?.has_poll) {
+      const label = awardType === "single_song" ? "Single/Song des Monats" : "Album/EP des Monats";
+      pollMount.innerHTML = `<section class="poll-widget poll-widget--monthly poll-widget--quiet"><p class="poll-widget__kicker">${label}</p><h2>Für diesen Monat ist noch keine Abstimmung geöffnet.</h2></section>`;
+      continue;
+    }
+
+    pollMount.dataset.pollEndpoint = `/poll.php?poll=${awardPollSlug(awardType, monthKey)}`;
+    pollMount.innerHTML = '<section class="poll-widget poll-widget--monthly poll-widget--quiet"><p class="poll-widget__message">Lade Abstimmung...</p></section>';
+
+    if (window.location.protocol !== "file:") {
+      await refreshPollMount(pollMount);
+    }
+  }
+}
+
+async function initializeAwardMonthTabs() {
+  const root = document.querySelector("[data-awards-tabs]");
+
+  if (!root) {
+    return;
+  }
+
+  const year = root.dataset.awardsYear || document.body.dataset.awardsYear || "2026";
+  let months = [];
+  let selectedMonth = getAwardMonthFromUrl() || root.dataset.awardsDefaultMonth || `${year}-07`;
+
+  root.querySelectorAll("[data-award-month-tab]").forEach((button) => {
+    button.addEventListener("click", () => {
+      selectAwardMonth(root, button.dataset.awardMonthTab, months);
+    });
+
+    button.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const tabs = [...root.querySelectorAll("[data-award-month-tab]")];
+      const currentIndex = tabs.indexOf(button);
+      let nextIndex = currentIndex;
+
+      if (event.key === "ArrowLeft") {
+        nextIndex = currentIndex <= 0 ? tabs.length - 1 : currentIndex - 1;
+      } else if (event.key === "ArrowRight") {
+        nextIndex = currentIndex >= tabs.length - 1 ? 0 : currentIndex + 1;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabs.length - 1;
+      }
+
+      tabs[nextIndex]?.focus();
+      tabs[nextIndex]?.click();
+    });
+  });
+
+  root.addEventListener("click", (event) => {
+    const shortcut = event.target.closest("[data-award-month-shortcut]");
+
+    if (shortcut) {
+      selectAwardMonth(root, shortcut.dataset.awardMonthShortcut, months);
+    }
+  });
+
+  if (window.location.protocol !== "file:") {
     try {
-      const response = await fetch(pollMount.dataset.pollEndpoint, {
+      const response = await fetch(`${monthlyPollsEndpoint}?year=${encodeURIComponent(year)}`, {
         credentials: "same-origin"
       });
 
-      if (!response.ok) {
-        throw new Error("Inline poll widget failed");
-      }
+      if (response.ok) {
+        const overview = await response.json();
+        months = Array.isArray(overview.months) ? overview.months : [];
 
-      pollMount.innerHTML = await response.text();
-      attachPollHandlers(pollMount);
+        if (!getAwardMonthFromUrl() && typeof overview.default_month === "string") {
+          selectedMonth = overview.default_month;
+        }
+      }
     } catch {
-      pollMount.remove();
+      months = [];
     }
   }
+
+  await selectAwardMonth(root, selectedMonth, months, false);
 }
 
 async function loadMonthlyAwardsOverview() {
@@ -415,6 +608,7 @@ document.addEventListener("click", (event) => {
 });
 
 loadRandalfSprueche();
+initializeAwardMonthTabs();
 loadInlinePollWidgets();
 loadMonthlyAwardsOverview();
 

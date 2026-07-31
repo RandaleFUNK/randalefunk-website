@@ -86,6 +86,85 @@ function rf_monthly_poll_year_award_html(PDO $pdo, int $year, string $awardType)
     return '<p><a href="poll.php?poll=' . rawurlencode($slug) . '&action=results">Ergebnis ansehen</a></p>';
 }
 
+function rf_monthly_poll_compact_status(PDO $pdo, int $year, int $month): array
+{
+    $polls = [
+        rf_poll_monthly_by_period($pdo, $year, $month, 'album_ep'),
+        rf_poll_monthly_by_period($pdo, $year, $month, 'single_song'),
+    ];
+    $hasPoll = false;
+    $hasOpen = false;
+    $hasStarted = false;
+    $hasEnded = false;
+
+    foreach ($polls as $poll) {
+        if ($poll === null) {
+            continue;
+        }
+
+        $hasPoll = true;
+        $status = rf_poll_status($poll);
+
+        if ($status === 'Jetzt abstimmen') {
+            $hasOpen = true;
+        }
+
+        if (($poll['starts_at'] ?? null) !== null) {
+            $hasStarted = true;
+        }
+
+        if (in_array($status, ['Abgeschlossen', 'Gewinner'], true)) {
+            $hasEnded = true;
+        }
+    }
+
+    $state = 'follows';
+    $label = 'folgt';
+
+    if ($hasOpen) {
+        $state = 'open';
+        $label = 'offen';
+    } elseif ($hasPoll && ($hasStarted || $hasEnded)) {
+        $state = 'ended';
+        $label = 'beendet';
+    }
+
+    return [
+        'month' => sprintf('%04d-%02d', $year, $month),
+        'state' => $state,
+        'label' => $label,
+        'has_poll' => $hasPoll,
+    ];
+}
+
+function rf_monthly_poll_compact_months(PDO $pdo, int $year): array
+{
+    $months = [];
+
+    for ($month = 1; $month <= 12; $month++) {
+        $months[] = rf_monthly_poll_compact_status($pdo, $year, $month);
+    }
+
+    return $months;
+}
+
+function rf_monthly_poll_default_month(array $months): string
+{
+    $openMonths = array_values(array_filter($months, static fn (array $month): bool => $month['state'] === 'open'));
+
+    if ($openMonths !== []) {
+        return (string) end($openMonths)['month'];
+    }
+
+    $knownMonths = array_values(array_filter($months, static fn (array $month): bool => $month['has_poll']));
+
+    if ($knownMonths !== []) {
+        return (string) end($knownMonths)['month'];
+    }
+
+    return (string) ($months[0]['month'] ?? '2026-01');
+}
+
 header('Content-Type: application/json; charset=utf-8');
 
 if (!rf_stats_is_configured()) {
@@ -103,12 +182,15 @@ try {
     $year = (int) ($_GET['year'] ?? 2026);
     rf_poll_sync_yearly_candidates($pdo, $year, 'album_ep');
     rf_poll_sync_yearly_candidates($pdo, $year, 'single_song');
+    $months = rf_monthly_poll_compact_months($pdo, $year);
 
     echo json_encode([
         'album_ep' => rf_monthly_poll_grid_html($pdo, $year, 'album_ep'),
         'single_song' => rf_monthly_poll_grid_html($pdo, $year, 'single_song'),
         'year_album_ep' => rf_monthly_poll_year_award_html($pdo, $year, 'album_ep'),
         'year_single_song' => rf_monthly_poll_year_award_html($pdo, $year, 'single_song'),
+        'months' => $months,
+        'default_month' => rf_monthly_poll_default_month($months),
     ], JSON_THROW_ON_ERROR);
 } catch (Throwable) {
     http_response_code(500);

@@ -869,10 +869,20 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
     $totalVotes = array_reduce($options, static fn (int $sum, array $option): int => $sum + (int) $option['votes'], 0);
     $canVote = rf_poll_is_open($poll);
     $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+    $isMonthly = $scope === 'monthly';
+    $awardType = (string) ($poll['award_type'] ?? '');
+    $monthlyLabel = $awardType === 'single_song' ? 'Single/Song des Monats' : 'Album/EP des Monats';
+    $submitLabel = $awardType === 'single_song' ? 'Stimme für Song ab' : 'Stimme für Album/EP ab';
+    $heading = (string) $poll['question'];
+
+    if ($isMonthly) {
+        $heading = $canVote ? 'Wähle einen Kandidaten.' : 'Ergebnis';
+    }
+
     $scopeClass = $scope === 'monthly' ? ' poll-widget--monthly' : ($scope === 'yearly' ? ' poll-widget--monthly poll-widget--yearly' : '');
     $html = '<section class="poll-widget' . $scopeClass . '" aria-label="' . rf_poll_escape((string) $poll['title']) . '">';
-    $html .= '<p class="poll-widget__kicker">' . rf_poll_escape((string) $poll['title']) . '</p>';
-    $html .= '<h2>' . rf_poll_escape((string) $poll['question']) . '</h2>';
+    $html .= '<p class="poll-widget__kicker">' . rf_poll_escape($isMonthly ? $monthlyLabel : (string) $poll['title']) . '</p>';
+    $html .= '<h2>' . rf_poll_escape($heading) . '</h2>';
 
     if ($message !== '') {
         $html .= '<p class="poll-widget__message">' . rf_poll_escape($message) . '</p>';
@@ -907,13 +917,26 @@ function rf_poll_render(array $poll, array $options, bool $showResults, string $
 
         foreach ($options as $option) {
             $optionId = (int) $option['id'];
+            $optionText = (string) $option['option_text'];
             $html .= '<label class="poll-option">';
             $html .= '<input type="radio" name="option_id" value="' . $optionId . '" required>';
-            $html .= '<span>' . rf_poll_escape((string) $option['option_text']) . '</span>';
+
+            if ($isMonthly && strpos($optionText, ' - ') !== false) {
+                [$artist, $title] = explode(' - ', $optionText, 2);
+                $html .= '<span class="poll-option__text"><strong class="poll-option__artist">' . rf_poll_escape($artist) . '</strong><span class="poll-option__title">' . rf_poll_escape($title) . '</span></span>';
+            } else {
+                $html .= '<span>' . rf_poll_escape($optionText) . '</span>';
+            }
+
             $html .= '</label>';
         }
 
-        $html .= '<button class="poll-submit" type="submit">Abstimmen</button>';
+        if ($isMonthly && ($poll['ends_at'] ?? null) !== null) {
+            $endsAt = new DateTimeImmutable((string) $poll['ends_at']);
+            $html .= '<p class="poll-widget__deadline">Offen bis ' . rf_poll_escape($endsAt->format('d.m.Y, H:i')) . ' Uhr.</p>';
+        }
+
+        $html .= '<button class="poll-submit" type="submit">' . rf_poll_escape($isMonthly ? $submitLabel : 'Abstimmen') . '</button>';
         $html .= '</form>';
 
         if ($scope === 'weekly') {
