@@ -175,6 +175,7 @@ function rf_poll_ensure_schema(PDO $pdo): void
     ]);
 
     rf_poll_seed_monthly_june_2026($pdo);
+    rf_poll_seed_monthly_july_2026($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -381,6 +382,35 @@ function rf_poll_seed_monthly_june_2026(PDO $pdo): void
         'Ronny Platte - Dagegen',
         'Ein Punk Band - Letzter Versuch',
         'The Feelgood McLouds - Here We Go',
+    ], true);
+}
+
+function rf_poll_seed_monthly_july_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 7, 'album_ep', [
+        'MakaBar - Hinlänglich bekannt',
+        'Ronny Platte - Dagegen',
+        'IROKÄSE - Macht kaputt',
+        'NEVVER - Heart On Your Sleeve',
+        'Risk It! - Mercy For None',
+        'The Suicide Machines - Stop This Self-Doubt',
+        'The Menzingers - Everything I Ever Saw',
+        'No Pressure - NP Style',
+        'Madball - Not Your Kingdom',
+        'The Hidden Knives - The Hidden Knives',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 7, 'single_song', [
+        'Plastic Mars - Kein Zurück',
+        'Der Ole - Pianomann',
+        'Dan Ganove & Schockromantik - Ultra Tolerant (Kein Punk)',
+        'TURBOLENT - Ich will los',
+        'KASSENGIPHT - Sag Ja',
+        'NO BRAKES - Sag mir wo',
+        'The Suicide Machines - Never Go Quietly',
+        'Kackbratze - Blaues Wunder',
+        'Pluto The Racer - Next Time It\'s Personal',
+        'The Clinch - Times Up',
     ], true);
 }
 
