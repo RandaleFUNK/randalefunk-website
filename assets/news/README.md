@@ -211,3 +211,10 @@
 - Originaldatei: `cover_front.png`
 - Verwendung: Tanzig-News im RandaleFUNK-Ticker zu `Alles schon gesagt`.
 - Hinweis: Als offizielles Coverbild der Bandwebsite dokumentiert, nicht als frei lizenzierte Pressefreigabe verstanden.
+
+## vor-ort-lokvogel-010826-thumbnail.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `Lokvogel_temp/analyse/thumbnail_clickbait_1280x720.jpg`.
+- Verwendung: News zur VOR-ORT-Folge aus dem Lokvogel.
+- Link zur Folge: https://youtu.be/iY9MNv37ZkM
+- Hinweis: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail.
