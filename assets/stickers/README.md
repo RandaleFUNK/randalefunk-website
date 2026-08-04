@@ -254,3 +254,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf mit kaputter Bluejeans über dem Kopf, schlaffen Armen und erschöpftem Seufz-Blick.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `DIE TOTEN HOSEN feat. FEINE SAHNE FISCHFILET - Komplett im Arsch` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-oi-gebroi-antifascist-till-we-die-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Schiebermuetze, kariertem Hemd, Boots und Mikrofon im antifaschistischen Oi!-Look.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `Oi!Gebroi - Antifascist till we die` sowie Stickerarchiv `randalf/index.html`.
