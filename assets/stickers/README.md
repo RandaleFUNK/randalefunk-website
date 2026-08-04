@@ -4,6 +4,12 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-no-guidance-second-half-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; aelterer Skatepunk-Randalf mit Skateboard und Erinnerungsfoto passend zu `NO GUIDANCE - Second Half`.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `NO GUIDANCE - Second Half` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-mad-dog-dan-tanze-samba-mit-mir-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
