@@ -223,6 +223,6 @@
 
 - Quelle: eigenes RandaleFUNK-Thumbnail aus `content-formate/burg-nur-mal-ganz-short/folgen/001-zeke-thumbnail.png`.
 - Verwendung: NEWS-Eintrag zur ersten Folge von `BURG – nur mal ganz SHORT` über ZEKE und die Punk-O-Rama-Sampler.
-- Link zur Folge: https://www.youtube.com/shorts/6Fu0nxCAk6c
+- Link zur Folge: https://www.youtube.com/watch?v=pP1ZCmCSxXc&t=1s
 - Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
 - Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
