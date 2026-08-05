@@ -610,9 +610,36 @@ a {
   line-height: 1.55;
 }
 
+.ticker-card .external-link-note {
+  padding: 10px 12px;
+  background: rgb(255 248 224 / 0.72);
+  border: 2px dashed var(--black);
+  font-size: 0.9rem;
+}
+
 .ticker-media {
   max-width: 760px;
   margin: 4px 0 14px;
+}
+
+.ticker-media--short {
+  max-width: 420px;
+}
+
+.ticker-media__link {
+  display: block;
+  color: inherit;
+}
+
+.ticker-media__link:hover img,
+.ticker-media__link:focus-visible img {
+  box-shadow: 7px 7px 0 rgb(5 5 5 / 0.42);
+  transform: translate(-2px, -2px);
+}
+
+.ticker-media__link:focus-visible {
+  outline: 4px solid var(--news);
+  outline-offset: 4px;
 }
 
 .ticker-media--duo {
