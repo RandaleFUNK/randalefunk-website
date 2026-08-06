@@ -1,5 +1,16 @@
 # Sticker-Sammlung
 
+## randalf-popperklopper-nicht-allein-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit schwarzem POPPERKLOPPER-Shirt, Lederjacke und locker gehaltener Bierflasche laesst den Kopf haengen und wirkt leer.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `POPPERKLOPPER - Nicht allein` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-popperklopper-nicht-allein-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-popperklopper-nicht-allein-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website verwendet werden oder als wiederverwendbare Sticker-Assets gedacht sind.
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
