@@ -4,6 +4,17 @@ Dieser Ordner sammelt alle RandaleFUNK-/Randalf-Sticker, die auf der Website ver
 
 Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news/`, `assets/reviews/`, `assets/vorab-gehoert/` oder anderen Themenordnern.
 
+## randalf-chuck-robertson-aloha-caddies-in-my-head-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Kopfhoerern, Aloha-Hemd und Gitarrenplektrum wirkt angenehm irritiert, weil der Kopf erst Mad Caddies erwartet und dann etwas anderes bekommt.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `CHUCK ROBERTSON AND THE ALOHA CADDIES - In My Head` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-chuck-robertson-aloha-caddies-in-my-head-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-chuck-robertson-aloha-caddies-in-my-head-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-no-guidance-second-half-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
