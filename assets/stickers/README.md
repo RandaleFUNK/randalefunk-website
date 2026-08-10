@@ -1,5 +1,16 @@
 # Sticker-Sammlung
 
+## randalf-edelweisspiraten-widerstand-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: bestehender Randalf-Piratensticker als Figuren- und Stilreferenz; Randalf steht mit verschraenkten Armen, ernstem Gesicht und Edelweiss hinter dem Ohr.
+- Verwendung: Artikel- und Preview-Sticker zur Review `EDELWEISSPIRATEN - Wir sind der Widerstand!` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-edelweisspiraten-widerstand-source.png
+
+- Quelle/Status: Arbeitsdatei mit Chroma-Key-Hintergrund zum Motiv `randalf-edelweisspiraten-widerstand-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-popperklopper-nicht-allein-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
