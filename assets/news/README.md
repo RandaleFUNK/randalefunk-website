@@ -226,3 +226,10 @@
 - Link zur Folge: https://www.youtube.com/watch?v=pP1ZCmCSxXc&t=1s
 - Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
 - Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
+
+## tag-des-vinyl-2026-collage.jpg
+
+- Quelle: eigene RandaleFUNK-Kollage aus den final geschnittenen lokalen `TDV_*.mp4`-Videos im News-Asset-Ordner.
+- Verwendung: NEWS-Eintrag zum 12.08.2026, dem inoffiziell offiziellen Tag des Vinyls.
+- Links: https://www.youtube.com/@randalefunk/shorts und https://www.youtube.com/watch?v=wiWin9v32R4
+- Hinweis: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail.
