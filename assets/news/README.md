@@ -233,3 +233,11 @@
 - Verwendung: NEWS-Eintrag zum 12.08.2026, dem inoffiziell offiziellen Tag des Vinyls.
 - Links: https://www.youtube.com/@randalefunk/shorts und https://www.youtube.com/watch?v=wiWin9v32R4
 - Hinweis: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail.
+
+## burg-short-002-punk-artwork.webp
+
+- Quelle: eigenes, von Burg überarbeitetes RandaleFUNK-Thumbnail aus `content-formate/burg-nur-mal-ganz-short/folgen/002-punk-artwork-thumbnail-final.png`.
+- Verwendung: NEWS-Eintrag zur zweiten Folge von `BURG – nur mal ganz SHORT` über Jimbo Phillips, Jesse Fischer, Nick Rubenstein und prägendes Punk-Artwork.
+- Link zur Folge: https://www.youtube.com/watch?v=JxrvAYPUFPU
+- Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
+- Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
