@@ -707,7 +707,10 @@ youtubeVideoCards.forEach((card) => {
 });
 
 function setLanguage(scope, language) {
-  const normalizedLanguage = language === "en" ? "en" : "de";
+  const availableLanguages = new Set(
+    Array.from(scope.querySelectorAll("[data-language-button]"), (button) => button.dataset.languageButton)
+  );
+  const normalizedLanguage = availableLanguages.has(language) ? language : "de";
 
   scope.querySelectorAll("[data-language-option]").forEach((option) => {
     option.hidden = option.dataset.languageOption !== normalizedLanguage;
@@ -718,7 +721,7 @@ function setLanguage(scope, language) {
   });
 
   scope.querySelectorAll("[data-language-link]").forEach((link) => {
-    const target = normalizedLanguage === "en" ? link.dataset.languageHrefEn : link.dataset.languageHrefDe;
+    const target = link.getAttribute(`data-language-href-${normalizedLanguage}`);
 
     if (target) {
       link.setAttribute("href", target);
@@ -728,7 +731,7 @@ function setLanguage(scope, language) {
   scope.setAttribute("data-current-language", normalizedLanguage);
 }
 
-const initialLanguage = new URLSearchParams(window.location.search).get("lang") === "en" ? "en" : "de";
+const initialLanguage = new URLSearchParams(window.location.search).get("lang") || "de";
 
 languageScopes.forEach((scope) => {
   setLanguage(scope, initialLanguage);

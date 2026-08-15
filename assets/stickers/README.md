@@ -299,3 +299,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf mit Schiebermuetze, kariertem Hemd, Boots und Mikrofon im antifaschistischen Oi!-Look.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `Oi!Gebroi - Antifascist till we die` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-still-no-one-never-again-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf steht auf einem Skateboard, dreht einem zerbrochenen Freundschaftsband den Ruecken zu und zeigt mit erhobener Pfote deutlich Stopp.
+- Verwendung: Artikelsticker und Preview-Sticker zur dreisprachigen Review `STILL NO ONE - Never Again` sowie Stickerarchiv `randalf/index.html`.
