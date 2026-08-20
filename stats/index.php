@@ -152,6 +152,9 @@ $data = [
     'selected_totals' => $emptySummary,
     'pageviews_per_visitor_day' => 0.0,
     'randalf_pageviews' => 0,
+    'riot_shop_clicks' => 0,
+    'riot_shop_clicker_day_values' => 0,
+    'riot_shop_interest_rate' => 0.0,
     'kofi_clicks' => 0,
     'kofi_clickers_total' => 0,
     'support_clicks' => 0,
@@ -559,6 +562,25 @@ $filterRanges = ['today', 'yesterday', '7d', '30d', 'month', 'all'];
           <span>Randalf-Aufrufe · <?= e((string) $data['selected_range_label']) ?></span>
           <strong><?= rf_stats_format_number((int) $data['randalf_pageviews']) ?></strong>
           <small>Aufrufe der Randalf-Seite beziehungsweise Rubrik.</small>
+        </article>
+      </section>
+
+      <h2 class="section-heading">Riot Candy Shop · <?= e((string) $data['selected_range_label']) ?></h2>
+      <section class="stats-grid" aria-label="Interesse am RandaleFUNK-Shop bei Riot Candy">
+        <article class="stat-card">
+          <span>Shop-Klicks</span>
+          <strong><?= rf_stats_format_number((int) $data['riot_shop_clicks']) ?></strong>
+          <small>Klicks auf Links zur RandaleFUNK-Seite bei Riot Candy.</small>
+        </article>
+        <article class="stat-card">
+          <span>Shop-Klickende Tageswerte</span>
+          <strong><?= rf_stats_format_number((int) $data['riot_shop_clicker_day_values']) ?></strong>
+          <small>Datensparsame Näherung auf Basis der täglich wechselnden Hashes.</small>
+        </article>
+        <article class="stat-card">
+          <span>Shop-Interesse je 100 Besucher-Tageswerte</span>
+          <strong><?= e(number_format((float) $data['riot_shop_interest_rate'], 2, ',', '.')) ?> %</strong>
+          <small>Grobe Verhältniszahl, keine Kauf- oder Conversion-Rate.</small>
         </article>
       </section>
 

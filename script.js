@@ -752,6 +752,15 @@ document.querySelectorAll('a[href*="ko-fi.com/randalefunk"]').forEach((link) => 
   });
 });
 
+document.querySelectorAll('a[href^="https://www.riot-candy.com/c/randalefunk"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    sendStatsEvent("riot_shop_click", {
+      path: "/riot-candy/randalefunk",
+      section: getStatsSection()
+    });
+  });
+});
+
 document.querySelectorAll('a[href$="warum-unterstuetzen.html"], a[href*="/warum-unterstuetzen.html"]').forEach((link) => {
   link.addEventListener("click", () => {
     sendStatsEvent("support_click", {

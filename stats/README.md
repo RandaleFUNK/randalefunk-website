@@ -53,3 +53,5 @@ Ausgewertet werden unter anderem:
 - Klicks auf `Warum unterstützen?`
 - Klickende auf `Warum unterstützen?` als grobe Tageshash-Zählung
 - Würfel-App-Klicks
+- Klicks zur RandaleFUNK-Seite im Riot-Candy-Shop
+- Shop-Klickende als grobe Tageshash-Zählung

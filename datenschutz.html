@@ -70,7 +70,7 @@
 
           <h2>4. Interne datensparsame Reichweitenmessung</h2>
           <p>RandaleFUNK.de betreibt eine eigene, einfache Reichweitenmessung über die Datei <code>track.php</code>. Sie dient dazu, grob zu erkennen, welche Seitenbereiche besucht werden und wie oft bestimmte interne Aktionen genutzt werden.</p>
-          <p>Erfasst werden Seitenaufrufe und einzelne Ereignisse wie Klicks auf Ko-fi oder das Öffnen der Würfel-App. Gespeichert werden dabei Zeitstempel, Tagesdatum, Ereignistyp, aufgerufener Pfad, Rubrik und ein täglicher Besucher-Hash.</p>
+          <p>Erfasst werden Seitenaufrufe und einzelne Ereignisse wie Klicks auf Ko-fi, Klicks zum RandaleFUNK-Shop bei Riot Candy oder das Öffnen der Würfel-App. Gespeichert werden dabei Zeitstempel, Tagesdatum, Ereignistyp, aufgerufener Pfad, Rubrik und ein täglicher Besucher-Hash.</p>
           <p>Die IP-Adresse wird nicht im Klartext dauerhaft gespeichert. Für die Zählung unterschiedlicher Besucher wird pro Tag ein Hash aus einem geheimen Salt, dem Datum und technischen Merkmalen der Anfrage gebildet. Zu diesen technischen Merkmalen gehören insbesondere IP-Adresse und User-Agent. Durch das Tagesdatum entstehen täglich neue Hashwerte; eine dauerhafte Wiedererkennung über mehrere Tage hinweg ist damit nicht vorgesehen.</p>
           <p>Die interne Statistik setzt keine Cookies, nutzt keinen Local Storage zur Besucherwiedererkennung, bindet keine externen Analyseanbieter ein und erstellt keine Nutzerprofile. Die Auswertung bleibt intern.</p>
           <p>Wenn der Browser die Einstellung <code>Do Not Track</code> mit dem Wert <code>1</code> sendet, wird die interne Reichweitenmessung für diese Anfrage nicht gespeichert.</p>
@@ -89,11 +89,12 @@
           <h2>7. Externe Links</h2>
           <p>RandaleFUNK.de enthält externe Links, zum Beispiel zu Ko-fi, YouTube, Facebook, Instagram, Spotify, Bandseiten, Festivals, Shops, Labels oder anderen Quellen. Diese Links sind normale ausgehende Links. Beim reinen Besuch von RandaleFUNK.de werden dadurch noch keine Daten an diese externen Seiten übertragen.</p>
           <p>Erst wenn ein externer Link angeklickt wird, verlässt die besuchende Person RandaleFUNK.de. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen und technischen Einstellungen des jeweiligen externen Anbieters. RandaleFUNK.de hat keinen Einfluss darauf, welche Daten diese Anbieter verarbeiten.</p>
-          <p>Klicks auf Ko-fi-Links können in der internen Reichweitenmessung als Ereignis <code>kofi_click</code> gezählt werden. Die eigentliche Spenden- oder Zahlungsabwicklung findet erst auf den Seiten von Ko-fi statt.</p>
+          <p>Klicks auf Ko-fi-Links können in der internen Reichweitenmessung als Ereignis <code>kofi_click</code> gezählt werden. Klicks auf Links zur RandaleFUNK-Seite bei Riot Candy können als Ereignis <code>riot_shop_click</code> gezählt werden. Erfasst wird dabei nur der Klick auf den externen Link. Ob anschließend Produkte angesehen oder gekauft werden, kann RandaleFUNK.de nicht erkennen. Die eigentliche Spenden-, Shop- oder Zahlungsabwicklung findet erst auf den Seiten des jeweiligen Anbieters statt.</p>
 
           <h2>8. Würfel-App und lokale Speicherung</h2>
           <p>Die Würfel-App kann einen eingegebenen Spielernamen lokal im Browser speichern. Dafür wird <code>localStorage</code> mit dem Schlüssel <code>randalePlayerName</code> verwendet.</p>
           <p>Diese Speicherung erfolgt ausschließlich lokal auf dem verwendeten Gerät. Der gespeicherte Name wird nicht über die Würfel-App an RandaleFUNK.de übermittelt und nicht für Tracking oder Profile verwendet. Die Speicherung dient nur dazu, den Namen bei späterer Nutzung der App wieder einzusetzen.</p>
+          <p>Außerdem kann RandaleFUNK.de lokal im Browser speichern, welche Rubriken bereits als gesehen markiert wurden. Dafür wird <code>localStorage</code> mit dem Schlüssel <code>randalefunk_seen_sections_v1</code> verwendet. Diese Information bleibt ausschließlich im Browser, wird nicht an RandaleFUNK.de übertragen und dient nur dazu, neue Inhalte mit einem kleinen „Neu“-Hinweis zu markieren.</p>
           <p>Der Eintrag kann jederzeit über die Browserfunktionen zum Löschen von Website-Daten entfernt werden. Alternativ kann im Browser der lokale Speicher für RandaleFUNK.de gelöscht werden.</p>
           <p><code>sessionStorage</code> wird nach aktueller technischer Umsetzung nicht verwendet.</p>
 
