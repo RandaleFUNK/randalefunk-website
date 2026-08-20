@@ -249,3 +249,11 @@
 - Link zur Folge: https://www.youtube.com/shorts/zSp-aQbLvAg
 - Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
 - Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
+
+## shop-news-01.png
+
+- Quelle: `Shop_news_01.png`, fertige RandaleFUNK-Shopgrafik von Burg.
+- Verwendung: NEWS-Eintrag zur Eröffnung des RandaleFUNK-Shops bei Riot Candy.
+- Link zum Shop: https://www.riot-candy.com/c/randalefunk
+- Bearbeitung: als Website-Asset unter `assets/news/shop-news-01.png` abgelegt; Motiv unverändert übernommen.
+- Hinweis: Lokales Vorschaubild. Beim Seitenaufruf entsteht keine Verbindung zu Riot Candy; erst der bewusste Klick auf den Button öffnet den externen Shop.
