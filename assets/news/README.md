@@ -241,3 +241,11 @@
 - Link zur Folge: https://www.youtube.com/watch?v=JxrvAYPUFPU
 - Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
 - Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
+
+## burg-short-003-nufan-making-friends.webp
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `content-formate/burg-nur-mal-ganz-short/folgen/003-nufan-making-friends-thumbnail.png`.
+- Verwendung: NEWS-Eintrag zur dritten Folge von `BURG – nur mal ganz SHORT` über No Use For A Name und das Album `Making Friends`.
+- Link zur Folge: https://www.youtube.com/shorts/zSp-aQbLvAg
+- Bearbeitung: für die Website verlustarm als WebP komprimiert; Motiv und Text unverändert.
+- Datenschutz: Lokales Vorschaubild, kein YouTube-Embed und kein extern geladener YouTube-Thumbnail. Beim Seitenaufruf entsteht keine Verbindung zu YouTube. Erst der bewusste Klick auf Bild oder Button öffnet den externen Anbieter.
