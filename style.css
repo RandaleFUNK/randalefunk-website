@@ -1914,6 +1914,30 @@ a {
   text-transform: uppercase;
 }
 
+.link-block .riot-shop-button {
+  display: block;
+  min-height: 0;
+  margin: 8px 0 7px;
+  padding: 0;
+  border-top: 1px solid rgb(225 212 184 / 0.24);
+  line-height: 0;
+  transform: rotate(-0.6deg);
+}
+
+.link-block .riot-shop-button img {
+  display: block;
+  width: min(100%, 215px);
+  height: auto;
+  filter: drop-shadow(3px 3px 0 var(--black));
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.link-block .riot-shop-button:hover img,
+.link-block .riot-shop-button:focus-visible img {
+  filter: drop-shadow(3px 3px 0 var(--active-accent)) contrast(1.08);
+  transform: translateY(-1px) rotate(0.4deg);
+}
+
 .app-launch-button {
   display: block;
   width: 100%;
