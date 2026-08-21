@@ -114,7 +114,7 @@ function rf_stats_section_from_path(string $path): string
 
 function rf_stats_clean_event_type(string $eventType): ?string
 {
-    $allowedTypes = ['pageview', 'kofi_click', 'support_click', 'wuerfel_click', 'riot_shop_click'];
+    $allowedTypes = ['pageview', 'paypal_click', 'support_click', 'wuerfel_click', 'riot_shop_click'];
 
     return in_array($eventType, $allowedTypes, true) ? $eventType : null;
 }
@@ -476,13 +476,13 @@ function rf_stats_dashboard_data(PDO $pdo, string $requestedRange = '30d'): arra
         'riot_shop_clicks' => $riotShopTotals['clicks'],
         'riot_shop_clicker_day_values' => $riotShopTotals['clicker_day_values'],
         'riot_shop_interest_rate' => $riotShopInterestRate,
-        'kofi_clicks' => rf_stats_scalar(
+        'paypal_clicks' => rf_stats_scalar(
             $pdo,
-            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "kofi_click"'
+            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "paypal_click"'
         ),
-        'kofi_clickers_total' => rf_stats_scalar(
+        'paypal_clickers_total' => rf_stats_scalar(
             $pdo,
-            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "kofi_click"'
+            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "paypal_click"'
         ),
         'support_clicks' => rf_stats_scalar(
             $pdo,

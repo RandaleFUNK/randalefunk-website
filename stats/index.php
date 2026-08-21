@@ -155,8 +155,8 @@ $data = [
     'riot_shop_clicks' => 0,
     'riot_shop_clicker_day_values' => 0,
     'riot_shop_interest_rate' => 0.0,
-    'kofi_clicks' => 0,
-    'kofi_clickers_total' => 0,
+    'paypal_clicks' => 0,
+    'paypal_clickers_total' => 0,
     'support_clicks' => 0,
     'support_clickers_total' => 0,
     'wuerfel_clicks' => 0,
@@ -653,12 +653,12 @@ $filterRanges = ['today', 'yesterday', '7d', '30d', 'month', 'all'];
       <h2 class="section-heading">Weitere Ereignisse · insgesamt</h2>
       <section class="stats-grid stats-grid--compact" aria-label="Weitere Ereignisse">
         <article class="stat-card">
-          <span>Ko-fi-Klicks</span>
-          <strong><?= rf_stats_format_number((int) $data['kofi_clicks']) ?></strong>
+          <span>PayPal-Klicks</span>
+          <strong><?= rf_stats_format_number((int) $data['paypal_clicks']) ?></strong>
         </article>
         <article class="stat-card">
-          <span>Ko-fi-Klickende Tageswerte</span>
-          <strong><?= rf_stats_format_number((int) $data['kofi_clickers_total']) ?></strong>
+          <span>PayPal-Klickende Tageswerte</span>
+          <strong><?= rf_stats_format_number((int) $data['paypal_clickers_total']) ?></strong>
         </article>
         <article class="stat-card">
           <span>Warum unterstützen?</span>

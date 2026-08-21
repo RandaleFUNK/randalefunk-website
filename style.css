@@ -1914,7 +1914,8 @@ a {
   text-transform: uppercase;
 }
 
-.link-block .riot-shop-button {
+.link-block .riot-shop-button,
+.link-block .paypal-donate-button {
   display: block;
   min-height: 0;
   margin: 8px 0 7px;
@@ -1924,7 +1925,8 @@ a {
   transform: rotate(-0.6deg);
 }
 
-.link-block .riot-shop-button img {
+.link-block .riot-shop-button img,
+.link-block .paypal-donate-button img {
   display: block;
   width: min(100%, 215px);
   height: auto;
@@ -1933,9 +1935,16 @@ a {
 }
 
 .link-block .riot-shop-button:hover img,
-.link-block .riot-shop-button:focus-visible img {
+.link-block .riot-shop-button:focus-visible img,
+.link-block .paypal-donate-button:hover img,
+.link-block .paypal-donate-button:focus-visible img {
   filter: drop-shadow(3px 3px 0 var(--active-accent)) contrast(1.08);
   transform: translateY(-1px) rotate(0.4deg);
+}
+
+.link-block .paypal-donate-button {
+  margin-top: 10px;
+  transform: rotate(0.55deg);
 }
 
 .app-launch-button {
@@ -2402,114 +2411,19 @@ body.is-app-modal-open {
 }
 
 .vorab-release-note,
-.kofi-note {
+.article-link-note {
   padding: 12px 14px;
   border-left: 5px solid var(--active-accent);
   background: rgb(5 5 5 / 0.5);
   box-shadow: 5px 5px 0 var(--black);
 }
 
-.kofi-note {
+.article-link-note {
   margin-top: 24px;
   color: var(--paper);
   font-weight: 800;
 }
 
-.support-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 72ch;
-  gap: 12px;
-  margin: 34px 0 8px;
-  padding: 13px 14px;
-  border: 2px solid rgb(225 212 184 / 0.24);
-  background:
-    linear-gradient(90deg, rgb(5 5 5 / 0.9), rgb(5 5 5 / 0.62)),
-    repeating-linear-gradient(-5deg, rgb(255 255 255 / 0.04) 0 1px, transparent 1px 7px);
-  box-shadow: 6px 6px 0 var(--black);
-  transform: rotate(-0.35deg);
-}
-
-.support-cta-text {
-  color: var(--paper);
-  font-size: 1rem;
-  font-weight: 900;
-  line-height: 1.25;
-}
-
-.support-cta-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  min-width: min(100%, 245px);
-  gap: 10px;
-  padding: 10px 18px;
-  border: 2px solid #050505;
-  background-color: #141210;
-  background-image:
-    linear-gradient(90deg, rgb(0 0 0 / 0.18), transparent 34%, rgb(0 0 0 / 0.24)),
-    url("assets/support/panzatape-button.webp");
-  background-position: center;
-  background-size: cover;
-  color: #f8edcf;
-  font-family: "ZP Sidestep", "Anton", "Arial Black", sans-serif;
-  font-size: clamp(1.15rem, 3.5vw, 1.55rem);
-  font-weight: 400;
-  line-height: 0.95;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 3px 3px 0 #050505, -1px -1px 0 #050505;
-  text-transform: uppercase;
-  box-shadow: 5px 5px 0 #050505;
-  transform: rotate(0.7deg);
-}
-
-.support-cta-button:hover,
-.support-cta-button:focus-visible {
-  color: #fff7e8;
-  filter: contrast(1.18) saturate(1.05);
-  transform: rotate(-0.4deg) translateY(-1px);
-}
-
-.support-cta-button:focus-visible {
-  outline: 3px solid var(--active-accent);
-  outline-offset: 4px;
-}
-
-.support-cta-label {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.03em;
-}
-
-.support-cta-umlaut {
-  position: relative;
-  display: inline-block;
-}
-
-.support-cta-umlaut::before {
-  position: absolute;
-  top: -0.43em;
-  left: 50%;
-  width: 0.5em;
-  height: 0.16em;
-  content: "";
-  background:
-    radial-gradient(circle, #f8edcf 0 42%, transparent 45%) left center / 50% 100% no-repeat,
-    radial-gradient(circle, #f8edcf 0 42%, transparent 45%) right center / 50% 100% no-repeat;
-  filter: drop-shadow(2px 2px 0 #050505);
-  transform: translateX(-50%) rotate(-4deg);
-}
-
-.support-cta-logo {
-  width: 42px;
-  height: auto;
-  flex: 0 0 auto;
-  filter: drop-shadow(2px 2px 0 #050505);
-}
 
 .support-page {
   --active-accent: var(--kolumnen);
@@ -2629,6 +2543,13 @@ body.is-app-modal-open {
     linear-gradient(90deg, rgb(5 5 5 / 0.16), transparent),
     var(--reviews);
   transform: rotate(0.6deg);
+}
+
+.support-action--paypal {
+  background:
+    linear-gradient(90deg, rgb(5 5 5 / 0.16), transparent),
+    #0c5b8f;
+  transform: rotate(-0.4deg);
 }
 
 .support-action:hover,

@@ -467,7 +467,7 @@ Diese Regel gilt besonders für:
 * Navigation
 * Footer
 * Datenschutzerklärung
-* Ko-fi-Hinweise
+* Unterstützungs- und PayPal-Hinweise
 * Würfel-App-Texte
 * Social-Meta-Titel und Social-Meta-Beschreibungen
 
@@ -776,33 +776,26 @@ Der Leser muss erkennen, dass der Verriss humorvoll und bewusst übertrieben gem
 
 ---
 
-## Ko-fi Hinweis
+## Unterstützung / PayPal
 
-Unter jedem Vorab-gehört-, Review- und Kolumnen-Beitrag soll ein Ko-fi-CTA erscheinen.
+Die frühere Spendenseite wird nicht mehr aktiv verwendet.
 
-Aktueller Standardtext:
+Unter Vorab-gehört-, Review- und Kolumnen-Beiträgen soll kein Spenden-CTA mehr erscheinen.
 
-"Wenn dir der Artikel gefallen hat"
+PayPal wird nur in der allgemeinen Unterstützen-Navigation und auf der Seite `warum-unterstuetzen.html` verwendet.
 
-Der Buttontext lautet:
+Der PayPal-Link lautet:
 
-"BIER FÜR BURG"
-
-Der Button führt auf:
-
-`https://ko-fi.com/randalefunk`
+`https://paypal.me/RandaleFUNK`
 
 Gestaltungsregeln:
 
-* Button über die Klasse `support-cta-button` verwenden.
-* CTA-Container über die Klasse `support-cta` verwenden.
-* Als Schrift für den Button `ZP Sidestep` verwenden.
-* Als Button-Hintergrund das reduzierte Asset `assets/support/panzatape-button.webp` verwenden.
-* Das Ko-fi-Logo im Button über `assets/support/kofi-logo.png` einbinden.
-* Keine eckigen Klammern um den Buttontext schreiben.
-* Der CTA steht am Ende des Artikels vor der Zurück-/Rubriknavigation.
+* In der Sidebar die Klasse `paypal-donate-button` verwenden.
+* Als Bild `assets/support/paypal-button.png` verwenden.
+* Den PayPal-Button unter dem Shop-/Kramladen-Link platzieren.
+* Keine PayPal- oder Spendenbuttons direkt unter Artikeln einbauen.
 
-Die Spende ist freiwillig.
+Die Unterstützung ist freiwillig.
 
 Es darf niemals der Eindruck entstehen, dass positive Bewertungen gekauft werden können.
 

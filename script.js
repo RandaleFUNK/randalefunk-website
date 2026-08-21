@@ -743,10 +743,10 @@ languageScopes.forEach((scope) => {
   });
 });
 
-document.querySelectorAll('a[href*="ko-fi.com/randalefunk"]').forEach((link) => {
+document.querySelectorAll('a[href*="paypal.me/RandaleFUNK"]').forEach((link) => {
   link.addEventListener("click", () => {
-    sendStatsEvent("kofi_click", {
-      path: link.getAttribute("href") || "https://ko-fi.com/randalefunk",
+    sendStatsEvent("paypal_click", {
+      path: link.getAttribute("href") || "https://paypal.me/RandaleFUNK",
       section: getStatsSection()
     });
   });
