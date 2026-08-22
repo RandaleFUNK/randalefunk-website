@@ -305,3 +305,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf steht auf einem Skateboard, dreht einem zerbrochenen Freundschaftsband den Ruecken zu und zeigt mit erhobener Pfote deutlich Stopp.
 - Verwendung: Artikelsticker und Preview-Sticker zur dreisprachigen Review `STILL NO ONE - Never Again` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-according-to-jack-plugged-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf steckt ein Instrumentenkabel in einen Gitarrenverstaerker und zeigt deutlich die Hang-loose-Geste.
+- Verwendung: Artikelsticker und Preview-Sticker zur Review `ACCORDING TO JACK - Plugged` sowie Stickerarchiv `randalf/index.html`.
