@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-alles-karo-nimm-meine-hand-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf reicht die Pfote, haelt ein Protestschild und hat ein Megafon dabei, passend zum Vorab-gehoert-Beitrag `ALLES KARO - Nimm meine Hand`.
+- Verwendung: Artikelsticker, Preview-Sticker und Stickerarchiv `randalf/index.html`.
+
 ## randalf-edelweisspiraten-widerstand-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
