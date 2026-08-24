@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-wasted-zippo-alles-wie-immer-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: bestehender Randalf-Sticker als Figuren- und Stilreferenz; Randalf sitzt am Schlagzeug, singt in ein Mikrofon und hat eine E-Gitarre auf dem Schoss.
+- Verwendung: Artikel- und Preview-Sticker zur Review `WASTED ZIPPO - Alles wie immer` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-edelweisspiraten-widerstand-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
