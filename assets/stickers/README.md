@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-die-infizierten-bankrotter-punkrocker-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: bestehende Randalf-Charaktervorlage; Randalf zieht den Stoff aus einer leeren Hosentasche und schaut einer einzelnen fallenden Muenze gleichgueltig hinterher.
+- Verwendung: Artikel- und Preview-Sticker zur Review `DIE INFIZIERTEN - Bankrotter Punkrocker` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-wasted-zippo-alles-wie-immer-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
