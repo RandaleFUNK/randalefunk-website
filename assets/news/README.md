@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## edelweisspiraten-unboxing-wir-sind-der-widerstand.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `Video-Material/Thumbnail_Edelweisspiraten_Web_16x9.jpg`.
+- Verwendung: NEWS-Eintrag zum Unboxing der Edelweisspiraten-EP `Wir sind der Widerstand!` auf rotem Vinyl.
+- Bearbeitung: fertiges 16:9-Thumbnail unverändert als Website-Asset übernommen.
+- Hinweis: Das Bild liegt lokal auf RandaleFUNK.de; es wird kein externes Vorschaubild nachgeladen.
+
 ## harte-worte-soundtrack-zum-untergang.jpg
 
 - Quelle: offizielles Produktbild aus dem Sunny-Bastards-Shop.
