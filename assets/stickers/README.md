@@ -1,5 +1,16 @@
 # Sticker-Sammlung
 
+## randalf-bad-career-moshpigs-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf faehrt mit rueckwaerts getragener Baseballcap und `FCK AFD`-Shirt Skateboard und haelt Sonnenblume sowie Baseballschlaeger.
+- Verwendung: Artikel- und Preview-Sticker zum Vorab-gehoert-Beitrag `BAD CAREER - Moshpigs` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-bad-career-moshpigs-source.png
+
+- Quelle/Status: Arbeitsdatei mit hellem Vorschauhintergrund zum Motiv `randalf-bad-career-moshpigs-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-die-infizierten-bankrotter-punkrocker-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
