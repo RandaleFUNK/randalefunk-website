@@ -181,6 +181,7 @@ function rf_poll_ensure_schema(PDO $pdo): void
     rf_poll_seed_monthly_may_2026($pdo);
     rf_poll_seed_monthly_june_2026($pdo);
     rf_poll_seed_monthly_july_2026($pdo);
+    rf_poll_seed_monthly_august_2026($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -571,6 +572,35 @@ function rf_poll_seed_monthly_july_2026(PDO $pdo): void
         'Kackbratze - Blaues Wunder',
         'Pluto The Racer - Next Time It\'s Personal',
         'The Clinch - Times Up',
+    ], true);
+}
+
+function rf_poll_seed_monthly_august_2026(PDO $pdo): void
+{
+    rf_poll_seed_monthly_options($pdo, 2026, 8, 'album_ep', [
+        'SOKO LiNX - Punk für Leute, die Punk haszen',
+        'Harte Worte - Soundtrack zum Untergang',
+        'According To Jack - Plugged',
+        'Edelweisspiraten - Wir sind der Widerstand!',
+        'NOFX - 40 Years Of Fuckin\' Up: Soundtrack + Score',
+        'State Power - Hyperstition',
+        'Nothing Works - Some Folks Are Getting Way Too Comfortable',
+        'Phantasmagorie - Laterna Magica',
+        'Phantom Corporation / Catbreath - Commando / Die By The Claw',
+        'The Barbarians of California - MEGATONS',
+    ], true);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 8, 'single_song', [
+        'No Guidance - Second Half',
+        'Oi!Gebroi - Antifascist till we die',
+        'Wasted Zippo - Alles wie immer',
+        'Popperklopper - Nicht allein',
+        'The Pill - Nighttime Routine',
+        'Abfluss - Ruf nach Freiheit',
+        'Jennifer Rostock - Alles muss man selber hassen',
+        'Plastic Mars - Willst du so sterben?',
+        'Raskob Rails - The Loop',
+        'Bildunxlücke - Hunde',
     ], true);
 }
 
