@@ -334,3 +334,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf steckt ein Instrumentenkabel in einen Gitarrenverstaerker und zeigt deutlich die Hang-loose-Geste.
 - Verwendung: Artikelsticker und Preview-Sticker zur Review `ACCORDING TO JACK - Plugged` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-missstand-lichter-aus-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf beugt sich suchend in die Dunkelheit und haelt ein leuchtendes rotes Bengalo ueber den Kopf.
+- Verwendung: Artikelsticker und Preview-Sticker zum Vorab-gehoert-Beitrag `MISSSTAND - Lichter? Aus! feat. Guido Donot` sowie Stickerarchiv `randalf/index.html`.
