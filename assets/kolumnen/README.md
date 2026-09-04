@@ -1,5 +1,21 @@
 # Kolumnen-Assets
 
+## good-vibes-only-alphaflyer.png
+
+- Quelle: Von Burg bereitgestellt als `to-do_und_temporär/alphaflyer.png`.
+- Unverändert übernommen, 1122 × 1402 Pixel, annähernd 4:5; nicht beschnitten.
+- Verwendung: Kolumnenmotiv für `Good Vibes Only – aber für wen eigentlich?`.
+- Keine Behauptung einer offiziellen Festivalgrafik oder einer allgemeinen freien Lizenz.
+
+## audio/good-vibes-only-aber-fuer-wen.mp3
+
+- Quelle: Nach Inhaltsprüfung am 04.09.2026 ausgewählt: `goodv1.mp3`, `goodv2.mp3` und `gluck3.mp3` aus Burgs bereitgestellten ElevenLabs-Aufnahmen.
+- In dieser Reihenfolge zusammengeführt, ohne inhaltliche Schnitte; MP3, Mono, 44,1 kHz, 128 kbit/s.
+- Dauer: 11 Minuten 24 Sekunden. Vollständiger Decodiertest ohne Fehler.
+- Die Einzelaufnahmen wurden lokal transkribiert und gegen die drei aktuellen Textblöcke abgeglichen. Enthält die Ergänzungen zu den Toten Hosen, der Entschuldigung, Alphavilles endgültiger Absage und weiteren Künstlerreaktionen.
+- Verwendung: Vorlesefassung der Kolumne einschließlich abschließender Frage an die Bands; Quellen und Instagram-Profile werden erwähnt, nicht einzeln vorgelesen.
+- Kennzeichnung am Player: `Audio: KI-Version meiner eigenen Stimme · Text & Redaktion: Burg`.
+
 ## ppp-top99-spotify.png
 
 - Quelle: Screenshot von Burg bereitgestellt.
