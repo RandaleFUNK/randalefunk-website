@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RandaleFUNK liegt auf Eis</title>
-    <meta name="description" content="RandaleFUNK pausiert am Tag der Landtagswahl in Sachsen-Anhalt. Geht wählen. Gebt der AfD keine Macht.">
+    <title>RandaleFUNK.de - Irgendwas mit Punk</title>
+    <meta name="description" content="RandaleFUNK.de - digitales Punk-Fanzine mit News, Reviews, Interviews und Kolumnen.">
     <!-- social-meta:start -->
-    <meta property="og:title" content="RandaleFUNK liegt auf Eis">
-    <meta property="og:description" content="Heute ist Landtagswahl in Sachsen-Anhalt. RandaleFUNK macht Pause. Geht wählen.">
-    <meta property="og:image" content="https://randalefunk.de/assets/kolumnen/randalf-afd-vorschlaghammer.png">
-    <meta property="og:image:width" content="1536">
-    <meta property="og:image:height" content="1024">
+    <meta property="og:title" content="RandaleFUNK.de - Irgendwas mit Punk">
+    <meta property="og:description" content="RandaleFUNK.de - digitales Punk-Fanzine mit News, Reviews, Interviews und Kolumnen.">
+    <meta property="og:image" content="https://randalefunk.de/assets/news/the-feelgood-mclouds-interview-thumbnail.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
     <meta property="og:url" content="https://randalefunk.de/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="RandaleFUNK.de">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RandaleFUNK liegt auf Eis">
-    <meta name="twitter:description" content="Heute ist Landtagswahl in Sachsen-Anhalt. RandaleFUNK macht Pause. Geht wählen.">
-    <meta name="twitter:image" content="https://randalefunk.de/assets/kolumnen/randalf-afd-vorschlaghammer.png">
-    <meta name="twitter:image:alt" content="Randalf zerschlägt mit einem Vorschlaghammer ein AfD-Schild">
+    <meta name="twitter:title" content="RandaleFUNK.de - Irgendwas mit Punk">
+    <meta name="twitter:description" content="RandaleFUNK.de - digitales Punk-Fanzine mit News, Reviews, Interviews und Kolumnen.">
+    <meta name="twitter:image" content="https://randalefunk.de/assets/news/the-feelgood-mclouds-interview-thumbnail.jpg">
+    <meta name="twitter:image:alt" content="RandaleFUNK.de - Irgendwas mit Punk">
     <!-- social-meta:end -->
     <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -26,257 +26,1414 @@
     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="style.css?v=20260820-riot-shop">
-    <style>
-      .freeze-page {
-        --active-accent: var(--news);
-      }
-
-      .freeze-header {
-        padding-bottom: 18px;
-      }
-
-      .freeze-shell {
-        width: min(100% - 28px, 1120px);
-        margin: 0 auto;
-        padding: clamp(18px, 4vw, 38px) 0 48px;
-      }
-
-      .freeze-board {
-        position: relative;
-        overflow: hidden;
-        padding: clamp(22px, 5vw, 54px);
-        border: 2px solid var(--border);
-        background:
-          linear-gradient(rgb(10 10 10 / 0.78), rgb(10 10 10 / 0.92)),
-          url("assets/bg-paper-wide.webp") center / cover;
-        box-shadow: 12px 12px 0 var(--black);
-      }
-
-      .freeze-label {
-        display: inline-block;
-        margin: 0 0 18px;
-        padding: 5px 10px;
-        background: var(--active-accent);
-        color: #fff8e7;
-        font-family: "Anton", "Arial Narrow", Arial, sans-serif;
-        font-size: 0.86rem;
-        text-transform: uppercase;
-        transform: rotate(-0.5deg);
-      }
-
-      .freeze-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
-        gap: clamp(24px, 5vw, 58px);
-        align-items: center;
-      }
-
-      .freeze-copy h1 {
-        max-width: 12ch;
-        margin: 0 0 26px;
-        color: var(--paper);
-        font-family: "ZP Sidestep", Impact, sans-serif;
-        font-size: clamp(3.5rem, 8vw, 7.8rem);
-        font-weight: 400;
-        line-height: 0.86;
-        text-transform: uppercase;
-        text-shadow: 5px 5px 0 var(--black), 8px 8px 0 var(--active-accent);
-      }
-
-      .freeze-copy p {
-        max-width: 63ch;
-        margin: 0 0 17px;
-        color: #eee3cc;
-        font-size: clamp(1rem, 1.8vw, 1.15rem);
-        line-height: 1.58;
-      }
-
-      .freeze-copy .freeze-lead {
-        font-size: clamp(1.2rem, 2.3vw, 1.48rem);
-        font-weight: 800;
-      }
-
-      .freeze-copy .freeze-final {
-        margin-top: 27px;
-        padding: 14px 16px;
-        border-left: 7px solid var(--active-accent);
-        background: rgb(229 45 38 / 0.14);
-        font-size: clamp(1.15rem, 2.1vw, 1.4rem);
-        font-weight: 900;
-      }
-
-      .freeze-figure {
-        margin: 0;
-        align-self: end;
-      }
-
-      .freeze-figure img {
-        display: block;
-        width: min(145%, 720px);
-        height: auto;
-        margin-left: -26%;
-        filter: drop-shadow(9px 10px 0 rgb(0 0 0 / 0.82));
-      }
-
-      .freeze-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        align-items: center;
-        margin-top: 30px;
-      }
-
-      .freeze-enter {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 54px;
-        padding: 12px 17px;
-        border: 2px solid var(--black);
-        background: var(--paper);
-        color: #13120f;
-        font-family: "Anton", "Arial Narrow", Arial, sans-serif;
-        font-size: clamp(1rem, 2vw, 1.22rem);
-        line-height: 1.15;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        box-shadow: 6px 6px 0 var(--active-accent);
-        transform: rotate(-0.25deg);
-      }
-
-      .freeze-enter:hover,
-      .freeze-enter:focus-visible {
-        background: #fff3d8;
-        color: #790f14;
-        transform: translateY(-1px);
-      }
-
-      .freeze-note {
-        color: var(--muted);
-        font-size: 0.86rem;
-      }
-
-      .freeze-source {
-        margin-top: 26px;
-        padding-top: 18px;
-        border-top: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .freeze-source a {
-        color: var(--paper);
-      }
-
-      @media (max-width: 820px) {
-        .freeze-layout {
-          grid-template-columns: 1fr;
-        }
-
-        .freeze-copy h1 {
-          font-size: clamp(3.2rem, 15vw, 5.8rem);
-        }
-
-        .freeze-figure {
-          order: -1;
-          max-height: 330px;
-        }
-
-        .freeze-figure img {
-          width: min(125%, 630px);
-          max-height: 350px;
-          margin: -34px auto 0 -9%;
-          object-fit: contain;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .freeze-shell {
-          width: min(100% - 18px, 1120px);
-          padding-top: 10px;
-        }
-
-        .freeze-board {
-          padding: 20px 16px 26px;
-          box-shadow: 6px 7px 0 var(--black);
-        }
-
-        .freeze-copy h1 {
-          font-size: clamp(2.75rem, 12vw, 4rem);
-        }
-
-        .freeze-figure {
-          max-height: 245px;
-        }
-
-        .freeze-figure img {
-          max-height: 270px;
-          margin-top: -26px;
-        }
-
-        .freeze-actions,
-        .freeze-enter {
-          width: 100%;
-        }
-
-        .freeze-note {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
   </head>
-  <body class="freeze-page">
-    <div class="category-strip" aria-label="Temporärer Hinweis">
-      HEUTE KEIN NORMALBETRIEB · LANDTAGSWAHL SACHSEN-ANHALT
+  <body data-disable-weekly-poll="true">
+    <div class="category-strip" aria-label="Magazin-Kategorien">
+      PUNK · FANZINE · INTERVIEWS · REVIEWS · NEWS
     </div>
 
-    <header class="site-header freeze-header" aria-label="RandaleFUNK Kopfbereich">
-      <a class="brand" href="start/" aria-label="Zur normalen RandaleFUNK-Startseite">
+    <header class="site-header" aria-label="RandaleFUNK Kopfbereich">
+      <a class="brand" href="index.html" aria-label="RandaleFUNK.de Startseite">
         <img src="assets/randalefunk-logo.png" alt="RandaleFUNK.de Logo" width="160" height="160">
       </a>
       <p class="tagline">Irgendwas mit Punk seit 2022</p>
     </header>
 
-    <main class="freeze-shell">
-      <section class="freeze-board">
-        <p class="freeze-label">RandaleFUNK macht Pause</p>
+    <main class="magazine-shell">
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-section-nav site-side-links" data-mobile-menu-toggle hidden>
+        ☰ Menü / Wegweiser
+      </button>
 
-        <div class="freeze-layout">
-          <div class="freeze-copy">
-            <h1>RandaleFUNK liegt auf Eis.</h1>
-            <p class="freeze-lead">Heute wird in Sachsen-Anhalt ein neuer Landtag gewählt.</p>
-            <p>Deshalb gibt es hier gerade keine News, Reviews oder sonstigen Punkrock-Quatsch. Nicht, weil Musik plötzlich unwichtig wäre. Sondern weil ich diesen Tag nicht zwischen zwei Plattenkritiken schieben möchte.</p>
-            <p>Ich bin kein großer Fan unserer repräsentativen Demokratie. Alle paar Jahre ein Kreuz machen und anschließend anderen beim Regieren zusehen, ist nicht unbedingt meine Vorstellung von Freiheit.</p>
-            <p>Aber das Ergebnis ist real.</p>
-            <p>Die Menschen, die heute gewählt werden, bekommen Macht über Schulen, Kultur, politische Bildung, Behörden, Medien und das Leben anderer Menschen.</p>
-            <p>Der AfD-Landesverband Sachsen-Anhalt wird vom Landesverfassungsschutz als gesichert rechtsextremistische Bestrebung eingestuft. Für meine Ablehnung muss ich der Partei trotzdem nichts andichten. Ihre angekündigten Ziele reichen mir vollkommen.</p>
-            <p>Ich werde euch nicht sagen, welche Partei ihr wählen sollt.</p>
-            <p><strong>Aber geht wählen.</strong></p>
-            <p>Informiert euch. Lest Programme. Glaubt nicht jeden Scheiß, nur weil er gut in eure eigene Meinung passt. Und denkt darüber nach, wem ihr politische Macht geben wollt.</p>
-            <p>Wählen ersetzt keinen Protest, keine Solidarität und keinen Widerstand. Es ist nur ein Werkzeug. Aber heute liegt dieses Werkzeug verdammt noch mal auf dem Tisch.</p>
-            <p class="freeze-final">Fick das System. Aber denkt vorher darüber nach, wem ihr die Schlüssel dafür gebt.</p>
-            <p><strong>Burg<br>RandaleFUNK</strong></p>
+      <nav class="section-nav" id="site-section-nav" aria-label="Rubriken">
+        <p class="nav-label">Rubriken</p>
+        <button class="section-link is-active" type="button" data-section="news">News</button>
+        <button class="section-link" type="button" data-section="vorab">Vorab gehört</button>
+        <button class="section-link" type="button" data-section="reviews">Reviews</button>
+        <button class="section-link" type="button" data-section="interviews">Interviews</button>
+        <button class="section-link" type="button" data-section="kolumnen">Kolumnen</button>
+      </nav>
 
-            <div class="freeze-actions">
-              <a class="freeze-enter" href="start/">Trotzdem weiter zu RandaleFUNK.de</a>
-              <span class="freeze-note">Alle bisherigen Artikel und Rubriken bleiben erreichbar.</span>
-            </div>
+      <section class="issue-board" aria-live="polite">
+        <article class="content-panel is-active" id="panel-news" data-section-panel="news">
+          <p class="issue-label">News</p>
+          <div class="ticker-head">
+            <h1>RandaleFUNK-Ticker</h1>
+            <p>Der Krach sortiert sich später. Erstmal kommt er rein: Songs, Videos, Releases, Konzerte, Festivals und kurze Hinweise aus dem Maschinenraum.</p>
           </div>
 
-          <figure class="freeze-figure">
-            <img src="assets/kolumnen/randalf-afd-vorschlaghammer.png" alt="Randalf zerschlägt mit einem Vorschlaghammer ein AfD-Schild" width="1536" height="1024">
-          </figure>
-        </div>
+          <div class="ticker-list" aria-label="Aktuelle Kurzmeldungen" data-ticker-list>
+            <article class="ticker-card ticker-card--video" id="news-the-feelgood-mclouds-interview" data-ticker-news data-published="2026-09-06T10:40:00">
+              <div class="ticker-meta">
+                <span>INTERVIEW</span>
+                <time datetime="2026-09-06T10:40:00">06.09.2026</time>
+              </div>
+              <h2>The Feelgood McLouds im Interview: Netflix, Wacken und 3.333 Streams für ein Guinness</h2>
+              <figure class="ticker-media">
+                <a class="ticker-media__link" href="https://www.youtube.com/watch?v=XN1lra8H-i4" target="_blank" rel="noopener noreferrer" aria-label="Interview mit The Feelgood McLouds auf YouTube ansehen – externer Link">
+                  <img src="/assets/news/the-feelgood-mclouds-interview-thumbnail.jpg" alt="RandaleFUNK-Interview mit The Feelgood McLouds und dem Text Kneipe, Wacken, Netflix" width="1280" height="720" loading="lazy">
+                </a>
+                <figcaption>Eigenes RandaleFUNK-Thumbnail. Ein Klick aufs Bild öffnet das Interview bei YouTube.</figcaption>
+              </figure>
+              <p>Das neue RandaleFUNK-Interview mit <strong>The Feelgood McLouds</strong> ist fertig. Michi und Chris reden mit Burg über zehn Jahre Bandgeschichte, das vierte Album <strong><em>„A Decade On Parade“</em></strong>, Wacken, Netflix und die wirtschaftliche Großmacht Musikstreaming. Also ungefähr zehn Guinness im Monat.</p>
+              <p><strong><em>„A Decade On Parade“</em></strong> ist am <strong>4. September 2026</strong> erschienen. Nach Aussage der Band wurde das Album selbst aufgenommen und über <strong>Deaf Shepherd</strong> veröffentlicht. Im Gespräch geht es außerdem um <strong><em>„Travel in a Barrel“</em></strong> mit Mr. Hurley, Songwriting zwischen Banjo, Akkordeon, Geige und Dudelsack sowie um Chris, der erst seit diesem Sommer fest dabei ist und sich dafür mal eben vier Alben aufs Instrument schaffen durfte.</p>
+              <p>Dann steht noch der Elefant mit Bierfass im Raum: <strong><em>„Saints &amp; Sinners“</em></strong> landete 2025 in der siebten Folge der Netflix-Serie <strong><em>„House of Guinness“</em></strong>. Die Anfrage per Mail sah zunächst so verdächtig aus, dass sie fast weggeklickt worden wäre. Zum Glück hat vor dem Löschen noch jemand recherchiert. Der Song lief wirklich in der Serie. Zwischen Fontaines D.C., Kneecap und The Chieftains. Kann man machen.</p>
+              <p>Sehr handfest wird es bei der Frage, was Streaming einer Band tatsächlich bringt. Chris hat nach eigener Rechnung einen Wechselkurs ermittelt: <strong>3.333 Streams ergeben ungefähr ein Guinness im Pub.</strong> Bei rund 30.000 Streams im Monat kommt die Band damit auf ungefähr zehn Guinness. Tourbus, Produktion und der restliche Betrieb bezahlen sich davon allerdings nicht. Wer eine Band unterstützen will, ist mit Platte, Shirt oder Konzertkarte weiterhin deutlich näher an der Sache.</p>
+              <p>Und weil Celtic Punk nicht nur aus Refrains über Getränke besteht, wird zum Schluss noch geradegerückt, was im ganzen Gelächter beinahe unter den Tisch gefallen wäre: The Feelgood McLouds schreiben auch über Ausgrenzung, falsche Ideologien und politische Schieflagen. Partyband? Ja. Aber eben nicht nur.</p>
+              <p>Das vollständige Gespräch läuft bei YouTube. Mit Zungenbrechern, austauschbaren Gitarristen und der Erkenntnis, dass Murphy’s angeblich das bessere Guinness ist. Über den letzten Punkt darf selbstverständlich gestritten werden.</p>
+              <p><strong>The Feelgood McLouds:</strong> <a href="https://www.thefeelgoodmclouds.de/" target="_blank" rel="noopener noreferrer">Website</a> · <a href="https://shop.uncle-m.com/kuenstler/the-feelgood-mclouds/" target="_blank" rel="noopener noreferrer">Shop</a></p>
+              <p class="external-link-note"><strong>Datenschutz-Hinweis:</strong> Das Vorschaubild liegt direkt auf RandaleFUNK.de. Beim Seitenaufruf wird nichts von YouTube geladen und dafür kein Cookie gesetzt. Erst wenn ihr das Bild oder den Button anklickt, verlasst ihr RandaleFUNK und YouTube beziehungsweise Google kann Daten verarbeiten. <a href="/datenschutz.html">Mehr dazu in der Datenschutzerklärung.</a></p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=XN1lra8H-i4" target="_blank" rel="noopener noreferrer">Interview ansehen ↗</a>
+            </article>
 
-        <p class="freeze-source">Einordnung des AfD-Landesverbandes: <a href="https://mi.sachsen-anhalt.de/verfassungsschutz/themenfelder/page/rechtsextremismus" target="_blank" rel="noopener noreferrer">Verfassungsschutz Sachsen-Anhalt</a>. Wahltermin und Informationen: <a href="https://wahlen.sachsen-anhalt.de/zu-den-wahlen/landtagswahl/faq-zur-landtagswahl-2026" target="_blank" rel="noopener noreferrer">Landeswahlleiterin Sachsen-Anhalt</a>.</p>
+            <article class="ticker-card ticker-card--video" id="news-edelweisspiraten-unboxing" data-ticker-news data-published="2026-08-27T12:00:00">
+              <div class="ticker-meta">
+                <span>UNBOXING</span>
+                <time datetime="2026-08-27T12:00:00">27.08.2026</time>
+              </div>
+              <h2>KAUF DAS! – Edelweisspiraten: <em>Wir sind der Widerstand!</em> auf rotem Vinyl</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/edelweisspiraten-unboxing-wir-sind-der-widerstand.jpg" alt="RandaleFUNK-Unboxing mit Burg, einer roten Schallplatte der Edelweisspiraten und dem Text Kauf das" loading="lazy">
+                <figcaption>Eigenes RandaleFUNK-Thumbnail zum Unboxing.</figcaption>
+              </figure>
+              <p><strong>NRT-Records</strong> hat Burg ein Paket geschickt. Bezahlt wurde für die Besprechung nichts. Im Karton lagen trotzdem genug Bestechungsmittel aus Stoff und Vinyl: Shirts und die EP <strong><em>„Wir sind der Widerstand!“</em></strong> von den <strong>Edelweisspiraten</strong>.</p>
+              <p>Die rote Platte bringt sechs Songs zwischen Punkrock, Oi!-Kante und Hardcore-Geknüppel mit. Inhaltlich geht es nicht um dekorative Alpenblumen, sondern um Faschismus, Krieg, Fundamentalismus, gesellschaftlichen Druck und Widerstand. Klare Haltung, wenig Umweg und stellenweise die Feinfühligkeit eines Pflastersteins.</p>
+              <p>Im Unboxing wird ausgepackt, die ungewöhnliche Vinylfarbe begutachtet und mit <strong>„Krieg, Mord und Totschlag“</strong> auch kurz reingehört. Dazu gibt es die Frage, ob Burg jetzt seriöser Musikjournalist oder doch nur unbezahlter Teleshopping-Moderator mit Bart geworden ist.</p>
+              <p><strong>Kurzfassung:</strong> Das Ding ist laut, rot und hübsch. Also: Kauf das! Oder hört wenigstens rein, bevor ihr euch von einem bärtigen Mann im Keller Kaufbefehle geben lasst.</p>
+              <p><strong>Edelweisspiraten:</strong> <a href="https://fanlink.tv/edelweisspiraten" target="_blank" rel="noopener noreferrer">Links &amp; Streams</a> · <a href="https://edelweisspiratenpunk.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a> · <a href="https://www.youtube.com/@Edelweisspiraten" target="_blank" rel="noopener noreferrer">YouTube</a> · <a href="https://open.spotify.com/artist/57dtWhXIpdlJbwOAd8tBZA" target="_blank" rel="noopener noreferrer">Spotify</a> · <a href="https://www.facebook.com/EDELWEISSPIRATENpunk/" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://www.instagram.com/edelweisspiraten.punk/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+              <p><strong>NRT-Records:</strong> <a href="https://www.nrt-records.com/" target="_blank" rel="noopener noreferrer">Website</a> · <a href="https://nrt-records.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a> · <a href="https://www.facebook.com/NRTRecordsofficial" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+              <a class="ticker-button" href="https://coretexrecords.com/Edelweisspiraten-Wir-Sind-Der-Widerstand" target="_blank" rel="noopener noreferrer">Vinyl bei Coretex kaufen ↗</a>
+              <a class="ticker-button" href="reviews/edelweisspiraten-wir-sind-der-widerstand.html">„Vorab gehört“ lesen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-vor-ort-lokvogel-150826" data-ticker-news data-published="2026-08-25T12:00:00">
+              <div class="ticker-meta">
+                <span>VOR ORT</span>
+                <time datetime="2026-08-25T12:00:00">25.08.2026</time>
+              </div>
+              <h2>VOR ORT im Lokvogel: Vier Bands, drei Interviews und ein verpasstes Gespräch</h2>
+              <figure class="ticker-media">
+                <a class="ticker-media__link" href="https://www.youtube.com/watch?v=szzQ5c4B-oE" target="_blank" rel="noopener noreferrer" aria-label="VOR-ORT-Folge aus dem Lokvogel auf YouTube ansehen – externer Link">
+                  <img src="/assets/news/vor-ort-lokvogel-150826-thumbnail.jpg" alt="RandaleFUNK-Thumbnail zur VOR-ORT-Folge im Lokvogel mit Burg am Mikrofon und dem Text 4 Bands, 1 Kneipe, totaler Abriss" loading="lazy">
+                </a>
+                <figcaption>Eigenes RandaleFUNK-Thumbnail. Ein Klick aufs Bild öffnet die Folge bei YouTube.</figcaption>
+              </figure>
+              <p>Am 15. August standen im <strong>Lokvogel in Hemer</strong> vier ziemlich unterschiedliche Kapellen auf dem Zettel: <strong>Pisstole</strong>, <strong>Riot Spears</strong>, <strong>TV Moms</strong> und <strong>Championne Mondiale</strong>. Burg stand mit Kamera und Mikrofon dazwischen. Damit war der übliche VOR-ORT-Wahnsinn vollständig.</p>
+              <p><strong>Riot Spears</strong> aus Berlin und <strong>TV Moms</strong> aus New York spielten ihre lauten Songs diesmal solo und akustisch. Dazu kamen <strong>Pisstole</strong> mit Piss-Polit-Punk aus Dortmund und <strong>Championne Mondiale</strong> mit Mom Punk aus Düsseldorf. Vier verschiedene Sorten Krach in einer Kulturkneipe. Genau für solchen musikalischen Mischbetrieb wurde dieses Format vermutlich erfunden.</p>
+              <p>Gesprochen hat Burg mit Pisstole, Riot Spears und TV Moms. Championne Mondiale ist beim Interview leider durchgerutscht. Kein journalistischer Kniff und keine geheimnisvolle Fehde – einfach verpasst. VOR ORT bedeutet eben auch, die eigene Schusseligkeit nicht nachträglich aus dem Abend zu schneiden.</p>
+              <p>Im Video gibt es Konzertbilder und die drei Gespräche. Ohne Hochglanz-Gedöns, dafür mit Kneipe, Musik und den Menschen, die den Krach verursachen.</p>
+              <p><strong>Die Bands:</strong> <a href="https://www.instagram.com/pisstole_punk/" target="_blank" rel="noopener noreferrer">Pisstole</a> · <a href="https://riotspears.bandcamp.com" target="_blank" rel="noopener noreferrer">Riot Spears</a> · <a href="https://linktr.ee/tvmoms" target="_blank" rel="noopener noreferrer">TV Moms</a> · <a href="https://championnemondiale.bandcamp.com" target="_blank" rel="noopener noreferrer">Championne Mondiale</a></p>
+              <p class="external-link-note"><strong>Datenschutz-Hinweis:</strong> Das Vorschaubild liegt direkt auf RandaleFUNK.de. Beim Seitenaufruf wird nichts von YouTube geladen und dafür kein Cookie gesetzt. Erst wenn ihr das Bild oder den Button anklickt, verlasst ihr RandaleFUNK und YouTube beziehungsweise Google kann Daten verarbeiten. <a href="/datenschutz.html">Mehr dazu in der Datenschutzerklärung.</a></p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=szzQ5c4B-oE" target="_blank" rel="noopener noreferrer">VOR ORT ansehen ↗</a>
+            </article>
+
+            <article class="ticker-card ticker-card--info" id="news-randalefunk-shop-riot-candy" data-ticker-news data-published="2026-08-20T18:00:00">
+              <div class="ticker-meta">
+                <span>Info</span>
+                <time datetime="2026-08-20T18:00:00">20.08.2026</time>
+              </div>
+              <h2>RandaleFUNK hat jetzt einen Shop. Leider geil.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/shop-news-01.png" alt="RandaleFUNK-Shop-Newsgrafik mit Riot-Candy-Shop, Randalf als Paketbote und dem Text Neuer Shop aus der Szene fuer die Szene" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Shopgrafik von Burg.</figcaption>
+              </figure>
+              <p>Es ist passiert: <strong>RandaleFUNK-Klamotten</strong> kommen jetzt nicht mehr aus irgendeinem seelenlosen Merch-Automaten, sondern von <strong>Riot Candy</strong>.</p>
+              <p>Kleiner Laden aus der Szene, eigener Druck, eigener Versand, weniger Konzern-Mief im Karton. Genau so sollte das eigentlich sein.</p>
+              <p>Es gibt Shirts, Hoodies und anderen tragbaren Unsinn für Menschen, die freiwillig Werbung für ein Fanzine machen möchten, das vermutlich nie einen Businessplan überleben würde.</p>
+              <p>Kein Drop. Kein Hype. Kein <strong>„nur noch 3 Stück, Bruder!!!“</strong></p>
+              <p>Einfach Kram, den Burg gut findet.</p>
+              <p>Wer Bock hat, schaut rein. Wer keinen braucht, braucht keinen.</p>
+              <p><strong>RandaleFUNK bleibt schließlich ein Fanzine und kein Teleshopping-Kanal mit Nietenarmband.</strong></p>
+              <a class="ticker-button" href="https://www.riot-candy.com/c/randalefunk" target="_blank" rel="noopener noreferrer">Zum RandaleFUNK-Shop bei Riot Candy</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-burg-short-003-nufan-making-friends" data-ticker-news data-published="2026-08-20T12:00:00">
+              <div class="ticker-meta">
+                <span>BURG SHORT</span>
+                <time datetime="2026-08-20T12:00:00">20.08.2026</time>
+              </div>
+              <h2>NO USE FOR A NAME / MAKING FRIENDS | BURG – nur mal ganz SHORT</h2>
+              <figure class="ticker-media ticker-media--short">
+                <a class="ticker-media__link" href="https://www.youtube.com/shorts/zSp-aQbLvAg" target="_blank" rel="noopener noreferrer" aria-label="Making-Friends-Folge auf YouTube ansehen – externer Link">
+                  <img src="/assets/news/burg-short-003-nufan-making-friends.webp" alt="Thumbnail zur dritten Folge BURG – nur mal ganz SHORT mit Burg, der CD Making Friends von No Use For A Name und dem Text Warum diese Platte" loading="lazy">
+                </a>
+                <figcaption>Eigenes RandaleFUNK-Thumbnail. Ein Klick aufs Bild öffnet die Folge bei YouTube.</figcaption>
+              </figure>
+              <p>29 Jahre alt, laut Burg noch immer nicht das beste Album von No Use For A Name – und trotzdem bekommt das Ding eine eigene Kellerfolge. Die dritte Ausgabe von <strong>„BURG – nur mal ganz SHORT“</strong> ist online.</p>
+              <p>Es geht um <strong>Making Friends</strong>, Tony Sly, Chris Shifletts späteren Weg zu den Foo Fighters, Gaststimmen von Dicky Barrett und Karina Deniké, Mark deSalvos Artwork und den irischen Folk-Klassiker <strong>Fields of Athenry</strong>. Also das vollständige Nerd-Gedöns rund um eine CD, die Burg bis heute im Regal stehen hat.</p>
+              <p>Aufgenommen wurde im Keller, weil im Studio jemand schlief. Und bevor die Albumrangliste beginnt: Burg hält andere NUFAN-Alben für besser. <strong>Making Friends</strong> bleibt trotzdem in der Sammlung.</p>
+              <p class="external-link-note"><strong>Datenschutz-Hinweis:</strong> Das Vorschaubild liegt direkt auf RandaleFUNK.de. Beim Seitenaufruf wird nichts von YouTube geladen und dafür kein Cookie gesetzt. Erst wenn ihr das Bild oder den Button anklickt, verlasst ihr RandaleFUNK und YouTube beziehungsweise Google kann Daten verarbeiten. <a href="/datenschutz.html">Mehr dazu in der Datenschutzerklärung.</a></p>
+              <a class="ticker-button" href="https://www.youtube.com/shorts/zSp-aQbLvAg" target="_blank" rel="noopener noreferrer">Making-Friends-Folge auf YouTube ansehen ↗</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-burg-short-002-punk-artwork" data-ticker-news data-published="2026-08-15T12:00:00">
+              <div class="ticker-meta">
+                <span>BURG SHORT</span>
+                <time datetime="2026-08-15T12:00:00">15.08.2026</time>
+              </div>
+              <h2>PUNK-ARTWORK / COVER-KÜNSTLER | BURG – nur mal ganz SHORT</h2>
+              <figure class="ticker-media ticker-media--short">
+                <a class="ticker-media__link" href="https://www.youtube.com/watch?v=JxrvAYPUFPU" target="_blank" rel="noopener noreferrer" aria-label="Punk-Artwork-Folge auf YouTube ansehen – externer Link">
+                  <img src="/assets/news/burg-short-002-punk-artwork.webp" alt="Thumbnail zur zweiten Folge BURG – nur mal ganz SHORT mit Burg und dem Text Wer hat Punk die Fresse gemalt" loading="lazy">
+                </a>
+                <figcaption>Eigenes RandaleFUNK-Thumbnail. Ein Klick aufs Bild öffnet die Folge bei YouTube.</figcaption>
+              </figure>
+              <p>Die zweite Folge <strong>„BURG – nur mal ganz SHORT“</strong> ist online: Jimbo Phillips, Jesse Fischer und Nick Rubenstein. Drei Namen, fünfzehn Bilder und ungefähr null Chance, das ganze Artwork-Gedöns in zwei Minuten zu prügeln.</p>
+              <p>Von Santa-Cruz-Monstern und <strong>Tony Hawk’s American Wasteland</strong> stolpert Burg über Rancid, Pennywise und Voodoo Glow Skulls bis zu <strong>Punk-O-Rama Vol. 2</strong>. Denn ein gutes Cover ist nicht bloß Verpackung – manchmal bleibt es länger im bekloppten Schädel als die komplette Trackliste.</p>
+              <p class="external-link-note"><strong>Datenschutz-Hinweis:</strong> Das Vorschaubild liegt direkt auf RandaleFUNK.de. Beim Seitenaufruf wird nichts von YouTube geladen und dafür kein Cookie gesetzt. Erst wenn ihr das Bild oder den Button anklickt, verlasst ihr RandaleFUNK und YouTube beziehungsweise Google kann Daten verarbeiten. <a href="/datenschutz.html">Mehr dazu in der Datenschutzerklärung.</a></p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=JxrvAYPUFPU" target="_blank" rel="noopener noreferrer">Punk-Artwork-Folge auf YouTube ansehen ↗</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-tag-des-vinyl-2026" data-ticker-news data-published="2026-08-12T20:00:00">
+              <div class="ticker-meta">
+                <span>Video</span>
+                <time datetime="2026-08-12T20:00:00">12.08.2026</time>
+              </div>
+              <h2>12.8.26: RandaleFUNK macht den inoffiziell offiziellen Tag des Vinyls kaputt.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/tag-des-vinyl-2026-collage.jpg" alt="Kollage zu den RandaleFUNK-Videos am Tag des Vinyls mit fuenf Shorts und einem People Are People Video" loading="lazy">
+                <figcaption>Bild: eigene RandaleFUNK-Kollage aus den Vinyl-Tag-Videos.</figcaption>
+              </figure>
+              <p>Am 12.8. war der inoffiziell offizielle Tag des Vinyls. Also hat Burg getan, was verantwortungsbewusste Menschen in so einer Situation eben tun: Platten aus dem Regal reißen, Kamera anmachen und den eigenen Musikschaden öffentlich sortieren.</p>
+              <p>In der kleinen Vinyl-Salve geht es unter anderem um <strong>Toxoplasma</strong>, <strong>Swingin' Utters</strong>, <strong>Depeche Mode</strong>, <strong>The Cure</strong>, <strong>Punk Bites</strong> und <strong>Bad Religion</strong>. Also ungefähr die Kategorie: gebe ich nie wieder her, auch wenn die Vernunft leise weint.</p>
+              <p>Zwischen Punk, Kindheitserinnerung, Plattensammler-Quatsch und gepflegter Selbstdiagnose ist das vermutlich genau so sinnvoll, wie es klingt.</p>
+              <a class="ticker-button" href="https://www.youtube.com/@randalefunk/shorts" target="_blank" rel="noopener noreferrer">Shorts ansehen</a>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=wiWin9v32R4" target="_blank" rel="noopener noreferrer">People-Are-People-Video ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-burg-short-001-zeke" data-ticker-news data-published="2026-08-05T18:00:00">
+              <div class="ticker-meta">
+                <span>BURG SHORT</span>
+                <time datetime="2026-08-05T18:00:00">05.08.2026</time>
+              </div>
+              <h2>ZEKE / PUNK-O-RAMA | BURG – nur mal ganz SHORT</h2>
+              <figure class="ticker-media ticker-media--short">
+                <a class="ticker-media__link" href="https://www.youtube.com/watch?v=pP1ZCmCSxXc&amp;t=1s" target="_blank" rel="noopener noreferrer" aria-label="ZEKE-Short auf YouTube ansehen – externer Link">
+                  <img src="/assets/news/burg-short-001-zeke.webp" alt="Thumbnail zur ersten Folge BURG – nur mal ganz SHORT über ZEKE und drei Punk-O-Rama-Sampler" loading="lazy">
+                </a>
+                <figcaption>Eigenes RandaleFUNK-Thumbnail. Ein Klick aufs Bild öffnet den Short bei YouTube.</figcaption>
+              </figure>
+              <p>Neues Format, ungefähr zwei Minuten kontrollierter geistiger Restmüll: In <strong>„BURG – nur mal ganz SHORT“</strong> zieht Burg Dinge aus seiner Musiksammlung oder seinem bekloppten Schädel und hält sie ungefragt in die Kamera.</p>
+              <p>Los geht es mit <strong>ZEKE</strong>: dreimal Punk-O-Rama, Motörhead und Black Flag im Tank, Bühnenchaos in der Legendenakte und trotzdem nie der große Erfolg. Vielleicht war die Band einfach zu schnell für Menschen, die erst noch ihr Influencer-Outro bügeln müssen.</p>
+              <p class="external-link-note"><strong>Datenschutz-Hinweis:</strong> Das Vorschaubild liegt direkt auf RandaleFUNK.de. Beim Seitenaufruf wird nichts von YouTube geladen und dafür kein Cookie gesetzt. Erst wenn ihr das Bild oder den Button anklickt, verlasst ihr RandaleFUNK und YouTube beziehungsweise Google kann Daten verarbeiten. <a href="/datenschutz.html">Mehr dazu in der Datenschutzerklärung.</a></p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=pP1ZCmCSxXc&amp;t=1s" target="_blank" rel="noopener noreferrer">ZEKE-Short auf YouTube ansehen ↗</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-vor-ort-lokvogel-010826" data-ticker-news data-published="2026-08-03T16:00:00">
+              <div class="ticker-meta">
+                <span>VOR ORT</span>
+                <time datetime="2026-08-03T16:00:00">03.08.2026</time>
+              </div>
+              <h2>VOR ORT im Lokvogel: Dieser Abend durfte offenbar nicht normal bleiben.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/vor-ort-lokvogel-010826-thumbnail.jpg" alt="RandaleFUNK-Thumbnail zur VOR-ORT-Folge im Lokvogel mit Burg, Konzertlicht und dem Text Dieser Abend eskalierte" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Thumbnail zur VOR-ORT-Folge.</figcaption>
+              </figure>
+              <p>Die neue RandaleFUNK-VOR-ORT-Folge ist online: Burg war im Lokvogel unterwegs und hat zwischen Bühne, Interviewecke und kontrollierter Überforderung wieder Menschen mit Mikrofon belästigt.</p>
+              <p>Mit dabei sind <strong>Raskob Rails</strong> mit Skatepunk-Kante, <strong>No Guidance</strong> zwischen Green-Day-Compilation und eigener Punk-Party, <strong>Against(er)</strong> mit frischem Sänger und genug Live-Druck, um den Boden kurz misstrauisch zu machen.</p>
+              <p>Dazu gibt es noch ein paar ernstere Worte über lokale Kultur, Proberäume und warum solche Abende nicht einfach vom Himmel fallen. Also: Video an, Getränk auf, Ausrede suchen.</p>
+              <a class="ticker-button" href="https://youtu.be/iY9MNv37ZkM" target="_blank" rel="noopener noreferrer">VOR ORT ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" id="news-harte-worte-soundtrack-zum-untergang" data-ticker-news data-published="2026-07-31T12:00:00">
+              <div class="ticker-meta">
+                <span>EP</span>
+                <time datetime="2026-07-31T12:00:00">31.07.2026</time>
+              </div>
+              <h2>Harte Worte melden sich zurück. Natürlich direkt mit Untergang.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/harte-worte-soundtrack-zum-untergang.jpg" alt="Cover zu Harte Worte - Soundtrack zum Untergang" loading="lazy">
+                <figcaption>Bild: offizielles Produktbild von Sunny Bastards zur 10-Inch.</figcaption>
+              </figure>
+              <p>Acht Jahre weg, neue Besetzung, zwei neue Songs und direkt wieder der Untergang. Ruhrpott-Romantik kann so einfach sein.</p>
+              <p>Am 20.08.2026 erscheint mit <strong>"Soundtrack zum Untergang"</strong> eine neue Harte-Worte-10-Inch mit den Songs <strong>"Soundtrack zum Untergang"</strong> und <strong>"C'est La Vie"</strong>, produziert von Corny Rambado.</p>
+              <p>Komplett gehört haben wir das Ding noch nicht, also bleibt das große Urteil im Schrank. Aber nach so langer Pause mit so einem Titel zurückzukommen, hat schon die richtige Portion Pott-Größe.</p>
+              <p>Für 2027 ist außerdem ein neues Album angekündigt. Wir beobachten das. Mit Helm. Und vielleicht mit Dosenbier.</p>
+              <a class="ticker-button" href="https://store.sunnybastards.de/Musik/Vinyl/Harte-Worte-Soundtrack-zum-Untergang-EP-10inch-red-multisplatter-Vinyl::7306.html" target="_blank" rel="noopener noreferrer">Zur 10-Inch</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-randalenews-02" data-ticker-news data-published="2026-07-29T17:30:00">
+              <div class="ticker-meta">
+                <span>RandaleNEWS</span>
+                <time datetime="2026-07-29T17:30:00">29.07.2026</time>
+              </div>
+              <h2>RandaleNEWS #02: Punks dürfen nach Sylt. Und Burg schickt euch hin.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/randalenews-02-thumbnail.jpg" alt="Thumbnail zu RandaleNEWS 02 mit Burg, SOKO LiNX und WIZO, Popperklopper, Suicide Machines und dem Satz Punks dürfen nach Sylt" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Thumbnail zur zweiten RandaleNEWS-Folge.</figcaption>
+              </figure>
+              <p>Die nächste RandaleNEWS ist online und diesmal dürfen Punks nach Sylt, Popperklopper holen Jutta Pardeike dazu, SOKO LiNX schleppen WIZO ins Zeitmanagement und The Suicide Machines werfen eine neue EP in den Raum.</p>
+              <p>Dazu gibt es Kommentar-Kanalratten, fachweltlich bestätigte Selbstbeweihräucherung, Waffelstand-Eigenwerbung und genug seriösen Punkjournalismus, um mindestens eine Amtsstube nervös zu machen.</p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=dP2jTA6QIAY" target="_blank" rel="noopener noreferrer">RandaleNEWS #02 ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" id="news-punk-chartbusters-vol-7-lineup" data-ticker-news data-published="2026-07-18T12:00:00">
+              <div class="ticker-meta">
+                <span>Sampler</span>
+                <time datetime="2026-07-18T12:00:00">18.07.2026</time>
+              </div>
+              <h2>Punk Chartbusters Vol. 7: Wer hat das denn wieder erlaubt?</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/punk-chartbusters-vol-7-lineup.jpg" alt="Komplette Trackliste zu Punk Chartbusters Vol. 7" loading="lazy">
+                <figcaption>Bild: Tracklist-Grafiken aus offiziellen Wolverine-Records-Posts, von Burg bereitgestellt und für RandaleFUNK kombiniert.</figcaption>
+              </figure>
+              <p>Das vollständige Line-up der <strong>Punk Chartbusters Vol. 7</strong> ist draußen.</p>
+              <p>46 Bands. 46 Coverversionen. Und ungefähr 46 Gründe, warum man kurz überlegen muss, ob bei <strong>Wolverine Records</strong> eigentlich noch alle Sicherungen im Kasten sitzen.</p>
+              <p>Zum Glück offenbar nicht.</p>
+              <p>Genau für diesen Irrsinn ist die Reihe ja da.</p>
+              <p>Da nehmen sich <strong>Die Shitlers</strong> mal eben Shakiras <strong>"Waka Waka"</strong> vor. Ich erwarte selbstverständlich eine absolut werkgetreue Umsetzung, choreografisch einwandfrei, mit Hüftschwung, Weltschmerz und maximaler kultureller Verantwortung.</p>
+              <p>Oder eben das komplette Gegenteil.</p>
+              <p>Auch meine Kumpels von <strong>Champagner Punx</strong> sind dabei. Wenn ich richtig liege, ist deren Nummer zwar schon draußen, aber geschenkt. Die dürfen trotzdem mit an den Tisch. Irgendjemand muss ja den teuren Perlwein verschütten.</p>
+              <p><strong>Psychotic Youth</strong> stehen ebenfalls auf der Liste. Muss man nicht groß erklären. Die sind einfach geil.</p>
+              <p><strong>Ernte 77</strong> erwähne ich hier natürlich nur, weil die gerade langsam richtig durch die Decke gehen und mir diese Erwähnung garantiert Klickzahlen bringt. Journalistische Integrität war gestern.</p>
+              <p><strong>Überflüssig</strong> sind auch dabei.</p>
+              <p>Der Witz schreibt sich an dieser Stelle von selbst.</p>
+              <p>Und <strong>Mad Dog Dan</strong> taucht ebenfalls auf. Da habe ich so ein Gefühl, dass wir mit oder über den Kollegen bald ohnehin noch etwas machen werden.</p>
+              <p>Aber auch abseits der Bandnamen ist diese Trackliste eine kleine offene Psychiatrie mit Gitarrenanschluss.</p>
+              <p><strong>"Down Under"</strong> von Men at Work ist dabei. Schon im Original ein Song, der eigentlich viel zu gut gelaunt durch die Welt läuft.</p>
+              <p>Dann <strong>"Mmmmädel"</strong> von Mike Krüger, <strong>"Suspicious Minds"</strong>, <strong>"Forever Young"</strong>, <strong>"Africa"</strong>, <strong>"The Time Warp"</strong>, <strong>"Walking on Sunshine"</strong> und noch ein ganzer Haufen anderer Pop- und Rock-Leichen, die hier noch einmal ausgebuddelt, mit Sicherheitsnadeln zusammengetackert und durch den Punkwolf gedreht werden.</p>
+              <p>Depeche Mode müssen gleich zweimal dran glauben.</p>
+              <p><strong>The Olgas</strong> kümmern sich um <strong>"Photographic"</strong>.</p>
+              <p><strong>Codename Colin</strong> nehmen sich <strong>"Just Can't Get Enough"</strong> vor.</p>
+              <p>Synthiepop? Mal sehen, was davon übrig bleibt.</p>
+              <p><strong>The Daisies</strong> greifen sich Whitney Houston.</p>
+              <p>Kranke Idee.</p>
+              <p>Mag ich.</p>
+              <p>Und <strong>Slime</strong> sind auch dabei. Die schnappen sich <strong>"Won't Back Down"</strong> von Tom Petty. <strong>"Russians"</strong> von Sting landet bei <strong>The Swipes</strong>. Gut, dass wir drüber gesprochen haben, bevor wieder irgendein Besserwisser mit hochgezogener Augenbraue in die Kommentare stolpert.</p>
+              <p>Alles zusammen ist so dermaßen bekloppt, dass man sich diesen Sampler eigentlich schon aus reiner Neugier reinziehen muss.</p>
+              <p>Gibt es wieder als Doppel-CD und auch als limitierte Triple-LP in verschiedenen Farbvarianten.</p>
+              <p>Schaut einfach im <strong>Wolverine-Shop</strong> vorbei.</p>
+              <p>Und bevor jetzt wieder jemand mit der Stirn auf die Kommentartastatur fällt:</p>
+              <p>Nein, ihr Spacken.</p>
+              <p>Das hier ist keine bezahlte Werbung.</p>
+              <p>Ich freue mich einfach nur jedes Mal, wenn Popmusik einmal komplett durch den Punkwolf gedreht wird.</p>
+              <p>Und jetzt eine Dose ...</p>
+              <a class="ticker-button" href="https://punkrock-shop.com/dealer/wolverinerecords/" target="_blank" rel="noopener noreferrer">Zum Wolverine-Shop</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" id="news-eric-melvin-60" data-ticker-news data-published="2026-07-09T12:00:00">
+              <div class="ticker-meta">
+                <span>Geburtstag</span>
+                <time datetime="2026-07-09T12:00:00">09.07.2026</time>
+              </div>
+              <h2>Eric Melvin wird 60. Der Mann, der NOFX noch schiefer gemacht hat.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/eric-melvin-nofx-commons.jpg" alt="Eric Melvin von NOFX live auf der Bühne" loading="lazy">
+                <figcaption>Foto: Stuart Sevastos, CC BY 2.0, via Wikimedia Commons.</figcaption>
+              </figure>
+              <p>Wenn über NOFX gesprochen wird, fallen meistens zuerst Fat Mike oder El Hefe. Klar. Laut, bunt, dauernd im Vordergrund.</p>
+              <p>Aber Eric Melvin war immer der Typ, der im Maschinenraum noch eine Schraube gelöst hat, damit der ganze Laden ein bisschen gefährlicher klingt.</p>
+              <p>Heute wird der Gitarrist und Mitgründer 60. Geboren am 09.07.1966, seit der Gründung 1983 dabei und zusammen mit Fat Mike einer der beiden Musiker, die NOFX bis zum letzten Konzert durchgezogen haben. Vier Jahrzehnte. Keine Reunion-Show, kein "wir müssen uns erstmal finden", kein Wellness-Sabbatical mit Akustik-EP.</p>
+              <p>Musikalisch war Melvin oft genau dieser kleine Defekt im System: Gitarrenläufe, Harmonien, schrille Ideen und dieses Chaos, bei dem man nie sicher war, ob es Absicht war oder gerade jemand die Band mit einem Schraubenschlüssel gestimmt hat.</p>
+              <p>Wahrscheinlich war es Absicht.</p>
+              <p>Oder auch nicht.</p>
+              <p>Bei NOFX ist das irgendwann egal.</p>
+              <p>60 Jahre Eric Melvin. Danke für Ohrwürmer, schiefe Gitarren, blaue Dreadlocks und dafür, dass eine der wichtigsten Punkbands der letzten vier Jahrzehnte nie ganz geradeaus gefahren ist.</p>
+              <p>Und jetzt entschuldigt mich. Ich höre "The Decline". Schon wieder.</p>
+              <p>Prost.</p>
+              <div class="poll-mount poll-mount--ticker" data-poll-mount data-poll-endpoint="/poll.php?poll=eric-melvin-nofx-album-versaut">
+                <section class="poll-widget poll-widget--quiet" aria-label="Abstimmung">
+                  <p class="poll-widget__kicker">Abstimmung</p>
+                  <h2>Welches NOFX-Album hat euch damals endgültig versaut?</h2>
+                </section>
+              </div>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-proberaum-madness-finale" data-ticker-news data-published="2026-07-07T21:30:00">
+              <div class="ticker-meta">
+                <span>Finale</span>
+                <time datetime="2026-07-07T21:30:00">07.07.2026</time>
+              </div>
+              <h2>Proberaum Madness: Das skandalöse Finale</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/proberaum-madness-finale-schockdan.jpg" alt="Schockromantik und Dan Ganove Motiv zu Ultra Tolerant Kein Punk" loading="lazy">
+                <figcaption>Bild: Schockromantik / Dan Ganove, zur Verwendung für RandaleFUNK freigegeben.</figcaption>
+              </figure>
+              <p>Es ist vorbei.</p>
+              <p>Wir möchten an dieser Stelle ausdrücklich festhalten, dass der RandaleFUNK zu keinem Zeitpunkt wusste, dass hier offenbar sämtliche Beteiligten komplett einen an der Klatsche haben.</p>
+              <p>Wir gingen von einem ganz normalen Punkrock-Beef aus. Stattdessen wurden wir über Wochen hinweg schamlos instrumentalisiert. Als letztes verbliebenes seriöses journalistisches Medium der Szene.</p>
+              <p>Unfassbar.</p>
+              <p>Dan Ganove und Schockromantik haben ihre Aussöhnung veröffentlicht. Friede. Herzen. Gemeinsames Foto. Alle haben sich wieder lieb. Na wunderbar.</p>
+              <p>Und was ist mit uns?</p>
+              <p>Wir mussten Statements lesen. Gegenstatements lesen. Fanzines beobachten. Wrestling kommentieren. Wrestling!</p>
+              <p>Dabei wollten wir dieses Jahr eigentlich nur ein paar Platten hören. Stattdessen standen plötzlich Bands, Fanzines, Crowdfunding, Screenshots, Anwälte, Ringrichter und vermutlich noch drei Klappstühle gleichzeitig im Ring.</p>
+              <p>Der RandaleFUNK prüft derzeit rechtliche Schritte. Unser Anwalt untersucht aktuell, ob sich seelische Schäden durch vorsätzliche Instrumentalisierung eines Punk-Fanzines mit einer Kiste Bier angemessen entschädigen lassen.</p>
+              <p>Spaß beiseite: Die ganze Aktion hatte einen ernsten Kern.</p>
+              <p>Sie zeigt ziemlich deutlich, wie schnell Lager entstehen. Wie schnell Menschen Partei ergreifen. Wie schnell Medien und Fanzines Stellung beziehen. Und wie schnell man glaubt, die komplette Geschichte zu kennen, obwohl man eigentlich nur ein paar öffentliche Statements gesehen hat.</p>
+              <p>Genau deshalb fanden wir die Idee ziemlich gelungen. Nicht, weil irgendjemand bloßgestellt werden sollte, sondern weil sie einen kleinen Spiegel vorgehalten hat.</p>
+              <p>Und mal ehrlich: Ein bisschen Spaß hat der ganze Quatsch schon gemacht.</p>
+              <p>Unser Dank geht an Dan Ganove, Schockromantik, BlattTurbo und das Tough Magazine, dass sie den Wahnsinn gemeinsam durchgezogen haben.</p>
+              <p>Und jetzt kümmern wir uns endlich wieder um das, worum es eigentlich die ganze Zeit gehen sollte: Musik.</p>
+              <p>Am Freitag, 10.07.2026, veröffentlichen Dan Ganove und Schockromantik ihren gemeinsamen Song "Ultra Tolerant (Kein Punk)". Nach all dem Theater dürfte das vermutlich die friedlichste Veröffentlichung des Jahres werden.</p>
+              <p>Damit endet PROBERAUM MADNESS genauso, wie es sich für eine ordentliche Wrestling-Story gehört: Der Ring wird abgebaut, der Ringrichter hat sich wieder beruhigt und die Klappstühle kommen zurück ins Lager.</p>
+              <p>Der RandaleFUNK kehrt endlich wieder zu seinem gewohnt seriösen Journalismus zurück. Zumindest so lange, bis die nächsten Pappnasen auf die Idee kommen, ihre Streitigkeiten öffentlich auszutragen.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.danganove.de/" target="_blank" rel="noopener noreferrer">Dan Ganove</a>
+              <a class="ticker-button" href="https://www.facebook.com/BandSchockromantik" target="_blank" rel="noopener noreferrer">Schockromantik</a>
+              <a class="ticker-button" href="https://blattturbo.com/" target="_blank" rel="noopener noreferrer">BlattTurbo</a>
+              <a class="ticker-button" href="https://toughmagazine.de/" target="_blank" rel="noopener noreferrer">Tough Magazine</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-randalenews-01" data-ticker-news data-published="2026-07-05T12:00:00">
+              <div class="ticker-meta">
+                <span>RandaleNEWS</span>
+                <time datetime="2026-07-05T12:00:00">05.07.2026</time>
+              </div>
+              <h2>RandaleNEWS #01: Drei Neuerscheinungen aus der Gosse</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/randalenews-01-thumbnail.png" alt="Thumbnail zu RandaleNEWS 01 mit Burg im Studio und den Bands Plastic Mars, Ronny Platte und No Brakes" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Thumbnail zur ersten RandaleNEWS-Folge.</figcaption>
+              </figure>
+              <p>Der Abwasserkanal von YouTube ist wieder offen: Plastic Mars, Ronny Platte und No Brakes liegen auf dem Tisch, Dan Ganove und Schockromantik fliegen einmal durch den Proberaum, und irgendwo hinten blinkt schon Erfurt.</p>
+              <p>Kein großer Artikel, keine künstliche Wichtigkeit. Nur ein kurzer Hinweis: Wer wissen will, was die Ratten diese Woche aus der Gosse gezogen haben, findet die neue Folge jetzt direkt bei YouTube.</p>
+              <p>Aus der erwähnten Bande waren übrigens schon <a href="https://www.youtube.com/watch?v=J96iI9n_FqQ" target="_blank" rel="noopener noreferrer">Plastic Mars</a>, <a href="https://www.youtube.com/watch?v=x-5HNTKvZqE" target="_blank" rel="noopener noreferrer">Dan Ganove</a>, <a href="https://www.youtube.com/watch?v=MvK7aKvqt6M" target="_blank" rel="noopener noreferrer">Dorfterror</a> und <a href="https://www.youtube.com/watch?v=ORm3mV8iOLc" target="_blank" rel="noopener noreferrer">Graupause</a> im RandaleFUNK-Interviewkeller.</p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=63fSTGkzUuU&amp;t=146s" target="_blank" rel="noopener noreferrer">RandaleNEWS #01 ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert" id="news-derozer-bar-30" data-ticker-news data-published="2026-07-01T11:00:00">
+              <div class="ticker-meta">
+                <span>Tour</span>
+                <time datetime="2026-07-01T11:00:00">01.07.2026</time>
+              </div>
+              <h2>Derozer feiern 30 Jahre "Bar". Und Burg hört Vinyl auf die dümmstmögliche Art.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/derozer-burg-bar-gespiegelt.jpg" alt="Burg mit Derozer-Bar-Vinyl und kabelgebundenen Kopfhörern vor dem Steingrill" loading="lazy">
+                <figcaption>Bild: Burg mit Platte. Gespiegelt, weil Realität manchmal falsch herum passiert.</figcaption>
+              </figure>
+              <p>Seit 2022 steht "Bar" von Derozer bei mir im Hintergrund der RandaleFUNK-Videos. Nicht als Deko, sondern weil das Ding für mich zu den Platten gehört, die viel zu selten genannt werden, wenn über europäischen Punk gesprochen wird.</p>
+              <p>Jetzt feiern die Italiener 30 Jahre "Bar" mit ihrer "30 Anni di Bar"-Tour. Statt Best-of-CD, Abschiedstour oder großem Pathos machen sie offenbar einfach das, was Derozer seit drei Jahrzehnten am besten können: Konzerte spielen.</p>
+              <p>Ich wollte deshalb schnell ein würdiges Foto mit dem Album machen. Jetzt sitze ich draußen vorm Steingrill, trage kabelgebundene Kopfhörer, halte eine Schallplatte im Arm und schaue zufrieden in die Kamera.</p>
+              <p>Die Stereoanlage steht übrigens ungefähr zehn Meter entfernt im Haus. Ich höre also gerade ... gar nichts. Außer meinen eigenen geistigen Verfall.</p>
+              <p>Das Bild bleibt trotzdem so. Es passt erstaunlich gut zu einer Band, die seit 30 Jahren lieber Musik macht, als große Reden zu schwingen.</p>
+              <p>Falls Derozer in eurer Nähe Halt machen: geht hin. Und falls ihr "Bar" noch nie gehört habt, holt das nach. Nicht draußen mit kabelgebundenen Kopfhörern. Den Fehler habe ich bereits für euch übernommen.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.derozer.org/" target="_blank" rel="noopener noreferrer">Zu Derozer</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" id="news-plastic-mars-kein-zurueck-video" data-ticker-news data-published="2026-07-17T10:00:00">
+              <div class="ticker-meta">
+                <span>Video</span>
+                <time datetime="2026-07-17T10:00:00">17.07.2026</time>
+              </div>
+              <h2>Plastic Mars: "Kein Zurück" hat jetzt bewegte Bilder</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/plastic-mars-kein-zurueck-cover.jpg" alt="Cover zu Plastic Mars - Kein Zurück mit One-Way-Schild in der Wüste" loading="lazy">
+                <figcaption>Bild: Pressematerial von Plastic Mars, lokal eingebunden. Kein YouTube-Thumbnail.</figcaption>
+              </figure>
+              <p>Plastic Mars haben "Kein Zurück" heute samt Video rausgeschoben. Vorab lag das Ding schon bei uns auf dem Tisch und rannte dort melodisch durch den Flur, als hätte jemand Skate-Punk mit Elternabend verwechselt.</p>
+              <p>Großer Refrain, Rückendeckung statt Fernbedienung und erstaunlich wenig Kitsch im Gesicht. Frechheit, funktioniert immer noch.</p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=0KmSVIeSamo" target="_blank" rel="noopener noreferrer">Video ansehen</a>
+              <a class="ticker-button" href="vorab-gehoert/plastic-mars-kein-zurueck.html">Vorab gehört lesen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert" data-ticker-news data-published="2026-06-30T20:45:00">
+              <div class="ticker-meta">
+                <span>Konzert</span>
+                <time datetime="2026-06-30T20:45:00">30.06.2026</time>
+              </div>
+              <h2>Mind The Gap Fest 2026: Fanzine macht Krach, statt nur drüber zu schreiben</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/mind-the-gap-fest-2026-flyer.jpg" alt="Flyer zum Mind The Gap Fest 2026 mit Stage Bottles, Berlin 2.0, Novotny TV und Astra Zombies" loading="lazy">
+                <figcaption>Bild hat Burg irgendwo geklaut.</figcaption>
+              </figure>
+              <p>Es gibt Fanzines, die schreiben über Punk. Und es gibt Fanzines, die veranstalten einfach ein Konzert.</p>
+              <p>Mind The Gap gehört eindeutig zur zweiten Sorte. Am 12.09.2026 geht es im Bambi Galore in Hamburg wieder rund, und das Line-up ist kein kleiner Zettel am Schwarzen Brett, sondern eine ziemlich stabile Ansage.</p>
+              <p>Stage Bottles, Berlin 2.0, Novotny TV und Astra Zombies. Da treffen mehrere Jahrzehnte Punkrock-Geschichte auf Leute, die offensichtlich immer noch nicht gelernt haben, einfach mal vernünftig zu Hause zu bleiben.</p>
+              <p>Mit den Köpfen hinter Mind The Gap durfte ich schon mehrfach sprechen. Die sind ohnehin etwas seltsam: Während wir unseren Quatsch ins Internet kippen, machen die ihr Fanzine tatsächlich noch auf Papier. Gedruckt. Mit echten Seiten zum Umblättern. Fast so, als hätten sie den WLAN-Ausbau einfach ignoriert.</p>
+              <p>Ich mag so einen Irrsinn.</p>
+              <p>Stage Bottles bringen Frankfurter Oi!, Punk und Ska-Punk mit klarer antifaschistischer Kante ins Bambi Galore. Berlin 2.0 stehen für kantigen Punk mit Stadtflimmern, Novotny TV für alte Szene-Kilometer statt Spotify-Geburtsurkunde, und die Astro Zombies schieben Psychobilly aus Dijon in den Abend.</p>
+              <p>Keine VIP-Lounge. Kein "Presented by Energy-Drink XY". Keine Influencer mit Backstage-Bändchen. Einfach Leute, die Bock auf Punk haben und den Wahnsinn selbst organisieren.</p>
+              <p>Falls ihr im September in oder um Hamburg seid: schaut vorbei. Solche Abende entstehen nicht von allein.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://mindthegapfanzine.bigcartel.com/" target="_blank" rel="noopener noreferrer">Tickets holen</a>
+              <a class="ticker-button" href="https://www.instagram.com/mindthegapfanzine/" target="_blank" rel="noopener noreferrer">Zu Mind The Gap</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-29T16:00:00">
+              <div class="ticker-meta">
+                <span>Album</span>
+                <time datetime="2026-06-29T16:00:00">29.06.2026</time>
+              </div>
+              <h2>Shane MacGowan bekommt die nächste Runde. Dropkick Murphys machen auf.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/shane-macgowan-20th-century-paddy-cover.jpg" alt="Cover-Art zu 20th Century Paddy - The Songs of Shane MacGowan" loading="lazy">
+                <figcaption>Bild: Cover-Art zu "20th Century Paddy", PR-Motiv via The Guardian.</figcaption>
+              </figure>
+              <p>Es gibt Menschen, die sterben irgendwann. Und dann gibt es Shane MacGowan.</p>
+              <p>Die zweite Sorte bekommt Jahre später Tribute-Alben, auf denen sich plötzlich die halbe Musikwelt versammelt.</p>
+              <p>Die Dropkick Murphys haben ihre Version von "The Body of an American" veröffentlicht. Nicht einfach so, sondern als Vorbote des Tribute-Albums "20th Century Paddy - The Songs of Shane MacGowan", das am 13.11.2026 erscheinen soll.</p>
+              <p>Wer jetzt denkt: "Ach, wieder irgendeine Coverplatte", sollte einmal auf die Gästeliste schauen: Bruce Springsteen, Tom Waits, U2, The Libertines, The Jesus and Mary Chain, Primal Scream, Bob Geldof, Johnny Depp, Hozier - und mittendrin die Dropkick Murphys.</p>
+              <p>Das ist ungefähr so, als würde sich der komplette Tresen einer versifften Hafenkneipe darauf einigen, dass einer der größten Songschreiber des Ladens noch eine letzte Runde verdient.</p>
+              <p>Dass ausgerechnet "The Body of an American" bei den Murphys landet, überrascht ungefähr so sehr wie warmes Bier auf einem Festival. Der Song gehört seit Jahren zu ihrem Live-Besteck und passt zu ihnen wie Schweiß auf ein Pogues-Konzert.</p>
+              <p>Nebenbei hat die Sache sogar noch einen vernünftigen Hintergrund: Die Erlöse des Projekts gehen an die Dublin Simon Community, die obdachlose Menschen in Dublin unterstützt.</p>
+              <p>Solche Veröffentlichungen erinnern daran, dass Punk manchmal eben doch mehr sein kann als drei Akkorde, kaputte Stimmen und schlechte Laune.</p>
+              <p>Manchmal reicht ein guter Song eben weiter als jede perfekt polierte Karriere.</p>
+              <p>Und jetzt entschuldigt mich. Ich muss mal wieder viel zu laut The Pogues hören.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.theguardian.com/music/2026/mar/12/bruce-springsteen-kate-moss-and-johnny-depp-to-appear-on-all-star-shane-macgowan-tribute-album" target="_blank" rel="noopener noreferrer">Mehr zum Album</a>
+            </article>
+
+            <article class="ticker-card ticker-card--video" data-ticker-news data-published="2026-06-27T13:45:00">
+              <div class="ticker-meta">
+                <span>Video</span>
+                <time datetime="2026-06-27T13:45:00">27.06.2026</time>
+              </div>
+              <h2>EXAT haben dem "Durst nach Freiheit" jetzt ein Gesicht gegeben</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/exat-durst-nach-freiheit-video.jpg" alt="EXAT Durst nach Freiheit Unplugged Video-Motiv" loading="lazy">
+                <figcaption>Bild: EXAT / Rock Zone Records, von Burg für die News zugeschnitten.</figcaption>
+              </figure>
+              <p>Vor ein paar Tagen hatten wir "Durst nach Freiheit (Unplugged)" bereits bei Vorab gehört auf dem Tisch. Jetzt ist auch das Video draußen.</p>
+              <p>Mein erster Gedanke hat sich seitdem nicht geändert: Eric Fish für Assis.</p>
+              <p>Und bevor sich jetzt jemand künstlich aufregt: Das meine ich als Kompliment.</p>
+              <p>Die Unplugged-Version zieht dem ursprünglichen Song von 2021 zwar den Stecker, aber nicht den Durst aus dem Hals. Das Video liefert jetzt die passenden Bilder dazu und wirkt angenehm weit weg von geschniegelt, geschniegelt und geschniegelt.</p>
+              <p>Eher feuchte Jacke, leeres Glas und der Gedanke: "Irgendwo müsste ich längst angekommen sein."</p>
+              <p>Genau das erzählt auch der Song. Nicht vom großen Helden. Sondern von einem Menschen, der seinen Kurs schon mehr als einmal geändert hat, ohne die Segel wirklich zu setzen.</p>
+              <p>Wer unseren ausführlichen Eindruck lesen möchte, findet den kompletten Artikel natürlich bei Vorab gehört.</p>
+              <p>Ich mache jetzt das Video noch einmal an. Nicht, weil ich muss. Sondern weil ich gerade Bock drauf habe.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=ORN_-NuA--A" target="_blank" rel="noopener noreferrer">Video ansehen</a>
+              <a class="ticker-button" href="vorab-gehoert/exat-durst-nach-freiheit-unplugged.html">Vorab gehört lesen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-25T19:45:00">
+              <div class="ticker-meta">
+                <span>Album</span>
+                <time datetime="2026-06-25T19:45:00">25.06.2026</time>
+              </div>
+              <h2>30 Jahre H2O: Als Hardcore plötzlich zurücksang</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/h2o-h2o-cover.jpg" alt="Cover des selbstbetitelten H2O-Debütalbums" loading="lazy">
+                <figcaption>Bild: Cover des selbstbetitelten H2O-Debütalbums.</figcaption>
+              </figure>
+              <p>Heute vor 30 Jahren erschien das selbstbetitelte Debüt von H2O.</p>
+              <p>10 Songs. Knapp 30 Minuten. Aufgenommen und gemischt in gerade einmal drei Tagen. Mehr New-York-Hardcore bekommt man vermutlich nur auf eine Platte, wenn man sie vorher anschreit.</p>
+              <p>Toby Morse kam damals aus dem Umfeld von Sick Of It All. H2O übernahmen die Energie der New Yorker Hardcore-Szene, bauten aber Refrains ein, bei denen plötzlich nicht mehr nur gebrüllt, sondern gemeinsam gesungen wurde.</p>
+              <p>Für manche Hardcore-Puristen vermutlich ein mittelschwerer Verwaltungsunfall.</p>
+              <p>Mit Songs wie "5 Yr. Plan", "Spirit of '84", "I Know Why" und natürlich "Family Tree" klang das Debüt nie wie der Versuch, die härteste Platte der Welt aufzunehmen.</p>
+              <p>Eher wie eine Band, die verstanden hatte: Härte ist gut. Aber wenn der ganze Laden den Refrain mitsingt, wird's erst richtig gefährlich.</p>
+              <p>Kurz darauf ging es weiter zu Epitaph Records, auf Tour mit allem, was zwischen Punkrock, Hardcore und Skatepark regelmäßig die Knie kaputt bekam. Aber der Startschuss war genau diese Platte.</p>
+              <p>30 Jahre später funktioniert das Album immer noch erstaunlich gut. Zumindest für einen alten Knochenbrecher-Skater wie mich.</p>
+              <p>Nicht, weil es perfekt ist. Sondern weil es rennt. Schwitzt. Grinst. Rollt. Und dich spätestens beim Refrain einfach mitnimmt.</p>
+              <p>Mitsingen ist keine Charakterschwäche. Manchmal ist es einfach Hardcore mit offenen Armen.</p>
+              <p>Und wie in meinem aktuellen Fall, während ich das hier schreibe...</p>
+              <p>...mit offener Hose.</p>
+              <p>Zum Glück sieht mich niemand.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://en.wikipedia.org/wiki/H2O_(H2O_album)" target="_blank" rel="noopener noreferrer">Zum Album</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert ticker-card--has-sticker" data-ticker-news data-published="2026-06-24T15:00:00">
+              <div class="ticker-meta">
+                <span>Konzert</span>
+                <time datetime="2026-06-24T15:00:00">24.06.2026</time>
+              </div>
+              <h2>Punk-Rock-Meuterei 2026: klein genug für Herzblut. Groß genug für Krach.</h2>
+              <img class="ticker-sticker" src="assets/stickers/randalf-piratenmeuterei-sticker.png" alt="Randalf als Punk-Pirat schwingt mit Bierflasche am Enterseil" width="1254" height="1254" loading="lazy">
+              <figure class="ticker-media">
+                <img src="/assets/news/punk-rock-meuterei-2026-flyer.jpg" alt="Flyer der Punk-Rock-Meuterei 2026 im Forum Neustadt" loading="lazy">
+                <figcaption>Bild: freigegebener Flyer zur Punk-Rock-Meuterei 2026.</figcaption>
+              </figure>
+              <p>Am 14.11.2026 sticht die Punk-Rock-Meuterei in Neustadt wieder in See. 10 Jahre gibt es das Ding inzwischen. Und während überall von steigenden Kosten, fehlender Planungssicherheit und Veranstalter-Burnout geredet wird, zieht Tim den Karren einfach weiter durch den Dreck.</p>
+              <p>Mit an Bord: ERECTION, mutig genug, den Weißwurst-Äquator zu überqueren und aus den tiefsten Tiefen Bayerns anzureisen. KOMMANDO MARLIES, die ich nicht kenne, deren Name doof ist und die laut verschiedenen Ecken trotzdem ziemlich gut sein sollen. Unverschämtheit.</p>
+              <p>FRO-TEE SLIPS liefern melodischen, leicht verrauchten Ü40-Punkrock, also ungefähr die musikalische Version von: "Ach komm, einen trinken wir noch." TORPEDO MAYER steuern Erdbeer-Daiquiri-Punk bei. Fragt nicht. Am 26.06. erscheint außerdem die neue Single "Wenn nix mehr geht (Erdbeer-Daiquiri)" inklusive Video.</p>
+              <p>Und SCOBBEN? Natürlich dabei. Wie jedes Jahr. Muss ja. Woll, Tim?</p>
+              <p>Ich selbst war bislang noch nie auf der Punk-Rock-Meuterei. Das wird sich vermutlich irgendwann ändern. Was ich allerdings weiß: Tim hat seit Jahren ein Händchen für starke Line-ups und vor allem für diese Sorte Veranstaltung, die weder riesig noch winzig ist.</p>
+              <p>Kein Mega-Festival. Kein Stadion. Kein Influencer-VIP-Bändchen. Kein "Erlebnisareal presented by irgendein Energydrink". Einfach ehrliches DIY.</p>
+              <p>Und genau solche Veranstaltungen brauchen Unterstützung. Planungssicherheit ist inzwischen ungefähr so selten wie ein nüchterner Punk um drei Uhr morgens, der sagt: "Ich geh jetzt wirklich nach Hause."</p>
+              <p>Deshalb: Wenn es Vorverkauf gibt, nutzt ihn. Wenn ihr Zeit habt, fahrt hin. Wenn ihr Veranstalter kennt, gebt ihnen ein Bier aus. Denn Konzerte und Festivals wachsen nicht auf Bäumen. Irgendjemand muss den Wahnsinn organisieren, Flyer schieben, Bands anschreiben, Technik klären, Geld vorstrecken und am Ende trotzdem noch lächeln, wenn jemand fragt, warum das Bier nicht 1,50 Euro kostet.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.tixforgigs.com/de-DE/Event/68547/punkrock-meuterei-2026-kulturwerkstatt-forum-neustadt" target="_blank" rel="noopener noreferrer">Tickets entern</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" data-ticker-news data-published="2026-06-29T17:15:00">
+              <div class="ticker-meta">
+                <span>News</span>
+                <time datetime="2026-06-29T17:15:00">29.06.2026</time>
+              </div>
+              <h2>Proberaum Madness II: Jetzt mischen sich auch die Fanzines ein!</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/proberaum-madness-2-fanzines.jpg" alt="Proberaum Madness II Grafik zu Dan Ganove gegen Schockromantik" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Grafik zu Proberaum Madness II.</figcaption>
+              </figure>
+              <p>Meine Damen und Herren, willkommen zurück zu PROBERAUM MADNESS. Bitte bleiben Sie auf den billigen Plätzen sitzen. Der Ringrichter hat die Kontrolle verloren. Wir übrigens auch. Scheiße.</p>
+              <p>Was als Schlagabtausch zwischen Dan Ganove und Schockromantik begann, entwickelt sich gerade zur größten Punkrock-Stall-Fehde seit der Erfindung des Instrumente-auf-der-Bühne-Zertrümmerns.</p>
+              <p>Neue Musik? Nö. Neue Beweise? Vielleicht. Angeblich. Irgendwo. Neue Mitstreiter? FCK JA.</p>
+              <p>...und jetzt wird es langsam wild.</p>
+              <p>Während sich Dan Ganove und Schockromantik weiter mit Statements, Gegenstatements, Andeutungen und vermutlich längst legendären Screenshots bearbeiten, haben nun auch zwei ganz offensichtlich unseriöse Fanzines beschlossen, über die Absperrung zu springen.</p>
+              <p>Nicht als neutrale Beobachter. Nicht mit Klemmbrett. Nicht mit journalistischer Distanz, wie der RandaleFUNK sie selbstverständlich seit jeher pflegt. Sondern mit Anlauf, einem Klappstuhl unter dem Arm und beiden Knien voraus.</p>
+              <p><strong>BlattTurbo betritt die Arena.</strong></p>
+              <p>Schlechte Musik setzt ein. Irgendwo fängt eine Kirchenorgel an zu pogen. Grelles Kirchenlicht. Pyro in Form von beiläufig angezündetem Weihrauch. Irgendwo kippt ein Bier um. Oder auch zwei.</p>
+              <p>BlattTurbo marschiert geschlossen zum Ring und stellt sich demonstrativ in die Ecke von Schockromantik. Nach eigenen Angaben liegen dort entsprechende Unterlagen vor. Es ist von Forderungen, finanziellem Druck, Existenzängsten und einem angekündigten Crowdfunding die Rede.</p>
+              <p>BlattTurbo legt feierlich den Talar ab. Schockromantik bekommt Rückendeckung. Das Publikum johlt.</p>
+              <p>Der Ringrichter wirkt inzwischen völlig überfordert, als ihm langsam dämmert, dass er versehentlich gerade ein Tag-Team-Match genehmigt hat.</p>
+              <p><strong>Tough Magazine kontert.</strong></p>
+              <p>Kaum hat sich der Rauch etwas verzogen, geht erneut die Einlaufmusik an. Mindestens genauso schlecht wie die eben. Diesmal kommt das Tough Magazine zum Ring.</p>
+              <p>Nach eigenen Angaben reichen dort exakt: sieben Minuten Recherche, zwei geöffnete Browser-Tabs und mehrere Kommentarspalten, um mit absoluter Sicherheit alles zu wissen.</p>
+              <p>Nicht einiges. Nicht genug. Alles.</p>
+              <p>Die Redaktion erklärt ihre Unterstützung für Dan Ganove und kündigt gleichzeitig an, künftige neue Informationen selbstverständlich konsequent zu ignorieren, falls diese der bereits fertigen Meinung im Weg stehen.</p>
+              <p>Das ist entweder die ehrlichste Redaktion in der Szene. Oder eine verdammt gute Wrestling-Promo. Ich bin mir selbst nicht mehr sicher.</p>
+              <p><strong>Die Teams stehen.</strong></p>
+              <p>Grüne Ecke. Riecht verdächtig nach Festivalwiese: Dan Ganove und Tough Magazine.</p>
+              <p>Blaue Ecke. Riecht verdächtig nach Thekenbereich: Schockromantik und BlattTurbo.</p>
+              <p>Damit besteht das Main Event inzwischen längst nicht mehr aus zwei Musikprojekten. Nein. Wir beobachten gerade, wie sich ein komplettes Punkrock-Tag-Team-Match zusammenbaut.</p>
+              <p>Es fehlen eigentlich nur noch Klappstühle, Nebelmaschinen, ein schlecht sitzender Manageranzug und ein Kommentator, der völlig die Fassung verliert.</p>
+              <p>Moment. Den gibt es ja bereits.</p>
+              <p>Und damit lastet die journalistische Verantwortung inzwischen ausschließlich auf den Schultern des RandaleFUNK. Ein Zustand, der allen Beteiligten Sorgen bereiten sollte.</p>
+              <p>Denn während inzwischen offenbar jedes andere Fanzine seine Ecke im Ring gefunden hat, bleibt nur noch ein einziges seriöses journalistisches Medium, das dieses Spektakel objektiv begleitet.</p>
+              <p>Wir.</p>
+              <p>Und das sollte wirklich niemanden beruhigen.</p>
+              <p><strong>Was genau eigentlich passiert ist?</strong></p>
+              <p>Weiterhin erstaunlich unklar.</p>
+              <p>Der eigentliche Auslöser versteckt sich offenbar irgendwo zwischen einem Proberaum, ominösen Screenshots, Nachrichten, verletzten Gefühlen, einer Veranstaltung am 14.11. und inzwischen mehreren Menschen, die mit bemerkenswerter Überzeugung auf jeweils eine Seite zeigen.</p>
+              <p>Mit jeder neuen Stellungnahme werden die Fronten größer. Der Nebel wird dichter. Die Show wird lauter. Und irgendwo wird vermutlich bereits die nächste Einlaufmusik getestet.</p>
+              <p>RandaleFUNK sitzt weiter am Ringrand, verwechselt das Mikro mit einer Bierflasche und kommentiert trotzdem einfach weiter.</p>
+              <p>Fortsetzung? Hoffentlich nicht. ... Wahrscheinlich doch.</p>
+              <p>PROBERAUM MADNESS geht weiter. Wenn es sein muss.</p>
+              <p>Prost.</p>
+              <a class="ticker-button" href="https://www.danganove.de/" target="_blank" rel="noopener noreferrer">Dan Ganove</a>
+              <a class="ticker-button" href="https://www.facebook.com/BandSchockromantik" target="_blank" rel="noopener noreferrer">Schockromantik</a>
+              <a class="ticker-button" href="https://toughmagazine.de/" target="_blank" rel="noopener noreferrer">Tough Magazine</a>
+              <a class="ticker-button" href="https://blattturbo.com/" target="_blank" rel="noopener noreferrer">BlattTurbo</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" data-ticker-news data-published="2026-06-23T10:00:00">
+              <div class="ticker-meta">
+                <span>News</span>
+                <time datetime="2026-06-23T10:00:00">23.06.2026</time>
+              </div>
+              <h2>Dan Ganove vs. Schockromantik: Proberaum-Beef mit Ansage, Konter und Urlaubsgruss</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/dan-ganove-schockromantik-wrestling.jpg" alt="Wrestling-Grafik zu Dan Ganove gegen Schockromantik" loading="lazy">
+                <figcaption>Bild: RandaleFUNK-Grafik zum laufenden Dan-Ganove-/Schockromantik-Schlagabtausch.</figcaption>
+              </figure>
+              <p>Meine Damen und Herren, willkommen am Ringrand des vermutlich wichtigsten Proberaum-Main-Events der Woche.</p>
+              <p>In der roten Ecke: Dan Ganove. Öffentliche Erklärung, ernste Miene, Screenshots in der Tasche und der Hinweis, dass das hier eigentlich gar nicht sein Stil sei. Natürlich direkt öffentlich. So beginnt man keinen Beef. So betritt man mit Pyro die Halle.</p>
+              <p>In der anderen Ecke: Schockromantik. Erstmal irritiert, dann Konter. Man sei doch befreundet gewesen, habe zusammen im Proberaum gehangen, und wenn es ein Problem gebe, könne man ja reden. Klassischer Clinch am Seil. Der Ringrichter schaut nervös auf die Uhr.</p>
+              <p>Dan kommt zurück. Nicht antworten wollen, aber dann natürlich doch antworten. November steht im Raum, der 14.11. flackert irgendwo über der Bühne, Freundschaft angeblich schwer beschädigt, Veranstaltung auf der Kippe. Das Publikum johlt. Erste Bierduschen werden vorbereitet.</p>
+              <p>Und dann: Schockromantik aus dem Urlaub. Da will einer einmal kurz weg, die Sonne sehen, vielleicht ein Getränk mit Schirmchen anfassen, und plötzlich muss er aus der Ferne in den Ring springen.</p>
+              <p>Der Konter sitzt: Wer öffentlich anfängt, soll sich nicht wundern, wenn öffentlich zurückgegrätscht wird. Dazu noch der dezente Hinweis, dass Dan im Schockromantik-Umfeld wohl auch nicht nur Duftkerzen angezündet hat.</p>
+              <p>BAM. Er liegt am Boden. Der Pin! Eins. Zwei. Neeein! Dan hat noch einen Screenshot in der Schulter!</p>
+              <p>Was genau passiert ist? Herrlich unklar. Irgendwas mit Proberaum, Nachrichten, verletzter Freundschaft, öffentlicher Klärung, nicht öffentlicher Klärung und einem Termin im November, der plötzlich klingt wie WrestleMania im Jugendzentrum.</p>
+              <p>Wir bleiben dran. Fortsetzung folgt.</p>
+              <a class="ticker-button" href="https://www.danganove.de/" target="_blank" rel="noopener noreferrer">Zu Dan Ganove</a>
+              <a class="ticker-button" href="https://www.facebook.com/BandSchockromantik" target="_blank" rel="noopener noreferrer">Zu Schockromantik</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert" data-ticker-news data-published="2026-06-20T14:00:00">
+              <div class="ticker-meta">
+                <span>Livestream</span>
+                <time datetime="2026-06-20T14:00:00">20.06.2026</time>
+              </div>
+              <h2>Pennywise kommen ins Wohnzimmer. Und ich entschuldige mich dafür. Oder auch nicht.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/pennywise-hellfest-2026.jpg" alt="Pennywise Bandfoto zum Hellfest 2026" loading="lazy">
+                <figcaption>Bild: offizielles Pennywise-Motiv der Hellfest-Künstlerseite.</figcaption>
+              </figure>
+              <p>Bevor die Beschwerden wieder eingehen: Ja, ich höre nicht nur Deutschpunk. Ja, ich bin mit amerikanischem Punkrock groß geworden. Ja, Pennywise gehören dazu. Deal with it, ihr Pisser.</p>
+              <p>Am Sonntag, 21.06.2026, spielen die Kalifornier beim Hellfest in Frankreich. Laut offizieller Hellfest-Seite steht Pennywise von 16:50 bis 17:40 Uhr auf der Mainstage 1. Das Festival verweist außerdem auf ARTE Concert als Partner - also bitte livestreamtechnisch die Augen offen halten.</p>
+              <p>Wer gerade nicht bei 37 Grad auf einem staubigen Acker verbrennen kann, bekommt die Band trotzdem Richtung Wohnzimmer geliefert. Und ganz ehrlich: Das wird ein verdammt guter Sonntag. Im Keller. Im Dunkeln. Kleiner Monitor. Kühles Getränk daneben.</p>
+              <p>Mit dabei sind am Hellfest-Sonntag außerdem unter anderem Rise Against, Agnostic Front, Buzzcocks, The Adicts, The Offspring, The Ataris, The Bones und The Dwarves. Das liefert mal eben mehr Punkrock ins Wohnzimmer als manche Musiksender in den letzten zehn Jahren.</p>
+              <p>Falls ihr mich Sonntag sucht: Ich sitze im Keller und tue so, als wäre Frankreich direkt hinter Hemer.</p>
+              <a class="ticker-button" href="https://hellfest.fr/en/artist/pennywise-1" target="_blank" rel="noopener noreferrer">Zum Hellfest</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert" data-ticker-news data-published="2026-06-20T10:00:00">
+              <div class="ticker-meta">
+                <span>Tour</span>
+                <time datetime="2026-06-20T10:00:00">20.06.2026</time>
+              </div>
+              <h2>Serum 114 machen zwei Kreuze. Und kommen zurück.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/serum-114-wir-machen-zwei-kreuze-eventim.jpg" alt="Serum 114 Wir machen zwei Kreuze Tour 2027" loading="lazy">
+                <figcaption>Bild: offizielles Tourmotiv der Eventim-Seite zu Serum 114.</figcaption>
+              </figure>
+              <p>Normale Bands bringen zum Jubiläum ein Best-Of-Album raus. Serum 114 feiern lieber dort, wo sie hingehören: zwischen Bier, Schweiß und Moshpit.</p>
+              <p>2027 wird die Frankfurter Punkrock-Kapelle 20 Jahre alt. Statt warmer Worte gibt es deshalb die "Wir machen zwei Kreuze"-Tour mit fünf exklusiven Terminen:</p>
+              <ul>
+                <li>15.04.2027 - Bochum, Matrix</li>
+                <li>16.04.2027 - Leipzig, Hellraiser</li>
+                <li>17.04.2027 - Hamburg, Grünspan</li>
+                <li>22.04.2027 - München, Backstage</li>
+                <li>23.04.2027 - Frankfurt, Batschkapp</li>
+              </ul>
+              <p>Das Schöne daran: Serum 114 haben nie die große Trennungsshow abgezogen. Kein "Das war's für immer". Kein tränenreiches Finale. Stattdessen wurde es irgendwann ruhiger. Corona, Alltag, andere Projekte und nach fast zwei Jahrzehnten Dauerbetrieb wohl auch einfach der Wunsch nach etwas Abstand.</p>
+              <p>Ganz ehrlich: Diese Ehrlichkeit gefällt mir.</p>
+              <p>Es gibt schließlich genügend Bands, die sich nach dem ersten Konzert gründen, nach dem dritten auflösen und 30 Jahre später ihre große Reunion zum 30-jährigen Bandjubiläum feiern. Serum 114 haben sich den Umweg gespart.</p>
+              <p>Statt warmer Worte gibt's Moshpits. Klingt nach der besseren Geburtstagsparty.</p>
+              <a class="ticker-button" href="https://www.eventim.de/artist/serum-114/" target="_blank" rel="noopener noreferrer">Tickets ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-19T15:00:00">
+              <div class="ticker-meta">
+                <span>Sampler</span>
+                <time datetime="2026-06-19T15:00:00">19.06.2026</time>
+              </div>
+              <h2>Punk Chartbusters Vol. 7 kommt. Was zur Hölle ist hier los?</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/punk-chartbusters-vol-7-announcement.png" alt="Ankündigungsgrafik zu Punk Chartbusters Vol. 7" loading="lazy">
+                <figcaption>Bild: Ankündigungsgrafik aus offiziellen Wolverine-Records-Posts, von Burg bereitgestellt.</figcaption>
+              </figure>
+              <p>Es gibt diese Sampler, von denen man irgendwann einfach ausgeht, dass sie Geschichte sind. Und dann steht plötzlich Wolverine Records um die Ecke und kündigt nach 15 Jahren Pause einfach eine neue Ausgabe der Punk Chartbusters an.</p>
+              <p>Vol. 7 soll noch diesen Sommer erscheinen. Als Doppel-CD und sogar als Triple-LP. Wer mit den alten Ausgaben aufgewachsen ist, dürfte gerade ähnliche Geräusche machen wie ich.</p>
+              <p>Die ersten Punk Chartbusters erschienen Mitte der Neunziger. Damals wurden Pop- und Rockhits durch den Punk-Fleischwolf gedreht. Nicht jede Idee war gut. Genau deshalb war es oft großartig.</p>
+              <p>Erste Bands wurden laut Wolverine-Posts bereits genannt: Drunken Swallows mit "Back For Good" von Take That, The Daisies mit "I Wanna Dance With Somebody" von Whitney Houston, Taylor More Swiftly mit "You Belong With Me" von Taylor Swift, The Dead Dates mit einem Schlagerpunk-Beitrag und Codename Colin aus der Ska-Punk-Ecke.</p>
+              <p>Drunken Swallows sollen sogar Track Nummer 1 liefern. Laut Wolverine war "Back For Good" einer der wenigen bereits veröffentlichten Songs auf der Compilation - und als Opener offenbar gleich der freundliche Hinweis, dass hier niemand wegen gutem Geschmack gekommen ist.</p>
+              <p>46 Bands. 46 Coverversionen. Zwei Tonträger voller schlechter Ideen, die hoffentlich wieder hervorragend funktionieren. Ich bin jedenfalls neugierig - und ein kleines bisschen froh, dass irgendjemand im Jahr 2026 immer noch auf die Idee kommt, Popmusik mit Punkrock zu bewerfen.</p>
+              <a class="ticker-button" href="https://www.instagram.com/wolverine_records/" target="_blank" rel="noopener noreferrer">Zu Wolverine</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" data-ticker-news data-published="2026-06-18T11:00:00">
+              <div class="ticker-meta">
+                <span>Nachruf</span>
+                <time datetime="2026-06-18T11:00:00">18.06.2026</time>
+              </div>
+              <h2>20 Jahre ohne Zimbl. Und ich denke immer noch an diesen verdammten Satz.</h2>
+              <figure class="ticker-media ticker-media--duo">
+                <img src="/assets/news/the-bates-burg.jpeg" alt="Burg mit The Bates Erinnerung" loading="lazy">
+                <img src="/assets/news/zimbl-commons-public-domain.jpg" alt="Zimbl von The Bates live 1995" loading="lazy">
+                <figcaption>Links: Burgs Bates-Erinnerung. Rechts: Zimbl 1995, Public-Domain-Foto via Wikimedia Commons.</figcaption>
+              </figure>
+              <p>Heute vor 20 Jahren starb Markus "Zimbl" Zimmer, Sänger der Bates. Die Bates waren die zweite Band, die ich jemals live gesehen habe - irgendwann Mitte der Neunziger im Point One in Hemer. Ich war damals nicht Konzertbesucher, sondern eher der Depp für alles: Getränke schleppen, Zeug durch die Gegend tragen, helfen, wo Hilfe gebraucht wurde.</p>
+              <p>An dem Abend musste ich immer wieder in den Backstagebereich. An vieles erinnere ich mich nicht mehr. An die Graswolke allerdings schon. Und an einen Satz. Als ich fragte, ob noch jemand etwas braucht, kam zurück: "Weltfrieden. Am Stück, nicht geschnitten."</p>
+              <p>Mit 16 war ich komplett überfordert. Heute finde ich den Spruch ziemlich großartig. Wenn man den Geschichten glauben darf, war Zimbl kein einfacher Mensch. Vielleicht sogar ein kaputter Mensch. Darüber will ich nicht urteilen. Für mich bleiben die Bates trotzdem wichtig.</p>
+              <p>Vor allem wegen "Fuck The World": keine große Philosophie, keine politische Abhandlung, einfach ein Vorschlaghammer von einem Refrain für Tage, an denen man mit der Welt, den Leuten und dem ganzen Rest fertig ist. Solche Tage gibt es heute noch.</p>
+              <p>Ruhe in Frieden, Zimbl. Und ja: Die gottverdammten Champagner Punx haben zusammen mit Nüchtern Unerträglich und Überflüssig einen Song für Zimbl gemacht. Hoffen wir, dass RandaleFUNK jetzt nicht zur persönlichen Werbeplattform für diese Champagner-Deppen wird.</p>
+              <a class="ticker-button" href="https://www.youtube.com/watch?v=nwZcnUW-LAY" target="_blank" rel="noopener noreferrer">Zimbl-Song ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" data-ticker-news data-published="2026-06-18T10:00:00">
+              <div class="ticker-meta">
+                <span>News</span>
+                <time datetime="2026-06-18T10:00:00">18.06.2026</time>
+              </div>
+              <h2>ZDF vs. Dorfterror: Das hat eingeschlagen</h2>
+              <figure class="ticker-media ticker-media--duo ticker-media--versus">
+                <img src="/assets/news/zdf-vs-dorfterror-placeholder.svg" alt="RandaleFUNK-Grafik ZDF gegen Dorfterror" loading="lazy">
+                <img src="/assets/news/dorfterror-epk-band-gebaeude9.jpg" alt="Dorfterror live auf der Bühne" loading="lazy">
+                <figcaption>Links: eigene RandaleFUNK-Grafik, kein ZDF-Material. Rechts: freigegebenes EPK-Bild von Dorfterror.</figcaption>
+              </figure>
+              <p>Ok. Das hat eingeschlagen. Mein erster Gedanke war tatsächlich: "Was zum Fick?"</p>
+              <p>Dann habe ich die Nummer sacken lassen, mir den Ausschnitt noch einmal angesehen und festgestellt: Wahrscheinlich bin ich ganz froh, dass Dorfterror nicht live im Studio saßen. Ich hätte nämlich nicht einschätzen können, ob die Band einen auf Medienprofi macht oder beschließt, die komplette Sendung zu entgleisen.</p>
+              <p>Großartig, wenn ein völlig überholtes Medium wie das ZDF plötzlich völlig unverhoffte Leute in seine Sendung einbaut. Jetzt beginnt vermutlich der Ausverkauf von Dorfterror: Autogrammstunden, eigene Duftkerze, Frühstücksfernsehen und Werbevertrag mit der Sparkasse.</p>
+              <p>Ich freue mich jedenfalls darauf, die Kapelle weiter heimlich zu begleiten. DT-Stalker Burg bleibt auf Sendung.</p>
+              <a class="ticker-button" href="https://dorfterror.de/" target="_blank" rel="noopener noreferrer">Zur Band</a>
+              <a class="ticker-button" href="https://www.facebook.com/Dorfterror" target="_blank" rel="noopener noreferrer">Zu Facebook</a>
+            </article>
+
+            <article class="ticker-card ticker-card--news" data-ticker-news data-published="2026-06-17T12:00:00">
+              <div class="ticker-meta">
+                <span>Geburtstag</span>
+                <time datetime="2026-06-17T12:00:00">17.06.2026</time>
+              </div>
+              <h2>Jello Biafra wird älter. Die Klappe leider nicht.</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/jello-biafra-alternative-tentacles.jpg" alt="Jello Biafra Portrait" loading="lazy">
+                <figcaption>Bild: offizielles Künstlerseitenbild von Alternative Tentacles.</figcaption>
+              </figure>
+              <p>Jello Biafra feiert heute seinen 68. Geburtstag. Ex-Frontmann der Dead Kennedys, Kandidat für das Bürgermeisteramt von San Francisco, Mitgründer von Alternative Tentacles und seit Jahrzehnten eine zuverlässige Quelle für schlechte Laune bei Menschen mit zu viel Macht und zu wenig Humor.</p>
+              <p>Viele werden älter und ruhiger. Jello wurde älter. Der Rest ist bis heute Verhandlungssache.</p>
+              <p>Alles Gute zum Geburtstag und danke für unzählige Songs, die bewiesen haben, dass Punk deutlich mehr sein kann als drei Akkorde und warme Dosenbierromantik.</p>
+              <a class="ticker-button" href="https://alternativetentacles.com/pages/artist-page/jello-biafra" target="_blank" rel="noopener noreferrer">Zu Jello</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-17T10:00:00">
+              <div class="ticker-meta">
+                <span>Neuauflage</span>
+                <time datetime="2026-06-17T10:00:00">17.06.2026</time>
+              </div>
+              <h2>Me First and the Gimme Gimmes: "Are A Drag" bekommt eine Neuauflage</h2>
+              <figure class="ticker-media ticker-media--duo">
+                <img src="/assets/news/gimmes-are-a-drag-erstpressung-burg.jpeg" alt="Erstpressung von Me First and the Gimme Gimmes Are A Drag in der Hand" loading="lazy">
+                <img src="/assets/news/gimmes-are-a-drag-tricolor-repress.jpg" alt="Tri-Color-Neuauflage von Me First and the Gimme Gimmes Are A Drag" loading="lazy">
+                <figcaption>Links: Burgs Erstpressung. Rechts: offizielles Produktbild der Tri-Color-Neuauflage von Fat Wreck Chords.</figcaption>
+              </figure>
+              <p>Es gibt Alben, die sind gut. Es gibt Alben, die sind wichtig. Und dann gibt es Alben, bei denen man sich fast 30 Jahre später immer noch fragt, welcher völlig verwirrte Mensch im Proberaum als Erster laut "Ja!" geschrien hat.</p>
+              <p>"Are A Drag" von Me First and the Gimme Gimmes gehört definitiv in diese Kategorie: Eine Punk-Supergroup nimmt Songs aus Musicals auf. Nicht aus Punk-Musicals. Nicht aus Rock-Opern. Aus richtigen Musicals. Mit Theater. Mit Vorhängen. Mit Menschen, die freiwillig ins Theater gehen.</p>
+              <p>Eigentlich hätte das grandios scheitern müssen. Tat es aber nicht. Die Gimmes nahmen die Songs ernst, warfen sie durch den Fat-Wreck-Mixer und bauten daraus etwas Eigenes, das bis heute erstaunlich gut gealtert ist.</p>
+              <p>Während ich diese Zeilen schreibe, halte ich die Erstpressung in die Kamera und stelle fest, dass die Veröffentlichung inzwischen fast drei Jahrzehnte zurückliegt. Danke dafür. Jetzt fühle ich mich alt.</p>
+              <p>Für alle, die damals entweder noch nicht geboren waren oder ihre Jugend deutlich sinnvoller verbracht haben: Fat Wreck hat "Are A Drag" als Preorder neu aufgelegt. Laut Produktseite soll die Platte um den 12.08.2026 verschickt werden - in einer Vinyl-Farbe, die so auffällig bunt ist, dass sie vermutlich selbst in einem Musical noch Aufmerksamkeit erregen würde.</p>
+              <p>Denn "Are A Drag" beantwortet bis heute eine Frage, die nie jemand gestellt hat: Wie klingt Musical-Theater, wenn Fat-Wreck-Punks zu viel Liquid Death trinken?</p>
+              <a class="ticker-button" href="https://fatwreck.com/products/mfggf586bl-lp" target="_blank" rel="noopener noreferrer">Zur Neuauflage</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-15T12:00:00">
+              <div class="ticker-meta">
+                <span>Klassiker</span>
+                <time datetime="2026-06-15T12:00:00">15.06.2026</time>
+              </div>
+              <h2>Pennywise: "About Time" wird 31</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/pennywise-about-time-cover.jpg" alt="Pennywise About Time Albumcover" loading="lazy">
+                <figcaption>Bild: Albumcover "About Time", Epitaph Records.</figcaption>
+              </figure>
+              <p>Am 13.06.1995 erschien über Epitaph Records "About Time" von den Kalifornien-Punks Pennywise. Mit "Same Old Story", "Perfect People" und "Every Single Day" lag da plötzlich ein Melody-Hardcore-Brett auf dem Tisch, das für viele 90er-Punkrock-Kids direkt neben NOFX, Bad Religion und Lagwagon gehörte.</p>
+              <p>Das Album schaffte es erstmals für Pennywise in die Billboard-Charts und war zugleich das letzte Pennywise-Album mit Gründungsmitglied Jason Thirsk am Bass.</p>
+              <p>Als alter Möchtegern-Skater musste das Ding natürlich wieder auf ungesund hoher Lautstärke laufen. FCK - der WUMMS ist immer noch nicht in Rente.</p>
+              <a class="ticker-button" href="https://pennywisdom.com/" target="_blank" rel="noopener noreferrer">Zur Band</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert" data-ticker-news data-published="2026-06-15T10:00:00">
+              <div class="ticker-meta">
+                <span>Festival</span>
+                <time datetime="2026-06-15T10:00:00">15.06.2026</time>
+              </div>
+              <h2>The Casualties kommen zum Back To Future</h2>
+              <figure class="ticker-media">
+                <img src="/assets/news/back-to-future-2026-flyer.jpg" alt="Back To Future Festival 2026 Flyer mit Line-up" loading="lazy">
+                <figcaption><a href="https://www.facebook.com/backtofuturefestival.glaubitz" target="_blank" rel="noopener noreferrer">Hier geht es zum Festival.</a></figcaption>
+              </figure>
+              <p>Das Back To Future hat den letzten Platzhalter auf dem 2026er-Flyer aufgelöst: The Casualties kommen nach Glaubitz. Damit steht für den 16., 17. und 18. Juli 2026 noch mehr Punkrock-Wellness im Kalender.</p>
+              <p>Noch mit dabei sind <a href="https://www.youtube.com/watch?v=i_WYHtBO4o0" target="_blank" rel="noopener noreferrer">Alarmsignal</a>. Wahrscheinlich als möglichst billige Verstärkung für The Casualties.</p>
+              <p>Die eigentliche Frage bleibt natürlich: Wie kann eine so geile Band auf so ein herrlich schrottiges Festival gehen? Vermutlich genau deshalb.</p>
+              <p>Becher Wasser in den Nacken, Becher Bier in die Hand, "Ugly Bastards" im Kopf - der Sommer macht schon wieder ungesunde Geräusche.</p>
+              <a class="ticker-button" href="https://www.back-to-future.com/" target="_blank" rel="noopener noreferrer">Zum Festival</a>
+            </article>
+
+            <article class="ticker-card ticker-card--album" data-ticker-news data-published="2026-06-14T10:00:00">
+              <div class="ticker-meta">
+                <span>Album</span>
+                <time datetime="2026-06-14T10:00:00">14.06.2026</time>
+              </div>
+              <h2>Tanzig zeigen Cover zu "Alles schon gesagt"</h2>
+              <figure class="ticker-media">
+                <img src="assets/news/tanzig-alles-schon-gesagt-cover.png" alt="Tanzig Cover Alles schon gesagt" loading="lazy">
+                <figcaption>Bild: offizielles Cover von tanzig.de.</figcaption>
+              </figure>
+              <p>Qualitätspvnkrock seit 2013! TANZIG - die schönste Boyband Thüringens - veröffentlichen das Cover zum neuen Album "Alles schon gesagt". Sieht erfreulich nach Death-Metal-Waldandacht aus.</p>
+              <p>Endlich nicht wieder dieser typische Punk-Rotz, bei dem jemand Rot, Schwarz und drei kaputte Buchstaben zusammenklebt.</p>
+              <p>Nach "Fresse!" wirkt das alles fast verdächtig beruhigend. Ob das Album dem Punk kurz eine Pause gibt und zum gemütlichen Death Metal wechselt, wissen wir aktuell noch nicht.</p>
+              <p>Live steht laut Tanzig-Terminen der 26.09.2026 für "13 Jahre TANZIG" im Kalender - noch in Planung, aber der Krach hat schon mal einen Bleistift gefunden.</p>
+              <a class="ticker-button" href="https://www.tanzig.de/" target="_blank" rel="noopener noreferrer">Zur Band</a>
+            </article>
+
+            <article class="ticker-card ticker-card--konzert ticker-card--has-sticker" data-ticker-news data-published="2026-06-12T19:00:00">
+              <div class="ticker-meta">
+                <span>Festival</span>
+                <time datetime="2026-06-12T19:00:00">12.06.2026</time>
+              </div>
+              <h2>Dödelhaie steuern zwei Festivalrunden an</h2>
+              <img class="ticker-sticker" src="assets/stickers/randalf-sticker-polizist.png" alt="Randalf als korpulenter 80er-Jahre-Polizist mit erhobenem Gummiknüppel" width="1122" height="1402" loading="lazy">
+              <figure class="ticker-media">
+                <img src="assets/news/doedelhaie-bandfoto-2022.jpg" alt="Dödelhaie Bandfoto" loading="lazy">
+                <figcaption>Bild: offizieller Presse-/Veranstalter-Download der Dödelhaie.</figcaption>
+              </figure>
+              <p>Die Dödelhaie kündigen auf Facebook zwei Open-Air-Stopps für den Sommer an: am 03. und 04.07. beim "Kein Bock auf Nazis"-Festival in Kusel und am 10. und 11.07. beim Störfaktor Festival in Zwickau.</p>
+              <p>Zwischen Love A, Wick Bambix, Waumiau und reichlich weiterer Bande dürfte der Festivalstaub nicht lange unbenutzt herumliegen.</p>
+              <a class="ticker-button" href="https://www.facebook.com/Doedelhaie" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--single" data-ticker-news data-published="2026-06-12T18:00:00">
+              <div class="ticker-meta">
+                <span>Single</span>
+                <time datetime="2026-06-12T18:00:00">12.06.2026</time>
+              </div>
+              <h2>Alarmsignal kündigen "Fresse auf!" an</h2>
+              <p>Die Band kündigt auf Facebook an, dass am 24.06. über Aggropunk die neue Single "Fresse auf!" erscheint. Verpackt ist das Ganze gewohnt dezent zwischen Boulevard-Parodie und gepflegtem Mittelfinger.</p>
+              <p>Gehört haben wir den Song noch nicht - aber der Titel klingt schon mal nicht nach Sitzkreis.</p>
+              <a class="ticker-button" href="https://www.facebook.com/alarmsignal" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--single" data-ticker-news data-published="2026-06-12T17:00:00">
+              <div class="ticker-meta">
+                <span>Live</span>
+                <time datetime="2026-06-12T17:00:00">12.06.2026</time>
+              </div>
+              <h2>Foo Fighters spielen No Use For A Name in Oslo</h2>
+              <p>Laut 23punk haben die Foo Fighters in Oslo "Invincible" von No Use For A Name gecovert. Der Song steht auf "Making Friends" und hat durch Chris Shiflett, der früher bei No Use For A Name spielte, einen direkten Draht zur Bandgeschichte.</p>
+              <p>Zwei Lieblingsbaustellen auf einmal - da wackelt in der Burg kurz der Kaffeebecher.</p>
+              <a class="ticker-button" href="https://www.facebook.com/23punk" target="_blank" rel="noopener noreferrer">Originalpost ansehen</a>
+            </article>
+
+            <article class="ticker-card ticker-card--info" data-ticker-static>
+              <div class="ticker-meta">
+                <span>Info</span>
+              </div>
+              <h2>Euren Krach hier reinwerfen</h2>
+              <p>Neue Single? Frisches Video? Konzert? Festival? Album? Oder irgendetwas anderes, das Lärm macht?</p>
+              <p>Der RandaleFUNK-Ticker lebt nicht von Presseagenturen, sondern von Bands, Veranstaltern, DIY-Projekten und Menschen, die lieber etwas machen als darüber zu reden.</p>
+              <p>Wenn ihr etwas ankündigen möchtet, schickt die Infos einfach rüber. Wir können nicht versprechen, alles zu veröffentlichen - aber wir schauen es uns an.</p>
+              <p>DIY hilft DIY.</p>
+              <a class="ticker-button" href="mailto:post@randalefunk.de">KRACH MELDEN</a>
+            </article>
+          </div>
+        </article>
+
+        <article class="content-panel" id="panel-vorab" data-section-panel="vorab">
+          <p class="issue-label">Vorab gehört</p>
+          <h1>Vor dem Krach</h1>
+          <p class="lead">Hier landen Eindrücke zu Songs, EPs und Alben, die RandaleFUNK schon vor dem offiziellen Release hören darf. Keine Pressemitteilung, kein Werbetext, sondern ein früher Blick in den Maschinenraum.</p>
+          <aside class="randalf-spot randalf-spot--note" aria-label="Randalf über Vorab gehört">
+            <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+            <p>Vorab gehört heißt nicht vorab gelobt.</p>
+          </aside>
+          <div class="article-grid">
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-09-02">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-missstand-lichter-aus-sticker.png" alt="Randalf beugt sich neugierig vor und leuchtet mit einem roten Bengalo in die Dunkelheit" width="1024" height="1536" loading="lazy">
+              <h2><a href="vorab-gehoert/missstand-lichter-aus.html">MISSSTAND - Lichter? Aus! feat. Guido Donot</a></h2>
+              <p>20 Sekunden ohne Gesang, ein fein-rostiger Mitsingfaktor und Guido Donot als schräger Eiffelturm vorm Brandenburger Tor.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-08-29">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-bad-career-moshpigs-sticker.png" alt="Randalf fährt Skateboard, trägt ein FCK-AfD-Shirt und hält Sonnenblume und Baseballschläger" width="1024" height="1536" loading="lazy">
+              <h2><a href="vorab-gehoert/bad-career-moshpigs.html">BAD CAREER - Moshpigs</a></h2>
+              <p>Fünf Sekunden zum Warmwerden, dann melodischer Skatepunk, Hardcore-Shouts und klare antifaschistische Kante.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-24">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-feelgood-mclouds-here-we-go-sticker.png" alt="Randalf mit Piratenhut, Banjo und Bierglas in Celtic-Punk-Laune" width="1254" height="1254" loading="lazy">
+              <h2><a href="vorab-gehoert/feelgood-mclouds-here-we-go.html">The Feelgood McLouds - Here We Go</a></h2>
+              <p>Celtic Punk, Pub-Energie, Piratenverdacht und ein Refrain, der schon beim zweiten Durchlauf das Bierglas hebt.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-21">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-makabar-hinlaenglich-bekannt-sticker.png" alt="Randalf pustet angestrengt in eine Trompete" width="1254" height="1254" loading="lazy">
+              <h2><a href="vorab-gehoert/makabar-hinlaenglich-bekannt.html">MakaBar - Hinlänglich bekannt</a></h2>
+              <p>Ska-Punk, Bläserdruck, Waschbär-Weihnachten und genug Pfeffi, damit die Trompete kurz um Gnade bittet.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-17">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-exat-durst-nach-freiheit-sticker.png" alt="Randalf sitzt im Schneidersitz, spielt Akustikgitarre und singt zum Himmel" width="1254" height="1254" loading="lazy">
+              <h2><a href="vorab-gehoert/exat-durst-nach-freiheit-unplugged.html">EXAT - Durst nach Freiheit Unplugged</a></h2>
+              <p>Akustikgitarren, kalte Hände und ein Freiheitsdurst, der Druck verliert, aber Atmosphäre gewinnt.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-17">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-cloverhearts-germaniac-sticker.png" alt="Randalf spielt verzweifelt Dudelsack im rot-schwarzen Schottenrock" width="1132" height="1389" loading="lazy">
+              <h2><a href="vorab-gehoert/the-cloverhearts-germaniac.html">The Cloverhearts - Germaniac!</a></h2>
+              <p>Punkrock, Dudelsack, Würstel und genug schlechte Ideen, um mit einem Nunchaku auf dem Skateboard nervös zu werden.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-14">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-plastic-mars-kein-zurueck-sticker.png" alt="Baby-Randalf mit Windel auf einem Skateboard" width="1133" height="1388" loading="lazy">
+              <h2><a href="vorab-gehoert/plastic-mars-kein-zurueck.html">Plastic Mars - Kein Zurück</a></h2>
+              <p>Melodischer Punkrock über Rückendeckung statt Fernbedienung, US-Skate-Punk bei deutschem Wetter und ein sehr fragwürdiges Fun-Bein.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-14">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-soko-linx-gewaltenteilung-sticker.png" alt="Vermummter Randalf mit verschränkten Armen und schlechter Laune" width="1254" height="1254" loading="lazy">
+              <h2><a href="vorab-gehoert/soko-linx-gewaltenteilung.html">SOKO LiNX - Gewaltenteilung</a></h2>
+              <p>Kurzer, kompakter Punk über gute, schlechte und staatlich sauber etikettierte Gewalt. Kein Seminarraum, eher ein Splitter unter dem Fingernagel.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <time datetime="2026-06-13">Vorab gehört</time>
+              <img class="teaser-sticker" src="assets/stickers/randalf-pianomann-sticker.png" alt="Randalf sitzt mit Wollmütze am Klavier" width="1254" height="1254" loading="lazy">
+              <h2><a href="vorab-gehoert/ole-pianomann.html">Der Ole - Pianomann</a></h2>
+              <p>Ruhige Pianonummer, verdächtig hartnäckiger Refrain und mehr Punk im stoischen Weitermachen, als man nach zehn Sekunden Klavier erwarten würde.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-13">Mitmachen</time>
+              <h2><a href="vorab-gehoert/index.html">Vorab was auf den Ohren?</a></h2>
+              <p>Band, Solo-Krach, EP, Album oder komische Idee vor Release? Schickt das Zeug rüber. Wir hören rein und schauen, ob RandaleFUNK etwas daraus macht. Garantie gibt es keine, ehrliches Interesse schon.</p>
+            </article>
+          </div>
+
+        </article>
+
+        <article class="content-panel" id="panel-reviews" data-section-panel="reviews">
+          <p class="issue-label">Reviews</p>
+          <h1>Platten, Demos, Zines</h1>
+          <p class="lead">Kurze und längere Besprechungen: Musik, Hefte, Filme, Kleinkram und Fundstücke aus der DIY-Ecke.</p>
+          <aside class="randalf-spot randalf-spot--note" aria-label="Randalf über Reviews">
+            <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+            <p>Ich habe Fragen. Leider auch Antworten.</p>
+          </aside>
+          <div class="article-grid">
+            <!-- reviews-start -->
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-die-infizierten-bankrotter-punkrocker-sticker.png" alt="Randalf zieht den Stoff aus seiner leeren Hosentasche und schaut einer fallenden Münze gleichgültig hinterher" loading="lazy">
+              <time datetime="2026-08-24">2026-08-24</time>
+              <h2><a href="reviews/die-infizierten-bankrotter-punkrocker.html">DIE INFIZIERTEN - Bankrotter Punkrocker</a></h2>
+              <p>125 Sekunden, 106 Wörter und Unterbrechungen, bei denen selbst betrunkene Mitgröler den Einsatz verpassen. Die Infizierten schicken Burg danach für fast 40 Minuten nach Budapest.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-wasted-zippo-alles-wie-immer-sticker.png" alt="Randalf sitzt am Schlagzeug, singt in ein Mikrofon und hat eine Gitarre auf dem Schoß" loading="lazy">
+              <time datetime="2026-08-24">2026-08-24</time>
+              <h2><a href="reviews/wasted-zippo-alles-wie-immer.html">WASTED ZIPPO - Alles wie immer</a></h2>
+              <p>Wasted Zippo war Burg komplett vom Radar gerutscht. Jetzt fährt ein Paketlieferwagen über den Bordstein, Phillip übernimmt nebenbei die komplette Band und plötzlich ist alles wie immer.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker" data-language-scope>
+              <img class="teaser-sticker" src="assets/stickers/randalf-according-to-jack-plugged-sticker.png" alt="Randalf steckt ein Kabel in einen Gitarrenverstärker und zeigt die Hang-loose-Geste" loading="lazy">
+              <time datetime="2026-08-22">2026-08-22</time>
+              <h2><a href="reviews/according-to-jack-plugged.html" data-language-link data-language-href-de="reviews/according-to-jack-plugged.html" data-language-href-en="reviews/according-to-jack-plugged.html?lang=en" data-language-href-it="reviews/according-to-jack-plugged.html?lang=it">ACCORDING TO JACK - Plugged</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+                <button type="button" data-language-button="it">Italiano</button>
+              </div>
+              <p data-language-option="de">Padova schickt schon wieder Punkrock. According To Jack stecken ihre alten Akustiksongs ein, und Burg dreht die zweimal 450 Watt vorsichtshalber bis auf die andere Straßenseite.</p>
+              <p data-language-option="en" hidden lang="en-US">Padova sends more punk rock our way. According To Jack plug in their old acoustic songs, while Burg turns two 450-watt speakers toward the other side of the street.</p>
+              <p data-language-option="it" hidden lang="it">Da Padova arriva altro punk rock. Gli According To Jack attaccano la spina ai vecchi brani acustici, mentre Burg gira due casse da 450 watt verso l’altro lato della strada.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker" data-language-scope>
+              <img class="teaser-sticker" src="assets/stickers/randalf-still-no-one-never-again-sticker.png" alt="Randalf steht auf einem Skateboard, dreht einem zerbrochenen Freundschaftsband den Rücken zu und zeigt Stopp" loading="lazy">
+              <time datetime="2026-08-15">2026-08-15</time>
+              <h2><a href="reviews/still-no-one-never-again.html" data-language-link data-language-href-de="reviews/still-no-one-never-again.html" data-language-href-en="reviews/still-no-one-never-again.html?lang=en" data-language-href-it="reviews/still-no-one-never-again.html?lang=it">STILL NO ONE - Never Again</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+                <button type="button" data-language-button="it">Italiano</button>
+              </div>
+              <p data-language-option="de">Eine italienische Skatepunk-Band folgt Burg auf Instagram. Wenige Takte später vibriert das Skateboard an der Wand. STILL NO ONE erinnern an alte Strung Out und zerlegen nebenbei zwei angebliche Länderpatente.</p>
+              <p data-language-option="en" hidden lang="en-US">An Italian skate-punk band follows Burg on Instagram. A few bars later, the skateboard on the wall starts vibrating. STILL NO ONE recall old Strung Out and casually tear up two imaginary national patents.</p>
+              <p data-language-option="it" hidden lang="it">Una band skate punk italiana segue Burg su Instagram. Poche battute dopo, lo skateboard appeso al muro vibra. Gli STILL NO ONE ricordano i vecchi Strung Out e stracciano due brevetti nazionali immaginari.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-edelweisspiraten-widerstand-sticker.png" alt="Randalf als ernster Pirat mit verschränkten Armen und Edelweiß hinter dem Ohr" loading="lazy">
+              <time datetime="2026-08-10">2026-08-10</time>
+              <h2><a href="reviews/edelweisspiraten-wir-sind-der-widerstand.html">EDELWEISSPIRATEN - Wir sind der Widerstand!</a></h2>
+              <p>„Raumschiff Edelweiss“, fehlende Reime und politischer Punkrock mit der Feinfühligkeit eines Pflastersteins. Die Edelweisspiraten erklären, warum der Deutschunterricht heute ausfallen muss.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-popperklopper-nicht-allein-sticker.png" alt="Randalf mit Popperklopper-Shirt, Lederjacke und Bierflasche lässt den Kopf hängen" loading="lazy">
+              <time datetime="2026-08-06">2026-08-06</time>
+              <h2><a href="reviews/popperklopper-nicht-allein.html">POPPERKLOPPER - Nicht allein</a></h2>
+              <p>Eine weitere Popperklopper-Lobeshymne wäre langsam peinlich. "Nicht allein" lässt Burg trotzdem wenig Raum für ehrliches Gemecker.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-chuck-robertson-aloha-caddies-in-my-head-sticker.png" alt="Randalf mit Kopfhörern, Aloha-Hemd und Gitarrenplektrum wirkt angenehm irritiert" loading="lazy">
+              <time datetime="2026-08-06">2026-08-06</time>
+              <h2><a href="reviews/chuck-robertson-and-the-aloha-caddies-in-my-head.html">CHUCK ROBERTSON AND THE ALOHA CADDIES - In My Head</a></h2>
+              <p>Chuck Robertson macht nicht einfach Mad Caddies nebenbei. "In My Head" klingt erwachsener, breiter und eher nach Rocksong, wenn Burg eigentlich Ska-Punk erwartet hatte.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-no-guidance-second-half-sticker.png" alt="Randalf als älterer Skatepunker mit Skateboard und Erinnerungsfoto" loading="lazy">
+              <time datetime="2026-08-04">2026-08-04</time>
+              <h2><a href="reviews/no-guidance-second-half.html">NO GUIDANCE - Second Half</a></h2>
+              <p>Skatepunk, Freundschaft und diese gemeine Erinnerung daran, dass der Kopf manchmal noch zwanzig ist. No Guidance schauen auf die zweite Hälfte und Burg sucht kurz seine alten Knie.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-oi-gebroi-antifascist-till-we-die-sticker.png" alt="Randalf mit Schiebermütze, kariertem Hemd und Boots schreit in ein Mikrofon" loading="lazy">
+              <time datetime="2026-08-04">2026-08-04</time>
+              <h2><a href="reviews/oi-gebroi-antifascist-till-we-die.html">Oi!Gebroi - Antifascist till we die</a></h2>
+              <p>AFA-Oi!-Punk aus Köln/Bonn, raue Stimme, Chöre, Trompete und eine klare Kante gegen Faschos. Oi!Gebroi lassen wenig Platz für falsches Publikum.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-kinners-strohhut-piraten-sticker.png" alt="Randalf mit Strohhut schreit so energisch in ein Megafon, dass er vom Boden abhebt" loading="lazy">
+              <time datetime="2026-07-31">2026-07-31</time>
+              <h2><a href="reviews/kinners-strohhut-piraten.html">K!NNERS - Strohhut-Piraten</a></h2>
+              <p>Bei einem Song namens "Strohhut-Piraten" werde ich erst einmal misstrauisch. K!NNERS umgehen Mittelaltermarkt-Geschunkel und landen bei eingängigem Rock-Punk mit Haltung.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-mad-dog-dan-tanze-samba-mit-mir-sticker.png" alt="Randalf in einer Zwangsjacke schaut wahnsinnig irre herum" loading="lazy">
+              <time datetime="2026-07-30">2026-07-30</time>
+              <h2><a href="reviews/mad-dog-dan-tanze-samba-mit-mir.html">MAD DOG DAN - Tanze Samba mit mir</a></h2>
+              <p>Mad Dog Dan covern Tony Holiday, singen schief genug und zwingen Burg endlich zu einem Artikel. Genau die richtige Portion Wahnsinn.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-schwindelbude-seid-ihr-wirklich-so-zufrieden-sticker.png" alt="Randalf steckt mit dem Kopf in einem schlichten Puppentheater" loading="lazy">
+              <time datetime="2026-07-30">2026-07-30</time>
+              <h2><a href="reviews/schwindelbude-seid-ihr-wirklich-so-zufrieden.html">SCHWINDELBude - Seid Ihr Wirklich so Zufrieden</a></h2>
+              <p>Klassischer Punkrock ohne Geigen, Bläser und unnötiges Beiwerk. Schwindelbude liefern schönes simples Geknüppel und erinnern Burg angenehm an die 90er.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker" data-language-scope>
+              <img class="teaser-sticker" src="assets/stickers/randalf-this-volume-junk-unbound-sticker.png" alt="Randalf mit Kopfhörern hält beide Pfoten an die Ohren und schaut fasziniert verstört" loading="lazy">
+              <time datetime="2026-07-24">2026-07-24</time>
+              <h2><a href="reviews/this-volume-junk-unbound.html">THIS VOLUME JUNK - Unbound</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+              </div>
+              <p data-language-option="de">Freundliche Mail aus L'Aquila, düsterer Post-Punk im Keller und ordentlich Dreck unter den Fingernägeln. THIS VOLUME JUNK sind nichts zum Kuscheln.</p>
+              <p data-language-option="en" hidden>A friendly email from L'Aquila, dark post-punk in the basement, and plenty of dirt under the fingernails. THIS VOLUME JUNK are not here for cuddles.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-turbolent-ich-will-los-sticker.png" alt="Randalf von hinten mit Rucksack winkt zum Abschied" loading="lazy">
+              <time datetime="2026-07-24">2026-07-24</time>
+              <h2><a href="reviews/turbolent-ich-will-los.html">TURBOLENT - Ich will los</a></h2>
+              <p>Pressetext mit Komfortzone. Song mit deutlich weniger Seminarraum im Gesicht. TURBOLENT wollen los und kommen damit leider durch, obwohl Burg sie gern mehr geärgert hätte.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-kassengipht-sag-ja-sticker.png" alt="Randalf im weißen Polo mit Pullover über den Schultern hält ein Sektglas" loading="lazy">
+              <time datetime="2026-07-16">2026-07-16</time>
+              <h2><a href="reviews/kassengipht-sag-ja.html">KASSENGIPHT - Sag Ja</a></h2>
+              <p>KASSENGIPHT sagen Ja zu Egoismus, Überfluss und Kreuzfahrtbonusprogramm. Burg fällt kurz auf die Satire rein und merkt dann, dass der Spiegel verdächtig unbequem hängt.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-hosen-fischfilet-komplett-im-arsch-sticker.png" alt="Randalf mit kaputter Jeans über dem Kopf lässt erschöpft die Arme hängen" loading="lazy">
+              <time datetime="2026-07-14">2026-07-14</time>
+              <h2><a href="reviews/die-toten-hosen-feine-sahne-fischfilet-komplett-im-arsch.html">DIE TOTEN HOSEN feat. FEINE SAHNE FISCHFILET - Komplett im Arsch</a></h2>
+              <p>Random-Playlist, Feine Sahne Fischfilet, plötzlich Campino. Burgs Weltbild meldet Bluescreen und Randalf zieht sich vor Erschöpfung eine kaputte Jeans über den Kopf.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker" data-language-scope>
+              <img class="teaser-sticker" src="assets/stickers/randalf-brokesingercris-i-wont-lie-down-sticker.png" alt="Randalf mit grau-schwarzer Cap, Sonnenbrille und grauem Bart schreit mit Akustikgitarre" loading="lazy">
+              <time datetime="2026-07-13">2026-07-13</time>
+              <h2><a href="reviews/brokesingercris-friends-i-wont-lie-down.html">BROKESINGERCRIS &amp; FRIENDS - I Won't Lie Down</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+              </div>
+              <p data-language-option="de">Face To Face akustisch. Pulley-Spuren im Raum. Und ich sitze da, als hätte mir jemand heimlich Gefühle ins Bier gekippt.</p>
+              <p data-language-option="en" hidden>Face To Face, stripped down acoustic. Pulley fingerprints all over it. And somehow I ended up emotionally ambushed by a cover song.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-irokaese-macht-kaputt-sticker.png" alt="Randalf mit Käse-Irokesenfrisur versucht mit der Zunge an den Käse zu kommen" loading="lazy">
+              <time datetime="2026-07-10">2026-07-10</time>
+              <h2><a href="reviews/irokaese-macht-kaputt.html">IROKÄSE - Macht kaputt</a></h2>
+              <p>IROKÄSE klingen nicht nach Feinschliff, Kerzenschein und Sitzkreis. "Macht kaputt" ist eher ein alter Punk-Satz, frisch mit Käse überbacken und wieder gegen die Wand geworfen.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-nevver-flawed-from-the-get-go-sticker.png" alt="Randalf spielt an einem alten Arcade-Automaten" loading="lazy">
+              <time datetime="2026-07-10">2026-07-10</time>
+              <h2><a href="reviews/nevver-flawed-from-the-get-go.html">NEVVER - Flawed From The Get-Go</a></h2>
+                <p>Ein bisschen Pop-Punk gef&auml;llig? NEVVER liefern mit "Flawed From The Get-Go" H&uuml;pfdrang, Arcade-Nostalgie und genug Herz auf dem &Auml;rmel, um nicht im Zuckerwasser zu ersaufen.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-green-day-im-never-gonna-rip-sticker.png" alt="Randalf als Mumie sitzt in einem offenen Sarg und hebt trotzig die Faust" loading="lazy">
+              <time datetime="2026-07-08">2026-07-08</time>
+              <h2><a href="reviews/green-day-i-m-never-gonna-r-i-p.html">GREEN DAY - I'm Never Gonna R.I.P.</a></h2>
+              <p>Green Day klingen bei "I'm Never Gonna R.I.P." plötzlich nach Rock'n'Roll, Kassettensalat und altem Jugendkrach. Kein Dookie-Aufguss. Eher ein Haken zur Seite, den ich so nicht erwartet hatte.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-no-brakes-sag-mir-wo-sticker.png" alt="Vermummter Randalf mit erhobener Faust und Sag-mir-wo-Schild" loading="lazy">
+              <time datetime="2026-07-03">2026-07-03</time>
+              <h2><a href="reviews/no-brakes-sag-mir-wo.html">NO BRAKES - Sag mir wo</a></h2>
+              <p>NO BRAKES liefern keinen Gewaltfantasie-Soundtrack. "Sag mir wo" ist ein wütender Punkrock-Schlag in Richtung rechter Normalisierung und spielt genau dort mit dem Feuer, wo man sehr genau wissen muss, was man tut.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-rat-boy-high-life-sticker.png" alt="Randalf auf einem BMX schreit in Fahrtrichtung" loading="lazy">
+              <time datetime="2026-07-02">2026-07-02</time>
+              <h2><a href="reviews/rat-boy-high-life.html">RAT BOY - High Life</a></h2>
+              <p>Hellcat Records zieht wieder Dreck aus der Gosse und RAT BOY machen daraus einen Song, der nach Skatepunk, Pop-Punk und kaputten Knien riecht. "High Life" rollt nach vorne und grinst dabei ziemlich dreckig.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-skid-wizard-order-of-priorities-sticker.png" alt="Randalf als Zauberer schreit eine Trompete an" loading="lazy">
+              <time datetime="2026-07-01">2026-07-01</time>
+              <h2><a href="reviews/skid-wizard-order-of-priorities.html">SKID WIZARD - Order of Priorities</a></h2>
+              <p>SKID WIZARD klingen nach jungem Ska-Punk mit zu viel Bewegungsdrang. Bläser, Tempo, Rotz und ein Video, das schon nach verschwitztem Hinterhofkonzert riecht.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-smug-bwler-sticker.png" alt="Randalf mit rotem Irokesenschnitt liegt schreiend auf dem Rücken" loading="lazy">
+              <time datetime="2026-07-01">2026-07-01</time>
+              <h2><a href="reviews/smug-bwler.html">SMUG - BWLer</a></h2>
+              <p>Halber Sprechgesang, Bläser, Punk und ein Grinsen, das direkt nach Ärger riecht. SMUG liefern mit "BWLer" genau diesen schiefen Quatsch, bei dem man sofort mehr will.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-farin-urlaub-sie-sticker.png" alt="Randalf als Jeanne d'Arc auf einem Pferd" loading="lazy">
+              <time datetime="2026-06-27">2026-06-27</time>
+              <h2><a href="reviews/farin-urlaub-sie.html">FARIN URLAUB - Sie</a></h2>
+              <p>Farin Urlaub denkt an der Supermarktkasse. Ich gähne erst, halte durch und lande am Ende doch bei Jeanne d'Arc, Statistik und einem ziemlich guten Gedanken.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-massenkarambolage-kauf-das-jetzt-sticker.png" alt="Randalf schreit schräg in ein Mikrofon" loading="lazy">
+              <time datetime="2026-06-27">2026-06-27</time>
+              <h2><a href="reviews/massenkarambolage-kauf-das-jetzt.html">MASSENKARAMBOLAGE - Kauf das jetzt!</a></h2>
+              <p>Massenkarambolage werfen dir eine komplett bekloppte Idee vor die Füße. Du verdrehst die Augen. Fünf Sekunden später grinst du trotzdem.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-ein-punk-band-letzter-versuch-sticker.png" alt="Randalf spielt Akustikgitarre und jault nach oben" loading="lazy">
+              <time datetime="2026-06-26">2026-06-26</time>
+              <h2><a href="reviews/ein-punk-band-letzter-versuch.html">EIN PUNK BAND - Letzter Versuch</a></h2>
+              <p>Ein Punk-Liebeslied, das nicht wegläuft, sobald es ernst wird. "Letzter Versuch" balanciert gefährlich nah am Kitsch entlang und fällt trotzdem nicht runter.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-dysraised-skate-or-die-sticker.png" alt="Randalf auf einem Skateboard mit Skate or Die Shirt" loading="lazy">
+              <time datetime="2026-06-25">2026-06-25</time>
+              <h2><a href="reviews/dysraised-never-change-a-failing-system.html">DYSRAISED - Never Change a Failing System</a></h2>
+              <p>Wieder so eine Band, von der ich noch nie gehört habe. Dann läuft "ASSthetics" los und plötzlich liegt der Pfannenwender auf dem Boden.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-unplugged-system-absolut-kein-punk-sticker.png" alt="Randalf in Babywindel holt mit Baseballschläger aus" loading="lazy">
+              <time datetime="2026-06-25">2026-06-25</time>
+              <h2><a href="reviews/unplugged-system-absolut-kein-punk.html">UNPLUGGED SYSTEM - Absolut kein Punk</a></h2>
+              <p>Was für ein unfassbarer Krach. UNPLUGGED SYSTEM scheppern, rumpeln und brüllen sich durch "Absolut kein Punk", als hätte Feinabstimmung Hausverbot.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-ronny-platte-dagegen-sticker.png" alt="Randalf kann sich nicht zwischen Sahne-Fischfilet und Schallplatte entscheiden" loading="lazy">
+              <time datetime="2026-06-24">2026-06-24</time>
+              <h2><a href="reviews/ronny-platte-dagegen.html">RONNY PLATTE - Dagegen</a></h2>
+              <p>Worum geht's? Keine Ahnung. Bin dagegen. Ronny Platte stolpern mit "Dagegen" aus der Legendenkiste und klingen, als hätte ihnen niemand gesagt, dass man nach zwanzig Jahren vielleicht vernünftig werden sollte.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-alarmsignal-fresse-auf-sticker.png" alt="Randalf schreit mit geballter Faust und Alarmsignal-Shirt" loading="lazy">
+              <time datetime="2026-06-23">2026-06-23</time>
+              <h2><a href="reviews/alarmsignal-fresse-auf.html">ALARMSIGNAL - Fresse auf!</a></h2>
+              <p>Alarmsignal brüllen "Schnauze voll und Fresse auf!" und ich sitze vor dem Rechner. Zweifelhafte Vorfreude. Leider wird daraus ziemlich schnell verdammte Gänsehaut.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-sick-of-society-sabotage-sticker.png" alt="Randalf in Boxershorts und verschwitztem Unterhemd wirft eine linke Gerade" loading="lazy">
+              <time datetime="2026-06-19">2026-06-19</time>
+              <h2><a href="reviews/sick-of-society-sabotage.html">SICK OF SOCIETY - Sabotage</a></h2>
+              <p>Verdammte Scheiße. Punks, denen man nachts nicht begegnen möchte. Oder eigentlich doch. Wenn sie Bier dabei haben.</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-zwischenraum-halt-die-fresse-sticker.png" alt="Randalf hält entsetzt beide Hände vor den Mund" loading="lazy">
+              <time datetime="2026-06-19">2026-06-19</time>
+              <h2><a href="reviews/zwischenraum-halt-die-fresse-ep.html">ZWISCHENRAUM - Halt die Fresse EP</a></h2>
+              <p>Tilli und Bidi können es mal wieder nicht lassen. Erst Band, dann Projekte, dann noch eine EP im Duo. Natürlich mit "Halt die Fresse".</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-missstand-2026-sticker.png" alt="Randalf zertritt den Schriftzug 2026" loading="lazy">
+              <time datetime="2026-06-18">2026-06-18</time>
+              <h2><a href="reviews/missstand-2026.html">MISSSTAND - 2026</a></h2>
+              <p>Rauschen, Drum, Gitarre und BÄM! In your Face!</p>
+            </article>
+            <article class="teaser-card teaser-card--sticker">
+              <img class="teaser-sticker" src="assets/stickers/randalf-champagner-punx-sticker.png" alt="Randalf tritt wütend eine Champagnerflasche um" loading="lazy">
+              <time datetime="2026-06-15">2026-06-15</time>
+              <h2><a href="reviews/champagner-punx-scheiss-champagner-punx.html">CHAMPAGNER PUNX - Scheiss Champagner Punx</a></h2>
+              <p>Da sind sie wieder. Diese Pappnasen von Champagner Punx. Allein der Name ist schon eine exorbitant inkommodierende Scheiße.</p>
+            </article>
+            <article class="teaser-card">
+              
+              <time datetime="2026-06-13">2026-06-13</time>
+              <h2><a href="reviews/pseudo-das-hoerbuch.html">PSEUDO - Das Hörbuch</a></h2>
+              <p>Manchmal ist es ganz angenehm, wenn nicht alles sofort nach vorne geprügelt wird. Wir leben in einer Zeit, in der alles laut, schnell und am besten gestern schon wieder vergessen sein soll. Da wirkt ein langsam vorgelesenes Hörbuch fast schon wie ein kleiner Gegenangriff.</p>
+            </article>
+            <article class="teaser-card">
+              
+              <time datetime="2026-06-13">2026-06-13</time>
+              <h2><a href="reviews/viva-punk-im-durst.html">VIVA PUNK! - Im Durst</a></h2>
+              <p>Da freuen sich die Knalltüten von VIVA PUNK! sicher. Nach zwei Tagen über 1000 Klicks auf dem Video zu „Im Durst“.</p>
+            </article>
+            <article class="teaser-card">
+              
+              <time datetime="2026-06-12">2026-06-12</time>
+              <h2><a href="reviews/popperklopper-halbmast.html">POPPERKLOPPER - Halbmast</a></h2>
+              <p>Manche Bands wohnen nicht einfach im Plattenregal. Die belagern das Ding. Seit Jahrzehnten.</p>
+            </article>
+            <article class="teaser-card">
+              
+              <time datetime="2026-06-12">2026-06-12</time>
+              <h2><a href="reviews/snakes-in-the-pit-apokalypse.html">SNAKES IN THE PIT - Apokalypse</a></h2>
+              <p>Direkt als der Song losgeht: Slipknot-Vibes. Nicht komplett, nicht als Kopie, aber dieses erste Gefühl ist da. Hartes Brett.</p>
+            </article>
+            <!-- reviews-end -->
+          </div>
+        </article>
+
+        <article class="content-panel" id="panel-interviews" data-section-panel="interviews">
+          <p class="issue-label">Interviews</p>
+          <h1>Fragen aus der Ecke</h1>
+          <p class="lead">Interviews mit Bands, Veranstaltenden, Fanzine-Menschen und Leuten, die irgendwo irgendwas selbst machen.</p>
+          <div class="article-grid">
+            <article class="teaser-card teaser-card--interview" data-language-scope>
+              <time datetime="2026-07-08">Interview</time>
+              <h2><a href="interviews/brokesingercris-skatepunk-projekt.html">BrokeSingerCris</a></h2>
+              <div class="language-switch language-switch--card" aria-label="Sprache auswählen">
+                <button class="is-active" type="button" data-language-button="de">Deutsch</button>
+                <button type="button" data-language-button="en">English</button>
+              </div>
+              <figure class="teaser-card__media">
+                <img src="/assets/interviews/brokenchris.jpg" alt="BrokeSingerCris mit Gitarre" loading="lazy">
+                <figcaption>Bild: Burg hat das Ding aus den asozialen Medien geklaut.</figcaption>
+              </figure>
+              <p data-language-option="de">Wenn aus Akustik-Covers plötzlich ein internationales Skatepunk-Projekt mit Pulley-, Authority-Zero- und Ten-Foot-Pole-Spuren wird.</p>
+              <p data-language-option="en" hidden>When acoustic covers suddenly turn into an international skate-punk project with traces of Pulley, Authority Zero and Ten Foot Pole.</p>
+              <a class="ticker-button" href="interviews/brokesingercris-skatepunk-projekt.html" data-language-link data-language-href-de="interviews/brokesingercris-skatepunk-projekt.html?lang=de" data-language-href-en="interviews/brokesingercris-skatepunk-projekt.html?lang=en">
+                <span data-language-option="de">Interview lesen</span>
+                <span data-language-option="en" hidden>Read interview</span>
+              </a>
+            </article>
+            <article class="teaser-card teaser-card--video" data-youtube-video data-youtube-id="B0xOtJ1p1QU" data-youtube-title="RandaleFUNK beim WISPA Festival 2026">
+              <time datetime="2026-06-14">Video</time>
+              <h2>WISPA Festival 2026</h2>
+              <div class="privacy-video" data-youtube-frame>
+                <div class="privacy-video__poster" aria-hidden="true">
+                  <span>WISPA</span>
+                  <strong>Festival 2026</strong>
+                </div>
+                <p>Mit dem Laden des Videos werden Daten an YouTube bzw. Google übertragen.</p>
+                <button class="privacy-video__button" type="button" data-youtube-load>Video laden</button>
+              </div>
+              <p>RandaleFUNK wirft einen Blick Richtung WISPA Festival 2026. Erst Klick, dann YouTube.</p>
+            </article>
+          </div>
+          <section class="interview-archive" aria-label="Interviewarchiv 2022 bis 2025">
+            <h2>Interviews 2022 bis 2025</h2>
+            <p>Einmal quer durch den RandaleFUNK-Keller. Ohne Vorschaubild, ohne YouTube-Ladevorgang beim Seitenaufruf. Erst der Klick schickt euch rüber.</p>
+            <ul class="interview-link-list">
+              <li><a href="https://www.youtube.com/watch?v=VifA2WIyAfo" target="_blank" rel="noopener noreferrer">Maybe Dead</a></li>
+              <li><a href="https://www.youtube.com/watch?v=VxqHd_d_6bE" target="_blank" rel="noopener noreferrer">Dan Scary</a></li>
+              <li><a href="https://www.youtube.com/watch?v=1jX7ALr9l2k" target="_blank" rel="noopener noreferrer">Vostok Import</a></li>
+              <li><a href="https://www.youtube.com/watch?v=aI_4GuIX_iE" target="_blank" rel="noopener noreferrer">Stage Bottles</a></li>
+              <li><a href="https://www.youtube.com/watch?v=2jfaGqFUwrs" target="_blank" rel="noopener noreferrer">Dritte Wahl</a></li>
+              <li><a href="https://www.youtube.com/watch?v=mwh1m6kilYI" target="_blank" rel="noopener noreferrer">Revolting Puppets</a></li>
+              <li><a href="https://www.youtube.com/watch?v=CBnD5xBXpYk" target="_blank" rel="noopener noreferrer">Menschabstinenz</a></li>
+              <li><a href="https://www.youtube.com/watch?v=LarO-zxl9iQ" target="_blank" rel="noopener noreferrer">Turbolent</a></li>
+              <li><a href="https://www.youtube.com/watch?v=DVFnKEJVlcw" target="_blank" rel="noopener noreferrer">The Toshers</a></li>
+              <li><a href="https://www.youtube.com/watch?v=uGzBg5NCCI8" target="_blank" rel="noopener noreferrer">Re:Wanted</a></li>
+              <li><a href="https://www.youtube.com/watch?v=qW6d0M8YkHk" target="_blank" rel="noopener noreferrer">Champagner Punx</a></li>
+              <li><a href="https://www.youtube.com/watch?v=hmbgH7193rE" target="_blank" rel="noopener noreferrer">Fluchtversuch</a></li>
+              <li><a href="https://www.youtube.com/watch?v=p9E1tgLCubU" target="_blank" rel="noopener noreferrer">Fornhorst</a></li>
+              <li><a href="https://www.youtube.com/watch?v=dblPUPaf6rE" target="_blank" rel="noopener noreferrer">Raffnix</a></li>
+              <li><a href="https://www.youtube.com/watch?v=QDGLJbdmYm4" target="_blank" rel="noopener noreferrer">G31</a></li>
+              <li><a href="https://www.youtube.com/watch?v=e7jt9V5OQ4s" target="_blank" rel="noopener noreferrer">Fucking Angry</a></li>
+              <li><a href="https://www.youtube.com/watch?v=UmSxCMZYGOg" target="_blank" rel="noopener noreferrer">Die Bauern</a></li>
+              <li><a href="https://www.youtube.com/watch?v=4IiBg1jVPE0" target="_blank" rel="noopener noreferrer">100 Kilo Herz</a></li>
+              <li><a href="https://www.youtube.com/watch?v=-J1SuoBw-ao" target="_blank" rel="noopener noreferrer">Massenkarambolage</a></li>
+              <li><a href="https://www.youtube.com/watch?v=SnVPQCjhpw4" target="_blank" rel="noopener noreferrer">Snackwolf</a></li>
+              <li><a href="https://www.youtube.com/watch?v=R1WTqa8D3n4" target="_blank" rel="noopener noreferrer">Snakes in the Pit</a></li>
+              <li><a href="https://www.youtube.com/watch?v=wXnmCkH-4-U" target="_blank" rel="noopener noreferrer">siKK liKKz</a></li>
+              <li><a href="https://www.youtube.com/watch?v=iFwRbFCoIBo" target="_blank" rel="noopener noreferrer">Blattturbo</a></li>
+              <li><a href="https://www.youtube.com/watch?v=6HpFUKxNf_E" target="_blank" rel="noopener noreferrer">Bad Advice</a></li>
+              <li><a href="https://www.youtube.com/watch?v=Dr8BuOFJG5M" target="_blank" rel="noopener noreferrer">Die Erwins</a></li>
+              <li><a href="https://www.youtube.com/watch?v=voqvesaZ6AY" target="_blank" rel="noopener noreferrer">33 RPM</a></li>
+              <li><a href="https://www.youtube.com/watch?v=TRvepLbo6No" target="_blank" rel="noopener noreferrer">Blanker Hohn</a></li>
+              <li><a href="https://www.youtube.com/watch?v=W0HiysNz5FU" target="_blank" rel="noopener noreferrer">FAEX</a></li>
+              <li><a href="https://www.youtube.com/watch?v=gDRBaOCGulQ" target="_blank" rel="noopener noreferrer">Popperklopper</a></li>
+              <li><a href="https://www.youtube.com/watch?v=rMWXZyOzGu0" target="_blank" rel="noopener noreferrer">Die Dorks</a></li>
+              <li><a href="https://www.youtube.com/watch?v=qZKqyKJxxv4" target="_blank" rel="noopener noreferrer">Head Patch</a></li>
+              <li><a href="https://www.youtube.com/watch?v=PG0QDHHOnQ0" target="_blank" rel="noopener noreferrer">EXAT</a></li>
+              <li><a href="https://www.youtube.com/watch?v=1_JgH43dhv4" target="_blank" rel="noopener noreferrer">Frei statt Sicher</a></li>
+              <li><a href="https://www.youtube.com/watch?v=J96iI9n_FqQ" target="_blank" rel="noopener noreferrer">Plastic Mars</a></li>
+              <li><a href="https://www.youtube.com/watch?v=x-5HNTKvZqE" target="_blank" rel="noopener noreferrer">Dan Ganove</a></li>
+              <li><a href="https://www.youtube.com/watch?v=9haWMHKW-vo" target="_blank" rel="noopener noreferrer">Juicy Roadkill</a></li>
+              <li><a href="https://www.youtube.com/watch?v=HwR0tykd_ZM" target="_blank" rel="noopener noreferrer">Diggen</a></li>
+              <li><a href="https://www.youtube.com/watch?v=xIPm6oz7wf8" target="_blank" rel="noopener noreferrer">Angry Youth Elite</a></li>
+              <li><a href="https://www.youtube.com/watch?v=i_WYHtBO4o0" target="_blank" rel="noopener noreferrer">Alarmsignal</a></li>
+              <li><a href="https://www.youtube.com/watch?v=1QAm0yq3JBY" target="_blank" rel="noopener noreferrer">SOKO LiNX</a></li>
+              <li><a href="https://www.youtube.com/watch?v=jeOG_MRW2vQ" target="_blank" rel="noopener noreferrer">Die Bockwurschtbude</a></li>
+              <li><a href="https://www.youtube.com/watch?v=9vgJxFBMmUk" target="_blank" rel="noopener noreferrer">Das Bildungsbürgertum</a></li>
+              <li><a href="https://www.youtube.com/watch?v=Z9X6WqJMfQ" target="_blank" rel="noopener noreferrer">F*ck'it'head</a></li>
+              <li><a href="https://www.youtube.com/watch?v=PMo-_7qS7Lk" target="_blank" rel="noopener noreferrer">4 Zimmer Küche Bad</a></li>
+              <li><a href="https://www.youtube.com/watch?v=nAynwoWPcg8" target="_blank" rel="noopener noreferrer">Hotfilter</a></li>
+              <li><a href="https://www.youtube.com/watch?v=1DMFKd-n7H8" target="_blank" rel="noopener noreferrer">Ausschreitung</a></li>
+              <li><a href="https://www.youtube.com/watch?v=9KJzazad7Qs" target="_blank" rel="noopener noreferrer">Dead End Kids</a></li>
+              <li><a href="https://www.youtube.com/watch?v=MvK7aKvqt6M" target="_blank" rel="noopener noreferrer">Dorfterror</a></li>
+              <li><a href="https://www.youtube.com/watch?v=-OAj6gxS_js" target="_blank" rel="noopener noreferrer">ALARMBABY</a></li>
+              <li><a href="https://www.youtube.com/watch?v=QKV7TcWckro" target="_blank" rel="noopener noreferrer">HASS</a></li>
+              <li><a href="https://www.youtube.com/watch?v=OzDUUuQjBuM" target="_blank" rel="noopener noreferrer">Betontod</a></li>
+              <li><a href="https://www.youtube.com/watch?v=3hmIdiE4NEM" target="_blank" rel="noopener noreferrer">Slime</a></li>
+              <li><a href="https://www.youtube.com/watch?v=ORm3mV8iOLc" target="_blank" rel="noopener noreferrer">Graupause</a></li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="content-panel" id="panel-kolumnen" data-section-panel="kolumnen">
+          <p class="issue-label">Kolumnen</p>
+          <h1>Meckern mit System</h1>
+          <p class="lead">Kommentar, Beobachtung, Szene-Geräusch, Widerspruch. Alles, was nicht in eine Nachricht passt.</p>
+          <aside class="randalf-spot randalf-spot--note" aria-label="Randalf über Kolumnen">
+            <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+            <p>Das Problem mit Traditionen ist, dass sie nie merken, wann sie fertig sind.</p>
+          </aside>
+          <div class="article-grid">
+            <article class="teaser-card">
+              <time datetime="2026-09-04">Kolumne</time>
+              <h2><a href="kolumnen/good-vibes-only-aber-fuer-wen.html">Good Vibes Only – aber für wen eigentlich?</a></h2>
+              <p>"Der Burg" über Alphavilles endgültige Absage nach der Wiedereinladung, Solidarität auf und neben der Bühne und einen seltenen Hutzieher vor den Toten Hosen.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-08-29">Kolumne</time>
+              <h2><a href="kolumnen/ein-club-kann-keine-likes-auszahlen.html">Ein Club kann keine Likes auszahlen</a></h2>
+              <p>"Der Burg" über ein abgesagtes Clubkonzert, späten Vorverkauf und die Frage, warum kleine Bühnen von Likes keine Rechnungen bezahlen können.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-08-15">Kolumne</time>
+              <h2><a href="kolumnen/europa-ja-oberverpackungswart-nein.html">Europa ja, Oberverpackungswart nein</a></h2>
+              <p>"Der Burg" über die EU-Verpackungsverordnung PPWR, Punk-Mailorder, Bürokratie und die Frage, wann ein Karton politisch wird.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-07-31">Kolumne</time>
+              <h2><a href="kolumnen/tony-sly-eigentlich-hasse-ich-nachrufe.html">Tony Sly: Eigentlich hasse ich Nachrufe</a></h2>
+              <p>"Der Burg" über Tony Sly, No Use For A Name, Skateboardschäden und Erinnerungen, die mehr sind als Kalenderpflicht.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-07-17">Kolumne</time>
+              <h2><a href="kolumnen/der-konjunktiv-hat-hausverbot.html">Der Konjunktiv hat Hausverbot</a></h2>
+              <p>"Der Burg" über Danger Dan, Igor Levit, Die Anstalt, ZDF-Nebel und die Frage, warum ausgerechnet ein Lied namens „Keine Angst“ so viel Angst auslöst.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-07-01">Kolumne</time>
+              <h2><a href="kolumnen/das-problem-ist-nicht-die-maschine.html">Das Problem ist nicht die Maschine</a></h2>
+              <p>"Der Burg" über KI, Punk, Werkzeuge, Konzerne und die Frage, wer am Ende eigentlich die Hand am Schalter hat.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-22">Kolumne</time>
+              <h2><a href="kolumnen/punk-slogan-verlaesst-seine-szene.html">Was passiert, wenn ein Punk-Slogan seine Szene verlässt?</a></h2>
+              <p>"Der Burg" über „Deutschland verrecke“, Slime, Behördenformulare und die Frage, warum Punk-Parolen außerhalb ihrer Szene plötzlich anders klingen.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-21">Kolumne</time>
+              <h2><a href="kolumnen/liebe-foodwatch-pestizidcocktails.html">Liebe Foodwatch, ich mag euch</a></h2>
+              <p>"Der Burg" über Pestizidcocktails, Alarmglocken, Gewürzregale und ein System, das Probleme auslagert und sich über die Rücksendung wundert.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-19">Kolumne</time>
+              <h2><a href="kolumnen/ppp-top-99-punk-empoerung.html">PPP Top 99: Wo ist mein Punk geblieben?</a></h2>
+              <p>Burg reicht eine 80er-Liste ein, die PPP-Community wählt sehr schön und trotzdem müssen ein paar Fragen in Richtung Punk-Anteil gestellt werden.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-14">Kolumne</time>
+              <h2><a href="kolumnen/wie-man-eine-kolumne-schreibt.html">Wie man eine Kolumne schreibt</a></h2>
+              <p>"Der Burg" versucht, die erste RandaleFUNK-Kolumne zu schreiben, findet kein Thema und landet irgendwo zwischen Brötchentüten, Nudelmengen und E-Rollern.</p>
+            </article>
+            <article class="teaser-card">
+              <time datetime="2026-06-12">Platzhalter</time>
+              <h2>Dein MIST</h2>
+              <p>Hier könnte deine Werbung ... ähm, Kolumne stehen.</p>
+            </article>
+          </div>
+        </article>
       </section>
+
+      <aside class="side-links" id="site-side-links" aria-label="Wegweiser und externe Links">
+        <section class="link-block">
+          <h2>Folge dem Krach</h2>
+          <a href="https://www.youtube.com/@randalefunk" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.instagram.com/randalefunk" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100092438982946" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </section>
+
+        <section class="link-block">
+          <h2>Unterstützen</h2>
+          <a href="warum-unterstuetzen.html">Warum unterstützen?</a>
+          <a class="riot-shop-button" href="https://www.riot-candy.com/c/randalefunk" target="_blank" rel="noopener noreferrer" aria-label="RandaleFUNK-Shop bei Riot Candy öffnen">
+            <img src="assets/support/riot-candy-shop-button.png" alt="Shop bei Riot Candy" width="430" height="149">
+          </a>
+          <a class="paypal-donate-button" href="https://paypal.me/RandaleFUNK" target="_blank" rel="noopener noreferrer" aria-label="RandaleFUNK per PayPal unterstützen">
+            <img src="assets/support/paypal-button.png" alt="PayPal" width="430" height="149">
+          </a>
+        </section>
+
+        <section class="link-block app-launch-block">
+          <h2>Quatsch</h2>
+          <button class="app-launch-button" type="button" data-open-app="wuerfel">Würfel-App</button>
+          <a href="randalf/index.html">Randalf</a>
+          <a href="der-rostige-kronkorken.html">Umfragen</a>
+        </section>
+
+        <section class="link-block">
+          <h2>Kontakt</h2>
+          <a href="mailto:post@randalefunk.de">E-Mail</a>
+        </section>
+
+        <section class="link-block randalf-sidebar" aria-label="Randalf Kommentar">
+          <img src="assets/randalf-head.webp" alt="Randalf grinst skeptisch" width="255" height="200">
+          <h2>Randalf sagt</h2>
+          <p data-randalf-spruch>Das wird garantiert schiefgehen.</p>
+        </section>
+      </aside>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 RandaleFUNK.de</p>
-      <p>Unabhängig · unkommerziell · antifaschistisch</p>
+      <p>© <span id="current-year"></span> RandaleFUNK.de</p>
+      <p class="footer-legal"><a href="datenschutz.html">Datenschutzerklärung</a></p>
+      <p>DIY bleibt DIY.</p>
     </footer>
+
+    <section class="app-modal" data-app-modal hidden aria-label="RandaleWürfel App">
+      <div class="app-modal__backdrop" data-close-app></div>
+      <div class="app-modal__panel" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+        <header class="app-modal__bar">
+          <div>
+            <p>Quatsch</p>
+            <h2 id="app-modal-title">Würfel-App</h2>
+          </div>
+          <button class="app-modal__close" type="button" data-close-app aria-label="App schließen">Schließen</button>
+        </header>
+        <iframe
+          class="app-modal__frame"
+          title="RandaleWürfel"
+          data-app-frame
+          data-app-src="wuerfel/"
+          loading="lazy"
+          allow="autoplay; fullscreen"
+        ></iframe>
+      </div>
+    </section>
+
+    <script src="script.js?v=20260705-kronkorken"></script>
   </body>
 </html>
