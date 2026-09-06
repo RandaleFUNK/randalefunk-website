@@ -85,6 +85,7 @@ jobs:
           cp -R kolumnen deploy/
           cp -R randalf deploy/
           cp -R reviews deploy/
+          cp -R start deploy/
           cp -R vorab-gehoert deploy/
           cp -R wuerfel deploy/
           cp -R stats deploy/
