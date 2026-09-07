@@ -1,0 +1,96 @@
+name: Deploy LeonBau Preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: leonbau-preview-deploy
+  cancel-in-progress: false
+
+env:
+  PREVIEW_SLUG: vorschau-lb-2609
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate isolated preview package
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -d "$PREVIEW_SLUG"
+          test -f "$PREVIEW_SLUG/index.html"
+          test -f "$PREVIEW_SLUG/styles.css"
+          test -f "$PREVIEW_SLUG/script.js"
+          test -d "$PREVIEW_SLUG/assets"
+
+          while IFS= read -r page; do
+            grep -Eqi '<meta[[:space:]]+name="robots"[[:space:]]+content="noindex, nofollow"' "$page"
+          done < <(find "$PREVIEW_SLUG" -type f -name '*.html' -print)
+
+          if grep -REnE '(href|src)="/' "$PREVIEW_SLUG" --include='*.html'; then
+            echo "Root-relative path found. Preview deployment stopped."
+            exit 1
+          fi
+
+          mkdir -p deploy-preview
+          cp -R "$PREVIEW_SLUG"/. deploy-preview/
+
+          echo "Files approved for preview upload:"
+          find deploy-preview -type f -print | sort
+
+      - name: Install SFTP client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Upload only to LeonBau preview directory
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+
+          case "$FTP_TARGET_DIR" in
+            *".."*)
+              echo "Unsafe FTP_TARGET_DIR. Preview deployment stopped."
+              exit 1
+              ;;
+          esac
+
+          REMOTE_PREVIEW_DIR="${FTP_TARGET_DIR%/}/$PREVIEW_SLUG"
+          case "$REMOTE_PREVIEW_DIR" in
+            */vorschau-lb-2609|vorschau-lb-2609) ;;
+            *)
+              echo "Remote target is not the approved LeonBau preview directory."
+              exit 1
+              ;;
+          esac
+
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "sftp://$FTP_SERVER" <<EOF
+          set sftp:auto-confirm yes
+          mkdir -p "$REMOTE_PREVIEW_DIR"
+          mirror -R --verbose --only-newer --no-perms --no-umask deploy-preview/ "$REMOTE_PREVIEW_DIR/"
+          bye
+          EOF
+
+      - name: Verify deployed preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          PREVIEW_URL="https://randalefunk.de/$PREVIEW_SLUG/"
+          curl --fail --silent --show-error --location "$PREVIEW_URL" --output preview.html
+          grep -Fq 'LeonBau' preview.html
+          grep -Eqi '<meta[[:space:]]+name="robots"[[:space:]]+content="noindex, nofollow"' preview.html
+          echo "LeonBau preview verified at $PREVIEW_URL"
