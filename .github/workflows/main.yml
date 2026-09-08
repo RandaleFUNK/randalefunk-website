@@ -1,10 +1,12 @@
 name: Deploy to RandaleFUNK
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      deploy_ref:
+        description: 'Freigegebener Commit-SHA, Tag oder Branch'
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -13,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.deploy_ref }}
 
       - name: Update social sharing metadata
         run: python3 scripts/update_social_meta.py
