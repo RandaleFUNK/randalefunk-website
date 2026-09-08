@@ -1,0 +1,27 @@
+# Apache 2.4; requires mod_headers and permission for Header directives.
+<IfModule mod_headers.c>
+    Header onsuccess unset X-Content-Type-Options
+    Header always set X-Content-Type-Options "nosniff"
+    Header onsuccess unset Referrer-Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header onsuccess unset Permissions-Policy
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header onsuccess unset X-Frame-Options
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # File matching also covers the preview in kolumnen/, without changing its access gate.
+    <FilesMatch "^(monthly-polls-admin|wahlaufruf-vorschau)\.php$">
+        Header onsuccess unset Cache-Control
+        Header always set Cache-Control "private, no-store, max-age=0, must-revalidate"
+        Header onsuccess unset Pragma
+        Header always set Pragma "no-cache"
+        Header onsuccess unset Expires
+        Header always set Expires "0"
+        Header onsuccess unset Referrer-Policy
+        Header always set Referrer-Policy "no-referrer"
+    </FilesMatch>
+</IfModule>
+
+# Not enabled: first confirm AllowOverride Options / Options=MultiViews with the host.
+# Options -MultiViews
+# CSP and HSTS are intentionally not enabled. See docs/security-headers.md.

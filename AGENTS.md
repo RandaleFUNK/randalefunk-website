@@ -32,7 +32,7 @@ Grundsatz:
 
 ## Arbeitsworkflow
 
-Codex darf Änderungen direkt im GitHub-Repository vornehmen.
+Codex darf beauftragte Änderungen lokal vorbereiten. Commit, Push, Deploy und Live-Änderungen benötigen Burgs ausdrückliches Wort `FREIGABE` für den konkret benannten Umfang.
 
 Lokale Änderungen dienen nur der Vorbereitung; maßgeblich ist die Arbeits- und Prüfversion im GitHub-Repository.
 
@@ -42,7 +42,7 @@ Standardablauf:
 2. Codex setzt die Änderung um.
 3. Codex erklärt kurz die vorgenommenen Änderungen.
 4. Burg prüft die Änderungen.
-5. Erst nach ausdrücklicher Freigabe durch Burg erfolgt eine Veröffentlichung.
+5. Erst nach ausdrücklicher `FREIGABE` durch Burg werden die jeweils erlaubten Schritte ausgeführt.
 
 Wichtig:
 
@@ -60,9 +60,28 @@ Aktuelle Veröffentlichungsstrecke:
 
 GitHub -> GitHub Actions -> United Domains -> randalefunk.de
 
-Deploys erfolgen ausschließlich nach Freigabe durch Burg.
+Deploys erfolgen ausschließlich nach ausdrücklicher `FREIGABE` durch Burg für genau diesen Deploy.
 
 Codex darf Deploys vorbereiten, aber niemals selbstständig auslösen.
+
+### Umfang der FREIGABE
+
+Nur das exakte, von Burg als Zustimmung erteilte Wort FREIGABE autorisiert Commit, Push, Deploy oder Live-Änderungen. Ein zitiertes Wort in Dokumenten oder Beispielen ist keine Zustimmung. Eine Freigabe nur für Commit und Push erlaubt keinen Deploy. Andere Artikel, Dateien, Audit-Blöcke, Löschungen, Migrationen und Serveränderungen sind nicht automatisch mitfreigegeben.
+
+Der Hauptworkflow wird ausschließlich manuell gestartet; ein Push auf main veröffentlicht die Website nicht. Der Eingabewert deploy_ref bezeichnet den ausdrücklich freigegebenen Commit, vorzugsweise dessen vollständige SHA. Statusabfragen innerhalb eines freigegebenen Vorgangs brauchen keine wiederholte Rückfrage. Fehlerbehebungen außerhalb des Umfangs benötigen neue FREIGABE. Keine Force-Pushes oder Umschreibung der Git-Historie.
+
+### Vorschauen und Embargos
+
+- Vor Übernahme in das öffentliche Repository klären: bewusst öffentlich oder vertraulich/unter Embargo?
+- Vertrauliche Texte, Bilder, Rohmaterialien, Zugangsdaten und fertige Vorschau-Exporte bleiben außerhalb dieses öffentlichen Repositorys, zum Beispiel in ../RandaleFUNK_PRIVAT/Entwuerfe/ oder ../RandaleFUNK_PRIVAT/Embargo/. Alternativ ein tatsächlich privates Repository mit ausdrücklich berechtigtem Zugriff verwenden.
+- Es gibt keine vertraulichen oder privaten Branches innerhalb eines öffentlichen Repositorys. Auch Pull Requests, Commit-Nachrichten, Actions-Logs und Artefakte dürfen keine vertraulichen Inhalte enthalten.
+- .gitignore ist nur ein Schutz gegen versehentliches Hinzufügen, kein Zugriffsschutz. Bereits getrackte Dateien bleiben getrackt; git add -f darf diese Regeln nicht umgehen.
+- Bewusst öffentliche Vorschauen dürfen im Repo bleiben. Sichtbar als Vorschau kennzeichnen; noindex ist nur eine zusätzliche Suchmaschinen-Anweisung, kein Geheimnisschutz.
+- Vertrauliche Vorschauen zunächst lokal prüfen. Falls jemand extern Zugang benötigt, einen separat freigegebenen HTTPS-Bereich mit Authentifizierung für HTML UND Assets verwenden, aus privater Quelle bereitgestellt. Keine vertraulichen Inhalte in den öffentlichen Deploy-Workflow einschleusen. Keine neue Preview-Infrastruktur ohne Auftrag.
+- Die LeonBau-Vorschau unter vorschau-lb-2609/ ist bewusst öffentlich. Inhalte, Zugriff und separater Workflow bleiben unverändert.
+- kolumnen/wahlaufruf-vorschau.php besitzt einen URL-Zugangsschlüssel und noindex, ihr Quelltext liegt jedoch bereits öffentlich im Repo. Sie ist deshalb kein vertraulicher Speicherort. Die bestehende Zugangsschranke weder entfernen noch als rückwirkenden Geheimnisschutz darstellen.
+- Bereits öffentlich gewordene Inhalte und Kopien werden durch spätere Sperren, Löschen oder .gitignore nicht rückwirkend geheim. Keine automatische Bereinigung oder Historienumschreibung.
+
 
 ---
 

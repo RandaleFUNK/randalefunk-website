@@ -12,3 +12,14 @@ server.out.log
 server.err.log
 wuerfel/Netlify-Upload/
 stats/config.php
+
+# F2: accident prevention only; confidential material belongs outside this public repo.
+# Does not hide tracked files or replace access control.
+_private/
+embargo/
+drafts/
+*.private.*
+*.embargo.*
+*.draft.*
+.htpasswd
+.htpasswd.*

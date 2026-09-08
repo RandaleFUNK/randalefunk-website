@@ -18,3 +18,15 @@ SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 <Files "auth.php">
   Require all denied
 </Files>
+
+# Do not store authenticated responses or authentication errors in browser/proxy caches.
+<IfModule mod_headers.c>
+    Header onsuccess unset Cache-Control
+    Header always set Cache-Control "private, no-store, max-age=0, must-revalidate"
+    Header onsuccess unset Pragma
+    Header always set Pragma "no-cache"
+    Header onsuccess unset Expires
+    Header always set Expires "0"
+    Header onsuccess unset Referrer-Policy
+    Header always set Referrer-Policy "no-referrer"
+</IfModule>
