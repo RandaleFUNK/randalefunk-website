@@ -18,6 +18,20 @@ jobs:
         with:
           ref: ${{ inputs.deploy_ref }}
 
+      - name: Validate required deployment secrets
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+          STATS_DB_HOST: ${{ secrets.STATS_DB_HOST }}
+          STATS_DB_NAME: ${{ secrets.STATS_DB_NAME }}
+          STATS_DB_USER: ${{ secrets.STATS_DB_USER }}
+          STATS_DB_PASSWORD: ${{ secrets.STATS_DB_PASSWORD }}
+          STATS_AUTH_USER: ${{ secrets.STATS_AUTH_USER }}
+          STATS_AUTH_PASSWORD: ${{ secrets.STATS_AUTH_PASSWORD }}
+        run: python3 scripts/check_deploy_secrets.py
+
       - name: Update social sharing metadata
         run: python3 scripts/update_social_meta.py
 
@@ -31,7 +45,7 @@ jobs:
           STATS_AUTH_PASSWORD: ${{ secrets.STATS_AUTH_PASSWORD }}
           STATS_HASH_SALT: ${{ secrets.STATS_HASH_SALT }}
         run: |
-          STATS_AUTH_PASSWORD_HASH="$(php -r 'echo password_hash(getenv("STATS_AUTH_PASSWORD") ?: "", PASSWORD_DEFAULT);')"
+          STATS_AUTH_PASSWORD_HASH="$(php -r 'echo password_hash((string) getenv("STATS_AUTH_PASSWORD"), PASSWORD_DEFAULT);')"
           export STATS_AUTH_PASSWORD_HASH
           python3 - <<'PY'
           import os
@@ -64,69 +78,13 @@ jobs:
           PY
 
       - name: Build deploy package
-        run: |
-          set -euo pipefail
-          rm -rf deploy
-          mkdir -p deploy
+        run: python3 scripts/build_deploy.py
 
-          cp index.html deploy/
-          cp style.css deploy/
-          cp script.js deploy/
-          cp track.php deploy/
-          cp poll.php deploy/
-          cp monthly-polls.php deploy/
-          cp monthly-polls-admin.php deploy/
-          cp site.webmanifest deploy/
-
-          if [ -f robots.txt ]; then cp robots.txt deploy/; fi
-          if [ -f datenschutz.html ]; then cp datenschutz.html deploy/; fi
-          if [ -f warum-unterstuetzen.html ]; then cp warum-unterstuetzen.html deploy/; fi
-          if [ -f der-rostige-kronkorken.html ]; then cp der-rostige-kronkorken.html deploy/; fi
-
-          cp -R assets deploy/
-          cp -R data deploy/
-          cp -R interviews deploy/
-          cp -R kolumnen deploy/
-          cp -R randalf deploy/
-          cp -R reviews deploy/
-          cp -R vorab-gehoert deploy/
-          cp -R wuerfel deploy/
-          cp -R stats deploy/
-
-          rm -rf deploy/wuerfel/Netlify-Upload
-          find deploy -name ".git" -o -name ".github" -o -name "Backups" -o -name "Temp_Daten" -o -name "tools" | xargs -r rm -rf
-          find deploy -type f \( -name "*.zip" -o -name "*.log" -o -name "*.md" -o -name ".env" -o -name ".gitignore" -o -name "AGENTS.md" \) -delete
-
-      - name: Remove old public internal files
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+      - name: Install SFTP client
         run: |
           set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y lftp
-          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "sftp://$FTP_SERVER" <<EOF
-          set sftp:auto-confirm yes
-          rm -f "$FTP_TARGET_DIR/AGENTS.md"
-          rm -f "$FTP_TARGET_DIR/README.md"
-          rm -f "$FTP_TARGET_DIR/stats/README.md"
-          rm -f "$FTP_TARGET_DIR/wuerfel/README.md"
-          rm -f "$FTP_TARGET_DIR/wuerfel/rules.md"
-          rm -f "$FTP_TARGET_DIR/wuerfel/quotes.md"
-          rm -f "$FTP_TARGET_DIR/community-awards.html"
-          rm -f "$FTP_TARGET_DIR/wuerfel/data/README.md"
-          rm -f "$FTP_TARGET_DIR/assets/news/README.md"
-          rm -f "$FTP_TARGET_DIR/assets/reviews/README.md"
-          rm -f "$FTP_TARGET_DIR/assets/stickers/README.md"
-          rm -f "$FTP_TARGET_DIR/assets/vorab-gehoert/README.md"
-          rm -rf "$FTP_TARGET_DIR/wuerfel/Netlify-Upload"
-          rm -rf "$FTP_TARGET_DIR/tools"
-          rm -rf "$FTP_TARGET_DIR/Backups"
-          rm -rf "$FTP_TARGET_DIR/Temp_Daten"
-          bye
-          EOF
 
       - name: Upload website via SFTP
         env:

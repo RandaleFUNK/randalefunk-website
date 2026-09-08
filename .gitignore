@@ -1,4 +1,8 @@
 .env
+.env.*
+*.bak
+*.backup
+deploy/
 *.log
 *.zip
 Backups/
