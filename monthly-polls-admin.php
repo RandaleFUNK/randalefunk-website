@@ -1,11 +1,104 @@
 <?php
 declare(strict_types=1);
 
-define('RF_POLL_LIBRARY_ONLY', true);
-require_once __DIR__ . '/poll.php';
-require_once __DIR__ . '/stats/auth.php';
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
 
-rf_stats_require_auth();
+final class RfMonthlyAdminInputException extends RuntimeException
+{
+}
+
+try {
+    define('RF_POLL_LIBRARY_ONLY', true);
+    require_once __DIR__ . '/poll.php';
+    require_once __DIR__ . '/stats/auth.php';
+
+    // Reject empty passwords here without changing the shared statistics login.
+    [$adminUser, $adminPassword] = rf_stats_basic_auth_credentials();
+    if ($adminPassword === '') {
+        rf_stats_auth_required('RandaleFUNK Monatsumfragen');
+    }
+    rf_stats_require_auth();
+    unset($adminPassword);
+
+    session_name('rf_monthly_admin');
+    if (!session_start([
+        'use_strict_mode' => 1,
+        'use_only_cookies' => 1,
+        'use_trans_sid' => 0,
+        'cookie_lifetime' => 0,
+        'cookie_path' => '/monthly-polls-admin.php',
+        'cookie_secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+        'cookie_httponly' => true,
+        'cookie_samesite' => 'Strict',
+    ])) {
+        throw new RuntimeException('Admin session unavailable.');
+    }
+
+    if (($_SESSION['admin_user'] ?? null) !== $adminUser || !is_string($_SESSION['csrf_token'] ?? null)) {
+        if (!session_regenerate_id(true)) {
+            throw new RuntimeException('Admin session renewal failed.');
+        }
+        $_SESSION = ['admin_user' => $adminUser, 'csrf_token' => bin2hex(random_bytes(32))];
+    }
+    $csrfToken = $_SESSION['csrf_token'];
+    if (!session_write_close()) {
+        throw new RuntimeException('Admin session could not be saved.');
+    }
+
+    // Check before any database access, including schema and lifecycle helpers.
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+        $submittedToken = $_POST['csrf_token'] ?? null;
+        if (!is_string($submittedToken) || !hash_equals($csrfToken, $submittedToken)) {
+            http_response_code(403);
+            header('Content-Type: text/plain; charset=utf-8');
+            echo 'Sicherheitsprüfung fehlgeschlagen. Bitte die Verwaltungsseite neu laden und erneut versuchen.';
+            exit;
+        }
+    }
+} catch (Throwable $exception) {
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Die Umfrage-Verwaltung ist gerade nicht verfügbar. Bitte später erneut versuchen.';
+    exit;
+}
+
+function rf_monthly_admin_lock_unstarted(PDO $pdo, int $pollId): void
+{
+    $statement = $pdo->prepare('SELECT starts_at FROM ' . RF_POLLS_TABLE . ' WHERE id = :id FOR UPDATE');
+    $statement->execute([':id' => $pollId]);
+    $poll = $statement->fetch();
+
+    if (!is_array($poll)) {
+        throw new RfMonthlyAdminInputException('Diese Monatsumfrage wurde nicht gefunden.');
+    }
+    if ($poll['starts_at'] !== null) {
+        throw new RfMonthlyAdminInputException('Diese Monatsumfrage wurde bereits gestartet. Ein erneuter Start oder eine Kandidatenänderung ist nicht erlaubt.');
+    }
+}
+
+function rf_monthly_admin_start(PDO $pdo, int $year, int $month, string $awardType): array
+{
+    $pdo->beginTransaction();
+    try {
+        $poll = rf_poll_monthly_by_period($pdo, $year, $month, $awardType);
+        if ($poll === null) {
+            throw new RfMonthlyAdminInputException('Bitte zuerst genau 10 Kandidaten speichern.');
+        }
+        rf_monthly_admin_lock_unstarted($pdo, (int) $poll['id']);
+        if (rf_poll_option_count($pdo, (int) $poll['id']) !== 10) {
+            throw new RfMonthlyAdminInputException('Diese Monatsumfrage braucht genau 10 Kandidaten.');
+        }
+        $poll = rf_poll_start_monthly($pdo, $year, $month, $awardType);
+        $pdo->commit();
+        return $poll;
+    } catch (Throwable $exception) {
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        throw $exception;
+    }
+}
 
 function rf_monthly_admin_award_label(string $awardType): string
 {
@@ -32,21 +125,17 @@ function rf_monthly_admin_poll(PDO $pdo, int $year, int $month, string $awardTyp
 
 function rf_monthly_admin_save_candidates(PDO $pdo, int $year, int $month, string $awardType, string $candidateText): void
 {
-    $poll = rf_monthly_admin_poll($pdo, $year, $month, $awardType);
-
-    if (($poll['starts_at'] ?? null) !== null) {
-        throw new RuntimeException('Kandidaten koennen nur vor dem Start geaendert werden.');
-    }
-
     $candidates = array_values(array_filter(array_map('trim', preg_split('/\R/u', $candidateText) ?: [])));
 
     if (count($candidates) !== 10) {
-        throw new RuntimeException('Bitte genau 10 Kandidaten eintragen, je Zeile einen.');
+        throw new RfMonthlyAdminInputException('Bitte genau 10 Kandidaten eintragen, je Zeile einen.');
     }
 
     $pdo->beginTransaction();
 
     try {
+        $poll = rf_monthly_admin_poll($pdo, $year, $month, $awardType);
+        rf_monthly_admin_lock_unstarted($pdo, (int) $poll['id']);
         $delete = $pdo->prepare('DELETE FROM ' . RF_POLL_OPTIONS_TABLE . ' WHERE poll_id = :poll_id');
         $delete->execute([':poll_id' => (int) $poll['id']]);
 
@@ -78,7 +167,7 @@ function rf_monthly_admin_option_text(PDO $pdo, int $pollId): string
     return implode("\n", $lines);
 }
 
-function rf_monthly_admin_render_row(PDO $pdo, int $year, int $month, string $awardType): string
+function rf_monthly_admin_render_row(PDO $pdo, int $year, int $month, string $awardType, string $csrfToken): string
 {
     $monthNames = rf_poll_month_names();
     $poll = rf_poll_monthly_by_period($pdo, $year, $month, $awardType);
@@ -97,6 +186,7 @@ function rf_monthly_admin_render_row(PDO $pdo, int $year, int $month, string $aw
 
     if ($canEdit) {
         $html .= '<form method="post" class="monthly-admin-form">';
+        $html .= '<input type="hidden" name="csrf_token" value="' . rf_poll_escape($csrfToken) . '">';
         $html .= '<input type="hidden" name="action" value="save_candidates">';
         $html .= '<input type="hidden" name="year" value="' . $year . '">';
         $html .= '<input type="hidden" name="month" value="' . $month . '">';
@@ -107,6 +197,7 @@ function rf_monthly_admin_render_row(PDO $pdo, int $year, int $month, string $aw
     }
 
     $html .= '<form method="post" class="monthly-admin-form">';
+    $html .= '<input type="hidden" name="csrf_token" value="' . rf_poll_escape($csrfToken) . '">';
     $html .= '<input type="hidden" name="action" value="start">';
     $html .= '<input type="hidden" name="year" value="' . $year . '">';
     $html .= '<input type="hidden" name="month" value="' . $month . '">';
@@ -120,9 +211,26 @@ function rf_monthly_admin_render_row(PDO $pdo, int $year, int $month, string $aw
 
 $message = '';
 $error = '';
-$year = (int) ($_GET['year'] ?? $_POST['year'] ?? 2026);
+$isPost = ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST';
+$year = filter_var($isPost ? ($_POST['year'] ?? null) : ($_GET['year'] ?? 2026), FILTER_VALIDATE_INT,
+    ['options' => ['min_range' => 2020, 'max_range' => 2100]]);
 
 try {
+    if ($year === false) {
+        $year = 2026;
+        throw new RfMonthlyAdminInputException('Bitte ein Jahr zwischen 2020 und 2100 angeben.');
+    }
+    if ($isPost) {
+        $month = filter_var($_POST['month'] ?? null, FILTER_VALIDATE_INT,
+            ['options' => ['min_range' => 1, 'max_range' => 12]]);
+        $awardType = $_POST['award_type'] ?? null;
+        $action = $_POST['action'] ?? null;
+        if ($month === false || !in_array($awardType, ['album_ep', 'single_song'], true)
+            || !in_array($action, ['save_candidates', 'start'], true)
+            || ($action === 'save_candidates' && !is_string($_POST['candidates'] ?? null))) {
+            throw new RfMonthlyAdminInputException('Ungültige Eingabe. Bitte das Formular erneut ausfüllen.');
+        }
+    }
     if (!rf_stats_is_configured()) {
         throw new RuntimeException('Statistik-Datenbank ist nicht konfiguriert.');
     }
@@ -133,22 +241,42 @@ try {
     rf_poll_sync_yearly_candidates($pdo, $year, 'album_ep');
     rf_poll_sync_yearly_candidates($pdo, $year, 'single_song');
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $month = (int) ($_POST['month'] ?? 0);
-        $awardType = (string) ($_POST['award_type'] ?? '');
-
-        if ((string) ($_POST['action'] ?? '') === 'save_candidates') {
+    if ($isPost) {
+        if ($action === 'save_candidates') {
             rf_monthly_admin_save_candidates($pdo, $year, $month, $awardType, (string) ($_POST['candidates'] ?? ''));
             $message = 'Kandidaten gespeichert.';
         }
 
-        if ((string) ($_POST['action'] ?? '') === 'start') {
-            $poll = rf_poll_start_monthly($pdo, $year, $month, $awardType);
+        if ($action === 'start') {
+            $poll = rf_monthly_admin_start($pdo, $year, $month, $awardType);
             $message = 'Umfrage gestartet. Laufzeit bis ' . rf_poll_escape((string) ($poll['ends_at'] ?? ''));
         }
     }
-} catch (Throwable $exception) {
+} catch (RfMonthlyAdminInputException $exception) {
+    http_response_code(400);
     $error = $exception->getMessage();
+} catch (Throwable $exception) {
+    http_response_code(500);
+    $error = 'Die Umfrage-Verwaltung ist gerade nicht verfügbar. Bitte später erneut versuchen.';
+    unset($pdo);
+}
+
+// Render inside the error boundary so database failures cannot leak details.
+$albumRows = '';
+$singleRows = '';
+try {
+    if (isset($pdo)) {
+        for ($month = 1; $month <= 12; $month++) {
+            $albumRows .= rf_monthly_admin_render_row($pdo, $year, $month, 'album_ep', $csrfToken);
+            $singleRows .= rf_monthly_admin_render_row($pdo, $year, $month, 'single_song', $csrfToken);
+        }
+    }
+} catch (Throwable $exception) {
+    http_response_code(500);
+    $message = '';
+    $error = 'Die Umfrage-Verwaltung ist gerade nicht verfügbar. Bitte später erneut versuchen.';
+    $albumRows = '';
+    $singleRows = '';
 }
 ?>
 <!doctype html>
@@ -179,24 +307,12 @@ try {
 
       <section class="monthly-admin-grid" aria-label="Album/EP des Monats">
         <h2>Album/EP des Monats</h2>
-        <?php
-        if (isset($pdo)) {
-            for ($month = 1; $month <= 12; $month++) {
-                echo rf_monthly_admin_render_row($pdo, $year, $month, 'album_ep');
-            }
-        }
-        ?>
+        <?php echo $albumRows; ?>
       </section>
 
       <section class="monthly-admin-grid" aria-label="Single/Song des Monats">
         <h2>Single/Song des Monats</h2>
-        <?php
-        if (isset($pdo)) {
-            for ($month = 1; $month <= 12; $month++) {
-                echo rf_monthly_admin_render_row($pdo, $year, $month, 'single_song');
-            }
-        }
-        ?>
+        <?php echo $singleRows; ?>
       </section>
     </main>
   </body>
