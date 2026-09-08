@@ -177,11 +177,7 @@ if (!rf_stats_is_configured()) {
 
 try {
     $pdo = rf_stats_pdo();
-    rf_poll_ensure_schema($pdo);
-    rf_poll_close_expired($pdo);
     $year = (int) ($_GET['year'] ?? 2026);
-    rf_poll_sync_yearly_candidates($pdo, $year, 'album_ep');
-    rf_poll_sync_yearly_candidates($pdo, $year, 'single_song');
     $months = rf_monthly_poll_compact_months($pdo, $year);
 
     echo json_encode([

@@ -15,12 +15,17 @@ function rf_poll_escape(string $value): string
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-function rf_poll_token(): string
+function rf_poll_token(bool $create = false): string
 {
-    $token = (string) ($_COOKIE[RF_POLL_COOKIE] ?? '');
+    $token = $_COOKIE[RF_POLL_COOKIE] ?? '';
+    $token = is_string($token) ? $token : '';
 
     if (preg_match('/^[a-f0-9]{64}$/', $token) === 1) {
         return $token;
+    }
+
+    if (!$create) {
+        return '';
     }
 
     $token = bin2hex(random_bytes(32));
@@ -37,12 +42,17 @@ function rf_poll_token(): string
     return $token;
 }
 
-function rf_poll_token_hash(): string
+function rf_poll_token_hash(bool $create = false): string
 {
+    $token = rf_poll_token($create);
+    if ($token === '') {
+        return '';
+    }
+
     $config = rf_stats_config();
     $salt = (string) ($config['hash_salt'] ?? 'randalefunk-poll');
 
-    return hash('sha256', $salt . '|poll|' . rf_poll_token());
+    return hash('sha256', $salt . '|poll|' . $token);
 }
 
 function rf_poll_column_exists(PDO $pdo, string $column): bool
@@ -639,7 +649,7 @@ function rf_poll_by_slug(PDO $pdo, string $slug): ?array
     $statement->execute([':slug' => $slug]);
     $poll = $statement->fetch();
 
-    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+    return is_array($poll) ? rf_poll_read_state($pdo, $poll) : null;
 }
 
 function rf_poll_monthly_slug(string $awardType, int $year, int $month): string
@@ -704,7 +714,7 @@ function rf_poll_monthly_by_period(PDO $pdo, int $year, int $month, string $awar
     ]);
     $poll = $statement->fetch();
 
-    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+    return is_array($poll) ? rf_poll_read_state($pdo, $poll) : null;
 }
 
 function rf_poll_create_monthly(PDO $pdo, int $year, int $month, string $awardType): int
@@ -745,7 +755,7 @@ function rf_poll_yearly_by_period(PDO $pdo, int $year, string $awardType): ?arra
     ]);
     $poll = $statement->fetch();
 
-    return is_array($poll) ? rf_poll_maybe_close($pdo, $poll) : null;
+    return is_array($poll) ? rf_poll_read_state($pdo, $poll) : null;
 }
 
 function rf_poll_create_yearly(PDO $pdo, int $year, string $awardType): int
@@ -797,6 +807,11 @@ function rf_poll_option_count(PDO $pdo, int $pollId): int
 
 function rf_poll_has_voted(PDO $pdo, int $pollId): bool
 {
+    $voterHash = rf_poll_token_hash();
+    if ($voterHash === '') {
+        return false;
+    }
+
     $statement = $pdo->prepare(
         'SELECT COUNT(*)
          FROM ' . RF_POLL_VOTES_TABLE . '
@@ -804,7 +819,7 @@ function rf_poll_has_voted(PDO $pdo, int $pollId): bool
     );
     $statement->execute([
         ':poll_id' => $pollId,
-        ':voter_hash' => rf_poll_token_hash(),
+        ':voter_hash' => $voterHash,
     ]);
 
     return (int) $statement->fetchColumn() > 0;
@@ -890,6 +905,29 @@ function rf_poll_sync_yearly_candidates(PDO $pdo, int $year, string $awardType):
     }
 }
 
+// Public reads show expired results without persisting closure or yearly candidates.
+function rf_poll_read_state(PDO $pdo, array $poll): array
+{
+    $scope = (string) ($poll['poll_scope'] ?? 'weekly');
+    $endsAt = (string) ($poll['ends_at'] ?? '');
+
+    if (!in_array($scope, ['monthly', 'yearly'], true) || $endsAt === '' || $poll['closed_at'] !== null) {
+        return $poll;
+    }
+
+    if (new DateTimeImmutable('now') < new DateTimeImmutable($endsAt)) {
+        return $poll;
+    }
+
+    $poll['is_active'] = 0;
+    $poll['closed_at'] = $endsAt;
+    $poll['archived_at'] = $poll['archived_at'] ?? $endsAt;
+    $poll['winner_option_id'] = rf_poll_winner_option_id(rf_poll_options($pdo, (int) $poll['id']));
+
+    return $poll;
+}
+
+// Persistent housekeeping is invoked only by the authenticated administration.
 function rf_poll_maybe_close(PDO $pdo, array $poll): array
 {
     $scope = (string) ($poll['poll_scope'] ?? 'weekly');
@@ -1013,7 +1051,7 @@ function rf_poll_record_vote(PDO $pdo, array $poll, int $optionId): void
     $insert->execute([
         ':poll_id' => $pollId,
         ':option_id' => $optionId,
-        ':voter_hash' => rf_poll_token_hash(),
+        ':voter_hash' => rf_poll_token_hash(true),
     ]);
 }
 
@@ -1211,8 +1249,6 @@ function rf_poll_handle_request(): void
 
     try {
         $pdo = rf_stats_pdo();
-        rf_poll_ensure_schema($pdo);
-        rf_poll_close_expired($pdo);
         $requestedPoll = (string) ($_GET['poll'] ?? '');
         $poll = $requestedPoll !== '' ? rf_poll_by_slug($pdo, $requestedPoll) : rf_poll_active($pdo);
 

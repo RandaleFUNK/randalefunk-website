@@ -6,7 +6,21 @@ Die Umfrage nutzt dieselbe Datenbank-Konfiguration wie die Statistik:
 website/stats/config.php
 ```
 
-`poll.php` legt die Tabellen bei Bedarf selbst an. Wenn noch keine Umfrage existiert, wird die Testumfrage automatisch angelegt.
+## Initialisierung und Wartung
+
+Schema-Prüfung, Schema-Ergänzungen und die im Code hinterlegten Startumfragen werden nur beim authentifizierten Aufruf von monthly-polls-admin.php ausgeführt. Dort werden auch abgelaufene Umfragen dauerhaft abgeschlossen und Monatsgewinner als Kandidaten der Jahreswahl übernommen. Das ist die bestehende geschützte Verwaltungsfunktion, kein neuer öffentlicher Wartungs-Endpunkt.
+
+Bei einer Neuinstallation oder nach Änderungen an Schema bzw. Startumfragen muss die Verwaltung deshalb einmal berechtigt aufgerufen werden. Für die Übernahme neuer Monatsgewinner in die Jahreswahl ebenfalls die Verwaltung für das betreffende Jahr aufrufen. Es gibt keinen neu eingerichteten Zeitplan oder Cronjob.
+
+Öffentliche GET-Aufrufe von poll.php und monthly-polls.php lesen nur. Abgelaufene Ergebnisse und Gewinner werden bei Bedarf für die Anzeige berechnet, ohne Umfragen oder Jahreskandidaten zu verändern. Ein gültiger Abstimmungs-POST darf weiterhin die Stimme speichern. Abstimmungen nach Ablauf bleiben gesperrt. Ohne initialisierte Tabellen erscheint die vorhandene allgemeine Fehlermeldung; öffentliche Aufrufe legen keine Tabellen an.
+
+## Poll-Kennung
+
+rf_poll_token wird erst bei einer gültigen Stimme für eine offene Umfrage erzeugt. Lesen, ungültige Optionen und Abstimmungen nach Ablauf erzeugen keine neue Kennung. Vorhandene gültige Cookies und ihre bisherige Hash-Bildung bleiben kompatibel.
+
+Laufzeit: 365 Tage ab Erstellung, ohne Verlängerung beim Lesen oder Wiederverwenden. HttpOnly, SameSite=Lax, Secure bei HTTPS. Die Datenbank speichert pro Stimme den gesalzenen Hash; die bestehende Eindeutigkeitsregel pro Umfrage verhindert Wiederholungsstimmen. Ohne Cookie beziehungsweise mit einem anderen Browser greift diese Begrenzung nicht zuverlässig.
+
+Cookie-Ablauf ist keine Löschung von Datenbankstimmen. Historische Stimmen und Statistikereignisse werden durch C1 weder gelöscht noch migriert.
 
 ## Neue Umfrage anlegen
 

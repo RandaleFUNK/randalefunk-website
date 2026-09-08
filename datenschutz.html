@@ -61,7 +61,7 @@
 
           <h2>2. Grundsatz</h2>
           <p>RandaleFUNK.de verwendet keine Cookies für Besuchertracking, erstellt keine Nutzerprofile und bindet keine externen Trackingdienste wie Google Analytics, Google Tag Manager oder vergleichbare Analyse- und Werbenetzwerke ein.</p>
-          <p>Personenbezogene Daten werden nur verarbeitet, soweit dies für den technischen Betrieb der Webseite, für eine freiwillige Kontaktaufnahme oder für die unten beschriebene interne Reichweitenmessung erforderlich ist.</p>
+          <p>Personenbezogene Daten werden nur verarbeitet, soweit dies für den technischen Betrieb der Webseite, für eine freiwillige Kontaktaufnahme, für die Teilnahme an Umfragen oder für die unten beschriebene interne Reichweitenmessung erforderlich ist.</p>
 
           <h2>3. Server-Logfiles des Webhosters</h2>
           <p>Beim Aufruf dieser Webseite verarbeitet der Webserver technisch notwendige Zugriffsdaten. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Datei oder Adresse, übertragene Datenmenge, HTTP-Statuscode, Referrer, Browsertyp, Betriebssystem und User-Agent gehören.</p>
@@ -72,12 +72,17 @@
           <p>RandaleFUNK.de betreibt eine eigene, einfache Reichweitenmessung über die Datei <code>track.php</code>. Sie dient dazu, grob zu erkennen, welche Seitenbereiche besucht werden und wie oft bestimmte interne Aktionen genutzt werden.</p>
           <p>Erfasst werden Seitenaufrufe und einzelne Ereignisse wie Klicks auf PayPal, Klicks zum RandaleFUNK-Shop bei Riot Candy oder das Öffnen der Würfel-App. Gespeichert werden dabei Zeitstempel, Tagesdatum, Ereignistyp, aufgerufener Pfad, Rubrik und ein täglicher Besucher-Hash.</p>
           <p>Die IP-Adresse wird nicht im Klartext dauerhaft gespeichert. Für die Zählung unterschiedlicher Besucher wird pro Tag ein Hash aus einem geheimen Salt, dem Datum und technischen Merkmalen der Anfrage gebildet. Zu diesen technischen Merkmalen gehören insbesondere IP-Adresse und User-Agent. Durch das Tagesdatum entstehen täglich neue Hashwerte; eine dauerhafte Wiedererkennung über mehrere Tage hinweg ist damit nicht vorgesehen.</p>
+          <p>Die täglichen Besucher-Hashes werden zusammen mit den einzelnen Statistikereignissen gespeichert. Der tägliche Wechsel bedeutet nicht, dass ältere Kennungen gelöscht werden. Die Kennungen sind pseudonym und nicht mit vollständig anonymen Daten gleichzusetzen.</p>
           <p>Die interne Statistik setzt keine Cookies, nutzt keinen Local Storage zur Besucherwiedererkennung, bindet keine externen Analyseanbieter ein und erstellt keine Nutzerprofile. Die Auswertung bleibt intern.</p>
           <p>Wenn der Browser die Einstellung <code>Do Not Track</code> mit dem Wert <code>1</code> sendet, wird die interne Reichweitenmessung für diese Anfrage nicht gespeichert.</p>
           <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt darin, die Reichweite einer kleinen redaktionellen Webseite datensparsam einschätzen und die Seite technisch sowie inhaltlich weiterentwickeln zu können.</p>
 
-          <h2>5. Cookies</h2>
-          <p>RandaleFUNK.de setzt nach aktueller technischer Umsetzung keine eigenen Cookies für Besuchertracking oder Nutzerprofile ein.</p>
+          <h2>5. Umfragen und Cookies</h2>
+          <p>Beim bloßen Laden einer öffentlichen Umfrage wird keine neue Poll-Kennung gesetzt. Erst beim Absenden einer gültigen Stimme für eine offene Umfrage wird, sofern noch keine gültige Kennung vorhanden ist, das Cookie <code>rf_poll_token</code> mit einer zufälligen Kennung angelegt. Es dient dazu, eine erneute Stimme desselben Browsers in derselben Umfrage zu verhindern, nicht zur Reichweitenmessung.</p>
+          <p>Das Cookie gilt für RandaleFUNK.de und hat eine Laufzeit von 365 Tagen ab seiner Erstellung. Beim Lesen oder erneuten Abstimmen wird diese Frist nicht verlängert. Eine vorhandene Kennung wird weiterverwendet. Das Cookie ist für JavaScript nicht lesbar (HttpOnly), verwendet SameSite=Lax und wird bei HTTPS-Aufrufen mit dem Secure-Attribut gesetzt.</p>
+          <p>Zu einer Stimme werden die Umfrage, die gewählte Antwort, der Zeitpunkt und ein mit einem geheimen Salt gebildeter Hash der Cookie-Kennung gespeichert. In diesen Abstimmungsdatensätzen werden weder die Cookie-Kennung im Klartext noch IP-Adressen gespeichert. Derselbe Hash kann in mehreren Umfragen vorkommen; die Stimmen sind deshalb pseudonym und technisch miteinander verknüpfbar, nicht vollständig anonym. Die Kennung wird nicht für Nutzerprofile verwendet.</p>
+          <p>Das Cookie kann über die Browserfunktionen gelöscht oder blockiert werden. Ohne dauerhaft gespeicherte Kennung beziehungsweise in einem anderen Browser ist die Verhinderung mehrfacher Stimmen nur eingeschränkt möglich. Das Löschen des Cookies löscht keine bereits gespeicherten Stimmen.</p>
+          <p>Nur in der passwortgeschützten Monatsumfrage-Verwaltung wird zusätzlich das Sitzungscookie <code>rf_monthly_admin</code> verwendet. Es bindet den Schutz vor fremden Formularanfragen an die Admin-Sitzung, ist auf die Verwaltungsseite beschränkt und hat kein festes Ablaufdatum im Cookie. Öffentliche Umfrageaufrufe setzen dieses Admin-Cookie nicht.</p>
           <p>Beim Anklicken externer Links oder beim aktiven Laden externer Inhalte können die jeweiligen Drittanbieter eigene Cookies oder vergleichbare Technologien einsetzen. Darauf hat RandaleFUNK.de keinen Einfluss.</p>
 
           <h2>6. YouTube-Videos</h2>
@@ -96,6 +101,8 @@
           <p>Diese Speicherung erfolgt ausschließlich lokal auf dem verwendeten Gerät. Der gespeicherte Name wird nicht über die Würfel-App an RandaleFUNK.de übermittelt und nicht für Tracking oder Profile verwendet. Die Speicherung dient nur dazu, den Namen bei späterer Nutzung der App wieder einzusetzen.</p>
           <p>Außerdem kann RandaleFUNK.de lokal im Browser speichern, welche Rubriken bereits als gesehen markiert wurden. Dafür wird <code>localStorage</code> mit dem Schlüssel <code>randalefunk_seen_sections_v1</code> verwendet. Diese Information bleibt ausschließlich im Browser, wird nicht an RandaleFUNK.de übertragen und dient nur dazu, neue Inhalte mit einem kleinen „Neu“-Hinweis zu markieren.</p>
           <p>Der Eintrag kann jederzeit über die Browserfunktionen zum Löschen von Website-Daten entfernt werden. Alternativ kann im Browser der lokale Speicher für RandaleFUNK.de gelöscht werden.</p>
+          <p>Die Würfel-App verwendet außerdem einen Service Worker und den Cache-Speicher des Browsers. App-Seiten, Skripte, Schriften, Bilder und Audio-/Videodateien können vorgeladen und lokal zwischengespeichert werden. Gespeicherte Inhalte werden bevorzugt aus diesem Cache geladen; das ermöglicht schnellere Aufrufe und teilweise die Nutzung ohne Internetverbindung. Nicht zwischengespeicherte Inhalte benötigen weiterhin eine Verbindung.</p>
+          <p>Für diese Cache-Inhalte und die genannten localStorage-Einträge ist keine feste zeitliche Löschfrist programmiert. Website-Daten lassen sich im Browser entfernen; der Browser kann Speicher auch selbst freigeben. Bei einem Service-Worker-Update mit neuer Cache-Version werden ältere Caches entfernt.</p>
           <p><code>sessionStorage</code> wird nach aktueller technischer Umsetzung nicht verwendet.</p>
 
           <h2>9. Kontaktaufnahme per E-Mail</h2>
@@ -104,8 +111,9 @@
           <p>E-Mails werden gelöscht, wenn sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
           <h2>10. Speicherdauer</h2>
-          <p>Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist. Server-Logfiles werden nach den Vorgaben des Webhosters gespeichert und anschließend gelöscht oder anonymisiert.</p>
-          <p>Die interne Statistik speichert keine IP-Adressen im Klartext. Der tägliche Besucher-Hash dient nur der datensparsamen Zählung und wird nicht zur Bildung langfristiger Nutzerprofile verwendet.</p>
+          <p>Für einzelne interne Statistikereignisse einschließlich der täglichen Besucher-Hashes ist derzeit keine automatische Löschung oder nachträgliche Zusammenfassung programmiert. Auch Umfragen und Stimmen einschließlich der gehashten Poll-Kennungen haben derzeit keine automatische Löschfrist in der Datenbank. Die oben genannte Cookie-Laufzeit begrenzt nur die Speicherung im Browser, nicht die Aufbewahrung bereits abgegebener Stimmen auf dem Server.</p>
+          <p>Die tatsächlichen Speicherfristen der Server-Logfiles richten sich nach dem Webhoster und sind hier noch nicht verbindlich bestätigt. Eine konkrete Anzahl von Tagen wird deshalb nicht angegeben.</p>
+          <p>Für lokale Browserdaten gelten die Angaben in den Abschnitten 5 und 8, für E-Mails die Angaben in Abschnitt 9. Ein späteres Lösch- oder Aggregationskonzept für die Statistik ist noch nicht umgesetzt.</p>
 
           <h2>11. Rechte betroffener Personen</h2>
           <p>Betroffene Personen haben nach Maßgabe der DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen.</p>
@@ -113,7 +121,7 @@
           <p>Anfragen zum Datenschutz können per E-Mail an <a href="mailto:post@randalefunk.de">post@randalefunk.de</a> gerichtet werden.</p>
 
           <h2>12. Stand</h2>
-          <p>Stand dieser Datenschutzerklärung: 16. Juni 2026.</p>
+          <p>Stand dieser Datenschutzerklärung: 8. September 2026.</p>
           <p>Diese Datenschutzerklärung kann angepasst werden, wenn technische oder rechtliche Änderungen dies erforderlich machen.</p>
         </section>
       </article>
