@@ -270,15 +270,58 @@ function rf_stats_period_condition(array $period): array
     ];
 }
 
+
+function rf_stats_rollups_available(PDO $pdo): bool
+{
+    $count = rf_stats_scalar($pdo,
+        'SELECT COUNT(*) FROM information_schema.tables
+         WHERE table_schema = DATABASE()
+           AND table_name IN ("rf_stats_daily_totals", "rf_stats_daily_dimensions")'
+    );
+    if ($count === 1) {
+        throw new RuntimeException('Statistik-Summentabellen sind unvollstaendig.');
+    }
+    if ($count === 2 && rf_stats_scalar($pdo,
+        'SELECT EXISTS(SELECT 1 FROM rf_stats_events r
+         JOIN (SELECT event_date FROM rf_stats_daily_totals
+               UNION SELECT event_date FROM rf_stats_daily_dimensions) a USING (event_date) LIMIT 1)') === 1) {
+        throw new RuntimeException('Rohdaten und Summen fuer denselben Tag sind nicht verlustfrei zusammenfuehrbar.');
+    }
+    return $count === 2;
+}
+
+function rf_stats_daily_source(PDO $pdo): string
+{
+    $sql = 'SELECT event_date, event_type, COUNT(*) AS event_count,
+                   COUNT(DISTINCT visitor_day_hash) AS visitor_day_values
+            FROM ' . RF_STATS_TABLE . ' GROUP BY event_date, event_type';
+    if (rf_stats_rollups_available($pdo)) {
+        $sql .= ' UNION ALL SELECT event_date, event_type, event_count, visitor_day_values
+                  FROM rf_stats_daily_totals';
+    }
+    return '(' . $sql . ') stats_daily';
+}
+
+function rf_stats_dimension_source(PDO $pdo): string
+{
+    $sql = 'SELECT event_date, event_type, path, section, COUNT(*) AS event_count
+            FROM ' . RF_STATS_TABLE . ' GROUP BY event_date, event_type, path, section';
+    if (rf_stats_rollups_available($pdo)) {
+        $sql .= ' UNION ALL SELECT event_date, event_type, path, section, event_count
+                  FROM rf_stats_daily_dimensions';
+    }
+    return '(' . $sql . ') stats_dimensions';
+}
+
 function rf_stats_pageview_totals(PDO $pdo, array $period): array
 {
     [$condition, $params] = rf_stats_period_condition($period);
     $rows = rf_stats_rows(
         $pdo,
         'SELECT
-            COUNT(*) AS pageviews,
-            COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) AS visitor_day_values
-         FROM ' . RF_STATS_TABLE . '
+            COALESCE(SUM(event_count), 0) AS pageviews,
+            COALESCE(SUM(visitor_day_values), 0) AS visitor_day_values
+         FROM ' . rf_stats_daily_source($pdo) . '
          WHERE event_type = "pageview"' . $condition,
         $params
     );
@@ -296,8 +339,8 @@ function rf_stats_top_pages(PDO $pdo, array $period): array
 
     return rf_stats_rows(
         $pdo,
-        'SELECT path, COUNT(*) AS count
-         FROM ' . RF_STATS_TABLE . '
+        'SELECT path, SUM(event_count) AS count
+         FROM ' . rf_stats_dimension_source($pdo) . '
          WHERE event_type = "pageview"' . $condition . '
          GROUP BY path
          ORDER BY count DESC, path ASC
@@ -312,8 +355,8 @@ function rf_stats_top_sections(PDO $pdo, array $period): array
 
     return rf_stats_rows(
         $pdo,
-        'SELECT section, COUNT(*) AS count
-         FROM ' . RF_STATS_TABLE . '
+        'SELECT section, SUM(event_count) AS count
+         FROM ' . rf_stats_dimension_source($pdo) . '
          WHERE event_type = "pageview"' . $condition . '
          GROUP BY section
          ORDER BY count DESC, section ASC',
@@ -327,8 +370,8 @@ function rf_stats_randalf_pageviews(PDO $pdo, array $period): int
 
     return rf_stats_scalar(
         $pdo,
-        'SELECT COUNT(*)
-         FROM ' . RF_STATS_TABLE . '
+        'SELECT SUM(event_count)
+         FROM ' . rf_stats_dimension_source($pdo) . '
          WHERE event_type = "pageview" AND section = "randalf"' . $condition,
         $params
     );
@@ -341,9 +384,9 @@ function rf_stats_event_totals(PDO $pdo, string $eventType, array $period): arra
     $rows = rf_stats_rows(
         $pdo,
         'SELECT
-            COUNT(*) AS clicks,
-            COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) AS clicker_day_values
-         FROM ' . RF_STATS_TABLE . '
+            COALESCE(SUM(event_count), 0) AS clicks,
+            COALESCE(SUM(visitor_day_values), 0) AS clicker_day_values
+         FROM ' . rf_stats_daily_source($pdo) . '
          WHERE event_type = :event_type' . $condition,
         $params
     );
@@ -364,9 +407,9 @@ function rf_stats_daily_series(PDO $pdo): array
         $pdo,
         'SELECT
             event_date AS period_key,
-            COUNT(*) AS pageviews,
-            COUNT(DISTINCT visitor_day_hash) AS visitor_day_values
-         FROM ' . RF_STATS_TABLE . '
+            COALESCE(SUM(event_count), 0) AS pageviews,
+            COALESCE(SUM(visitor_day_values), 0) AS visitor_day_values
+         FROM ' . rf_stats_daily_source($pdo) . '
          WHERE event_type = "pageview"
            AND event_date >= :period_start
            AND event_date < :period_end
@@ -408,9 +451,9 @@ function rf_stats_monthly_series(PDO $pdo): array
         $pdo,
         'SELECT
             DATE_FORMAT(event_date, "%Y-%m") AS period_key,
-            COUNT(*) AS pageviews,
-            COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) AS visitor_day_values
-         FROM ' . RF_STATS_TABLE . '
+            COALESCE(SUM(event_count), 0) AS pageviews,
+            COALESCE(SUM(visitor_day_values), 0) AS visitor_day_values
+         FROM ' . rf_stats_daily_source($pdo) . '
          WHERE event_type = "pageview"
            AND event_date >= :period_start
            AND event_date < :period_end
@@ -461,6 +504,9 @@ function rf_stats_dashboard_data(PDO $pdo, string $requestedRange = '30d'): arra
         ? $selectedTotals['pageviews'] / $selectedTotals['visitor_day_values']
         : 0.0;
     $riotShopTotals = rf_stats_event_totals($pdo, 'riot_shop_click', $selectedPeriod);
+    $paypalTotals = rf_stats_event_totals($pdo, 'paypal_click', $periods['all']);
+    $supportTotals = rf_stats_event_totals($pdo, 'support_click', $periods['all']);
+    $diceTotals = rf_stats_event_totals($pdo, 'wuerfel_click', $periods['all']);
     $riotShopInterestRate = $selectedTotals['visitor_day_values'] > 0
         ? ($riotShopTotals['clicker_day_values'] / $selectedTotals['visitor_day_values']) * 100
         : 0.0;
@@ -476,26 +522,11 @@ function rf_stats_dashboard_data(PDO $pdo, string $requestedRange = '30d'): arra
         'riot_shop_clicks' => $riotShopTotals['clicks'],
         'riot_shop_clicker_day_values' => $riotShopTotals['clicker_day_values'],
         'riot_shop_interest_rate' => $riotShopInterestRate,
-        'paypal_clicks' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "paypal_click"'
-        ),
-        'paypal_clickers_total' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "paypal_click"'
-        ),
-        'support_clicks' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "support_click"'
-        ),
-        'support_clickers_total' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(DISTINCT CONCAT(event_date, ":", visitor_day_hash)) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "support_click"'
-        ),
-        'wuerfel_clicks' => rf_stats_scalar(
-            $pdo,
-            'SELECT COUNT(*) FROM ' . RF_STATS_TABLE . ' WHERE event_type = "wuerfel_click"'
-        ),
+        'paypal_clicks' => $paypalTotals['clicks'],
+        'paypal_clickers_total' => $paypalTotals['clicker_day_values'],
+        'support_clicks' => $supportTotals['clicks'],
+        'support_clickers_total' => $supportTotals['clicker_day_values'],
+        'wuerfel_clicks' => $diceTotals['clicks'],
         'top_pages' => rf_stats_top_pages($pdo, $selectedPeriod),
         'top_sections' => rf_stats_top_sections($pdo, $selectedPeriod),
         'daily_series' => rf_stats_daily_series($pdo),
