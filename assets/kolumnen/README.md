@@ -49,3 +49,9 @@
 
 - Quelle: Audio von Burg bereitgestellt.
 - Verwendung: Vorlese-Version zur Kolumne `Was passiert, wenn ein Punk-Slogan seine Szene verlässt?`.
+
+## piratenpartei-wombat-randalf.png
+
+- Quelle: Eigene RandaleFUNK-Illustration, KI-generiert mit dem bestehenden Randalf-Piratensticker als Figuren- und Stilreferenz.
+- Verwendung: Kolumne `20 Jahre Piratenpartei: Der Wombat war nicht das Problem`.
+- Kontext: Randalf und ein Wombat nach einer langen politischen Nacht; kein offizielles Bild der Piratenpartei.
