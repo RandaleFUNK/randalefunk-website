@@ -695,6 +695,26 @@ Punktewertungen sind optional.
 
 ---
 
+## Kolumnen-Vorschaukacheln
+
+Neue Kolumnen werden auf der Startseite automatisch mit einer bebilderten Vorschaukachel angelegt.
+
+Verbindlich:
+
+* Das Hauptbild der jeweiligen Kolumne auch als kleines Vorschaubild verwenden.
+* Das Bild oben rechts wie ein leicht schief aufgeklebtes Foto platzieren.
+* Das Bild darf kontrolliert über den oberen und rechten Kartenrand hinausragen.
+* Vorschaubilder im Format 4:3 zuschneiden und mit `object-fit: cover` darstellen; die Originaldatei nicht eigens beschneiden.
+* Die Schräglage zwischen benachbarten Kacheln leicht variieren, statt alle Bilder identisch zu drehen.
+* Der Bildausschnitt muss das wichtige Motiv zeigen. Bei Personenbildern Gesichter priorisieren und `object-position` bei Bedarf gezielt setzen.
+* Überschrift und Teaser müssen vollständig lesbar bleiben. Keine abgeschnittenen Wörter, verdeckten Texte oder horizontalen Scrollbalken.
+* Das Vorschaubild führt zum selben Artikel wie die Überschrift, wird aber für Screenreader als dekorativer doppelter Link ausgeblendet.
+* `loading="lazy"` sowie die tatsächlichen Bildmaße als `width` und `height` eintragen.
+* Hat eine Kolumne noch kein eigenes Hauptbild, ein inhaltlich passendes RandaleFUNK-Motiv verwenden oder zunächst ein Motiv erstellen. Das allgemeine Logo ist nur die letzte Rückfallebene.
+* Die fertige Übersicht immer in Desktop- und Mobilbreite visuell prüfen.
+
+---
+
 ## Rubrik: Vorab gehört
 
 Die Rubrik "Vorab gehört" enthält Reviews zu Songs, EPs oder Alben, die dem RandaleFUNK vor ihrer offiziellen Veröffentlichung zur Verfügung gestellt wurden.

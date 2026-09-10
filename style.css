@@ -864,6 +864,70 @@ a {
   line-height: 1.55;
 }
 
+#panel-kolumnen .teaser-card--column-preview {
+  isolation: isolate;
+  min-height: 270px;
+  overflow: visible;
+}
+
+#panel-kolumnen .teaser-card--column-preview time,
+#panel-kolumnen .teaser-card--column-preview h2,
+#panel-kolumnen .teaser-card--column-preview p {
+  position: relative;
+  z-index: 1;
+}
+
+#panel-kolumnen .teaser-card--column-preview h2 {
+  clear: both;
+  min-height: 0;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.teaser-card__column-image {
+  position: relative;
+  float: right;
+  z-index: 2;
+  display: block;
+  width: clamp(96px, 29%, 132px);
+  aspect-ratio: 4 / 3;
+  margin: -49px -28px 10px 12px;
+  overflow: hidden;
+  border: 4px solid #f0e3c5;
+  background: var(--black);
+  box-shadow: 5px 6px 0 rgb(5 5 5 / 0.5);
+  transform: rotate(3deg);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.teaser-card--column-preview:nth-child(even) .teaser-card__column-image {
+  margin-top: -45px;
+  margin-right: -25px;
+  transform: rotate(-2.5deg);
+}
+
+.teaser-card--column-preview:nth-child(3n) .teaser-card__column-image {
+  margin-top: -51px;
+  transform: rotate(1.5deg);
+}
+
+.teaser-card__column-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teaser-card--column-preview:nth-child(5) .teaser-card__column-image img {
+  object-position: center 24%;
+}
+
+.teaser-card__column-image:hover,
+.teaser-card__column-image:focus-visible {
+  box-shadow: 7px 8px 0 rgb(5 5 5 / 0.56);
+  transform: rotate(0deg) translateY(-2px);
+}
+
 .teaser-card--sticker {
   min-height: 270px;
   padding-right: clamp(112px, 18vw, 172px);
@@ -2834,6 +2898,19 @@ body[data-active-section="kolumnen"] {
 
   .teaser-card--sticker {
     padding-right: 18px;
+  }
+
+  #panel-kolumnen .teaser-card--column-preview {
+    min-height: 250px;
+  }
+
+  #panel-kolumnen .teaser-card--column-preview h2 {
+    min-height: 0;
+  }
+
+  .teaser-card__column-image {
+    width: 100px;
+    margin-right: -24px;
   }
 
   .teaser-sticker {
