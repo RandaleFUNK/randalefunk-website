@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-drapslag-krigets-hundar-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf spielt mit skeptischem Blick eine umgeschnallte Marschtrommel und stolpert beinahe ueber seine schweren Boots. Bewusst ohne Uniform, Waffen, Flaggen oder militaerische Symbole.
+- Verwendung: Artikel- und Preview-Sticker zum dreisprachigen Vorab-gehoert-Beitrag `DRÅPSLAG - Krigets hundar` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-nachtwache-nachtwache-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.

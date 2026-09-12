@@ -1,5 +1,12 @@
 # Vorab-gehoert-Bildquellen
 
+## drapslag-krigets-hundar-cover.jpg
+
+- Quelle: offizieller Pressebereich von Cramada / DiSTAT Records.
+- Download: http://cramada.se/resources/uppladdning/distat21.jpg
+- Verwendung: Vorab-gehoert-Beitrag `DRÅPSLAG - Krigets hundar`.
+- Hinweis: offizielles Pressematerial zum Album `Kängorna på!`; der Beitrag bespricht die vorab bereitgestellte Single `Krigets hundar`.
+
 ## ole-pianomann-release.png
 
 - Quelle: vom Kuenstler bzw. dessen Umfeld bereitgestelltes Release-Material.
