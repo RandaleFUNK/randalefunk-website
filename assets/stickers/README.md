@@ -1,5 +1,16 @@
 # Sticker-Sammlung
 
+## randalf-nachtwache-nachtwache-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit schwarzer Wollmuetze haelt bei der Nachtwache eine Taschenlampe unter sein schreiendes Gesicht.
+- Verwendung: Artikel- und Preview-Sticker zur Gastreview `NACHTWACHE - Nachtwache` sowie Stickerarchiv `randalf/index.html`.
+
+## randalf-nachtwache-nachtwache-source.png
+
+- Quelle/Status: Arbeitsdatei mit eingebettetem Vorschauhintergrund zum Motiv `randalf-nachtwache-nachtwache-sticker.png`.
+- Verwendung: nicht direkt einbinden, nur als Quelle/Backup fuer Bearbeitungen behalten.
+
 ## randalf-alles-karo-nimm-meine-hand-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
