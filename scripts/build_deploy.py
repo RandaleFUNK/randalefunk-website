@@ -21,7 +21,7 @@ MEDIA = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif", ".svg", ".ico",
 PUBLIC = {".html", ".css", ".js", ".json", ".webmanifest"} | MEDIA
 DIRECTORIES = {
     "assets": MEDIA, "data": {".json"},
-    **{name: PUBLIC for name in ("interviews", "kolumnen", "randalf", "reviews", "vorab-gehoert", "wuerfel")},
+    **{name: PUBLIC for name in ("interviews", "kolumnen", "randalf", "reviews", "rotte", "vorab-gehoert", "wuerfel")},
 }
 WORK_FILE = re.compile(r"(?:^|[._-])(?:source|quelle|preview|vorschau|backup|bak|tmp)(?:[._-]|$)", re.I)
 MARKER = b"<!-- generated-by: publish-reviews.ps1 -->"
