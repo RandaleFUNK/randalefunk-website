@@ -3060,3 +3060,122 @@ body[data-active-section="kolumnen"] {
     font-size: 2.5rem;
   }
 }
+
+/* RandaleROTTE */
+.rotte-board {
+  min-width: 0;
+}
+
+.rotte-page {
+  min-width: 0;
+}
+
+.rotte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 248px), 318px));
+  justify-content: center;
+  gap: clamp(22px, 4vw, 42px);
+  margin-top: clamp(24px, 4vw, 42px);
+}
+
+.rotte-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.rotte-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(8px 10px 0 rgb(5 5 5 / 0.7));
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.rotte-card:hover img,
+.rotte-card:focus-visible img {
+  filter: drop-shadow(10px 13px 0 rgb(5 5 5 / 0.8));
+  transform: scale(1.03);
+}
+
+.rotte-card:focus-visible {
+  outline: 3px solid var(--active-accent);
+  outline-offset: 7px;
+}
+
+.rotte-card:target img {
+  outline: 3px solid var(--active-accent);
+  outline-offset: 7px;
+}
+
+.rotte-lightbox[hidden] {
+  display: none;
+}
+
+.rotte-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 4vw, 42px);
+}
+
+.rotte-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.84);
+}
+
+.rotte-lightbox__panel {
+  position: relative;
+  z-index: 1;
+  max-width: min(92vw, 720px);
+  max-height: calc(100dvh - 28px);
+}
+
+.rotte-lightbox__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 72px);
+  height: auto;
+  border: 2px solid var(--paper-dark);
+  box-shadow: 12px 14px 0 var(--black);
+}
+
+.rotte-lightbox__close {
+  position: absolute;
+  z-index: 2;
+  top: -11px;
+  right: -11px;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 2px solid var(--paper);
+  border-radius: 0;
+  background: var(--active-accent);
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rotte-lightbox-open {
+  overflow: hidden;
+}
+
+@media (max-width: 720px) {
+  .rotte-grid {
+    grid-template-columns: minmax(0, 330px);
+  }
+
+  .rotte-card:hover img {
+    transform: none;
+  }
+}

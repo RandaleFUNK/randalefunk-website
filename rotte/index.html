@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RandaleROTTE - RandaleFUNK.de</title>
+    <meta name="description" content="Die Mitstreiter und Autoren von RandaleFUNK als Sammelkarten.">
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body data-active-section="sonstiges">
+    <div class="category-strip" aria-label="Magazin-Kategorien">
+      PUNK · FANZINE · INTERVIEWS · REVIEWS · NEWS
+    </div>
+
+    <header class="site-header" aria-label="RandaleFUNK Kopfbereich">
+      <a class="brand" href="../index.html" aria-label="RandaleFUNK.de Startseite">
+        <img src="../assets/randalefunk-logo.png" alt="RandaleFUNK.de Logo" width="160" height="160">
+      </a>
+      <p class="tagline">Irgendwas mit Punk seit 2022</p>
+    </header>
+
+    <main class="magazine-shell">
+      <nav class="section-nav" aria-label="Rubriken">
+        <p class="nav-label">Rubriken</p>
+        <a class="section-link" href="../index.html#news">News</a>
+        <a class="section-link" href="../index.html#vorab">Vorab gehört</a>
+        <a class="section-link" href="../reviews/index.html">Reviews</a>
+        <a class="section-link" href="../index.html#interviews">Interviews</a>
+        <a class="section-link" href="../index.html#kolumnen">Kolumnen</a>
+      </nav>
+
+      <section class="issue-board rotte-board" aria-labelledby="rotte-title">
+        <article class="feature-page rotte-page">
+          <p class="issue-label">Alles Mögliche</p>
+          <h1 id="rotte-title">RandaleROTTE</h1>
+          <p class="section-kicker">Die Leute, die hier mitschreiben, mitreden und den Laden mit am Laufen halten.</p>
+
+          <div class="rotte-grid" aria-label="Sammelkarten der RandaleROTTE">
+            <button class="rotte-card" id="burg" type="button" data-rotte-card data-card-name="Burg" data-card-src="../assets/rotte/SK_burg.png">
+              <img src="../assets/rotte/SK_burg.png" alt="Sammelkarte von Burg" width="1080" height="1350" loading="lazy">
+              <span class="sr-only">Sammelkarte von Burg vergrößern</span>
+            </button>
+            <button class="rotte-card" id="dan" type="button" data-rotte-card data-card-name="Dan" data-card-src="../assets/rotte/SK_dan.png">
+              <img src="../assets/rotte/SK_dan.png" alt="Sammelkarte von Dan" width="1080" height="1350" loading="lazy">
+              <span class="sr-only">Sammelkarte von Dan vergrößern</span>
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="current-year"></span> RandaleFUNK.de</p>
+      <p class="footer-legal"><a href="../datenschutz.html">Datenschutzerklärung</a></p>
+      <p>DIY bleibt DIY.</p>
+    </footer>
+
+    <div class="rotte-lightbox" data-rotte-lightbox hidden>
+      <div class="rotte-lightbox__backdrop" data-close-rotte-lightbox></div>
+      <section class="rotte-lightbox__panel" role="dialog" aria-modal="true" aria-labelledby="rotte-lightbox-title">
+        <h2 class="sr-only" id="rotte-lightbox-title">Sammelkarte</h2>
+        <button class="rotte-lightbox__close" type="button" data-close-rotte-lightbox aria-label="Sammelkarte schließen">Schließen</button>
+        <img class="rotte-lightbox__image" data-rotte-lightbox-image src="" alt="">
+      </section>
+    </div>
+
+    <script src="../script.js?v=20260705-kronkorken"></script>
+    <script src="rotte.js"></script>
+  </body>
+</html>
