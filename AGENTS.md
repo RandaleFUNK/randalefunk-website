@@ -674,6 +674,24 @@ bleibt immer am Ende des News-Bereichs.
 
 ## Reviews
 
+### Autorenzeile für neue Reviews und Vorab-gehört-Beiträge
+
+Ab jetzt muss jeder neu erstellte Review- und Vorab-gehört-Artikel direkt unter seiner Hauptüberschrift den Namen der schreibenden Person anzeigen. Bestehende Artikel werden nicht nachträglich ergänzt.
+
+Verbindliches HTML-Muster:
+
+```html
+<p class="article-byline">Text: <a href="../rotte/#burg">Burg</a></p>
+```
+
+Dabei gelten folgende Regeln:
+
+* Der sichtbare Name entspricht der tatsächlich schreibenden Person, zum Beispiel `Burg` oder `Dan`.
+* Das Sprungziel verweist auf die passende Karten-ID der RandaleROTTE, zum Beispiel `../rotte/#burg` oder `../rotte/#dan`.
+* Die Autorenzeile steht direkt nach dem `<h1>` und vor Titelbild, Release-Hinweis oder Artikeltext.
+* Neue Markdown-Quelldateien für den Review-Generator erhalten die Metadatenzeile `Autor: Name`.
+* Keine Autorenzeilen in bestehenden Artikeln nachtragen, solange Burg dies nicht ausdrücklich verlangt.
+
 Reviews werden nur erstellt, wenn das Werk tatsächlich vorliegt.
 
 Keine Bewertungen auf Basis von:

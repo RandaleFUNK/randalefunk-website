@@ -2235,6 +2235,18 @@ body.is-app-modal-open {
   text-transform: uppercase;
 }
 
+.article-byline a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.article-byline a:hover,
+.article-byline a:focus-visible {
+  color: var(--paper);
+}
+
 .review-article h1,
 .review-overview h1 {
   margin: 0 0 18px;

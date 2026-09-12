@@ -58,6 +58,8 @@ Das Skript erzeugt:
 - die Review-Übersicht `reviews/index.html`
 - die aktuellen Review-Teaser auf der Startseite
 
+Neue Review-Quelldateien erhalten die Metadatenzeile `Autor: Name`. Daraus erzeugt der Generator direkt unter der Artikelüberschrift eine verlinkte Autorenzeile zur jeweiligen Sammelkarte unter `/rotte/#name`.
+
 Der Generator lässt sichtbare Texte als echte UTF-8-Umlaute stehen. Nur technisch notwendige Zeichen wie `&`, `<`, `>` und Anführungszeichen in Attributen werden escaped. Slugs und Dateinamen bleiben bewusst ASCII.
 
 Optionales ZIP für manuellen Upload:
