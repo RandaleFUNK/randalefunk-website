@@ -1,5 +1,12 @@
 # News-Bildquellen
 
+## punk-chartbusters-vol-7-video.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail aus `Video-Material/PuCha_YouTube_Thumbnail_mit_Burg_v2_UPLOAD.jpg`.
+- Verwendung: NEWS-Eintrag zur RandaleFUNK-YouTube-Folge über `Punk Chartbusters Vol. 7`.
+- Bearbeitung: fertiges 16:9-Thumbnail unverändert als Website-Asset übernommen.
+- Hinweis: Das Bild liegt lokal auf RandaleFUNK.de; es wird kein externes YouTube-Thumbnail nachgeladen. Es verlinkt auf `https://www.youtube.com/watch?v=ygCQTT_VMXY`.
+
 ## edelweisspiraten-unboxing-wir-sind-der-widerstand.jpg
 
 - Quelle: eigenes RandaleFUNK-Thumbnail aus `Video-Material/Thumbnail_Edelweisspiraten_Web_16x9.jpg`.
