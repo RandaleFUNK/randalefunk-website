@@ -626,6 +626,17 @@ a {
   max-width: 420px;
 }
 
+.ticker-media.ticker-media--video-crop .ticker-media__link {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.ticker-media.ticker-media--video-crop img {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ticker-media__link {
   display: block;
   color: inherit;

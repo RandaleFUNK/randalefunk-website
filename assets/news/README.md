@@ -1,5 +1,13 @@
 # News-Bildquellen
 
+## schnaps-singles-club-unvoxing-thumbnail.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail der YouTube-Folge `UNVOXING: 2x Split-7\", 3 Bands, kein Gelaber | SCHNAPS Singles Club`.
+- Originalbild: https://i.ytimg.com/vi/WDDpwUx2zKw/hqdefault.jpg
+- Verwendung: NEWS-Eintrag zur RandaleFUNK-YouTube-Folge über die ersten beiden Ausgaben des SCHNAPS Singles Club.
+- Bearbeitung: unverändert als lokales Website-Asset übernommen.
+- Hinweis: Das Bild liegt lokal auf RandaleFUNK.de; es wird beim Seitenaufruf nichts von YouTube geladen. Bild und Button verlinken auf `https://www.youtube.com/watch?v=WDDpwUx2zKw`.
+
 ## punk-chartbusters-vol-7-video.jpg
 
 - Quelle: eigenes RandaleFUNK-Thumbnail aus `Video-Material/PuCha_YouTube_Thumbnail_mit_Burg_v2_UPLOAD.jpg`.
