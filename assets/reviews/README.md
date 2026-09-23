@@ -83,3 +83,8 @@
 - Kontext: Bildmotiv zur Review `DIE TOTEN HOSEN feat. FEINE SAHNE FISCHFILET - Komplett im Arsch`.
 - Verwendung: Artikelbild zur lokalen Review-Voransicht.
 - Hinweis: Eigenes Motiv, kein externes Pressefoto.
+# BUNKER CHAOS - Blau & dicht
+
+- `bunker-chaos-blau-und-dicht.png`
+- Quelle: `to-do_und_temporär/Bunker_Chaos/Front Cover.png`
+- Von BUNKER CHAOS bereitgestelltes Cover zu `Blau & dicht`.

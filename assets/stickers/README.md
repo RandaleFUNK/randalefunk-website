@@ -363,3 +363,9 @@ Neue Sticker gehoeren grundsaetzlich hier hinein, nicht verteilt in `assets/news
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
 - Grundlage: Randalf-Charaktervorgaben; Randalf beugt sich suchend in die Dunkelheit und haelt ein leuchtendes rotes Bengalo ueber den Kopf.
 - Verwendung: Artikelsticker und Preview-Sticker zum Vorab-gehoert-Beitrag `MISSSTAND - Lichter? Aus! feat. Guido Donot` sowie Stickerarchiv `randalf/index.html`.
+# BUNKER CHAOS - Blau & dicht
+
+- `randalf-bunker-chaos-blau-und-dicht-sticker.png`
+- Mit OpenAI ImageGen als transparenter PNG-Sticker erzeugt.
+- Randalf sitzt mit altem Kassettenrekorder und Kabelmikrofon auf einem Flightcase; ein Stück Bandsalat liegt um seinen Boot.
+- Verwendung: Vorschaukachel, Review und Randalf-Stickerarchiv.
