@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-plastic-mars-neue-single-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf mit Kopfhoerern und gefaltetem Stadtplan beim suchenden Herbstspaziergang.
+- Verwendung: Artikelsticker, Vorschaukachel und Stickerarchiv zur Review `PLASTIC MARS - Open The Door`.
+
 ## randalf-drapslag-krigets-hundar-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.

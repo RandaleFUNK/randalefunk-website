@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## plastic-mars-neue-single-bandfoto.jpg
+
+- Quelle: von Plastic Mars bereitgestelltes Pressematerial.
+- Kontext: Pressefoto zur Review `PLASTIC MARS - Open The Door`.
+- Verwendung: Artikelbild zur Review.
+- Hinweis: Bereits vorhandenes Pressematerial aus dem vorherigen Plastic-Mars-Beitrag, für diese Review erneut verwendet.
+
 ## mad-dog-dan-tanze-samba-mit-mir.jpg
 
 - Quelle: YouTube-Thumbnail/Videostill zum Video `MAD DOG DAN - TANZE SAMBA MIT MIR (MASTERED)`.
