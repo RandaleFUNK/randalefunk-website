@@ -41,18 +41,27 @@
           <p class="section-kicker">Die Leute, die hier mitschreiben, mitreden und den Laden mit am Laufen halten.</p>
 
           <div class="rotte-grid" aria-label="Sammelkarten der RandaleROTTE">
-            <button class="rotte-card" id="burg" type="button" data-rotte-card data-card-name="Burg" data-card-src="../assets/rotte/SK_burg.png">
-              <img src="../assets/rotte/SK_burg.png" alt="Sammelkarte von Burg" width="1080" height="1350" loading="lazy">
-              <span class="sr-only">Sammelkarte von Burg vergrößern</span>
-            </button>
-            <button class="rotte-card" id="dan" type="button" data-rotte-card data-card-name="Dan" data-card-src="../assets/rotte/SK_dan.png">
-              <img src="../assets/rotte/SK_dan.png" alt="Sammelkarte von Dan" width="1080" height="1350" loading="lazy">
-              <span class="sr-only">Sammelkarte von Dan vergrößern</span>
-            </button>
-            <button class="rotte-card" id="chris" type="button" data-rotte-card data-card-name="Chris" data-card-src="../assets/rotte/SK_chris.png">
-              <img src="../assets/rotte/SK_chris.png" alt="Sammelkarte von Chris" width="1080" height="1350" loading="lazy">
-              <span class="sr-only">Sammelkarte von Chris vergrößern</span>
-            </button>
+            <article class="rotte-member" id="burg" data-rotte-member>
+              <button class="rotte-card" type="button" data-rotte-card data-card-name="Burg" data-card-src="../assets/rotte/SK_burg.png">
+                <img src="../assets/rotte/SK_burg.png" alt="Sammelkarte von Burg" width="1080" height="1350" loading="lazy">
+                <span class="sr-only">Sammelkarte von Burg vergrößern</span>
+              </button>
+              <section class="rotte-project" data-rotte-project aria-labelledby="burg-project-title"></section>
+            </article>
+            <article class="rotte-member" id="dan" data-rotte-member>
+              <button class="rotte-card" type="button" data-rotte-card data-card-name="Dan" data-card-src="../assets/rotte/SK_dan.png">
+                <img src="../assets/rotte/SK_dan.png" alt="Sammelkarte von Dan" width="1080" height="1350" loading="lazy">
+                <span class="sr-only">Sammelkarte von Dan vergrößern</span>
+              </button>
+              <section class="rotte-project" data-rotte-project aria-labelledby="dan-project-title"></section>
+            </article>
+            <article class="rotte-member" id="chris" data-rotte-member>
+              <button class="rotte-card" type="button" data-rotte-card data-card-name="Chris" data-card-src="../assets/rotte/SK_chris.png">
+                <img src="../assets/rotte/SK_chris.png" alt="Sammelkarte von Chris" width="1080" height="1350" loading="lazy">
+                <span class="sr-only">Sammelkarte von Chris vergrößern</span>
+              </button>
+              <section class="rotte-project" data-rotte-project aria-labelledby="chris-project-title"></section>
+            </article>
           </div>
         </article>
       </section>
@@ -74,6 +83,7 @@
     </div>
 
     <script src="../script.js?v=20260705-kronkorken"></script>
+    <script src="rotte-data.js"></script>
     <script src="rotte.js"></script>
   </body>
 </html>
