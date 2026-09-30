@@ -1,5 +1,12 @@
 # Vorab-gehoert-Bildquellen
 
+## marode-strukturen-cover.jpg
+
+- Quelle: offizielles Pressematerial von MARODE / RilRec.
+- Ursprung: `to-do_und_temporär/Marode/Cover/RR130_Cover_3000x3000.jpg`.
+- Verwendung: Vorab-gehoert-Beitrag `MARODE - Strukturen`.
+- Bildrechte: als Bestandteil des digitalen Pressepakets zur Berichterstattung bereitgestellt.
+
 ## drapslag-krigets-hundar-cover.jpg
 
 - Quelle: offizieller Pressebereich von Cramada / DiSTAT Records.

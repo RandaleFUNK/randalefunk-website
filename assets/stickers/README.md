@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-marode-strukturen-sticker.png
+
+- Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
+- Grundlage: Randalf-Charaktervorgaben; Randalf prüft mit Wasserwaage eine schiefe Konstruktion aus geflickten Blöcken.
+- Verwendung: Artikel- und Preview-Sticker zum Vorab-gehoert-Beitrag `MARODE - Strukturen` sowie Stickerarchiv `randalf/index.html`.
+
 ## randalf-plastic-mars-neue-single-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
