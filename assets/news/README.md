@@ -279,3 +279,12 @@
 - Link zum Shop: https://www.riot-candy.com/c/randalefunk
 - Bearbeitung: als Website-Asset unter `assets/news/shop-news-01.png` abgelegt; Motiv unverändert übernommen.
 - Hinweis: Lokales Vorschaubild. Beim Seitenaufruf entsteht keine Verbindung zu Riot Candy; erst der bewusste Klick auf den Button öffnet den externen Shop.
+
+## endlich-schlechte-musik-das-wars.webp
+
+- Quelle: Burgs ausdrücklich bereitgestelltes finales Thumbnail `C:/Users/Nachfahre/Downloads/ESM_Thumb_quer.png`; eigener Screenshot und RandaleFUNK-Gestaltung.
+- NEWS: `news-endlich-schlechte-musik-das-wars`, Plattenbesprechung von „Das war’s“.
+- Ziel: https://www.youtube.com/watch?v=u5GynW7s60o&t=2s
+- Ausgabe: 1280 × 720, 16:9, lokales WebP. Das Original (3000 × 1529) wird proportional verkleinert und mit schwarzen Rändern oben/unten auf 16:9 ergänzt. Kein Text und kein Motiv beschnitten.
+- Datenschutz: keine externen Bilder, kein YouTube-Embed, kein Video-Autoload. YouTube wird erst durch bewussten Klick auf Bild oder Button aufgerufen; Hinweis und Datenschutzerklärung sind direkt an der Karte verlinkt. Bestehende Statistik unverändert.
+- Status: Veröffentlichung von Burg am 03.10.2026 mit FREIGABE autorisiert.
