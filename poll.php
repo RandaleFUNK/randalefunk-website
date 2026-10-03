@@ -192,6 +192,7 @@ function rf_poll_ensure_schema(PDO $pdo): void
     rf_poll_seed_monthly_june_2026($pdo);
     rf_poll_seed_monthly_july_2026($pdo);
     rf_poll_seed_monthly_august_2026($pdo);
+    rf_poll_seed_monthly_september_2026($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -338,7 +339,16 @@ function rf_poll_seed_article(PDO $pdo, string $slug, string $title, string $que
     }
 }
 
-function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $awardType, array $options, bool $startNow = false): void
+function rf_poll_seed_monthly_options(
+    PDO $pdo,
+    int $year,
+    int $month,
+    string $awardType,
+    array $options,
+    bool $startNow = false,
+    int $durationDays = RF_MONTHLY_DURATION_DAYS,
+    ?DateTimeImmutable $startsAt = null
+): void
 {
     if ($options === [] || count($options) > 10) {
         return;
@@ -378,7 +388,7 @@ function rf_poll_seed_monthly_options(PDO $pdo, int $year, int $month, string $a
     }
 
     if ($startNow && rf_poll_option_count($pdo, $pollId) === 10) {
-        rf_poll_start_monthly($pdo, $year, $month, $awardType);
+        rf_poll_start_monthly($pdo, $year, $month, $awardType, $durationDays, $startsAt);
     }
 }
 
@@ -612,6 +622,37 @@ function rf_poll_seed_monthly_august_2026(PDO $pdo): void
         'Raskob Rails - The Loop',
         'Bildunxlücke - Hunde',
     ], true);
+}
+
+function rf_poll_seed_monthly_september_2026(PDO $pdo): void
+{
+    $startsAt = new DateTimeImmutable('2026-10-03 13:06:15');
+
+    rf_poll_seed_monthly_options($pdo, 2026, 9, 'album_ep', [
+        'The Feelgood McLouds - A Decade On Parade',
+        'Farin Urlaub - Ein Lächeln im Gesicht',
+        'Popperklopper - Schöne raue Welt',
+        'ENDLICH schlechte MUSIK - Das war’s',
+        'MISSSTAND - Smells Like Abgrund',
+        'Massendefekt - Massendefekt',
+        'The Drowns - Harsh Reality',
+        'Es War Mord - Frühling der Verräter',
+        'Perfect Sky - All Day Every Day',
+        'Die Verlierer - Ideale',
+    ], true, 14, $startsAt);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 9, 'single_song', [
+        'MISSSTAND feat. Guido Donot - Lichter? Aus!',
+        'BAD CAREER - Moshpigs',
+        'NACHTWACHE - Nachtwache',
+        'ALLES KARO - Nimm meine Hand',
+        'PLASTIC MARS - Open The Door',
+        'DRÅPSLAG - Krigets hundar',
+        'Lärm de Luxe - Love & Peace',
+        'Drei Meter Feldweg - Manifest',
+        'Drunken Swallows - Das war einmal',
+        'The Pill - Big Knife',
+    ], true, 14, $startsAt);
 }
 
 function rf_poll_select_columns(): string
@@ -1055,10 +1096,21 @@ function rf_poll_record_vote(PDO $pdo, array $poll, int $optionId): void
     ]);
 }
 
-function rf_poll_start_monthly(PDO $pdo, int $year, int $month, string $awardType): array
+function rf_poll_start_monthly(
+    PDO $pdo,
+    int $year,
+    int $month,
+    string $awardType,
+    int $durationDays = RF_MONTHLY_DURATION_DAYS,
+    ?DateTimeImmutable $startsAt = null
+): array
 {
     if ($year < 2020 || $year > 2100 || $month < 1 || $month > 12 || !in_array($awardType, ['album_ep', 'single_song'], true)) {
         throw new InvalidArgumentException('Ungueltige Monatsumfrage.');
+    }
+
+    if ($durationDays < 1 || $durationDays > 31) {
+        throw new InvalidArgumentException('Ungueltige Laufzeit.');
     }
 
     $poll = rf_poll_monthly_by_period($pdo, $year, $month, $awardType);
@@ -1068,8 +1120,8 @@ function rf_poll_start_monthly(PDO $pdo, int $year, int $month, string $awardTyp
         throw new RuntimeException('Diese Monatsumfrage braucht genau 10 Kandidaten.');
     }
 
-    $now = new DateTimeImmutable('now');
-    $endsAt = $now->modify('+' . RF_MONTHLY_DURATION_DAYS . ' days');
+    $now = $startsAt ?? new DateTimeImmutable('now');
+    $endsAt = $now->modify('+' . $durationDays . ' days');
     $update = $pdo->prepare(
         'UPDATE ' . RF_POLLS_TABLE . '
          SET starts_at = :starts_at,
