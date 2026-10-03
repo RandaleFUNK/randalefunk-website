@@ -99,3 +99,14 @@ jobs:
           mirror -R --verbose --only-newer deploy/ "$FTP_TARGET_DIR"
           bye
           EOF
+
+      - name: Initialize monthly polls
+        env:
+          STATS_AUTH_USER: ${{ secrets.STATS_AUTH_USER }}
+          STATS_AUTH_PASSWORD: ${{ secrets.STATS_AUTH_PASSWORD }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            --user "$STATS_AUTH_USER:$STATS_AUTH_PASSWORD" \
+            "https://randalefunk.de/monthly-polls-admin.php?year=2026" \
+            > /dev/null
