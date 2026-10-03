@@ -1,4 +1,9 @@
 # Apache 2.4; requires mod_headers and permission for Header directives.
+<IfModule mod_setenvif.c>
+    # Preserve HTTP Basic Auth for PHP when the host runs it via CGI/FastCGI.
+    SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+</IfModule>
+
 <IfModule mod_headers.c>
     Header onsuccess unset X-Content-Type-Options
     Header always set X-Content-Type-Options "nosniff"
