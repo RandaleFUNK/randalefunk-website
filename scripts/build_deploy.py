@@ -12,6 +12,8 @@ REQUIRED = {
     "index.html", "style.css", "script.js", "track.php", "poll.php",
     "monthly-polls.php", "monthly-polls-admin.php", "site.webmanifest",
     "robots.txt", "datenschutz.html", "warum-unterstuetzen.html", "der-rostige-kronkorken.html",
+    "hardcore-hills-tickets.html", "hardcore-hills-tickets.css",
+    "hardcore-hills-tickets.js", "hardcore-hills-config.js",
     "stats/index.php", "stats/auth.php", "stats/lib.php", "stats/config.php", "stats/.htaccess",
 }
 OPTIONAL = {".htaccess", "sitemap.xml", "404.html"}
