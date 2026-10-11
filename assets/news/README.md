@@ -288,3 +288,12 @@
 - Ausgabe: 1280 × 720, 16:9, lokales WebP. Das Original (3000 × 1529) wird proportional verkleinert und mit schwarzen Rändern oben/unten auf 16:9 ergänzt. Kein Text und kein Motiv beschnitten.
 - Datenschutz: keine externen Bilder, kein YouTube-Embed, kein Video-Autoload. YouTube wird erst durch bewussten Klick auf Bild oder Button aufgerufen; Hinweis und Datenschutzerklärung sind direkt an der Karte verlinkt. Bestehende Statistik unverändert.
 - Status: Veröffentlichung von Burg am 03.10.2026 mit FREIGABE autorisiert.
+
+## smug-interview-thumbnail.webp
+
+- Quelle: eigenes RandaleFUNK-Thumbnail von Burg, ausdrücklich bereitgestellt als `C:/Users/Nachfahre/Documents/RandaleFUNK/Aufnahmen/Smug/Smug_Thumb.png`.
+- Verwendung: NEWS-Eintrag `news-smug-interview` zum SMUG-Interview.
+- Ziel: https://www.youtube.com/watch?v=otoRSc9H80Y
+- Bearbeitung: proportional von 3000 × 1529 auf 1600 × 815 verkleinert, als WebP optimiert; kein Beschnitt und keine inhaltliche Änderung.
+- Datenschutz: lokales Vorschaubild, kein YouTube-Embed und kein externer Bildabruf. Erst der Klick auf Bild oder Button öffnet YouTube.
+- Status: Veröffentlichung von Burg am 11.10.2026 mit FREIGABE autorisiert.
