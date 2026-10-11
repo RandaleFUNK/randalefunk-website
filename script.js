@@ -775,3 +775,22 @@ document.addEventListener("keydown", (event) => {
     closeAppModal();
   }
 });
+
+const flyerDialog = document.querySelector("[data-flyer-dialog]");
+
+if (flyerDialog && typeof flyerDialog.showModal === "function") {
+  document.querySelectorAll("[data-flyer-zoom]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      flyerDialog.showModal();
+    });
+  });
+  flyerDialog.querySelector("[data-flyer-close]").addEventListener("click", () => flyerDialog.close());
+  flyerDialog.addEventListener("click", (event) => {
+    if (event.target !== flyerDialog) return;
+    const bounds = flyerDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+      flyerDialog.close();
+    }
+  });
+}

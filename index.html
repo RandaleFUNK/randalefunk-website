@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="style.css?v=20260921-schnaps-video">
+    <link rel="stylesheet" href="style.css?v=20261011-flyer-zoom">
     <link rel="stylesheet" href="hardcore-hills-tickets.css?v=20261010">
   </head>
   <body data-disable-weekly-poll="true">
@@ -73,6 +73,23 @@
           </div>
 
           <div class="ticker-list" aria-label="Aktuelle Kurzmeldungen" data-ticker-list>
+            <article class="ticker-card" id="news-cursed-and-calling-wanted" data-ticker-news data-published="2026-10-11T12:00:00">
+              <div class="ticker-meta">
+                <span>FUNDSTÜCK</span>
+                <time datetime="2026-10-11T12:00:00">11.10.2026</time>
+              </div>
+              <h2>Wer zum Fick hängt hier seine Nummer hin?</h2>
+              <figure class="ticker-media">
+                <a class="ticker-media__link" href="assets/news/cursed-and-calling-flyer-prague-1.jpg" data-flyer-zoom aria-label="Orangefarbenen Wanted-Flyer vergrößern">
+                  <img src="assets/news/cursed-and-calling-flyer-prague-1.jpg" alt="Schwarz-weißes Straßenfoto aus Prag: Zwischen Aufklebern hängt ein orangefarbener Wanted-Flyer mit Telefonnummer und QR-Code" width="4284" height="5712" loading="lazy">
+                </a>
+                <figcaption>Foto: Cursed and Calling · Prag. Aufs Bild klicken: orangefarbenen Flyer vergrößern.</figcaption>
+              </figure>
+              <p><strong>„Wanted“?</strong> Eine Telefonnummer? Abreißzettel? Sucht da jemand seinen Bassisten oder hat die Partnervermittlung endlich Gitarren?</p>
+              <p>Und was passiert, wenn man da rangeht? Warum nicht einfach mal <a href="https://cursedandcalling.com/call" target="_blank" rel="noopener noreferrer">ausprobieren</a>?</p>
+              <p>Wir hätten da noch ein paar Infos. Aber wo bliebe denn der Spaß?</p>
+            </article>
+
             <article class="ticker-card ticker-card--video" id="news-smug-interview" data-ticker-news data-published="2026-10-11T12:00:00">
               <div class="ticker-meta">
                 <span>INTERVIEW</span>
@@ -1589,6 +1606,13 @@
       </div>
     </section>
 
-    <script src="script.js?v=20260705-kronkorken"></script>
+    <dialog class="news-flyer-dialog" data-flyer-dialog aria-label="Orangefarbener Wanted-Flyer aus Prag">
+      <button class="news-flyer-dialog__close" type="button" data-flyer-close aria-label="Bild schließen" autofocus>×</button>
+      <div class="news-flyer-dialog__crop">
+        <img src="assets/news/cursed-and-calling-flyer-prague-1.jpg" alt="Vergrößerter orangefarbener Wanted-Flyer mit Telefonnummer, QR-Code und Abreißzetteln" width="4284" height="5712">
+      </div>
+      <a href="assets/news/cursed-and-calling-flyer-prague-1.jpg" target="_blank" rel="noopener">Originalfoto öffnen ↗</a>
+    </dialog>
+    <script src="script.js?v=20261011-flyer-zoom"></script>
   </body>
 </html>

@@ -3289,3 +3289,21 @@ body[data-active-section="kolumnen"] {
     min-height: 42px;
   }
 }
+
+.news-flyer-dialog {
+  width: min(86vw, 44vh, 460px);
+  max-height: 94vh;
+  padding: 36px 12px 12px;
+  border: 3px solid #151515;
+  background: #151515;
+  color: #f4eedc;
+}
+
+.news-flyer-dialog::backdrop { background: rgb(0 0 0 / 85%); }
+.news-flyer-dialog a { display: block; margin-top: 10px; color: inherit; font: bold 14px Arial, sans-serif; }
+.news-flyer-dialog__close { position: absolute; right: 8px; top: 2px; border: 0; background: transparent; color: inherit; font: bold 28px Arial, sans-serif; cursor: pointer; }
+.news-flyer-dialog__crop { position: relative; aspect-ratio: 620 / 1100; overflow: hidden; }
+/* Original photo coordinates: x=2000, y=2820, width=620, height=1100. */
+.news-flyer-dialog__crop img { position: absolute; width: 690.967742%; max-width: none; height: auto; left: -322.580645%; top: -256.363636%; }
+[data-flyer-zoom] { cursor: zoom-in; }
+

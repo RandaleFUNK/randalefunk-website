@@ -297,3 +297,13 @@
 - Bearbeitung: proportional von 3000 × 1529 auf 1600 × 815 verkleinert, als WebP optimiert; kein Beschnitt und keine inhaltliche Änderung.
 - Datenschutz: lokales Vorschaubild, kein YouTube-Embed und kein externer Bildabruf. Erst der Klick auf Bild oder Button öffnet YouTube.
 - Status: Veröffentlichung von Burg am 11.10.2026 mit FREIGABE autorisiert.
+
+## cursed-and-calling-flyer-prague-1.jpg
+
+- Quelle: von Burg bereitgestellt; identisches Motiv im offiziellen Pressekit: https://cursedandcalling.com/press/assets/cursed-and-calling-flyer-prague-1.jpg
+- Rechte: https://cursedandcalling.com/press/ erlaubt redaktionelle Verwendung ausdrücklich; Fotocredit: Cursed and Calling. Geprüft am 11.10.2026.
+- Verwendung: kurze neugierig machende NEWS, `news-cursed-and-calling-wanted`.
+- Original unverändert übernommen, 4284 x 5712 Pixel. Der Bildklick zeigt einen per CSS vergrößerten Ausschnitt des orangefarbenen Flyers; Originalfoto weiterhin zugänglich.
+- Hintergrund laut offizieller Presseseite: Wanted, erste Single am 23.10.2026; vorab über die öffentliche Telefon-Seite erreichbar. Keine privaten Pressestreams oder Audiodateien eingebunden.
+- Status: von Burg am 11.10.2026 freigegeben.
+
