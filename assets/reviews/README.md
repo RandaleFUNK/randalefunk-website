@@ -1,5 +1,12 @@
 # Review-Bildquellen
 
+## brutal-verschimmelt-konzertbericht.png
+
+- Quelle: von Burg bereitgestellte Artikelgrafik `to-do_und_temporär/Konzertbericht_Brutal.png`.
+- Motiv: Tourplakat von Brutal Verschimmelt mit Hinweis auf den Konzertbericht von Grindpa Heini.
+- Verwendung: Konzertbericht, Startseitenkachel, Review-Übersicht und Social-Metadaten.
+- Keine fremden Konzertfotos oder recherchierten Pressebilder übernommen.
+
 ## plastic-mars-neue-single-bandfoto.jpg
 
 - Quelle: von Plastic Mars bereitgestelltes Pressematerial.
