@@ -1,5 +1,13 @@
 # Review-Bildquellen
 
+## snakes-in-the-pit-frei-joshi-zsk.jpg
+
+- Quelle: von Burg bereitgestellte und zur Verwendung freigegebene Datei `to-do_und_temporär/sitp1.jpg`.
+- Motiv: offizielles Single-Motiv zu `Frei` feat. Joshi (ZSK), mit Konzertaufnahme.
+- Verwendung: Artikelbild und Social-Metadaten zur Review.
+- Unverändert übernommen; kein zusätzlicher Fotografencredit mitgeliefert, daher keiner erfunden.
+- `sitp2.jpg` ist eine zusätzliche Textgrafik zur Veröffentlichung und wird nicht als zweites ähnliches Artikelbild eingebunden.
+
 ## brutal-verschimmelt-konzertbericht.png
 
 - Quelle: von Burg bereitgestellte Artikelgrafik `to-do_und_temporär/Konzertbericht_Brutal.png`.

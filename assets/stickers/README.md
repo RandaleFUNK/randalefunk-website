@@ -1,5 +1,14 @@
 # Sticker-Sammlung
 
+## randalf-snakes-in-the-pit-frei-sticker.png
+
+- Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.
+- Figuren-/Stilreferenz: `randalf-notizzettel-vergessen-sticker.png` aus dem lokalen Figurenbestand.
+- Frisur-/Ausdruckreferenz: von Burg bereitgestellter Screenshot, nur als lose Vorlage für blonde Igelfrisur und geöffneten Mund.
+- Motiv: lila Randalf mit schwarzer Gesichtsmaske, Jeansweste, schwarzem Shirt, Stift, Bändchen, Ringelschwanz und Kabelmikrofon.
+- Verwendung: Vorschaukacheln, Artikel und Randalf-Archiv zur Review `Snakes in the Pit feat. Joshi (ZSK) – Frei`.
+- Bildbriefing und Prompt: `to-do_und_temporär/Snakes-in-the-Pit-Frei-Bildbriefing.md` im lokalen Projekt.
+
 ## randalf-marode-strukturen-sticker.png
 
 - Quelle: KI-generiertes Randalf-Sticker-Motiv fuer RandaleFUNK.
