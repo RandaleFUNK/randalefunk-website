@@ -1,5 +1,11 @@
 # Sticker-Sammlung
 
+## randalf-dead-target-still-while-it-spins-sticker.png
+
+- Quelle: KI-generierter Randalf-Sticker aus dem lokalen Figurenbestand.
+- Motiv: Randalf mit Kopfhörern auf dem Skateboard und einem Einkaufswagen voller Platten.
+- Verwendung: Vorab-gehört-Artikel, Vorschaukachel und Stickerarchiv zu `Dead Target - Still While It Spins`.
+
 ## randalf-snakes-in-the-pit-frei-sticker.png
 
 - Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.
