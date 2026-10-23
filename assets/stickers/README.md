@@ -1,5 +1,13 @@
 # Sticker-Sammlung
 
+## randalf-cursed-and-calling-wanted-sticker.png
+
+- Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.
+- Stil-/Figurenreferenz: bestehender Randalf `randalf-notizzettel-vergessen-sticker.png` aus dem lokalen Figurenbestand.
+- Motiv: Randalf steht verstört in einer gelben deutschen Telefonzelle der 90er, mit verkabeltem Hörer am Ohr und ratloser freier Pfote. Übliche lila Fellfarbe, schwarze Maske, Jeansweste, schwarzes Shirt, Bändchen, Stift und Ringelschwanz.
+- Verwendung: Artikel, Vorschaukacheln und Randalf-Archiv zur Review `Cursed and Calling – Wanted`.
+- Lokales Bildbriefing und Prompt: `to-do_und_temporär/Cursed-and-Calling-Wanted-Bildbriefing.md`.
+
 ## randalf-dead-target-still-while-it-spins-sticker.png
 
 - Quelle: KI-generierter Randalf-Sticker aus dem lokalen Figurenbestand.

@@ -1,5 +1,14 @@
 # Review-Bildquellen
 
+## cursed-and-calling-wanted-cover.jpg
+
+- Quelle: https://cursedandcalling.com/press/ ; Datei: https://cursedandcalling.com/assets/img/cover-wanted.jpg
+- Credit: grizzlydeerart, laut Pressekit Öl auf Leinwand.
+- Rechte: Pressebereich erlaubt ausdrücklich die redaktionelle Nutzung aller dort angebotenen Materialien; geprüft am 23.10.2026.
+- Verwendung: Titelbild und Social-Metadaten der Review `Cursed and Calling – Wanted`.
+- Originaldatei (1600 × 1600) unverändert übernommen; Schwarzweiß-/Orange-Gestaltung erhalten.
+- Keine vertraulichen Audio-Downloads oder Promo-Zugangslinks eingebunden.
+
 ## snakes-in-the-pit-frei-joshi-zsk.jpg
 
 - Quelle: von Burg bereitgestellte und zur Verwendung freigegebene Datei `to-do_und_temporär/sitp1.jpg`.
