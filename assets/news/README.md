@@ -307,3 +307,14 @@
 - Hintergrund laut offizieller Presseseite: Wanted, erste Single am 23.10.2026; vorab über die öffentliche Telefon-Seite erreichbar. Keine privaten Pressestreams oder Audiodateien eingebunden.
 - Status: von Burg am 11.10.2026 freigegeben.
 
+## schwindelbude-im-osten-nichts-neues.jpg
+
+- Quelle: eigenes RandaleFUNK-Thumbnail `Video-Material/Schwindelbude_Thumbnail_YouTube_16x9.jpg`, von Burg für seine aktuelle Folge bereitgestellt.
+- Ausgangsmaterial: Burgs eigener Video-Screenshot und zwei von ihm gelieferte Verpackungsfotos; Bildgenerator-Collage nach diesen Vorlagen. Dokumentation und Prompts liegen im lokalen Projekt unter `Video-Material/Schwindelbude_Thumbnail_Gestaltung.md`.
+- NEWS: `news-schwindelbude-im-osten-nichts-neues`, Plattenbesprechung von „Im Osten nichts Neues“.
+- Ziel für Bild und Button: https://www.youtube.com/watch?v=RgXskJ0tryY&t=2s
+- Ausgabe: 1280 × 720 Pixel, 16:9, JPEG; proportional verkleinert, nichts beschnitten.
+- Datenschutz: lokal gespeichertes Vorschaubild, kein YouTube-Embed, keine externen Video-Bilder und kein automatischer Videoabruf. Externer Anbieter erst durch bewussten Klick; Datenschutzhinweis und Link zur Datenschutzerklärung direkt an der Karte. Statistik unverändert.
+- Textgrundlage: Burgs finales Transkript und zugehöriges Begleitschreiben, wie im Video vorgelesen; keine eigenständige neue Hörbewertung und keine erfundenen Release-, Shop- oder Preisangaben.
+- Status: von Burg am 23.10.2026 mit FREIGABE zur Veröffentlichung freigegeben.
+
