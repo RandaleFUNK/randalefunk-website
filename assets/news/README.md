@@ -307,6 +307,16 @@
 - Hintergrund laut offizieller Presseseite: Wanted, erste Single am 23.10.2026; vorab über die öffentliche Telefon-Seite erreichbar. Keine privaten Pressestreams oder Audiodateien eingebunden.
 - Status: von Burg am 11.10.2026 freigegeben.
 
+## foxglove-bloodbound.jpg
+
+- Quelle: von Burg am 24.10.2026 für diese NEWS ausdrücklich ausgewähltes fertiges RandaleFUNK-Thumbnail `to-do_und_temporär/Thumb_Foxglove.png` (3000 × 1529 Pixel). Eigenes Motiv mit Burg, gehaltenem Album, Bandbild und Bloodbound-Cover; nicht die frühere reine Covermontage verwenden.
+- NEWS: `news-foxglove-bloodbound`, „Foxglove: Zehn Zoll, große Fresse“, Kategorie PLATTENBESPRECHUNG.
+- Ziel für Bild und Button: https://www.youtube.com/watch?v=8WXeIj410JE
+- Webausgabe: 1280 × 720 Pixel, 16:9, JPEG, proportional verkleinert und mit schmalen schwarzen Rändern oben/unten ergänzt. Kein Motiv und kein Text beschnitten oder geändert. Quelldatei unverändert erhalten.
+- Datenschutz: Bild lokal, kein YouTube-Embed, kein externes Vorschaubild und kein automatischer Videoabruf. Externer Anbieter erst durch bewussten Klick; Datenschutzhinweis und Link zur Datenschutzerklärung direkt an der Karte. Statistik unverändert.
+- Textgrundlage: der zuvor im Chat formulierte kurze NEWS-Entwurf und Burgs Transkript; keine zusätzliche Hörbewertung, keine Pointen des Videos vorweggenommen.
+- Status: von Burg am 24.10.2026 ausdrücklich für die Veröffentlichung freigegeben.
+
 ## schwindelbude-im-osten-nichts-neues-v2.jpg
 
 - Quelle: von Burg am 23.10.2026 geliefertes fertiges Thumbnail `to-do_und_temporär/schwindelthumb.png` (3000 × 1529 Pixel).
