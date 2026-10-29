@@ -1,5 +1,18 @@
 # Review-Bildquellen
 
+## bad-boys-for-life-2026/
+
+- Quelle: fünf von Burg für Heinis Konzertbericht bereitgestellte Originaldateien im lokalen Projektordner `Konzertberichte/`.
+- Konzert: Bad Boys For Life Tour 2026, Turock Essen, 24.10.2026.
+- Fotografencredit: `Photos by: Grindpa Heini`, von Burg am 29.10.2026 bestätigt.
+- `IMG_20261024_193700.jpg` → `the-drowns-*`: Aufmacher, Vorschaukacheln und Social-Meta.
+- `IMG_20261024_202948.jpg` → `murphys-law-gesang-bass-*`: Murphy’s-Law-Abschnitt.
+- `IMG_20261024_203006.jpg` → `murphys-law-gitarre-*`: Murphy’s-Law-Abschnitt.
+- `IMG_20261024_213917.jpg` → `the-bones-gitarre-gesang-*`: erstes Foto im The-Bones-Abschnitt.
+- `IMG_20261024_213922.jpg` → `the-bones-buehne-publikum-*`: vor dem abschließenden Fazit.
+- Optimierte Webkopien: WebP mit 400, 800 und 1600 Pixeln Breite, JPEG-Fallback mit 1600 Pixeln Breite. Natürliches Seitenverhältnis erhalten, keine Ausschnitte, keine Retusche, Originaldateien unverändert.
+- Bildunterschriften enthalten Band, Ort, Konzertdatum und den bestätigten Fotocredit. Fotos sind per normalem Link in größerer Ansicht erreichbar; keine zusätzliche Galerie-/Lightbox-Logik.
+
 ## cursed-and-calling-wanted-cover.jpg
 
 - Quelle: https://cursedandcalling.com/press/ ; Datei: https://cursedandcalling.com/assets/img/cover-wanted.jpg

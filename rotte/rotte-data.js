@@ -56,5 +56,21 @@ const rotteMembers = [
         url: "https://www.backstagepro.de/kinderohnespielzeug"
       }
     ]
+  },
+  {
+    id: "heini",
+    projectName: "Grindpa Heini",
+    projectLinks: [
+      {
+        type: "youtube",
+        label: "YouTube",
+        url: "https://www.youtube.com/@grindpaheini5098"
+      },
+      {
+        type: "instagram",
+        label: "Instagram",
+        url: "https://www.instagram.com/grindpaheini/"
+      }
+    ]
   }
 ];
