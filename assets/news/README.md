@@ -334,3 +334,14 @@
 - Textgrundlage: Burgs finales Transkript und zugehöriges Begleitschreiben, wie im Video vorgelesen; keine eigenständige neue Hörbewertung und keine erfundenen Release-, Shop- oder Preisangaben.
 - Status: von Burg am 23.10.2026 mit FREIGABE zur Veröffentlichung freigegeben.
 
+
+## skinny-mirror-geheimes-festival-interview.webp
+
+- Quelle: Burgs bereitgestelltes fertiges Thumbnail `C:/Users/Nachfahre/Documents/RandaleFUNK/Hegenscheid/SM_thump.png`.
+- Verwendung: NEWS `news-skinny-mirror-geheimes-festival`, Interview mit Laura und Michi von Skinny Mirror.
+- Bild und Videobutton: https://www.youtube.com/watch?v=bA6zLivF5N0
+- Bandlink: https://www.instagram.com/skinnymirror_band/
+- Bearbeitung: proportional auf 1600 Pixel Breite verkleinert und als WebP gespeichert; kein Beschnitt, keine inhaltliche Bildbearbeitung.
+- Textgrundlage: Burgs geliefertes Interviewtranskript. Keine neue Hoerbewertung. Name, Ort und Datum des geheimen Festivals werden nicht genannt.
+- Datenschutz: lokales Vorschaubild, keine externen Bilder, kein Embed und kein Video-Autoload. YouTube erst nach bewusstem Klick; Datenschutzhinweis direkt an der Karte.
+- Status: am 01.11.2026 von Burg zur Veroeffentlichung freigegeben.
