@@ -1,5 +1,13 @@
 # Sticker-Sammlung
 
+## randalf-vier-meter-hustensaft-weltuntergang-sticker.png
+
+- Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.
+- Stilreferenz: bestehender Randalf `randalf-notizzettel-vergessen-sticker.png` aus dem lokalen Figurenbestand.
+- Motiv: Randalf reitet mit erhobener Faust auf einer übergroßen Bierflasche, hinter ihm ein stilisierter Atompilz. Übliche lila Fellfarbe, schwarze Maske, Jeansweste, schwarzes Shirt, Stift und Festivalbändchen.
+- Verwendung: Artikel, Vorschaukacheln und Randalf-Archiv zur Review `Vier Meter Hustensaft – Weltuntergang`.
+- Bildbriefing und Prompt: `to-do_und_temporär/VierMeter/Weltuntergang-Bildbriefing.md` im lokalen Projekt.
+
 ## randalf-cursed-and-calling-wanted-sticker.png
 
 - Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.

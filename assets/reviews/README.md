@@ -1,5 +1,14 @@
 # Review-Bildquellen
 
+## vier-meter-hustensaft-weltuntergang-cover.jpg
+
+- Quelle: von NRT-Records per Mail bereitgestelltes Pressematerial im lokalen Ordner `to-do_und_temporär/VierMeter/`.
+- Original: `Vier Meter Hustensaft Weltuntergang Artwork.jpg`.
+- Nutzung: von Burg ausdrücklich als Artikelbild zur Review ausgewählt.
+- Originaldatei unverändert übernommen, 800 × 800 Pixel.
+- Bildunterschrift: offizielles EP-Artwork, als Pressematerial von NRT-Records bereitgestellt. Kein zusätzlicher Artwork-Urheber wurde mitgeliefert.
+- Verwendung: Artikelbild und Social-Metadaten.
+
 ## bad-boys-for-life-2026/
 
 - Quelle: fünf von Burg für Heinis Konzertbericht bereitgestellte Originaldateien im lokalen Projektordner `Konzertberichte/`.
