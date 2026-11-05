@@ -193,6 +193,7 @@ function rf_poll_ensure_schema(PDO $pdo): void
     rf_poll_seed_monthly_july_2026($pdo);
     rf_poll_seed_monthly_august_2026($pdo);
     rf_poll_seed_monthly_september_2026($pdo);
+    rf_poll_seed_monthly_october_2026($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -652,6 +653,37 @@ function rf_poll_seed_monthly_september_2026(PDO $pdo): void
         'Drei Meter Feldweg - Manifest',
         'Drunken Swallows - Das war einmal',
         'The Pill - Big Knife',
+    ], true, 14, $startsAt);
+}
+
+function rf_poll_seed_monthly_october_2026(PDO $pdo): void
+{
+    $startsAt = new DateTimeImmutable('now');
+
+    rf_poll_seed_monthly_options($pdo, 2026, 10, 'album_ep', [
+        'MARODE - Strukturen',
+        'Dead Target - Still While It Spins',
+        'Vier Meter Hustensaft - Weltuntergang',
+        'Rabatzke - Gute Laune und Randale',
+        'A.C.K. - Alles ist erlaubt',
+        'Fornhorst - ¡Glückwunsch!',
+        'The Bar Stool Preachers - Party Eternal!',
+        'Fake Names - Punk Ruins',
+        'SOKAE - Ganz normaler Wahnsinn',
+        'DEMOJACKE - Punk stirbt an einem Sonntag',
+    ], true, 14, $startsAt);
+
+    rf_poll_seed_monthly_options($pdo, 2026, 10, 'single_song', [
+        'Cursed and Calling - Wanted',
+        'Dead Target - Presage (Single Version)',
+        'Snakes in the Pit feat. Joshi (ZSK) - Frei',
+        'Alarmsignal - Im Widerspruch',
+        '100 Kilo Herz - Immer kälter',
+        'Dosenstolz feat. Chris Kotze - Autos raus',
+        'Pascow - Und wir so',
+        'Sick of Society - Deutschrock muss sterben',
+        'Ignite - Still Wide Awake',
+        'The Interrupters - Warrior Spirit',
     ], true, 14, $startsAt);
 }
 
