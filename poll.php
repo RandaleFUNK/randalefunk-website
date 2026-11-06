@@ -194,6 +194,7 @@ function rf_poll_ensure_schema(PDO $pdo): void
     rf_poll_seed_monthly_august_2026($pdo);
     rf_poll_seed_monthly_september_2026($pdo);
     rf_poll_seed_monthly_october_2026($pdo);
+    rf_poll_append_october_2026_bonus($pdo);
 }
 
 function rf_poll_seed(PDO $pdo, string $slug, string $title, string $question, bool $isActive, array $options): void
@@ -685,6 +686,48 @@ function rf_poll_seed_monthly_october_2026(PDO $pdo): void
         'Ignite - Still Wide Awake',
         'The Interrupters - Warrior Spirit',
     ], true, 14, $startsAt);
+}
+
+function rf_poll_append_october_2026_bonus(PDO $pdo): void
+{
+    // One approved exception for the running October album poll; never reseed it.
+    $pdo->beginTransaction();
+    try {
+        $statement = $pdo->prepare(
+            'SELECT ' . rf_poll_select_columns() . ' FROM ' . RF_POLLS_TABLE . '
+             WHERE slug = :slug AND poll_scope = "monthly"
+               AND award_year = 2026 AND award_month = 10 AND award_type = "album_ep"
+             FOR UPDATE'
+        );
+        $statement->execute([':slug' => 'monthly-album-ep-2026-10']);
+        $poll = $statement->fetch();
+        if (is_array($poll) && rf_poll_is_open($poll)) {
+            $options = rf_poll_options($pdo, (int) $poll['id']);
+            $bonusText = 'Eike Rustikal - Diktatur der Herzen';
+            $existingTexts = array_column($options, 'option_text');
+            if (!in_array($bonusText, $existingTexts, true)) {
+                if (count($options) !== 10) {
+                    throw new RuntimeException('Die Oktober-Albumumfrage hat nicht die erwarteten 10 Kandidaten.');
+                }
+                $insert = $pdo->prepare(
+                    'INSERT INTO ' . RF_POLL_OPTIONS_TABLE . ' (poll_id, option_text, sort_order)
+                     SELECT :poll_id, :option_text, COALESCE(MAX(sort_order), 0) + 1
+                     FROM ' . RF_POLL_OPTIONS_TABLE . ' WHERE poll_id = :existing_poll_id'
+                );
+                $insert->execute([
+                    ':poll_id' => (int) $poll['id'],
+                    ':option_text' => $bonusText,
+                    ':existing_poll_id' => (int) $poll['id'],
+                ]);
+            }
+        }
+        $pdo->commit();
+    } catch (Throwable $exception) {
+        if ($pdo->inTransaction()) {
+            $pdo->rollBack();
+        }
+        throw $exception;
+    }
 }
 
 function rf_poll_select_columns(): string

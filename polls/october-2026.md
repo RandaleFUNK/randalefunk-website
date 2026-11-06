@@ -25,6 +25,14 @@ Der Deploy ruft die geschuetzte Monatsverwaltung bereits automatisch auf.
 8. Fake Names - Punk Ruins
 9. SOKAE - Ganz normaler Wahnsinn
 10. DEMOJACKE - Punk stirbt an einem Sonntag
+11. Eike Rustikal - Diktatur der Herzen
+
+Ausnahme am 06.11.2026 von Burg ausdruecklich freigegeben: elfter Albumslot.
+Die geschuetzte Initialisierung haengt einmalig genau einen Antwortdatensatz
+an die offene Oktober-Albumumfrage an. Umfrage-ID, vorhandene Antwort-IDs,
+Stimmen und Start-/Endzeit werden dabei nicht veraendert. Ein Poll-Zeilenlock
+verhindert doppelte Ergaenzungen durch gleichzeitige Verwaltungsaufrufe.
+Die regulaere Zehn-Kandidaten-Regel aller anderen Umfragen bleibt bestehen.
 
 ## Single/Song
 
