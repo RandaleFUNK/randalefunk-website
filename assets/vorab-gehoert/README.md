@@ -1,5 +1,12 @@
 # Vorab-gehoert-Bildquellen
 
+## rattrap-pressure-of-life-cover.png
+
+- Quelle: von RATTRAP bereitgestelltes Artwork zum Debüt `Pressure of Life`.
+- Ursprung: `to-do_und_temporär/Rattrap/20230602143742_IMG_0615 (2)_260904102635.png`.
+- Nutzungsstatus: Burg hat die Nutzung für diesen Artikel ausdrücklich freigegeben.
+- Verwendung: Artikelbild und Social-Meta zum Vorab gehört `RATTRAP - Pressure of Life`.
+
 ## marode-strukturen-cover.jpg
 
 - Quelle: offizielles Pressematerial von MARODE / RilRec.

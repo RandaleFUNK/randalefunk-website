@@ -1,5 +1,13 @@
 # Sticker-Sammlung
 
+## randalf-rattrap-pressure-of-life-sticker.png
+
+- Quelle: integriertes ImageGen, transparenter PNG-Sticker.
+- Figurenreferenz: `Arbeitsmaterial/Randalf/Randalf/Referenzbild_Randalf.png`.
+- Motiv: Randalf frontal, beide Hände an den Kopfhörern, Augen vor Entsetzen und Überforderung aufgerissen.
+- Verwendung: Vorab-gehört-Artikel `RATTRAP - Pressure of Life`, Vorschaukachel und Randalf-Stickerarchiv.
+- Bildbriefing und Generierungsprompt: `to-do_und_temporär/Rattrap/rattrap-bildbriefing.md` im lokalen Projekt.
+
 ## randalf-vier-meter-hustensaft-weltuntergang-sticker.png
 
 - Quelle: mit integriertem ImageGen erzeugter transparenter PNG-Sticker.
