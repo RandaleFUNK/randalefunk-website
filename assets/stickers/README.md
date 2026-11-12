@@ -1,5 +1,13 @@
 # Sticker-Sammlung
 
+## randalf-mad-dog-tannen-grande-pistolero-sticker.png
+
+- Quelle: integriertes ImageGen, transparenter RGBA-PNG-Sticker, 1024 x 1536 Pixel.
+- Referenz: `website/assets/stickers/randalf-notizzettel-vergessen-sticker.png`.
+- Motiv nach Burgs Vorgabe: Cowboyhut, Revolverholster und Cowboystiefel. Randalf huepft jaulend auf einem Bein und haelt den anderen Stiefel, in den er sich versehentlich geschossen hat. Cartoon ohne Blut und sichtbare Wunde.
+- Verwendung: Review `Mad Dog Tannen – Grande Pistolero`, Vorschaukacheln und Stickerarchiv.
+- Bildbriefing: `to-do_und_temporär/MadDog/Grande-Pistolero-Medienbriefing.md` im lokalen Projekt.
+
 ## randalf-rattrap-pressure-of-life-sticker.png
 
 - Quelle: integriertes ImageGen, transparenter PNG-Sticker.

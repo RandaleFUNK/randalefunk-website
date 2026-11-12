@@ -1,5 +1,20 @@
 # Review-Bildquellen
 
+## mad-dog-tannen-grande-pistolero-cover.jpg
+
+- Quelle: von Burg bereitgestelltes Presse-Portfolio der Band, `to-do_und_temporär/MadDog/Portfolio.pdf`, Seite 3.
+- Eingebettetes EP-Artwork unveraendert als JPEG extrahiert, 728 x 728 Pixel.
+- Verwendung: Review `Mad Dog Tannen – Grande Pistolero`, Artikelbild und Social-Metadaten.
+- Bildunterschrift: Offizielles EP-Artwork aus dem von der Band bereitgestellten Presse-Portfolio. Ein gesonderter Artwork-Credit ist dort nicht angegeben.
+
+## audio/mad-dog-tannen-grande-pistolero-chris.mp3
+
+- Audiofassung der Review, Text: Burg; eingesprochen von Chris (RandaleROTTE: `rotte/#chris`).
+- Original: `Rekorder – 20261111-1029.m4a`, von Burg bereitgestellt. Original unveraendert erhalten.
+- Nach ausdruecklicher Freigabe der Tempo-Hoerprobe auf 110 Prozent beschleunigt, Tonhoehe erhalten. Nur Vorlauf bis 1,05 s und Schluss nach 172,70 s entfernt; keine inneren Schnitte. Dauer circa 2:36 Minuten.
+- Webfassung: Stereo-MP3, 48 kHz, 192 kbit/s. Unkomprimierter WAV-Master verbleibt lokal bei Burg. Keine weitere Rausch- oder Dynamikbearbeitung.
+- Verwendung: Audioplayer im Artikel mit Sprecherverweis auf Chris.
+
 ## vier-meter-hustensaft-weltuntergang-cover.jpg
 
 - Quelle: von NRT-Records per Mail bereitgestelltes Pressematerial im lokalen Ordner `to-do_und_temporär/VierMeter/`.
